@@ -10,10 +10,20 @@ const { title } = Astro.props;
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description">
+		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="author" content="Nicolas Renault" />
+		<meta
+			name="description"
+			content="Hi, My name is Nicolas Renault. This is a quick presentation waiting for my work in progress portfolio."
+		/>
+		<meta
+			name="keywords"
+			content="Nicolas Renault, IT Developer, Web Developer, Backend Developer, Portfolio"
+		/>
 		<meta name="generator" content={Astro.generator} />
+		<meta name="googlebot" content="notranslate" />
 		<title>{title}</title>
 	</head>
 	<body>
@@ -22,15 +32,16 @@ const { title } = Astro.props;
 </html>
 <style is:global>
 	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
+		--accent: 14, 128, 237;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			#da62c4 30%,
+			white 60%
+		);
 	}
 	html {
 		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
+		background-color: #f6f6f6;
 	}
 </style>
