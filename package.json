@@ -1,15 +1,25 @@
 {
-  "name": "",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "astro": "^2.4.1"
-  }
+	"name": "portfolio",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"stylelint": "npx stylelint \"**/*.astro\" --fix"
+	},
+	"dependencies": {
+		"astro": "^2.4.1",
+		"autoprefixer": "^10.4.14",
+		"sass": "^1.62.1"
+	},
+	"devDependencies": {
+		"postcss-html": "^1.5.0",
+		"stylelint": "^15.6.2",
+		"stylelint-config-html": "^1.1.0",
+		"stylelint-config-standard": "^33.0.0",
+		"stylelint-config-standard-scss": "^9.0.0"
+	}
 }
