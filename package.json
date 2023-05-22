@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
-		"build": "astro build",
+		"build": "npm run stylelint && astro build",
 		"preview": "astro preview",
 		"astro": "astro",
 		"stylelint": "npx stylelint \"**/*.astro\" --fix"
