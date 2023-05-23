@@ -1,8 +1,8 @@
 type DefaultLangCode = "en"
 type SupportedLangCode = "fr"
 type LangCode = DefaultLangCode | SupportedLangCode
-type RouteUri = | "/" | "/" 
-type RouteParams = {"/": undefined; "/": undefined; }
+type RouteUri = | "/" 
+type RouteParams = {"/": undefined; }
 type TranslationPath = "test.welcome" | "about.title"
 type TranslationOptions = { "test.welcome": {} | undefined; "about.title": {} | undefined; }
 
