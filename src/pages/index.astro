@@ -1,5 +1,8 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "../layouts/MainLayout.astro";
+import { astroI18n, t } from "astro-i18n";
+
+astroI18n.init(Astro);
 
 const title = "Nicolas Renault";
 ---
@@ -7,6 +10,7 @@ const title = "Nicolas Renault";
 <Layout title={title}>
 	<main>
 		<h1 class="text-gradient">{title}</h1>
+		<span>{t("test.welcome")}</span>
 	</main>
 </Layout>
 
