@@ -11,6 +11,7 @@
 		"stylelint": "npx stylelint \"**/*.astro\" --fix",
 		"i18n:install": "astro-i18n install",
 		"i18n:sync": "astro-i18n sync",
+		"i18n:sync-dev": "astro-i18n sync && astro dev",
 		"i18n:extract:keys": "astro-i18n extract:keys"
 	},
 	"dependencies": {
