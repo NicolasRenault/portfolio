@@ -1,0 +1,35 @@
+---
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="description" content="Astro description" />
+	<meta name="viewport" content="width=device-width" />
+	<meta name="author" content="Nicolas Renault" />
+	<meta
+		name="description"
+		content="Hi, My name is Nicolas Renault. I'm a Fullstack Web Developer with a preference for Backend."
+	/>
+	<meta
+		name="keywords"
+		content="Nicolas Renault, IT Developer, Web Developer, Backend Developer, Portfolio"
+	/>
+	<meta name="generator" content={Astro.generator} />
+	<title>{title}</title>
+
+	<link
+		rel="icon"
+		href="https://cdn.nicolasrenault.com/logo/NR_logo_96x96.ico"
+		media="(prefers-color-scheme: light)"
+	/>
+	<link
+		rel="icon"
+		href="https://cdn.nicolasrenault.com/logo/NR_logo_dark_96x96.ico"
+		media="(prefers-color-scheme: dark)"
+	/>
+</head>
