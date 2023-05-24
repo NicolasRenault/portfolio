@@ -1,6 +1,6 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import { getLangFromUrl } from "../utils";
+import BaseHead from '../components/BaseHead.astro';
+import { getLangFromUrl } from '../utils';
 
 export interface Props {
 	title: string;
@@ -15,21 +15,20 @@ const lang = getLangFromUrl(Astro.url);
 	<BaseHead title={title} />
 	<body>
 		<slot />
+		<style is:global>
+			:root {
+				--accent: 14, 128, 237;
+				--accent-gradient: linear-gradient(
+					45deg,
+					rgb(var(--accent)),
+					#da62c4 30%,
+					white 60%
+				);
+			}
+			html {
+				font-family: system-ui, sans-serif;
+				background-color: #f6f6f6;
+			}
+		</style>
 	</body>
 </html>
-
-<style is:global>
-	:root {
-		--accent: 14, 128, 237;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			#da62c4 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background-color: #f6f6f6;
-	}
-</style>
