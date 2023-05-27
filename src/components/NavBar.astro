@@ -1,0 +1,32 @@
+---
+import { defaultLang, getLangFromUrl, getUrlWithTranslation, switchLangFromUrl } from "../utils";
+import { astroI18n, t } from "astro-i18n";
+
+astroI18n.init(Astro);
+
+const lang = getLangFromUrl(Astro.url);
+---
+
+<nav>
+	<a href={getUrlWithTranslation("", lang)}><nr-logo size="md" animated></nr-logo></a>
+	<ul>
+		<li><a href={getUrlWithTranslation("about", lang)}>{t("navbar.about")}</a></li>
+		<li><a href={getUrlWithTranslation("projects", lang)}>{t("navbar.projects")}</a></li>
+		<li><a href={getUrlWithTranslation("resume", lang)}>{t("navbar.resume")}</a></li>
+		<li><button>{t("navbar.contact")}</button></li>
+	</ul>
+	<div>
+		<a href={switchLangFromUrl(Astro.url, lang === defaultLang ? "fr" : "en")}>{lang}</a>
+		{/* TODO add toggle for horizontal scroll */}
+	</div>
+	<p>{switchLangFromUrl(Astro.url, lang === defaultLang ? "fr" : "en")}</p>
+	<p>{Astro.url.pathname}</p>
+</nav>
+
+<script defer src="https://cdn.nicolasrenault.com/logo/NR_Logo.js"></script>
+
+<style lang="scss">
+	nr-logo {
+		color: red;
+	}
+</style>

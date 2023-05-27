@@ -6,19 +6,19 @@ export default defineAstroI18nConfig({
 	showDefaultLangCode: false,
 	translations: {
 		en: {
-			test: {
-				welcome: "Title",
-			},
-			about: {
-				title: "About",
+			navbar: {
+				about: "About",
+				projects: "Projects",
+				resume: "Resume",
+				contact: "Contact",
 			},
 		},
 		fr: {
-			test: {
-				welcome: "Titre",
-			},
-			about: {
-				title: "A propos",
+			navbar: {
+				about: "A propos",
+				projects: "Projets",
+				resume: "CV",
+				contact: "Contact",
 			},
 		},
 	},

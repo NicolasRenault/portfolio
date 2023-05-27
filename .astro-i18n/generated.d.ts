@@ -1,10 +1,10 @@
 type DefaultLangCode = "en"
 type SupportedLangCode = "fr"
 type LangCode = DefaultLangCode | SupportedLangCode
-type RouteUri = | "/" 
-type RouteParams = {"/": undefined; }
-type TranslationPath = "test.welcome" | "about.title"
-type TranslationOptions = { "test.welcome": {} | undefined; "about.title": {} | undefined; }
+type RouteUri = | "/about" | "/" 
+type RouteParams = {"/about": undefined; "/": undefined; }
+type TranslationPath = "navbar.about" | "navbar.projects" | "navbar.resume" | "navbar.contact"
+type TranslationOptions = { "navbar.about": {} | undefined; "navbar.projects": {} | undefined; "navbar.resume": {} | undefined; "navbar.contact": {} | undefined; }
 
 declare module "astro-i18n" {
 	export * from "astro-i18n/"
