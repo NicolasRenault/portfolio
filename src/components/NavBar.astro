@@ -16,11 +16,11 @@ const lang = getLangFromUrl(Astro.url);
 		<li><button>{t("navbar.contact")}</button></li>
 	</ul>
 	<div>
-		<a href={switchLangFromUrl(Astro.url, lang === defaultLang ? "fr" : "en")}>{lang}</a>
+		<a href={switchLangFromUrl(Astro.url, lang === defaultLang ? "fr" : "en")}
+			>{lang === defaultLang ? "fr" : "en"}</a
+		>
 		{/* TODO add toggle for horizontal scroll */}
 	</div>
-	<p>{switchLangFromUrl(Astro.url, lang === defaultLang ? "fr" : "en")}</p>
-	<p>{Astro.url.pathname}</p>
 </nav>
 
 <script defer src="https://cdn.nicolasrenault.com/logo/NR_Logo.js"></script>
