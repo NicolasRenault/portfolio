@@ -18,6 +18,12 @@ const lang = getLangFromUrl(Astro.url);
 	<body>
 		<slot />
 		<style is:global>
+			@font-face {
+				font-family: "Poppins";
+				src: url("/fonts/Poppins-Regular.ttf");
+				font-weight: 400;
+				font-style: normal;
+			}
 			:root {
 				--accent: 14, 128, 237;
 				--accent-gradient: linear-gradient(
@@ -27,10 +33,9 @@ const lang = getLangFromUrl(Astro.url);
 					white 60%
 				);
 			}
-			/* html {
-				font-family: system-ui, sans-serif;
-				background-color: #f6f6f6;
-			} */
+			html {
+				font-family: "Poppins", sans-serif;
+			}
 		</style>
 	</body>
 </html>
