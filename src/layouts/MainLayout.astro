@@ -1,6 +1,7 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import NavBar from "../components/NavBar.astro";
+import "../../public/assets/normalize.css";
 import { getLangFromUrl } from "../utils";
 
 export interface Props {
@@ -19,22 +20,31 @@ const lang = getLangFromUrl(Astro.url);
 		<slot />
 		<style is:global>
 			@font-face {
-				font-family: "Poppins";
+				font-family: Poppins;
 				src: url("/fonts/Poppins-Regular.ttf");
 				font-weight: 400;
 				font-style: normal;
 			}
 			:root {
-				--accent: 14, 128, 237;
+				--primary: 11, 11, 5;
+				--secondary: 17, 221, 102;
+				--tertiary: 215, 131, 71;
+				--text: 239, 254, 244;
+				--primary-rgb: rgb(var(--primary));
+				--secondary-rgb: rgb(var(--secondary));
+				--tertiary-rgb: rgb(var(--tertiary));
+				--text-rgb: rgb(var(--text));
 				--accent-gradient: linear-gradient(
 					45deg,
-					rgb(var(--accent)),
-					#da62c4 30%,
-					white 60%
+					var(--secondary-rgb),
+					var(--tertiary-rgb) 30%,
+					var(--text-rgb) 60%
 				);
 			}
 			html {
-				font-family: "Poppins", sans-serif;
+				font-family: Poppins, sans-serif;
+				color: var(--text-rgb);
+				background-color: var(--primary-rgb);
 			}
 		</style>
 	</body>
