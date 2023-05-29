@@ -1,18 +1,83 @@
 ---
 import Layout from "../layouts/MainLayout.astro";
 import { astroI18n, t } from "astro-i18n";
+import { getLangFromUrl, getUrlWithTranslation } from "../utils";
 
 astroI18n.init(Astro);
+
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <Layout title={"Nicolas Renault"}>
 	<main>
-		<h1 class="text-gradient">Nicolas Renault</h1>
+		<section id="introduction">
+			<p><span>{t("home.hello")}</span><h1 class="text-gradient">Nicolas Renault</h1></p>
+			<p>
+				{t("home.intro_1")}
+				<span id="fullstack" class="fullstack">FullStack</span>
+				{t("home.intro_2")}
+			</p>
+		</section>
+		<section id="working_experience">
+			<h2>{t("home.working_experience")}</h2>
+			<ul>
+				<li>
+					<a href="https://www.trelleborg.com" title="Trelleborg" target="_blank">
+						Trelleborg
+					</a>
+					<p>{t("global.IT_developer")}</p><p>2021 - {t("global.present")}</p>
+				</li>
+				<li>
+					<a href="https://www.uplight.fr/" title="Uplight" target="_blank">Uplight</a>
+					<p>{t("home.fullstack_php_developer")}</p><p>
+						{t("global.block_release_training")}
+					</p><p>2020 - 2021</p>
+				</li>
+			</ul>
+			<a href={getUrlWithTranslation("about", lang)}>{t("global.learn_more")}</a>
+		</section>
+		<section id="selected_projects">
+			<h2>{t("home.selected_projects")}</h2>
+			<div id="pinned_projects">
+				<div id="cheaty"></div>
+				<div id="portfolio"></div>
+				<div id="logo"></div>
+			</div>
+			<a href={getUrlWithTranslation("projects", lang)}>{t("global.see_more")}</a>
+		</section>
 	</main>
 </Layout>
 
+<script>
+	/**
+	 * Change the text of the FullStack span to Backend when the mouse is over it
+	 */
+	const FullStack = document.getElementById("fullstack");
+	FullStack?.addEventListener("mouseover", () => {
+		FullStack.innerText = "Backend";
+		FullStack.classList.add("backend");
+		FullStack.classList.remove("fullstack");
+	});
+	FullStack?.addEventListener("mouseout", () => {
+		FullStack.innerText = "FullStack";
+		FullStack.classList.add("fullstack");
+		FullStack.classList.remove("backend");
+	});
+</script>
+
 <style>
-	main {
+	.fullstack {
+		text-decoration: underline wavy red 1px;
+	}
+	.backend {
+		/* TODO Edit */
+		background-image: var(--accent-gradient);
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	/* main {
 		margin: auto;
 		padding: 1.5rem;
 		max-width: 60ch;
@@ -28,5 +93,5 @@ astroI18n.init(Astro);
 		-webkit-text-fill-color: transparent;
 		background-size: 400%;
 		background-position: 0%;
-	}
+	} */
 </style>

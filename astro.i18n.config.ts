@@ -6,19 +6,51 @@ export default defineAstroI18nConfig({
 	showDefaultLangCode: false,
 	translations: {
 		en: {
+			global: {
+				IT_developer: "IT Developer",
+				block_release_training: "Block release training",
+				present: "Present",
+				learn_more: "Learn more",
+				see_more: "See more",
+			},
 			navbar: {
 				about: "About",
 				projects: "Projects",
 				resume: "Resume",
 				contact: "Contact",
 			},
+			home: {
+				hello: "Hi, I'm",
+				intro_1: "I'm a",
+				intro_2:
+					"Developer based in France. I'm graduated from a Three-year Degree in web and mobile device software technology, with the last year in block release training. I am currently working at Trelleborg as an IT Developer and Software Administrator.",
+				working_experience: "Working experience",
+				fullstack_php_developer: "Fullstack PHP Developer",
+				selected_projects: "Selected projects",
+			},
 		},
 		fr: {
+			global: {
+				IT_developer: "Développeur informatique",
+				block_release_training: "Formation en alternance",
+				present: "Aujourd'hui",
+				learn_more: "En savoir plus",
+				see_more: "Voir plus",
+			},
 			navbar: {
 				about: "A propos",
 				projects: "Projets",
 				resume: "CV",
 				contact: "Contact",
+			},
+			home: {
+				hello: "Salut, je suis",
+				intro_1: "Je suis un",
+				intro_2:
+					"Développeur basé en France. Je suis  Diplômé d'un DUT informatique et d'une licence professionnelle des technologies logicielles du web et terminaux mobiles en alternance. Je travaille actuellement chez Trelleborg en tant que développeur informatique et administrateur de logiciels.",
+				working_experience: "Expérience professionnelle",
+				fullstack_php_developer: "Développeur PHP Fullstack",
+				selected_projects: "Projets sélectionnés",
 			},
 		},
 	},
