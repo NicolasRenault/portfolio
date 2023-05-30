@@ -8,7 +8,7 @@ const lang = getLangFromUrl(Astro.url);
 ---
 
 <nav>
-	<a href={getUrlWithTranslation("", lang)}><nr-logo size="md" animated></nr-logo></a>
+	<a href={getUrlWithTranslation("", lang)}><nr-logo size="lg" animated></nr-logo></a>
 	<ul>
 		<li><a href={getUrlWithTranslation("about", lang)}>{t("navbar.about")}</a></li>
 		<li><a href={getUrlWithTranslation("projects", lang)}>{t("navbar.projects")}</a></li>
@@ -16,7 +16,9 @@ const lang = getLangFromUrl(Astro.url);
 		<li><button>{t("navbar.contact")}</button></li>
 	</ul>
 	<div>
-		<a href={switchLangFromUrl(Astro.url, lang === defaultLang ? "fr" : "en")}
+		<a
+			id="translation-link"
+			href={switchLangFromUrl(Astro.url, lang === defaultLang ? "fr" : "en")}
 			>{lang === defaultLang ? "fr" : "en"}</a
 		>
 		{/* TODO add toggle for horizontal scroll */}
@@ -26,6 +28,31 @@ const lang = getLangFromUrl(Astro.url);
 <script defer src="https://cdn.nicolasrenault.com/logo/NR_Logo.js"></script>
 
 <style lang="scss">
+	nav {
+		display: flex;
+		justify-content: space-between;
+		padding: 1rem 1.5rem;
+		border-bottom: 1px solid var(--text-rgb);
+		align-items: center;
+		font-size: 1.25rem;
+		ul {
+			display: flex;
+			align-items: center;
+			gap: 5rem;
+			list-style: none;
+		}
+
+		a,
+		button {
+			text-decoration: none;
+			color: var(--text-rgb);
+			text-transform: uppercase;
+
+			border: none;
+			background: none;
+		}
+	}
+
 	nr-logo {
 		color: var(--text-rgb);
 	}
