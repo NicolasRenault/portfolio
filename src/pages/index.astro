@@ -2,6 +2,7 @@
 import Layout from "../layouts/MainLayout.astro";
 import { astroI18n, t } from "astro-i18n";
 import { getLangFromUrl, getUrlWithTranslation } from "../utils";
+import ProjectCard from "../components/ProjectCard.astro";
 
 astroI18n.init(Astro);
 
@@ -17,6 +18,7 @@ const lang = getLangFromUrl(Astro.url);
 				<span id="fullstack" class="fullstack">FullStack</span>
 				{t("home.intro_2")}
 			</p>
+			<a href={getUrlWithTranslation("about", lang)}>{t("global.learn_more")}</a>
 		</section>
 		<section id="working_experience">
 			<h2>{t("home.working_experience")}</h2>
@@ -34,14 +36,38 @@ const lang = getLangFromUrl(Astro.url);
 					</p><p>2020 - 2021</p>
 				</li>
 			</ul>
-			<a href={getUrlWithTranslation("about", lang)}>{t("global.learn_more")}</a>
+			<a href={getUrlWithTranslation("resume", lang)}>{t("global.learn_more")}</a>
 		</section>
 		<section id="selected_projects">
 			<h2>{t("home.selected_projects")}</h2>
 			<div id="pinned_projects">
-				<div id="cheaty"></div>
-				<div id="portfolio"></div>
-				<div id="logo"></div>
+				<ProjectCard
+					title="cheaty-webextension"
+					description={t("cheaty.description")}
+					icon="https://www.cdn.nicolasrenault.com/cheaty/cheaty-logo.png"
+					project_link={getUrlWithTranslation("project?id=cheaty-webextension", lang)}
+					github_link="https://github.com/NicolasRenault/cheaty-webextention"
+					technos={["javascript", "html", "css"]}
+					subtitle="WebExtension"
+				/>
+				<ProjectCard
+					title="portfolio"
+					description={t("portfolio.description")}
+					icon="/favicon.svg"
+					project_link={getUrlWithTranslation("project?id=portfolio", lang)}
+					github_link="https://github.com/NicolasRenault/portfolio"
+					technos={["astro", "scss", "typescript"]}
+					subtitle="(this)"
+				/>
+				<ProjectCard
+					title="logo"
+					description={t("logo.description")}
+					icon="https://www.cdn.nicolasrenault.com/logo/NR_Logo_dark.svg"
+					project_link={getUrlWithTranslation("project?id=logo", lang)}
+					github_link="https://github.com/NicolasRenault/logo"
+					technos={["astro", "scss", "typescript"]}
+					subtitle="WebComponent"
+				/>
 			</div>
 			<a href={getUrlWithTranslation("projects", lang)}>{t("global.see_more")}</a>
 		</section>

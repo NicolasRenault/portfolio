@@ -28,6 +28,18 @@ export default defineAstroI18nConfig({
 				fullstack_php_developer: "Fullstack PHP Developer",
 				selected_projects: "Selected projects",
 			},
+			about: {},
+			projects: {},
+			resume: {},
+			cheaty: {
+				description: "Extention for the web that feels illegal.",
+			},
+			portfolio: {
+				description: "My personal website build with Astro",
+			},
+			logo: {
+				description: "A collection of my logos. SVGs, WebComponent and more.",
+			},
 		},
 		fr: {
 			global: {
@@ -45,12 +57,24 @@ export default defineAstroI18nConfig({
 			},
 			home: {
 				hello: "Salut, je suis",
-				intro_1: "Je suis un",
+				intro_1: "Je suis un Développeur",
 				intro_2:
-					"Développeur basé en France. Je suis  Diplômé d'un DUT informatique et d'une licence professionnelle des technologies logicielles du web et terminaux mobiles en alternance. Je travaille actuellement chez Trelleborg en tant que développeur informatique et administrateur de logiciels.",
+					"basé en France. Je suis  Diplômé d'un DUT informatique et d'une licence professionnelle des technologies logicielles du web et terminaux mobiles en alternance. Je travaille actuellement chez Trelleborg en tant que développeur informatique et administrateur de logiciels.",
 				working_experience: "Expérience professionnelle",
 				fullstack_php_developer: "Développeur PHP Fullstack",
 				selected_projects: "Projets sélectionnés",
+			},
+			about: {},
+			projects: {},
+			resume: {},
+			cheaty: {
+				description: "Extention pour le web qui semble illégal.",
+			},
+			portfolio: {
+				description: "Mon site personnel construit avec Astro",
+			},
+			logo: {
+				description: "Une collection de mes logos. SVGs, WebComponent et plus.",
 			},
 		},
 	},
