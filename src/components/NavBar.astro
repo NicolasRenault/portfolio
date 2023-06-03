@@ -13,7 +13,7 @@ const lang = getLangFromUrl(Astro.url);
 		<li><a href={getUrlWithTranslation("about", lang)}>{t("navbar.about")}</a></li>
 		<li><a href={getUrlWithTranslation("projects", lang)}>{t("navbar.projects")}</a></li>
 		<li><a href={getUrlWithTranslation("resume", lang)}>{t("navbar.resume")}</a></li>
-		<li><button>{t("navbar.contact")}</button></li>
+		<li><a href="mailto:contact@nicolasrenault.com">{t("navbar.contact")}</a></li>
 	</ul>
 	<div>
 		<a
