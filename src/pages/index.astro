@@ -53,7 +53,7 @@ const lang = getLangFromUrl(Astro.url);
 				<ProjectCard
 					title="portfolio"
 					description={t("portfolio.description")}
-					icon="/favicon.svg"
+					icon="/astro-logo.svg"
 					project_link={getUrlWithTranslation("project?id=portfolio", lang)}
 					github_link="https://github.com/NicolasRenault/portfolio"
 					technos={["astro", "scss", "typescript"]}
@@ -93,7 +93,8 @@ const lang = getLangFromUrl(Astro.url);
 
 <style>
 	.fullstack {
-		text-decoration: underline wavy red 1px;
+		text-decoration: underline wavy red from-font;
+		text-underline-offset: 2px;
 	}
 	.backend {
 		/* TODO Edit */
