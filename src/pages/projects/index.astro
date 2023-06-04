@@ -40,6 +40,13 @@ const lang = getLangFromUrl(Astro.url);
 		const title = document.createElement("h2");
 		title.textContent = name;
 
+		if (is_fork) {
+			const fork = document.createElement("span");
+			fork.textContent = " (fork)";
+			fork.classList.add("fork");
+			title.appendChild(fork);
+		}
+
 		// Create the project link
 		const projectLink = document.createElement("a");
 		//TODO Change
@@ -70,9 +77,6 @@ const lang = getLangFromUrl(Astro.url);
 		const descriptionParagraph = document.createElement("p");
 		descriptionParagraph.textContent = description;
 
-		projectLink.appendChild(title);
-		projectLink.appendChild(descriptionParagraph);
-
 		// Create the Github link
 		const githubLink = document.createElement("a");
 		githubLink.href = html_url;
@@ -80,9 +84,12 @@ const lang = getLangFromUrl(Astro.url);
 		githubLink.target = "_blank";
 		githubLink.textContent = "Github";
 
+		projectLink.appendChild(title);
+		projectLink.appendChild(descriptionParagraph);
+		projectLink.appendChild(githubLink);
+
 		// Append all elements to the outer div
 		div.appendChild(projectLink);
-		div.appendChild(githubLink);
 
 		return div;
 	};
