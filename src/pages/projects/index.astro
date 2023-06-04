@@ -37,9 +37,6 @@ const lang = getLangFromUrl(Astro.url);
 		div.id = name;
 		div.classList.add("box");
 
-		const content = document.createElement("div");
-		content.classList.add("content");
-
 		const title = document.createElement("h2");
 		title.textContent = name;
 
@@ -72,6 +69,8 @@ const lang = getLangFromUrl(Astro.url);
 		// Create the description paragraph
 		const descriptionParagraph = document.createElement("p");
 		descriptionParagraph.textContent = description;
+
+		projectLink.appendChild(title);
 		projectLink.appendChild(descriptionParagraph);
 
 		// Create the Github link
@@ -81,16 +80,9 @@ const lang = getLangFromUrl(Astro.url);
 		githubLink.target = "_blank";
 		githubLink.textContent = "Github";
 
-		// Create the background div
-		const bgDiv = document.createElement("div");
-		bgDiv.classList.add("bg");
-
 		// Append all elements to the outer div
-		content.appendChild(title);
-		content.appendChild(projectLink);
-		content.appendChild(githubLink);
-		div.appendChild(content);
-		div.appendChild(bgDiv);
+		div.appendChild(projectLink);
+		div.appendChild(githubLink);
 
 		return div;
 	};
@@ -160,25 +152,9 @@ const lang = getLangFromUrl(Astro.url);
 		padding: 1rem;
 		width: 40%;
 		color: var(--text-rgb);
-		background-color: transparent;
-		margin: 1rem;
-	}
-
-	.content {
-		position: relative;
-		z-index: 2;
-	}
-
-	.bg {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
+		background-color: var(--primary-light-rgb);
 		border-radius: 0.5rem;
-		background-color: var(--text-rgb);
-		opacity: 5%;
-		z-index: 1;
+		margin: 1rem;
 	}
 
 	a {
