@@ -13,13 +13,15 @@ const { title, subtitle, icon, project_link, github_link, description, techno } 
 ---
 
 <div id={title} class="box">
-	<a href={project_link} title={title} target="_blank">
-		<h3>{title}</h3>
-		{subtitle && <h4>{subtitle}</h4>}
-		<img src={icon} alt={`${title} icon`} width="32px" />
-		<p>{description}</p>
-	</a>
-	<a href={github_link} title={"Github link for " + title} target="_blank">Github</a>
+	<div class="content">
+		<a href={project_link} title={title} target="_blank">
+			<h3>{title}</h3>
+			{subtitle && <h4>{subtitle}</h4>}
+			<img src={icon} alt={`${title} icon`} width="32px" />
+			<p>{description}</p>
+		</a>
+		<a href={github_link} title={"Github link for " + title} target="_blank">Github</a>
+	</div>
 	<div class="bg"></div>
 </div>
 
@@ -33,7 +35,11 @@ const { title, subtitle, icon, project_link, github_link, description, techno } 
 		color: var(--text-rgb);
 		background-color: transparent;
 		margin: 1rem;
-		z-index: 1;
+
+		.content {
+			position: relative;
+			z-index: 2;
+		}
 
 		.bg {
 			position: absolute;
@@ -44,7 +50,7 @@ const { title, subtitle, icon, project_link, github_link, description, techno } 
 			border-radius: 0.5rem;
 			background-color: var(--text-rgb);
 			opacity: 5%;
-			z-index: 0;
+			z-index: 1;
 		}
 
 		a {

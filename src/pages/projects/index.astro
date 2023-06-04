@@ -37,9 +37,11 @@ const lang = getLangFromUrl(Astro.url);
 		div.id = name;
 		div.classList.add("box");
 
+		const content = document.createElement("div");
+		content.classList.add("content");
+
 		const title = document.createElement("h2");
 		title.textContent = name;
-		div.appendChild(title);
 
 		// Create the project link
 		const projectLink = document.createElement("a");
@@ -84,8 +86,10 @@ const lang = getLangFromUrl(Astro.url);
 		bgDiv.classList.add("bg");
 
 		// Append all elements to the outer div
-		div.appendChild(projectLink);
-		div.appendChild(githubLink);
+		content.appendChild(title);
+		content.appendChild(projectLink);
+		content.appendChild(githubLink);
+		div.appendChild(content);
 		div.appendChild(bgDiv);
 
 		return div;
@@ -158,7 +162,11 @@ const lang = getLangFromUrl(Astro.url);
 		color: var(--text-rgb);
 		background-color: transparent;
 		margin: 1rem;
-		z-index: 1;
+	}
+
+	.content {
+		position: relative;
+		z-index: 2;
 	}
 
 	.bg {
@@ -170,7 +178,7 @@ const lang = getLangFromUrl(Astro.url);
 		border-radius: 0.5rem;
 		background-color: var(--text-rgb);
 		opacity: 5%;
-		z-index: 0;
+		z-index: 1;
 	}
 
 	a {
