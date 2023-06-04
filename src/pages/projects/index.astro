@@ -1,8 +1,11 @@
 ---
 import Layout from "../../layouts/MainLayout.astro";
+import { getLangFromUrl, getUrlWithTranslation } from "../../utils";
 import { astroI18n, t } from "astro-i18n";
 
 astroI18n.init(Astro);
+
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <Layout title={"Projects"}>
@@ -26,7 +29,67 @@ astroI18n.init(Astro);
 		created_at: string;
 	}
 
-	import ProjectCard from "../../components/ProjectCard.astro";
+	const createProjectCard = (props: Project) => {
+		const { name, description, html_url, language, is_fork } = props;
+
+		// Create the outer div
+		const div = document.createElement("div");
+		div.id = name;
+		div.classList.add("box");
+
+		const title = document.createElement("h2");
+		title.textContent = name;
+		div.appendChild(title);
+
+		// Create the project link
+		const projectLink = document.createElement("a");
+		//TODO Change
+		projectLink.href = window.location.href.slice(0, -1) + "?id=" + name;
+		projectLink.title = name;
+		projectLink.target = "_blank";
+
+		// Create the title heading
+		const titleHeading = document.createElement("h3");
+		titleHeading.textContent = name;
+
+		// Create the subtitle heading (if provided)
+		// if (subtitle) {
+		// 	const subtitleHeading = document.createElement("h4");
+		// 	subtitleHeading.textContent = subtitle;
+		// 	projectLink.appendChild(subtitleHeading);
+		// }
+
+		// Create the icon image
+		// const iconImage = document.createElement("img");
+		// iconImage.src = icon;
+		// iconImage.alt = `${name} icon`;
+		// iconImage.width = "32px";
+		// projectLink.appendChild(titleHeading);
+		// projectLink.appendChild(iconImage);
+
+		// Create the description paragraph
+		const descriptionParagraph = document.createElement("p");
+		descriptionParagraph.textContent = description;
+		projectLink.appendChild(descriptionParagraph);
+
+		// Create the Github link
+		const githubLink = document.createElement("a");
+		githubLink.href = html_url;
+		githubLink.title = `Github link for ${name}`;
+		githubLink.target = "_blank";
+		githubLink.textContent = "Github";
+
+		// Create the background div
+		const bgDiv = document.createElement("div");
+		bgDiv.classList.add("bg");
+
+		// Append all elements to the outer div
+		div.appendChild(projectLink);
+		div.appendChild(githubLink);
+		div.appendChild(bgDiv);
+
+		return div;
+	};
 
 	const query = await fetch(
 		'https://api.github.com/users/NicolasRenault/repos?sort="created"'
@@ -40,7 +103,7 @@ astroI18n.init(Astro);
 	const repos = query.map((repo: Project) => ({
 		name: repo.name,
 		description: repo.description,
-		url: repo.html_url,
+		html_url: repo.html_url,
 		language: repo.language,
 		stars: repo.stargazers_count,
 		forks: repo.forks_count,
@@ -48,21 +111,26 @@ astroI18n.init(Astro);
 		created_at: repo.created_at,
 	}));
 
+	let years: string[] = [];
+
 	repos.forEach((_project: Project) => {
 		console.log(_project);
+
+		if (!years.includes(_project.created_at.slice(0, 4))) {
+			years.push(_project.created_at.slice(0, 4));
+
+			const year = document.createElement("h2");
+			year.textContent = _project.created_at.slice(0, 4);
+			document.querySelector("main")?.appendChild(year);
+		}
+
 		//Create an HTML object and append it to the main element
-		const project = document.createElement("project-card");
-		const h1 = document.createElement("h1");
-		h1.textContent = _project.name;
-		project.appendChild(h1);
-		const h2 = document.createElement("h2");
-		h2.textContent = new Date(_project.created_at).getFullYear().toString();
-		project.appendChild(h2);
+		const project = createProjectCard(_project);
 		document.querySelector("main")?.appendChild(project);
 	});
 </script>
 
-<style lang="scss">
+<style lang="scss" is:global>
 	main {
 		margin: auto;
 		padding: 1.5rem;
@@ -79,5 +147,39 @@ astroI18n.init(Astro);
 		-webkit-text-fill-color: transparent;
 		background-size: 400%;
 		background-position: 0%;
+	}
+
+	.box {
+		display: flex;
+		position: relative;
+		flex-direction: column;
+		padding: 1rem;
+		width: 40%;
+		color: var(--text-rgb);
+		background-color: transparent;
+		margin: 1rem;
+		z-index: 1;
+	}
+
+	.bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 0.5rem;
+		background-color: var(--text-rgb);
+		opacity: 5%;
+		z-index: 0;
+	}
+
+	a {
+		color: var(--text-rgb);
+		text-decoration: none;
+	}
+
+	img,
+	svg {
+		color: var(--text-rgb);
 	}
 </style>
