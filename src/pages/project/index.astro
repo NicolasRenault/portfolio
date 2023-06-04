@@ -1,0 +1,54 @@
+---
+import Layout from "../../layouts/MainLayout.astro";
+import { astroI18n, t } from "astro-i18n";
+
+astroI18n.init(Astro);
+---
+
+<Layout title={"Project"}>
+	<main>
+		<h1 class="text-gradient">Project</h1>
+	</main>
+</Layout>
+
+<script>
+	console.log(window.location.href);
+	const title: string = new URL(window.location.href).searchParams.get("id") ?? "Project";
+	document.title = title;
+	const h1 = document.querySelector("h1") ?? document.createElement("h1");
+	h1.textContent = title;
+
+	const translationLink: HTMLAnchorElement =
+		(document.getElementById("translation-link") as HTMLAnchorElement) ??
+		document.createElement("a");
+	translationLink.href += `?id=${title}`;
+
+	const project = await fetch("https://api.github.com/repos/NicolasRenault/" + title).then(
+		(res) => {
+			if (!res.ok) {
+				throw new Error("Failed to fetch");
+			}
+			return res.json();
+		}
+	);
+</script>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 60ch;
+	}
+	h1 {
+		font-size: 3rem;
+		font-weight: 800;
+		margin: 0;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+</style>
