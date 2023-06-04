@@ -6,10 +6,10 @@ export interface Props {
 	project_link: string;
 	github_link: string;
 	description: string;
-	technos: string[];
+	techno: string;
 }
 
-const { title, subtitle, icon, project_link, github_link, description, technos } = Astro.props;
+const { title, subtitle, icon, project_link, github_link, description, techno } = Astro.props;
 ---
 
 <div id={title} class="box">
