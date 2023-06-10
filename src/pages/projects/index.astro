@@ -27,10 +27,36 @@ const lang = getLangFromUrl(Astro.url);
 		forks: number;
 		is_fork: boolean;
 		created_at: string;
+		icon: string;
 	}
 
+	interface StaticOptions {
+		hide?: boolean;
+		year?: string;
+		icon?: string;
+	}
+
+	interface ProjectMap {
+		[key: string]: StaticOptions;
+	}
+
+	const STATIC_PROJECT: ProjectMap = {
+		"cheaty-webextention": {
+			icon: "https://www.cdn.nicolasrenault.com/cheaty/cheaty-logo.png",
+		},
+		"Blog-Symfony-LPRO": {
+			year: "2021",
+		},
+		Stellar: {
+			hide: true,
+		},
+		NicolasRenault: {
+			hide: true,
+		},
+	};
+
 	const createProjectCard = (props: Project) => {
-		const { name, description, html_url, language, is_fork } = props;
+		const { name, description, html_url, language, is_fork, icon } = props;
 
 		// Create the outer div
 		const div = document.createElement("div");
@@ -52,7 +78,6 @@ const lang = getLangFromUrl(Astro.url);
 		//TODO Change
 		projectLink.href = window.location.href.slice(0, -1) + "?id=" + name;
 		projectLink.title = name;
-		projectLink.target = "_blank";
 
 		// Create the title heading
 		const titleHeading = document.createElement("h3");
@@ -65,13 +90,19 @@ const lang = getLangFromUrl(Astro.url);
 		// 	projectLink.appendChild(subtitleHeading);
 		// }
 
-		// Create the icon image
-		// const iconImage = document.createElement("img");
-		// iconImage.src = icon;
-		// iconImage.alt = `${name} icon`;
-		// iconImage.width = "32px";
-		// projectLink.appendChild(titleHeading);
-		// projectLink.appendChild(iconImage);
+		console.log(icon);
+		//Create icon
+		if (icon) {
+			const iconElement = document.createElement("img");
+			iconElement.src = icon;
+			iconElement.width = 32;
+			iconElement.height = 32;
+			iconElement.style.position = "absolute";
+			iconElement.style.top = "0";
+			iconElement.style.right = "0";
+			iconElement.style.margin = "1rem";
+			div.appendChild(iconElement);
+		}
 
 		// Create the description paragraph
 		const descriptionParagraph = document.createElement("p");
@@ -94,6 +125,7 @@ const lang = getLangFromUrl(Astro.url);
 		return div;
 	};
 
+	//Fetch the data from the Github API
 	const query = await fetch(
 		'https://api.github.com/users/NicolasRenault/repos?sort="created"'
 	).then((res) => {
@@ -103,6 +135,7 @@ const lang = getLangFromUrl(Astro.url);
 		return res.json();
 	});
 
+	//Map the query to a new array
 	const repos = query.map((repo: Project) => ({
 		name: repo.name,
 		description: repo.description,
@@ -114,22 +147,46 @@ const lang = getLangFromUrl(Astro.url);
 		created_at: repo.created_at,
 	}));
 
-	let years: string[] = [];
+	let projectMap: Map<string, Project[]> = new Map();
 
+	//Loop through all projects
 	repos.forEach((_project: Project) => {
-		console.log(_project);
+		if (STATIC_PROJECT[_project.name]?.hide === undefined) {
+			console.log(_project);
+			let static_created_at = STATIC_PROJECT[_project.name]?.year;
 
-		if (!years.includes(_project.created_at.slice(0, 4))) {
-			years.push(_project.created_at.slice(0, 4));
+			const created_at = static_created_at ?? _project.created_at.slice(0, 4);
+			console.log(created_at);
 
-			const year = document.createElement("h2");
-			year.textContent = _project.created_at.slice(0, 4);
-			document.querySelector("main")?.appendChild(year);
+			if (STATIC_PROJECT[_project.name]?.icon) {
+				_project.icon = STATIC_PROJECT[_project.name]?.icon ?? "";
+			}
+
+			if (projectMap.has(created_at)) {
+				projectMap.get(created_at)?.push(_project);
+			} else {
+				projectMap.set(created_at, [_project]);
+			}
 		}
+	});
 
-		//Create an HTML object and append it to the main element
-		const project = createProjectCard(_project);
-		document.querySelector("main")?.appendChild(project);
+	//Sort project map by year
+	projectMap = new Map(
+		[...projectMap.entries()].sort((a, b) => {
+			return parseInt(b[0]) - parseInt(a[0]);
+		})
+	);
+
+	//Create the project cards
+	projectMap.forEach((projects, year) => {
+		const yearElement = document.createElement("h2");
+		yearElement.textContent = year;
+		document.querySelector("main")?.appendChild(yearElement);
+
+		projects.forEach((project) => {
+			const projectElement = createProjectCard(project);
+			document.querySelector("main")?.appendChild(projectElement);
+		});
 	});
 </script>
 
