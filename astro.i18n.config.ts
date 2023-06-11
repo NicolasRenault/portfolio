@@ -32,7 +32,7 @@ export default defineAstroI18nConfig({
 			projects: {},
 			resume: {},
 			cheaty: {
-				description: "Extention for the web that feels illegal.",
+				description: "Extension for the web that feels illegal.",
 			},
 			portfolio: {
 				description: "My personal website build with Astro",

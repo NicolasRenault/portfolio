@@ -45,8 +45,8 @@ const lang = getLangFromUrl(Astro.url);
 					title="cheaty-webextension"
 					description={t("cheaty.description")}
 					icon="https://www.cdn.nicolasrenault.com/cheaty/cheaty-logo.png"
-					project_link={getUrlWithTranslation("project?id=cheaty-webextension", lang)}
-					github_link="https://github.com/NicolasRenault/cheaty-webextention"
+					project_link={getUrlWithTranslation("project/cheaty-webextension", lang)}
+					github_link="https://github.com/NicolasRenault/cheaty-webextension"
 					techno="javascript"
 					subtitle="WebExtension"
 				/>
@@ -54,7 +54,7 @@ const lang = getLangFromUrl(Astro.url);
 					title="portfolio"
 					description={t("portfolio.description")}
 					icon="/astro-logo.svg"
-					project_link={getUrlWithTranslation("project?id=portfolio", lang)}
+					project_link="none"
 					github_link="https://github.com/NicolasRenault/portfolio"
 					techno="astro"
 					subtitle="(this)"
@@ -63,7 +63,7 @@ const lang = getLangFromUrl(Astro.url);
 					title="logo"
 					description={t("logo.description")}
 					icon="https://www.cdn.nicolasrenault.com/logo/NR_Logo_dark.svg"
-					project_link={getUrlWithTranslation("project?id=logo", lang)}
+					project_link={getUrlWithTranslation("project/logo", lang)}
 					github_link="https://github.com/NicolasRenault/logo"
 					techno="javascript"
 					subtitle="WebComponent"

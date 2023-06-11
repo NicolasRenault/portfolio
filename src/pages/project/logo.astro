@@ -1,0 +1,15 @@
+---
+import Layout from "../../layouts/MainLayout.astro";
+import { getLangFromUrl, getUrlWithTranslation } from "../../utils";
+import { astroI18n, t } from "astro-i18n";
+
+astroI18n.init(Astro);
+
+const lang = getLangFromUrl(Astro.url);
+---
+
+<Layout title={"Projects"}>
+	<main>
+		<h1 class="text-gradient">Logo</h1>
+	</main>
+</Layout>

@@ -43,7 +43,7 @@ const lang = getLangFromUrl(Astro.url);
 	}
 
 	const STATIC_PROJECT: ProjectMap = {
-		"cheaty-webextention": {
+		"cheaty-webextension": {
 			icon: "https://www.cdn.nicolasrenault.com/cheaty/cheaty-logo.png",
 			pinned: true,
 		},
@@ -87,7 +87,7 @@ const lang = getLangFromUrl(Astro.url);
 		const projectLink = document.createElement("a");
 
 		if (pinned) {
-			projectLink.href = window.location.origin + "/projects/" + name;
+			projectLink.href = window.location.origin + "/project/" + name;
 			projectLink.title = name;
 			div.classList.add("pinned");
 		} else {
