@@ -79,7 +79,7 @@ const lang = getLangFromUrl(Astro.url);
 		// Create the project link
 		const projectLink = document.createElement("a");
 		//TODO Change
-		projectLink.href = window.location.href.slice(0, -1) + "?id=" + name;
+		projectLink.href = window.location.origin + "/project?id=" + name;
 		projectLink.title = name;
 
 		// Create the title heading
