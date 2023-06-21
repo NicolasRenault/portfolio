@@ -23,7 +23,7 @@ export default defineAstroI18nConfig({
 				hello: "Hi, I'm",
 				intro_1: "I'm a",
 				intro_2:
-					"Developer based in France. I'm graduated from a Bachelor's Degree in web and mobile. I am currently working at Trelleborg as an IT Developer and Software Administrator.",
+					"Developer based in France. I graduated with a Bachelor's Degree in web and mobile. I am currently working at Trelleborg as an IT Developer and Software Administrator.",
 				working_experience: "Working experience",
 				fullstack_php_developer: "Fullstack PHP Developer",
 				selected_projects: "Selected projects",
