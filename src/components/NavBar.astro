@@ -8,9 +8,7 @@ const lang = getLangFromUrl(Astro.url);
 ---
 
 <nav>
-	<a href={getUrlWithTranslation("", lang)}><nr-logo size="lg" animated></nr-logo></a>
 	<ul>
-		<li><a href={getUrlWithTranslation("about", lang)}>{t("navbar.about")}</a></li>
 		<li><a href={getUrlWithTranslation("projects", lang)}>{t("navbar.projects")}</a></li>
 		<li><a href={getUrlWithTranslation("resume", lang)}>{t("navbar.resume")}</a></li>
 		<li><a href="mailto:contact@nicolasrenault.com">{t("navbar.contact")}</a></li>
@@ -24,8 +22,6 @@ const lang = getLangFromUrl(Astro.url);
 		{/* TODO add toggle for horizontal scroll */}
 	</div>
 </nav>
-
-<script defer src="https://cdn.nicolasrenault.com/logo/NR_Logo.js"></script>
 
 <style lang="scss">
 	nav {

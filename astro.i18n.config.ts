@@ -14,7 +14,6 @@ export default defineAstroI18nConfig({
 				see_more: "See more",
 			},
 			navbar: {
-				about: "About",
 				projects: "Projects",
 				resume: "Resume",
 				contact: "Contact",
@@ -23,12 +22,14 @@ export default defineAstroI18nConfig({
 				hello: "Hi, I'm",
 				intro_1: "I'm a",
 				intro_2:
-					"Developer based in France. I graduated with a Bachelor's Degree in web and mobile. I am currently working at Trelleborg as an IT Developer and Software Administrator.",
+					"Developer based in France. Currently working at Trelleborg as an IT Developer and Software Administrator. I'm always doing side projects that you can find on my ",
+				work: "I graduated with a Bachelor's Degree in web and mobile development. I mainly work with web technologies in backend-oriented projects.",
+				passions:
+					"Outside work, I enjoy doing sports, building side projects, spending time with friends, and playing video games.",
 				working_experience: "Working experience",
-				fullstack_php_developer: "Fullstack PHP Developer",
+				fullstack_web_developer: "Fullstack Web Developer",
 				selected_projects: "Selected projects",
 			},
-			about: {},
 			projects: {},
 			resume: {},
 			cheaty: {
@@ -50,7 +51,6 @@ export default defineAstroI18nConfig({
 				see_more: "Voir plus",
 			},
 			navbar: {
-				about: "A propos",
 				projects: "Projets",
 				resume: "CV",
 				contact: "Contact",
@@ -59,12 +59,14 @@ export default defineAstroI18nConfig({
 				hello: "Salut, je suis",
 				intro_1: "Je suis un Développeur",
 				intro_2:
-					"basé en France. Je suis Diplômé d'un DUT informatique et d'une Licence professionnelle des technologies logicielles du web et terminaux mobiles en alternance. Je travaille actuellement chez Trelleborg en tant que développeur informatique et administrateur de logiciels.",
+					"basé en France. Je travaille actuellement chez Trelleborg en tant que développeur informatique et administrateur de logiciels. Je suis très souvent en train de réaliser des projets annexes que vous pouvez trouver sur mon ",
+				work: "Je suis Diplômé d'un DUT informatique et d'une Licence professionnelle dans le développement web et mobile. Je travaille principalement avec des technologies web dans des projets axés sur le backend.",
+				passions:
+					"En dehors du travail, j'aime faire du sport, réaliser des projets annexes, passer du temps avec des amis et jouer à des jeux vidéo.",
 				working_experience: "Expérience professionnelle",
-				fullstack_php_developer: "Développeur PHP Fullstack",
+				fullstack_web_developer: "Développeur Web Fullstack",
 				selected_projects: "Projets sélectionnés",
 			},
-			about: {},
 			projects: {},
 			resume: {},
 			cheaty: {

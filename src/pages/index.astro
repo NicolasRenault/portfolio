@@ -3,6 +3,7 @@ import Layout from "../layouts/MainLayout.astro";
 import { astroI18n, t } from "astro-i18n";
 import { getLangFromUrl, getUrlWithTranslation } from "../utils";
 import ProjectCard from "../components/ProjectCard.astro";
+import GithubLink from "../components/GithubLink.astro";
 
 astroI18n.init(Astro);
 
@@ -17,8 +18,11 @@ const lang = getLangFromUrl(Astro.url);
 				{t("home.intro_1")}
 				<span id="fullstack" class="fullstack">FullStack</span>
 				{t("home.intro_2")}
+				<a href="https://github.com/NicolasRenault" title="GitHub" target="_blank">GitHub</a
+				>.
 			</p>
-			<a href={getUrlWithTranslation("about", lang)}>{t("global.learn_more")}</a>
+			<p>{t("home.work")}</p>
+			<p>{t("home.passions")}</p>
 		</section>
 		<section id="working_experience">
 			<h2>{t("home.working_experience")}</h2>
@@ -31,7 +35,7 @@ const lang = getLangFromUrl(Astro.url);
 				</li>
 				<li>
 					<a href="https://www.uplight.fr/" title="Uplight" target="_blank">Uplight</a>
-					<p>{t("home.fullstack_php_developer")}</p><p>
+					<p>{t("home.fullstack_web_developer")}</p><p>
 						{t("global.block_release_training")}
 					</p><p>2020 - 2021</p>
 				</li>
@@ -49,15 +53,6 @@ const lang = getLangFromUrl(Astro.url);
 					github_link="https://github.com/NicolasRenault/cheaty-webextension"
 					techno="javascript"
 					subtitle="WebExtension"
-				/>
-				<ProjectCard
-					title="portfolio"
-					description={t("portfolio.description")}
-					icon="/astro-logo.svg"
-					project_link="none"
-					github_link="https://github.com/NicolasRenault/portfolio"
-					techno="astro"
-					subtitle="(this)"
 				/>
 				<ProjectCard
 					title="logo"
