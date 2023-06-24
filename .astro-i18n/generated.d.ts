@@ -1,8 +1,8 @@
 type DefaultLangCode = "en"
 type SupportedLangCode = "fr"
 type LangCode = DefaultLangCode | SupportedLangCode
-type RouteUri = | "/project/cheaty-webextension" | "/project/logo" | "/projects" | "/" 
-type RouteParams = {"/project/cheaty-webextension": undefined; "/project/logo": undefined; "/projects": undefined; "/": undefined; }
+type RouteUri = | "/project/cheaty-webextension" | "/project/logo" | "/projects" | "/resume" | "/" 
+type RouteParams = {"/project/cheaty-webextension": undefined; "/project/logo": undefined; "/projects": undefined; "/resume": undefined; "/": undefined; }
 type TranslationPath = "global.IT_developer" | "global.block_release_training" | "global.present" | "global.learn_more" | "global.see_more" | "navbar.homepage" | "navbar.projects" | "navbar.resume" | "navbar.contact" | "home.hello" | "home.intro_1" | "home.intro_2" | "home.work" | "home.passions" | "home.working_experience" | "home.fullstack_web_developer" | "home.selected_projects" | "cheaty.description" | "portfolio.description" | "logo.description"
 type TranslationOptions = { "global.IT_developer": {} | undefined; "global.block_release_training": {} | undefined; "global.present": {} | undefined; "global.learn_more": {} | undefined; "global.see_more": {} | undefined; "navbar.homepage": {} | undefined; "navbar.projects": {} | undefined; "navbar.resume": {} | undefined; "navbar.contact": {} | undefined; "home.hello": {} | undefined; "home.intro_1": {} | undefined; "home.intro_2": {} | undefined; "home.work": {} | undefined; "home.passions": {} | undefined; "home.working_experience": {} | undefined; "home.fullstack_web_developer": {} | undefined; "home.selected_projects": {} | undefined; "cheaty.description": {} | undefined; "portfolio.description": {} | undefined; "logo.description": {} | undefined; }
 
