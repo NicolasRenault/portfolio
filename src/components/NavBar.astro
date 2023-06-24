@@ -5,12 +5,36 @@ import { astroI18n, t } from "astro-i18n";
 astroI18n.init(Astro);
 
 const lang = getLangFromUrl(Astro.url);
+
+let isHome = false;
+let isProjects = false;
+let isResume = false;
 ---
 
 <nav>
 	<ul>
-		<li><a href={getUrlWithTranslation("projects", lang)}>{t("navbar.projects")}</a></li>
-		<li><a href={getUrlWithTranslation("resume", lang)}>{t("navbar.resume")}</a></li>
+		{
+			!(Astro.url.pathname == getUrlWithTranslation("", lang)) && (
+				<li>
+					<a href={getUrlWithTranslation("", lang)}>{t("navbar.homepage")}</a>
+				</li>
+			)
+		}
+
+		{
+			!(Astro.url.pathname == getUrlWithTranslation("projects", lang)) && (
+				<li>
+					<a href={getUrlWithTranslation("projects", lang)}>{t("navbar.projects")}</a>
+				</li>
+			)
+		}
+		{
+			!(Astro.url.pathname == getUrlWithTranslation("resume", lang)) && (
+				<li>
+					<a href={getUrlWithTranslation("resume", lang)}>{t("navbar.resume")}</a>
+				</li>
+			)
+		}
 		<li><a href="mailto:contact@nicolasrenault.com">{t("navbar.contact")}</a></li>
 	</ul>
 	<div>

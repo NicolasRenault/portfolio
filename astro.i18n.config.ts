@@ -14,6 +14,7 @@ export default defineAstroI18nConfig({
 				see_more: "See more",
 			},
 			navbar: {
+				homepage: "Homepage",
 				projects: "Projects",
 				resume: "Resume",
 				contact: "Contact",
@@ -51,6 +52,7 @@ export default defineAstroI18nConfig({
 				see_more: "Voir plus",
 			},
 			navbar: {
+				homepage: "Accueil",
 				projects: "Projets",
 				resume: "CV",
 				contact: "Contact",
