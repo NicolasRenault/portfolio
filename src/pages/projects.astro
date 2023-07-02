@@ -44,6 +44,8 @@ const lang = getLangFromUrl(Astro.url);
 		[key: string]: StaticOptions;
 	}
 
+	const lang = document.documentElement.getAttribute("lang") ?? "en";
+
 	const projectConfig: ProjectMap = JSON.parse(
 		document.getElementById("projectConfig")?.getAttribute("value") ?? "{}"
 	);
@@ -70,7 +72,7 @@ const lang = getLangFromUrl(Astro.url);
 		const projectLink = document.createElement("a");
 
 		if (pinned) {
-			projectLink.href = window.location.origin + "/project/" + name;
+			projectLink.href = window.location.origin + "/" + lang + "/project/" + name;
 			projectLink.title = name;
 			div.classList.add("pinned");
 		} else {
