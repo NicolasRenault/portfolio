@@ -5,10 +5,9 @@
     "scripts": {
         "dev": "astro dev",
         "start": "astro dev",
-        "build": "npm run stylelint && npm run i18n:sync && astro build",
+        "build": "npm run i18n:sync && astro build",
         "preview": "astro preview",
         "astro": "astro",
-        "stylelint": "npx stylelint \"**/*.astro\" --fix",
         "i18n:install": "astro-i18n install",
         "i18n:sync": "npm run i18n:reset && astro-i18n sync",
         "i18n:sync-dev": "npm run i18n:sync && astro dev",
@@ -24,10 +23,6 @@
     "devDependencies": {
         "postcss-html": "^1.5.0",
         "prettier": "^2.8.8",
-        "prettier-plugin-astro": "^0.9.0",
-        "stylelint": "^15.6.2",
-        "stylelint-config-html": "^1.1.0",
-        "stylelint-config-standard": "^33.0.0",
-        "stylelint-config-standard-scss": "^9.0.0"
+        "prettier-plugin-astro": "^0.9.0"
     }
 }
