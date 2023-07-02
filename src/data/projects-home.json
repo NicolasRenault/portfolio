@@ -1,0 +1,20 @@
+[
+    {
+        "title": "cheaty-webextension",
+        "description": "cheaty.description",
+        "icon": "https://www.cdn.nicolasrenault.com/cheaty/cheaty-logo.png",
+        "url": "project/cheaty-webextension",
+        "github": "https://github.com/NicolasRenault/cheaty-webextension",
+        "techno": "javascript",
+        "subtitle": "WebExtension"
+    },
+    {
+        "title": "logo",
+        "description": "logo.description",
+        "icon": "https://www.cdn.nicolasrenault.com/logo/NR_Logo_dark.svg",
+        "url": "project/logo",
+        "github": "https://github.com/NicolasRenault/logo",
+        "techno": "javascript",
+        "subtitle": "WebComponent"
+    }
+]
