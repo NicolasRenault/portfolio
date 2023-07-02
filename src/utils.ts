@@ -35,5 +35,5 @@ export function getUrlWithTranslation(target: string, lang: string): string {
  */
 export function switchLangFromUrl(url: URL, lang: string) {
 	if (lang === defaultLang) return url.pathname.replace(`/${getLangFromUrl(url)}/`, "/");
-	return lang + url.pathname;
+	return "/" + lang + url.pathname;
 }
