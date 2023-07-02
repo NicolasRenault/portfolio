@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/MainLayout.astro";
 import { getLangFromUrl, getUrlWithTranslation } from "../../utils";
+import projectConfig from "../../data/projects-config.json";
 import { astroI18n, t } from "astro-i18n";
 
 astroI18n.init(Astro);
@@ -12,6 +13,7 @@ const lang = getLangFromUrl(Astro.url);
 	<main>
 		<h1 class="text-gradient">Projects</h1>
 	</main>
+	<data id="projectConfig" style="display: none;" value={JSON.stringify(projectConfig)}></data>
 </Layout>
 
 <script>
@@ -42,28 +44,9 @@ const lang = getLangFromUrl(Astro.url);
 		[key: string]: StaticOptions;
 	}
 
-	const STATIC_PROJECT: ProjectMap = {
-		"cheaty-webextension": {
-			icon: "https://www.cdn.nicolasrenault.com/cheaty/cheaty-logo.png",
-			pinned: true,
-		},
-		logo: {
-			icon: "https://www.cdn.nicolasrenault.com/logo/NR_logo_dark.png",
-			pinned: true,
-		},
-		"Blog-Symfony-LPRO": {
-			year: "2021",
-		},
-		Stellar: {
-			hide: true,
-		},
-		NicolasRenault: {
-			hide: true,
-		},
-		"MasterDetail-CSharp-DUT1": {
-			year: "2019",
-		},
-	};
+	const projectConfig: ProjectMap = JSON.parse(
+		document.getElementById("projectConfig")?.getAttribute("value") ?? "{}"
+	);
 
 	const createProjectCard = (props: Project) => {
 		const { name, description, html_url, language, is_fork, icon, pinned } = props;
@@ -159,19 +142,19 @@ const lang = getLangFromUrl(Astro.url);
 
 	//Loop through all projects
 	repos.forEach((_project: Project) => {
-		if (STATIC_PROJECT[_project.name]?.hide === undefined) {
+		if (projectConfig[_project.name]?.hide === undefined) {
 			console.log(_project);
-			let static_created_at = STATIC_PROJECT[_project.name]?.year;
+			let static_created_at = projectConfig[_project.name]?.year;
 
 			const created_at = static_created_at ?? _project.created_at.slice(0, 4);
 			console.log(created_at);
 
-			if (STATIC_PROJECT[_project.name]?.icon) {
-				_project.icon = STATIC_PROJECT[_project.name]?.icon ?? "";
+			if (projectConfig[_project.name]?.icon) {
+				_project.icon = projectConfig[_project.name]?.icon ?? "";
 			}
 
-			if (STATIC_PROJECT[_project.name]?.pinned) {
-				_project.pinned = STATIC_PROJECT[_project.name]?.pinned ?? false;
+			if (projectConfig[_project.name]?.pinned) {
+				_project.pinned = projectConfig[_project.name]?.pinned ?? false;
 			}
 
 			if (projectMap.has(created_at)) {
