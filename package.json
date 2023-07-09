@@ -8,6 +8,7 @@
         "build": "npm run i18n:sync && astro build",
         "preview": "astro preview",
         "astro": "astro",
+        "github:project": "ts-node scripts/generate-project-list.ts",
         "i18n:install": "astro-i18n install",
         "i18n:sync": "npm run i18n:reset && astro-i18n sync",
         "i18n:sync-dev": "npm run i18n:sync && astro dev",
@@ -15,12 +16,15 @@
         "i18n:reset": "rm -rf src/pages/fr/"
     },
     "dependencies": {
+        "@octokit/core": "^4.2.4",
         "astro": "^2.4.1",
         "astro-i18n": "^1.8.1",
         "autoprefixer": "^10.4.14",
-        "sass": "^1.62.1"
+        "sass": "^1.62.1",
+        "ts-node": "^10.9.1"
     },
     "devDependencies": {
+        "@types/node": "^20.4.1",
         "postcss-html": "^1.5.0",
         "prettier": "^2.8.8",
         "prettier-plugin-astro": "^0.9.0"
