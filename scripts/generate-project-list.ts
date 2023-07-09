@@ -11,8 +11,6 @@ import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 const staticData = require("./project-static-data.json");
 
-console.log(staticData);
-
 interface GQLContributionResponse {
 	viewer: {
 		repositoriesContributedTo: {
