@@ -7,7 +7,7 @@ on:
 
 jobs:
     integrations:
-        name: Generate Contributions list
+        name: Generate Projects list
         if: github.repository_owner == 'NicolasRenault'
         runs-on: ubuntu-latest
         steps:
@@ -31,11 +31,11 @@ jobs:
               uses: peter-evans/create-pull-request@v4
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
-                  commit-message: Update contributions list
-                  title: Update contributions list
+                  commit-message: Update projects list
+                  title: Update projects list
                   body: |
                       This PR was created by the GitHub Actions workflow **Mounthly**. 
 
                       The commit hash is _${{ github.sha }}_.
-                  branch: contributions-list
+                  branch: projects-list
                   delete-branch: true
