@@ -5,7 +5,13 @@
 
 import { writeFile } from "node:fs/promises";
 import { Octokit } from "@octokit/core";
-import staticData from "./project-static-data.json";
+
+//Import JSON file
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+const staticData = require("./project-static-data.json");
+
+console.log(staticData);
 
 interface GQLContributionResponse {
 	viewer: {
@@ -60,47 +66,49 @@ interface StaticOptions {
  * Query to get all the repositories contributed to
  */
 const contributionQuery = `query {
-    viewer {
-        repositoriesContributedTo(
-        first: 100
-        contributionTypes: [COMMIT, ISSUE, PULL_REQUEST, REPOSITORY]
-    ) {
-        nodes {
-        name
-        nameWithOwner
-        description
-        url
-        languages(first: 4, orderBy: {field: SIZE, direction: DESC}) {
+        viewer {
+            repositoriesContributedTo(
+            first: 100
+            contributionTypes: [COMMIT, ISSUE, PULL_REQUEST, REPOSITORY]
+        ) {
             nodes {
-            name
-        }}
+                name
+                nameWithOwner
+                description
+                url
+                languages(first: 4, orderBy: {field: SIZE, direction: DESC}) {
+                    nodes {
+                        name
+                    }
+                }
+            }
         }
     }
-}
 }`;
 
 /**
  * Query to get all the authored repositories
  */
 const projectQuery = `query {
-    viewer {
-        repositories(
-        first: 100
-        orderBy: {field: CREATED_AT, direction: DESC}
-    ) {
-        nodes {
-        name
-        nameWithOwner
-        description
-        url
-        createdAt
-        languages(first: 4, orderBy: {field: SIZE, direction: DESC}) {
+        viewer {
+            repositories(
+            first: 100
+            orderBy: {field: CREATED_AT, direction: DESC}
+        ) {
             nodes {
-            name
-        }}
+                name
+                nameWithOwner
+                description
+                url
+                createdAt
+                languages(first: 4, orderBy: {field: SIZE, direction: DESC}) {
+                    nodes {
+                        name
+                    }
+                }
+            }
         }
     }
-}
 }`;
 
 const GITHUB_USERNAME = "NicolasRenault";

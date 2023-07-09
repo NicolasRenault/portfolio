@@ -8,7 +8,7 @@
         "build": "npm run i18n:sync && astro build",
         "preview": "astro preview",
         "astro": "astro",
-        "github:project": "ts-node scripts/generate-project-list.ts",
+        "github:project": "ts-node --esm scripts/generate-project-list.ts",
         "i18n:install": "astro-i18n install",
         "i18n:sync": "npm run i18n:reset && astro-i18n sync",
         "i18n:sync-dev": "npm run i18n:sync && astro dev",
