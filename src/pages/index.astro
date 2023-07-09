@@ -1,9 +1,9 @@
 ---
-import Layout from "../layouts/MainLayout.astro";
+import Layout from "@layouts/MainLayout.astro";
 import { astroI18n, t } from "astro-i18n";
-import { getLangFromUrl, getUrlWithTranslation } from "../utils";
-import projects from "../data/projects-home.json";
-import ProjectCard from "../components/ProjectCard.astro";
+import { getLangFromUrl, getUrlWithTranslation } from "@utils";
+import projects from "@data/projects-home.json";
+import ProjectCard from "@components/ProjectCard.astro";
 
 astroI18n.init(Astro);
 
