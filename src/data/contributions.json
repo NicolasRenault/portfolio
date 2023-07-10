@@ -1,0 +1,23 @@
+{
+  "vscode-pets": {
+    "name": "tonybaloney/vscode-pets",
+    "url": "https://github.com/tonybaloney/vscode-pets",
+    "description": "Adds playful pets 🦀🐱🐶 in your VS Code window",
+    "languages": [
+      "TypeScript",
+      "JavaScript",
+      "CSS",
+      "Python"
+    ]
+  },
+  "astro-i18n": {
+    "name": "Alexandre-Fernandez/astro-i18n",
+    "url": "https://github.com/Alexandre-Fernandez/astro-i18n",
+    "description": "A TypeScript-first internationalization library for Astro.",
+    "languages": [
+      "TypeScript",
+      "JavaScript",
+      "Astro"
+    ]
+  }
+}

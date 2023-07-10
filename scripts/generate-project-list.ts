@@ -67,6 +67,7 @@ const contributionQuery = `query {
         viewer {
             repositoriesContributedTo(
             first: 100
+	    orderBy: {field: STARGAZERS, direction: DESC}
             contributionTypes: [COMMIT, ISSUE, PULL_REQUEST, REPOSITORY]
         ) {
             nodes {
@@ -176,11 +177,17 @@ let allProjects: Map<number, Project[]> = new Map<number, Project[]>();
 
 		allProjects.set(year, yearProjects ?? [projectData]);
 	}
-
-	if (isContribution) {
-		contributions.delete(repo.name);
-	}
 });
+
+try {
+	await writeFile(
+		"./src/data/contributions.json",
+		JSON.stringify(Object.fromEntries(contributions), null, 2)
+	);
+	console.log("Contribution list generated");
+} catch (error) {
+	console.error(error);
+}
 
 try {
 	await writeFile(
