@@ -186,7 +186,7 @@ let allProjects: Map<number, Project[]> = new Map<number, Project[]>();
 try {
 	await writeFile(
 		"./src/data/contributions.json",
-		JSON.stringify(contributions, null, 2)
+		JSON.stringify(Object.fromEntries(contributions), null, 2)
 	);
 	console.log("Contribution list generated");
 } catch (error) {
