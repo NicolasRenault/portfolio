@@ -145,7 +145,7 @@ let contributions: Map<string, Project> = new Map<string, Project>();
 
 /**
  * Handle authored project response
- *
+ * Build a map with year as key and an array of projects as value
  */
 let allProjects: Map<number, Project[]> = new Map<number, Project[]>();
 
