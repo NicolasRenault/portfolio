@@ -177,10 +177,6 @@ let allProjects: Map<number, Project[]> = new Map<number, Project[]>();
 
 		allProjects.set(year, yearProjects ?? [projectData]);
 	}
-
-	//if (isContribution) {
-	//	contributions.delete(repo.name);
-	//}
 });
 
 try {
