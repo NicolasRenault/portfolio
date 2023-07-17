@@ -51,6 +51,7 @@ interface Project {
 	year?: number;
 	icon?: string;
 	pinned?: boolean;
+	fork?: string;
 }
 
 interface StaticOptions {
@@ -67,7 +68,7 @@ const contributionQuery = `query {
         viewer {
             repositoriesContributedTo(
             first: 100
-	    orderBy: {field: STARGAZERS, direction: DESC}
+			orderBy: {field: STARGAZERS, direction: DESC}
             contributionTypes: [COMMIT, ISSUE, PULL_REQUEST, REPOSITORY]
         ) {
             nodes {
@@ -164,12 +165,13 @@ let allProjects: Map<number, Project[]> = new Map<number, Project[]>();
 		const projectData: Project = {
 			name: isContribution ? contributionProject.name : repo.name,
 			description: repo.description,
-			url: isContribution ? contributionProject.url : repo.url,
+			url: repo.url,
 			createdAt: repo.createdAt,
 			languages: repo.languages.nodes.map((language) => language.name),
 			year: year,
 			icon: projectStaticData?.icon,
 			pinned: projectStaticData?.pinned ?? false,
+			fork: isContribution ? contributionProject.url : undefined,
 		};
 		let yearProjects = allProjects.get(year);
 

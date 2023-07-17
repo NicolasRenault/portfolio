@@ -1,234 +1,89 @@
 ---
 import Layout from "@layouts/MainLayout.astro";
 import { getLangFromUrl, getUrlWithTranslation } from "@utils";
-import projectConfig from "@data/projects-config.json";
 import { astroI18n, t } from "astro-i18n";
+import projects from "@data/projects.json";
+import contributions from "@data/contributions.json";
+import ProjectCard from "@components/ProjectCard.astro";
 
 astroI18n.init(Astro);
-
 const lang = getLangFromUrl(Astro.url);
+
+const years = Object.keys(projects).sort((a, b) => parseInt(b) - parseInt(a));
+const contributionsList = Object.keys(contributions);
+
+interface Project {
+	name: string;
+	description: string;
+	url: string;
+	createdAt: Date;
+	languages: string[];
+	year?: number;
+	icon?: string;
+	pinned?: boolean;
+	fork?: string;
+}
 ---
 
 <Layout title={"Projects"}>
 	<main>
 		<h1 class="text-gradient">Projects</h1>
+		{
+			years.map((year) => {
+				const currentProjects = (projects as any)[year];
+
+				return (
+					<>
+						<h2>{year}</h2>
+						<div id={year}>
+							{currentProjects.map((project: Project) => {
+								return (
+									<ProjectCard
+										title={project.name}
+										description={t(project.description)}
+										icon={project.icon}
+										project_link={project.url}
+										pinned={project.pinned}
+										languages={project.languages}
+									/>
+								);
+							})}
+						</div>
+					</>
+				);
+			})
+		}
+
+		<h2>Contributions</h2>
+		{
+			contributionsList.map((contribution) => (
+				<ProjectCard
+					title={(contributions as any)[contribution].name}
+					description={t((contributions as any)[contribution].description)}
+					project_link={(contributions as any)[contribution].url}
+					languages={(contributions as any)[contribution].languages}
+				/>
+			))
+		}
 	</main>
-	<data id="projectConfig" style="display: none;" value={JSON.stringify(projectConfig)}></data>
+
+	<style lang="scss" is:global>
+		main {
+			margin: auto;
+			padding: 1.5rem;
+			max-width: 60ch;
+		}
+		h1 {
+			font-size: 3rem;
+			font-weight: 800;
+			margin: 0;
+		}
+		.text-gradient {
+			background-image: var(--accent-gradient);
+			background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-size: 400%;
+			background-position: 0%;
+		}
+	</style>
 </Layout>
-
-<script>
-	interface Project {
-		html_url: any;
-		stargazers_count: any;
-		forks_count: any;
-		fork: any;
-		name: string;
-		description: string;
-		language: string;
-		stars: number;
-		forks: number;
-		is_fork: boolean;
-		created_at: string;
-		icon: string;
-		pinned: boolean;
-	}
-
-	interface StaticOptions {
-		hide?: boolean;
-		year?: string;
-		icon?: string;
-		pinned?: boolean;
-	}
-
-	interface ProjectMap {
-		[key: string]: StaticOptions;
-	}
-
-	const lang = document.documentElement.getAttribute("lang") ?? "en";
-
-	const projectConfig: ProjectMap = JSON.parse(
-		document.getElementById("projectConfig")?.getAttribute("value") ?? "{}"
-	);
-
-	const createProjectCard = (props: Project) => {
-		const { name, description, html_url, language, is_fork, icon, pinned } = props;
-
-		// Create the outer div
-		const div = document.createElement("div");
-		div.id = name;
-		div.classList.add("box");
-
-		const title = document.createElement("h2");
-		title.textContent = name;
-
-		if (is_fork) {
-			const fork = document.createElement("span");
-			fork.textContent = " (fork)";
-			fork.classList.add("fork");
-			title.appendChild(fork);
-		}
-
-		// Create the project link
-		const projectLink = document.createElement("a");
-
-		if (pinned) {
-			projectLink.href = window.location.origin + "/" + lang + "/project/" + name;
-			projectLink.title = name;
-			div.classList.add("pinned");
-		} else {
-			projectLink.href = html_url;
-			projectLink.title = name;
-			projectLink.target = "_blank";
-		}
-
-		// Create the title heading
-		const titleHeading = document.createElement("h3");
-		titleHeading.textContent = name;
-
-		// Create the subtitle heading (if provided)
-		// if (subtitle) {
-		// 	const subtitleHeading = document.createElement("h4");
-		// 	subtitleHeading.textContent = subtitle;
-		// 	projectLink.appendChild(subtitleHeading);
-		// }
-
-		console.log(icon);
-		//Create icon
-		if (icon) {
-			const iconElement = document.createElement("img");
-			iconElement.src = icon;
-			iconElement.width = 32;
-			iconElement.style.position = "absolute";
-			iconElement.style.top = "0";
-			iconElement.style.right = "0";
-			iconElement.style.margin = "1rem";
-			div.appendChild(iconElement);
-		}
-
-		// Create the description paragraph
-		const descriptionParagraph = document.createElement("p");
-		descriptionParagraph.textContent = description;
-
-		projectLink.appendChild(title);
-		projectLink.appendChild(descriptionParagraph);
-
-		// Append all elements to the outer div
-		div.appendChild(projectLink);
-
-		return div;
-	};
-
-	//Fetch the data from the Github API
-	const query = await fetch(
-		'https://api.github.com/users/NicolasRenault/repos?sort="created"'
-	).then((res) => {
-		if (!res.ok) {
-			throw new Error("Failed to fetch");
-		}
-		return res.json();
-	});
-
-	//Map the query to a new array
-	const repos = query.map((repo: Project) => ({
-		name: repo.name,
-		description: repo.description,
-		html_url: repo.html_url,
-		language: repo.language,
-		stars: repo.stargazers_count,
-		forks: repo.forks_count,
-		is_fork: repo.fork,
-		created_at: repo.created_at,
-	}));
-
-	let projectMap: Map<string, Project[]> = new Map();
-
-	//Loop through all projects
-	repos.forEach((_project: Project) => {
-		if (projectConfig[_project.name]?.hide === undefined) {
-			console.log(_project);
-			let static_created_at = projectConfig[_project.name]?.year;
-
-			const created_at = static_created_at ?? _project.created_at.slice(0, 4);
-			console.log(created_at);
-
-			if (projectConfig[_project.name]?.icon) {
-				_project.icon = projectConfig[_project.name]?.icon ?? "";
-			}
-
-			if (projectConfig[_project.name]?.pinned) {
-				_project.pinned = projectConfig[_project.name]?.pinned ?? false;
-			}
-
-			if (projectMap.has(created_at)) {
-				projectMap.get(created_at)?.push(_project);
-			} else {
-				projectMap.set(created_at, [_project]);
-			}
-		}
-	});
-
-	//Sort project map by year
-	projectMap = new Map(
-		[...projectMap.entries()].sort((a, b) => {
-			return parseInt(b[0]) - parseInt(a[0]);
-		})
-	);
-
-	//Create the project cards
-	projectMap.forEach((projects, year) => {
-		const yearElement = document.createElement("h2");
-		yearElement.textContent = year;
-		document.querySelector("main")?.appendChild(yearElement);
-
-		projects.forEach((project) => {
-			const projectElement = createProjectCard(project);
-			document.querySelector("main")?.appendChild(projectElement);
-		});
-	});
-</script>
-
-<style lang="scss" is:global>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-
-	.box {
-		display: flex;
-		position: relative;
-		flex-direction: column;
-		padding: 1rem;
-		width: 40%;
-		color: var(--text-rgb);
-		background-color: var(--primary-light-rgb);
-		border-radius: 0.5rem;
-		margin: 1rem;
-	}
-
-	.pinned {
-		outline: 1px solid darkgoldenrod;
-	}
-
-	a {
-		color: var(--text-rgb);
-		text-decoration: none;
-	}
-
-	img,
-	svg {
-		color: var(--text-rgb);
-	}
-</style>

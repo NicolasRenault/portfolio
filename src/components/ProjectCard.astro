@@ -1,46 +1,79 @@
 ---
 export interface Props {
 	title: string;
-	subtitle: string | null;
-	icon: string;
+	subtitle?: string | undefined;
+	icon?: string | undefined;
 	project_link: string;
-	github_link: string;
+	github_link?: string;
 	description: string;
-	techno: string;
+	pinned?: boolean | undefined;
+	fork?: string | undefined;
+	languages?: string[] | undefined;
 }
 
-const { title, subtitle, icon, project_link, github_link, description, techno } = Astro.props;
+const { title, subtitle, icon, project_link, github_link, description, pinned, fork, languages } =
+	Astro.props;
+
+const classes = "box" + (pinned ? " pinned" : "") + (fork ? " fork" : "");
 ---
 
-<div id={title} class="box">
+<div id={title} class={classes}>
 	<a href={project_link} title={title}>
 		<h3>{title}</h3>
 		{subtitle && <h4>{subtitle}</h4>}
-		<img src={icon} alt={`${title} icon`} width="32px" />
+		{icon && <img src={icon} alt={`${title} icon`} width="32px" />}
 		<p>{description}</p>
+		{
+			languages && (
+			//TODO : add icons for languages
+				<div>
+					{languages.map((lang) => (
+						<p>{lang}</p>
+					))}
+				</div>
+			)
+		}
 	</a>
-	<a href={github_link} title={"Github link for " + title} target="_blank">Github</a>
-</div>
-
-<style lang="scss">
-	.box {
-		display: flex;
-		position: relative;
-		flex-direction: column;
-		padding: 1rem;
-		width: 40%;
-		color: var(--text-rgb);
-		background-color: var(--primary-light-rgb);
-		border-radius: 0.5rem;
-		margin: 1rem;
-
-		a {
-			color: var(--text-rgb);
-			text-decoration: none;
-		}
-		img,
-		svg {
-			color: var(--text-rgb);
-		}
+	{
+		github_link && (
+			<a href={github_link} title={"Github link for " + title} target="_blank">
+				Github
+			</a>
+		)
 	}
-</style>
+	{
+		fork && (
+			//TODO : add icons for fork
+			<a href={fork} title={"Fork link for " + title} target="_blank">
+				Fork
+			</a>
+		)
+	}
+
+	<style lang="scss">
+		.box {
+			display: flex;
+			position: relative;
+			flex-direction: column;
+			padding: 1rem;
+			width: 40%;
+			color: var(--text-rgb);
+			background-color: var(--primary-light-rgb);
+			border-radius: 0.5rem;
+			margin: 1rem;
+
+			a {
+				color: var(--text-rgb);
+				text-decoration: none;
+			}
+			img,
+			svg {
+				color: var(--text-rgb);
+			}
+
+			&.pinned {
+				outline: 1px solid darkgoldenrod;
+			}
+		}
+	</style>
+</div>
