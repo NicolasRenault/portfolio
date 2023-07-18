@@ -70,6 +70,10 @@ export default defineAstroI18nConfig({
 					"Each independant part of the logo have an hover effect.",
 				webcomponent_rainbow_description: "Hover it to go faster than Mario !",
 			},
+			404: {
+				searching: "Searching for something ?",
+				here_is_for_you: "Here is for you",
+			},
 		},
 		fr: {
 			global: {
@@ -136,6 +140,10 @@ export default defineAstroI18nConfig({
 				webcomponent_animated_description:
 					"Chaque partie indépendante du logo a un effet au survol.",
 				webcomponent_rainbow_description: "Survolez-le pour aller plus vite que Mario !",
+			},
+			404: {
+				searching: "Vous cherchez quelque chose ?",
+				here_is_for_you: "Voici pour vous",
 			},
 		},
 	},
