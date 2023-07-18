@@ -42,10 +42,18 @@ interface Project {
 										title={project.name}
 										description={t(project.description)}
 										icon={project.icon}
-										project_link={project.url}
 										pinned={project.pinned}
 										languages={project.languages}
 										fork={project.fork}
+										project_link={
+											project.pinned
+												? getUrlWithTranslation(
+														"project/" + project.name,
+														lang
+												  )
+												: project.url
+										}
+										github_link={project.pinned ? project.url : undefined}
 									/>
 								);
 							})}
