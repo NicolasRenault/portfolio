@@ -8,8 +8,8 @@ astroI18n.init(Astro);
 const lang = getLangFromUrl(Astro.url);
 ---
 
-<Layout title={"Resume"}>
+<Layout title={t("navbar.resume")}>
 	<main>
-		<h1 class="text-gradient">Resume</h1>
+		<h1 class="text-gradient">{t("navbar.resume")}</h1>
 	</main>
 </Layout>

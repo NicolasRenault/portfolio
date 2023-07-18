@@ -25,9 +25,9 @@ interface Project {
 }
 ---
 
-<Layout title={"Projects"}>
+<Layout title={t("navbar.projects")}>
 	<main>
-		<h1 class="text-gradient">Projects</h1>
+		<h1 class="text-gradient">{t("navbar.projects")}</h1>
 		{
 			years.map((year) => {
 				const currentProjects = (projects as any)[year];
