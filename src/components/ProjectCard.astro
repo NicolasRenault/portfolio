@@ -1,4 +1,5 @@
 ---
+import { t } from "astro-i18n";
 export interface Props {
 	title: string;
 	subtitle?: string | undefined;
@@ -37,7 +38,7 @@ const classes = "box" + (pinned ? " pinned" : "") + (fork ? " fork" : "");
 	{
 		github_link && (
 			<a href={github_link} title={"Github link for " + title} target="_blank">
-				Github
+				{t("global.see_on_github")}
 			</a>
 		)
 	}

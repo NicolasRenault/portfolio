@@ -1,6 +1,6 @@
 ---
 import Layout from "@layouts/MainLayout.astro";
-import { getLangFromUrl, getUrlWithTranslation } from "@utils";
+import { getLangFromUrl } from "@utils";
 import { astroI18n, t } from "astro-i18n";
 
 astroI18n.init(Astro);
@@ -10,6 +10,41 @@ const lang = getLangFromUrl(Astro.url);
 
 <Layout title={"Projects"}>
 	<main>
-		<h1 class="text-gradient">Cheaty</h1>
+		<section>
+			<h1 class="text-gradient">Cheaty</h1>
+			<h2>{t("cheaty.catch_phrase")}</h2>
+			<p class="">{t("cheaty.description")}</p>
+			<a href="https://cheaty.nicolasrenault.com" target="_blank" title="Cheaty's website">
+				{t("global.website")}
+			</a>
+			<a href="https://github.com/NicolasRenault/cheaty-webextension">
+				{t("global.see_on_github")}
+			</a>
+		</section>
+
+		<section>
+			<h3>{t("cheaty.hide")}</h3>
+			<img src="/action-mode.png" />
+			<img src="/hide-action.png" />
+			<h3>{t("cheaty.password")}</h3>
+			<img src="/password-on-action.png" />
+			<img src="/password-off-action.png" />
+		</section>
+
+		<section>
+			<a href="https://cheaty.nicolasrenault.com" target="_blank" title="Cheaty's website">
+				{t("global.learn_more")}
+			</a>
+			<a
+				href="https://cheaty.nicolasrenault.com/download"
+				target="_blank"
+				title="Cheaty's website"
+			>
+				{t("global.download")}
+			</a>
+			<a href="https://github.com/NicolasRenault/cheaty-webextension">
+				{t("global.see_codesources")}
+			</a>
+		</section>
 	</main>
 </Layout>

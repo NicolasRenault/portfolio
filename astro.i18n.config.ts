@@ -12,6 +12,10 @@ export default defineAstroI18nConfig({
 				present: "Present",
 				learn_more: "Learn more",
 				see_more: "See more",
+				see_on_github: "See on GitHub",
+				see_codesources: "See code sources",
+				website: "Website",
+				download: "Download",
 			},
 			navbar: {
 				homepage: "Homepage",
@@ -34,7 +38,11 @@ export default defineAstroI18nConfig({
 			projects: {},
 			resume: {},
 			cheaty: {
-				description: "Extension for the web that feels illegal.",
+				catch_phrase: "Extension for the web that feels illegal.",
+				description:
+					"Cheaty is a simple open-source web extension that allows you to do quick actions on HTML components without going into the inspector console.",
+				hide: "Hide/Show HTML elements",
+				password: "Hide/Show password",
 			},
 			portfolio: {
 				description: "My personal website build with Astro",
@@ -50,6 +58,10 @@ export default defineAstroI18nConfig({
 				present: "Aujourd'hui",
 				learn_more: "En savoir plus",
 				see_more: "Voir plus",
+				see_on_github: "Voir sur GitHub",
+				see_codesources: "Voir le code source",
+				website: "Site web",
+				download: "Télécharger",
 			},
 			navbar: {
 				homepage: "Accueil",
@@ -72,7 +84,11 @@ export default defineAstroI18nConfig({
 			projects: {},
 			resume: {},
 			cheaty: {
-				description: "Extention pour le web qui semble illégal.",
+				catch_phrase: "Extention pour le web qui semble illégal.",
+				description:
+					"Cheaty est une extension web open-source qui vous permet de faire des actions rapides sur des composants HTML sans passer par la console d'inspecteur.",
+				hide: "Cacher/Afficher des éléments HTML",
+				password: "Cacher/Afficher les mots de passe",
 			},
 			portfolio: {
 				description: "Mon site personnel construit avec Astro",
