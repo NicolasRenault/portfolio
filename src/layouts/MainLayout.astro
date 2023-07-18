@@ -1,11 +1,11 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import NavBar from "../components/NavBar.astro";
-import "../../public/assets/normalize.css";
-import { getLangFromUrl } from "../utils";
+import BaseHead from "@components/BaseHead.astro";
+import NavBar from "@components/NavBar.astro";
+import "./assets/normalize.css";
+import { getLangFromUrl } from "@utils";
 
 export interface Props {
-	title: string;
+	title: string | undefined;
 }
 
 const { title } = Astro.props;
