@@ -16,6 +16,18 @@ export default defineAstroI18nConfig({
 				see_codesources: "See code sources",
 				website: "Website",
 				download: "Download",
+				license: "License",
+				light: "Light theme",
+				dark: "Dark theme",
+			},
+			language: {
+				size: "Size",
+				color: "Color",
+				color_name: "Color name",
+				hexadecimal: "Hexadecimal",
+				animations: "Animations",
+				animated: "Animated",
+				rainbow: "Rainbow",
 			},
 			navbar: {
 				homepage: "Homepage",
@@ -48,7 +60,15 @@ export default defineAstroI18nConfig({
 				description: "My personal website build with Astro",
 			},
 			logo: {
-				description: "A collection of my logos. SVGs, WebComponent and more.",
+				catch_phrase: "A collection of my logos. SVGs, WebComponent and more.",
+				description:
+					"All the ressources are available from a CDN. This project is under the CC BY-NC-ND (Creative Commons Attribution-NonCommercial-NoDerivatives) license.",
+				webcomponent_description: "Easy to use, highly customizable and ready to go.",
+				webcomponent_color_description:
+					"By default, the component uses the currentColor from heritage. Or you can use the color option and pass all types of valid CSS colors.",
+				webcomponent_animated_description:
+					"Each independant part of the logo have an hover effect.",
+				webcomponent_rainbow_description: "Hover it to go faster than Mario !",
 			},
 		},
 		fr: {
@@ -62,6 +82,18 @@ export default defineAstroI18nConfig({
 				see_codesources: "Voir le code source",
 				website: "Site web",
 				download: "Télécharger",
+				license: "Licence",
+				light: "Thème clair",
+				dark: "Thème sombre",
+			},
+			language: {
+				size: "Taille",
+				color: "Couleur",
+				color_name: "Nom de la couleur",
+				hexadecimal: "Hexadécimal",
+				animations: "Animations",
+				animated: "Animated (Animé)",
+				rainbow: "Rainbow (Arc-en-ciel)",
 			},
 			navbar: {
 				homepage: "Accueil",
@@ -94,7 +126,16 @@ export default defineAstroI18nConfig({
 				description: "Mon site personnel construit avec Astro",
 			},
 			logo: {
-				description: "Une collection de mes logos. SVGs, WebComponent et plus.",
+				catch_phrase: "Une collection de mes logos. SVGs, WebComponent et plus.",
+				description:
+					"Toutes les ressources sont disponibles depuis un CDN. Ce projet est sous la licence CC BY-NC-ND (Creative Commons Attribution - Pas d’Utilisation Commerciale - Pas de Modification).",
+				webcomponent_description:
+					"Facile à utiliser, hautement personnalisable et prêt à l'emploi.",
+				webcomponent_color_description:
+					"Par défaut, le composant utilise la currentColor grâce à de l'héritage. Ou vous pouvez utiliser l'option color et passer tous les types de couleurs CSS valides.",
+				webcomponent_animated_description:
+					"Chaque partie indépendante du logo a un effet au survol.",
+				webcomponent_rainbow_description: "Survolez-le pour aller plus vite que Mario !",
 			},
 		},
 	},

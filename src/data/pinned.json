@@ -10,7 +10,7 @@
     },
     {
         "title": "logo",
-        "description": "logo.description",
+        "description": "logo.catch_phrase",
         "icon": "https://www.cdn.nicolasrenault.com/logo/NR_Logo_dark.svg",
         "url": "project/logo",
         "github": "https://github.com/NicolasRenault/logo",
