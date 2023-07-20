@@ -62,13 +62,13 @@ export default defineAstroI18nConfig({
 			logo: {
 				catch_phrase: "A collection of my logos. SVGs, WebComponent and more.",
 				description:
-					"All the ressources are available from a CDN. This project is under the CC BY-NC-ND (Creative Commons Attribution-NonCommercial-NoDerivatives) license.",
+					"All the resources are available from a CDN. This project is under the CC BY-NC-ND (Creative Commons Attribution-NonCommercial-NoDerivatives) license.",
 				webcomponent_description: "Easy to use, highly customizable and ready to go.",
 				webcomponent_color_description:
 					"By default, the component uses the currentColor from heritage. Or you can use the color option and pass all types of valid CSS colors.",
 				webcomponent_animated_description:
-					"Each independant part of the logo have an hover effect.",
-				webcomponent_rainbow_description: "Hover it to go faster than Mario !",
+					"Each independent part of the logo has a hover effect.",
+				webcomponent_rainbow_description: "Hover it to go faster than Mario!",
 			},
 			404: {
 				searching: "Searching for something ?",
@@ -130,7 +130,7 @@ export default defineAstroI18nConfig({
 				description: "Mon site personnel construit avec Astro",
 			},
 			logo: {
-				catch_phrase: "Une collection de mes logos. SVGs, WebComponent et plus.",
+				catch_phrase: "Une collection de mes logos. SVG, WebComponent et plus.",
 				description:
 					"Toutes les ressources sont disponibles depuis un CDN. Ce projet est sous la licence CC BY-NC-ND (Creative Commons Attribution - Pas d’Utilisation Commerciale - Pas de Modification).",
 				webcomponent_description:
