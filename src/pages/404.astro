@@ -13,11 +13,14 @@ const lang = getLangFromUrl(Astro.url);
 	<body>
 		<main>
 			<div id="main_container">
+				<h1>{t("404.error")}</h1>
 				<div id="text_container">
 					<p id="text">{t("404.searching")}</p>
-					<button id="here_is_for_you">{t("404.here_is_for_you")}</button>
+					<button id="here_is_for_you" title="Here is for you">
+						{t("404.here_is_for_you")}
+					</button>
 				</div>
-				<a href={getUrlWithTranslation("", lang)}>
+				<a href={getUrlWithTranslation("", lang)} title="Homepage">
 					{t("navbar.homepage")}
 				</a>
 			</div>
@@ -65,12 +68,19 @@ const lang = getLangFromUrl(Astro.url);
 				align-items: center;
 				text-align: center;
 
+				font-family: Poppins, sans-serif;
+				color: white;
+
+				h1 {
+					font-size: 5rem;
+					font-weight: bold;
+				}
+
 				p,
 				button,
 				a {
-					font-family: Poppins, sans-serif;
-					color: white;
 					font-size: 5rem;
+					color: white;
 				}
 
 				button {

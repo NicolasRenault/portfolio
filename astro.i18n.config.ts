@@ -71,6 +71,7 @@ export default defineAstroI18nConfig({
 				webcomponent_rainbow_description: "Hover it to go faster than Mario!",
 			},
 			404: {
+				error: "404 error - Page not found",
 				searching: "Searching for something ?",
 				here_is_for_you: "Here is for you",
 			},
@@ -142,6 +143,7 @@ export default defineAstroI18nConfig({
 				webcomponent_rainbow_description: "Survolez-le pour aller plus vite que Mario !",
 			},
 			404: {
+				error: "Erreur 404 - Page non trouvée",
 				searching: "Vous cherchez quelque chose ?",
 				here_is_for_you: "Voici pour vous",
 			},
