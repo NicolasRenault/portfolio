@@ -24,13 +24,6 @@ const lang = getLangFromUrl(Astro.url);
 				</li>
 			)
 		}
-		{
-			!(Astro.url.pathname == getUrlWithTranslation("resume", lang)) && (
-				<li>
-					<a href={getUrlWithTranslation("resume", lang)}>{t("navbar.resume")}</a>
-				</li>
-			)
-		}
 		<li><a href="mailto:contact@nicolasrenault.com">{t("navbar.contact")}</a></li>
 	</ul>
 	<div>

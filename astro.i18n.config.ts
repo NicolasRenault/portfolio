@@ -48,7 +48,6 @@ export default defineAstroI18nConfig({
 				selected_projects: "Selected projects",
 			},
 			projects: {},
-			resume: {},
 			cheaty: {
 				catch_phrase: "Extension for the web that feels illegal.",
 				description:
@@ -119,7 +118,6 @@ export default defineAstroI18nConfig({
 				selected_projects: "Projets sélectionnés",
 			},
 			projects: {},
-			resume: {},
 			cheaty: {
 				catch_phrase: "Extention pour le web qui semble illégal.",
 				description:
