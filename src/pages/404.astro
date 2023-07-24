@@ -14,8 +14,9 @@ const lang = getLangFromUrl(Astro.url);
 		<main>
 			<div id="main_container">
 				<h1>{t("404.error")}</h1>
+				<p id="dancer">🕺</p>
 				<div id="text_container">
-					<p id="text">{t("404.searching")}</p>
+					<p>{t("404.searching")}</p>
 					<button id="here_is_for_you" title="Here is for you">
 						{t("404.here_is_for_you")}
 					</button>
@@ -27,17 +28,11 @@ const lang = getLangFromUrl(Astro.url);
 		</main>
 
 		<script>
-			const url = "/rickroll.gif";
-			const text = document.getElementById("text");
 			const hereIsForYou = document.getElementById("here_is_for_you");
 			const main = document.querySelector("main");
 
 			hereIsForYou.addEventListener("click", () => {
-				main.style.backgroundImage = `url(${url})`;
-				main.style.backgroundSize = "contain";
-				main.style.backgroundPositionX = "center";
-				text.innerText = "🕺";
-				hereIsForYou.style.display = "none";
+				main.classList.add("gotcha");
 			});
 		</script>
 
@@ -74,6 +69,7 @@ const lang = getLangFromUrl(Astro.url);
 				h1 {
 					font-size: 5rem;
 					font-weight: bold;
+					// margin-bottom: 10%;
 				}
 
 				p,
@@ -81,6 +77,15 @@ const lang = getLangFromUrl(Astro.url);
 				a {
 					font-size: 5rem;
 					color: white;
+					padding: 0 0.5rem;
+				}
+
+				a:hover,
+				a:focus,
+				button:hover,
+				button:focus {
+					transform: translate(0, -3px);
+					background-color: rgba(0, 0, 0, 0.5);
 				}
 
 				button {
@@ -92,6 +97,17 @@ const lang = getLangFromUrl(Astro.url);
 
 				a {
 					font-size: 3rem;
+					height: fit-content;
+					width: fit-content;
+				}
+
+				#main_container {
+					height: 100%;
+					gap: 3rem;
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
 				}
 
 				#text_container {
@@ -99,6 +115,39 @@ const lang = getLangFromUrl(Astro.url);
 					align-items: center;
 					justify-content: center;
 					gap: 3rem;
+				}
+
+				#dancer {
+					display: none;
+				}
+
+				&.gotcha {
+					background-image: url("/rickroll.gif");
+					background-size: contain;
+					background-position-x: center;
+					background-repeat: no-repeat;
+
+					#text_container {
+						display: none;
+					}
+
+					#dancer {
+						display: block;
+					}
+
+					h1,
+					a {
+						background-color: rgba(0, 0, 0, 0.5);
+						padding: 0.5rem;
+					}
+
+					h1 {
+						font-size: 3rem;
+					}
+
+					a {
+						padding: 1rem;
+					}
 				}
 			}
 		</style>
