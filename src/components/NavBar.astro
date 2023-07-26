@@ -1,6 +1,7 @@
 ---
 import { defaultLang, getLangFromUrl, getUrlWithTranslation, switchLangFromUrl } from "@utils";
 import { astroI18n, t } from "astro-i18n";
+import { Icon } from "astro-icon";
 
 astroI18n.init(Astro);
 
@@ -9,28 +10,53 @@ const lang = getLangFromUrl(Astro.url);
 
 <nav>
 	<ul>
-		{
-			!(Astro.url.pathname == getUrlWithTranslation("", lang)) && (
-				<li>
-					<a href={getUrlWithTranslation("", lang)}>{t("navbar.homepage")}</a>
-				</li>
-			)
-		}
+		<li>
+			<a
+				href={getUrlWithTranslation("", lang)}
+				title="Homepage"
+				class:list={[{ active: Astro.url.pathname == getUrlWithTranslation("", lang) }]}
+			>
+				{t("navbar.homepage")}
+			</a>
+		</li>
 
-		{
-			!(Astro.url.pathname == getUrlWithTranslation("projects", lang)) && (
-				<li>
-					<a href={getUrlWithTranslation("projects", lang)}>{t("navbar.projects")}</a>
-				</li>
-			)
-		}
-		<li><a href="mailto:contact@nicolasrenault.com">{t("navbar.contact")}</a></li>
+		<li>
+			<a
+				href={getUrlWithTranslation("projects", lang)}
+				title="Projects"
+				class:list={[
+					{
+						active: Astro.url.pathname == getUrlWithTranslation("projects", lang),
+					},
+				]}
+			>
+				{t("navbar.projects")}
+			</a>
+		</li>
+		<li>
+			<a
+				href="mailto:contact@nicolasrenault.com?subject=Hello there!&body=Hey,"
+				title="Contact me"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				{t("navbar.contact")}
+			</a>
+		</li>
 	</ul>
-	<div>
+	<div id="left-container">
+		<a
+			id="github-link"
+			href="https://github.com/NicolasRenault"
+			title="Github link"
+			target="_blank"
+		>
+			<Icon name="mdi:github" />
+		</a>
 		<a
 			id="translation-link"
 			href={switchLangFromUrl(Astro.url, lang === defaultLang ? "fr" : "en")}
-			>{lang === defaultLang ? "fr" : "en"}</a
+			title="Switch language">{lang === defaultLang ? "fr" : "en"}</a
 		>
 		{/* TODO add toggle for horizontal scroll */}
 	</div>
@@ -41,9 +67,12 @@ const lang = getLangFromUrl(Astro.url);
 		display: flex;
 		justify-content: space-between;
 		padding: 1rem 1.5rem;
-		border-bottom: 1px solid var(--text-rgb);
 		align-items: center;
 		font-size: 1.25rem;
+
+		max-width: 85rem;
+		margin-left: auto;
+		margin-right: auto;
 		ul {
 			display: flex;
 			align-items: center;
@@ -59,9 +88,38 @@ const lang = getLangFromUrl(Astro.url);
 
 			border: none;
 			background: none;
+
+			&.active {
+				border-bottom: 3px solid var(--secondary-rgb);
+			}
+		}
+
+		a,
+		button,
+		li {
+			transition: all 0.2s ease-in-out;
+
+			&:hover {
+				transform: translateY(-2px);
+			}
+		}
+
+		#left-container {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 2rem;
+			align-items: center;
 		}
 	}
 
+	#github-link {
+		display: flex;
+
+		svg {
+			width: 1.55rem;
+			height: 1.55rem;
+		}
+	}
 	nr-logo {
 		color: var(--text-rgb);
 	}
