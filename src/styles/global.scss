@@ -28,11 +28,44 @@
 		45deg,
 		var(--secondary-rgb),
 		var(--tertiary-rgb) 30%,
-		var(--text-rgb) 60%
+		var(--text-rgb) 60%,
+		var(--tertiary-rgb) 90%
 	);
 }
 html {
 	font-family: Poppins, sans-serif;
 	color: var(--text-rgb);
 	background-color: var(--primary-rgb);
+}
+
+*::selection {
+	background-color: var(--secondary-rgb);
+	color: var(--text-rgb);
+}
+
+button {
+	transition: all 0.2s ease-in-out;
+}
+button:not(:disabled):active {
+	transform: translateY(2px);
+}
+
+h1 {
+	font-size: 3rem;
+	font-weight: 800;
+	margin: 0;
+}
+
+h1,
+.title {
+	color: var(--secondary-rgb);
+}
+
+.text-gradient {
+	background-image: var(--accent-gradient);
+	font-size: 3rem;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-size: 90%;
+	background-position: 0%;
 }

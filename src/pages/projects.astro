@@ -27,7 +27,7 @@ interface Project {
 
 <Layout title={t("navbar.projects")}>
 	<main>
-		<h1 class="text-gradient">{t("navbar.projects")}</h1>
+		<h1>{t("navbar.projects")}</h1>
 		{
 			years.map((year) => {
 				const currentProjects = (projects as any)[year];
@@ -76,23 +76,11 @@ interface Project {
 		}
 	</main>
 
-	<style lang="scss" is:global>
+	<style lang="scss">
 		main {
 			margin: auto;
 			padding: 1.5rem;
 			max-width: 60ch;
-		}
-		h1 {
-			font-size: 3rem;
-			font-weight: 800;
-			margin: 0;
-		}
-		.text-gradient {
-			background-image: var(--accent-gradient);
-			background-clip: text;
-			-webkit-text-fill-color: transparent;
-			background-size: 400%;
-			background-position: 0%;
 		}
 	</style>
 </Layout>

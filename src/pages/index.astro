@@ -13,7 +13,7 @@ const lang = getLangFromUrl(Astro.url);
 <Layout title={undefined}>
 	<main>
 		<section id="introduction">
-			<p><span>{t("home.hello")}</span><h1 class="text-gradient">Nicolas Renault</h1></p>
+			<p><span>{t("home.hello")}</span><h1>Nicolas Renault</h1></p>
 			<p>
 				{t("home.intro_1")}
 				<span id="fullstack" class="fullstack">FullStack</span>
@@ -92,25 +92,6 @@ const lang = getLangFromUrl(Astro.url);
 			background-clip: text;
 			-webkit-text-fill-color: transparent;
 			background-size: 400%;
-			background-position: 0%;
-		}
-
-		/* main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	} */
-		.text-gradient {
-			background-image: var(--accent-gradient);
-			font-size: 3rem;
-			background-clip: text;
-			-webkit-text-fill-color: transparent;
-			background-size: 90%;
 			background-position: 0%;
 		}
 	</style>
