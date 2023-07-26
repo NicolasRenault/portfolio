@@ -16,8 +16,10 @@ const lang = getLangFromUrl(Astro.url);
 <!DOCTYPE html>
 <html lang={lang}>
 	<BaseHead title={title} />
-	<NavBar />
 	<body>
-		<slot />
+		<NavBar />
+		<section id="main">
+			<slot />
+		</section>
 	</body>
 </html>
