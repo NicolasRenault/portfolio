@@ -43,6 +43,23 @@ html {
 	color: var(--text-rgb);
 }
 
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+::-webkit-scrollbar {
+	background: transparent;
+}
+::-webkit-scrollbar-track {
+	background: var(--primary-light-rgb);
+}
+::-webkit-scrollbar-thumb {
+	background: rgba(var(--text), 0.3);
+}
+::-webkit-scrollbar-thumb:hover {
+	background: rgba(var(--secondary), 0.3);
+}
+
 button {
 	transition: all 0.2s ease-in-out;
 }
