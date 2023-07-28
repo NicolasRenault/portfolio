@@ -1,3 +1,5 @@
+import { projects } from "@data/project-description-translation";
+
 export const defaultLang = "en";
 export const supportedLangs = {
 	en: "English",
@@ -36,4 +38,18 @@ export function getUrlWithTranslation(target: string, lang: string): string {
 export function switchLangFromUrl(url: URL, lang: string) {
 	if (lang === defaultLang) return url.pathname.replace(`/${getLangFromUrl(url)}/`, "/");
 	return "/" + lang + url.pathname;
+}
+
+/**
+ * Get the translated description of a project from its name and the language.
+ *
+ * @param project
+ * @param lang
+ * @returns string | undefined
+ */
+export function getTranslatedDescription(project: string, lang: string): string | undefined {
+	if (project in projects) {
+		return (projects as any)[project][lang];
+	}
+	return undefined;
 }

@@ -1,6 +1,6 @@
 ---
 import Layout from "@layouts/MainLayout.astro";
-import { getLangFromUrl, getUrlWithTranslation } from "@utils";
+import { getLangFromUrl, getUrlWithTranslation, getTranslatedDescription } from "@utils";
 import { astroI18n, t } from "astro-i18n";
 import projects from "@data/projects.json";
 import contributions from "@data/contributions.json";
@@ -45,7 +45,10 @@ interface Project {
 								return (
 									<ProjectCard
 										title={project.name}
-										description={t(project.description)}
+										description={
+											getTranslatedDescription(project.name, lang) ??
+											project.description
+										}
 										icon={project.icon}
 										pinned={project.pinned}
 										languages={project.languages}
@@ -73,7 +76,10 @@ interface Project {
 			contributionsList.map((contribution) => (
 				<ProjectCard
 					title={(contributions as any)[contribution].name}
-					description={t((contributions as any)[contribution].description)}
+					description={
+						getTranslatedDescription((contributions as any)[contribution].name, lang) ??
+						(contributions as any)[contribution].description
+					}
 					project_link={(contributions as any)[contribution].url}
 					languages={(contributions as any)[contribution].languages}
 				/>
