@@ -47,7 +47,9 @@ export default defineAstroI18nConfig({
 				fullstack_web_developer: "Fullstack Web Developer",
 				selected_projects: "Selected projects",
 			},
-			projects: {},
+			projects: {
+				school_projects: "School projects",
+			},
 			cheaty: {
 				catch_phrase: "Extension for the web that feels illegal.",
 				description:
@@ -117,7 +119,9 @@ export default defineAstroI18nConfig({
 				fullstack_web_developer: "Développeur Web Fullstack",
 				selected_projects: "Projets sélectionnés",
 			},
-			projects: {},
+			projects: {
+				school_projects: "Projets scolaires",
+			},
 			cheaty: {
 				catch_phrase: "Extention pour le web qui semble illégal.",
 				description:

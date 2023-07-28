@@ -34,7 +34,12 @@ interface Project {
 
 				return (
 					<>
-						<h2>{year}</h2>
+						<h2>
+							{year}
+							{["2021", "2020", "2019"].includes(year) && (
+								<span>{t("projects.school_projects")}</span>
+							)}
+						</h2>
 						<div id={year}>
 							{currentProjects.map((project: Project) => {
 								return (
@@ -81,6 +86,14 @@ interface Project {
 			margin: auto;
 			padding: 1.5rem;
 			max-width: 60ch;
+		}
+
+		h2 {
+			span {
+				font-size: 1rem;
+				margin-left: 0.5rem;
+				color: var(--text-gray-rgb);
+			}
 		}
 	</style>
 </Layout>
