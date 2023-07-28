@@ -6,6 +6,17 @@ import { Icon } from "astro-icon";
 astroI18n.init(Astro);
 
 const lang = getLangFromUrl(Astro.url);
+
+/**
+ * Remove the last slash from the pathname if it's the last character
+ */
+const lastSlashIndex = Astro.url.pathname.lastIndexOf("/");
+
+let currentPathName = Astro.url.pathname;
+
+if (lastSlashIndex > Astro.url.pathname.length - 2) {
+	currentPathName = currentPathName.slice(0, lastSlashIndex);
+}
 ---
 
 <nav>
@@ -16,13 +27,7 @@ const lang = getLangFromUrl(Astro.url);
 			</a>
 		</li>
 
-		<li
-			class:list={[
-				{
-					active: Astro.url.pathname == getUrlWithTranslation("projects", lang),
-				},
-			]}
-		>
+		<li class:list={[{ active: currentPathName == getUrlWithTranslation("projects", lang) }]}>
 			<a href={getUrlWithTranslation("projects", lang)} title="Projects">
 				{t("navbar.projects")}
 			</a>
