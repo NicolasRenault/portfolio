@@ -10,9 +10,9 @@
 	--secondary: 17, 221, 102;
 	--secondary-light: 19, 255, 149;
 	--secondary-dark: 12, 53, 24;
-	--tertiary: 215, 131, 71;
-	--tertiary-light: 255, 209, 181;
-	--tertiary-dark: 153, 85, 0;
+	--tertiary: 139, 84, 271;
+	--tertiary-light: 184, 98, 255;
+	--tertiary-dark: 89, 54, 140;
 	--text: 239, 254, 244;
 	--text-gray: 200, 200, 200;
 	--primary-rgb: rgb(var(--primary));
@@ -54,13 +54,22 @@ main {
 
 	padding: 0 1.5rem;
 	max-width: 85rem;
+	margin-top: 4rem;
 	margin-left: auto;
 	margin-right: auto;
 }
 
-*::selection {
-	background-color: var(--secondary-rgb);
-	color: var(--text-rgb);
+* {
+	::selection {
+		background-color: var(--secondary-rgb);
+		color: var(--text-rgb);
+	}
+
+	:focus-visible {
+		border: none;
+		outline: dashed 3px var(--secondary-rgb);
+		font-weight: bolder;
+	}
 }
 
 ::-webkit-scrollbar {

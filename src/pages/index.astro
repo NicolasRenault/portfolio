@@ -30,7 +30,7 @@ const lang = getLangFromUrl(Astro.url);
 			<p>{t("home.work")}</p>
 			<p>{t("home.passions")}</p>
 		</section>
-		<section id="working_experience">
+		<section id="working_experience" class="col-1">
 			<h2>{t("home.working_experience")}</h2>
 			<ul>
 				<li>
@@ -101,6 +101,8 @@ const lang = getLangFromUrl(Astro.url);
 <style lang="scss">
 	main {
 		font-size: 1.75rem;
+		display: grid !important;
+		grid-template-columns: 1fr 1fr;
 	}
 
 	h1 {
@@ -108,16 +110,15 @@ const lang = getLangFromUrl(Astro.url);
 		font-weight: 800;
 	}
 
+	.col-1 {
+		grid-column: 1;
+	}
+
 	.fullstack {
 		text-decoration: underline wavy red from-font;
 		text-underline-offset: 2px;
 	}
 	.backend {
-		/* TODO Edit */
-		background-image: var(--accent-gradient);
-		background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
+		color: var(--tertiary-light-rgb);
 	}
 </style>
