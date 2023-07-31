@@ -1,4 +1,4 @@
-import { projects } from "@data/project-description-translation";
+import { projects } from "@data/project-descriptions-translated";
 
 export const defaultLang = "en";
 export const supportedLangs = {
