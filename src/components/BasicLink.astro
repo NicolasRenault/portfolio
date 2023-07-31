@@ -1,0 +1,43 @@
+---
+export interface Props {
+	text: string;
+	href: string;
+	title: string;
+	target?: string;
+}
+
+const { text, href, title, target = "_self" } = Astro.props;
+---
+
+<a href={href} title={title} target={target}>{text.trim()}</a>
+
+<style lang="scss">
+	a {
+		position: relative;
+		color: var(--secondary-rgb);
+		text-decoration: none;
+		transition: all 0.2s ease-in-out;
+		z-index: 1;
+
+		&:before {
+			content: "";
+			position: absolute;
+			width: 0;
+			height: 3px;
+			left: 0;
+			bottom: 1.5px;
+			background: var(--tertiary-rgb);
+			// background: var(--secondary-rgb);
+			transition: all 0.2s ease-in-out;
+			z-index: -1;
+		}
+
+		&:hover {
+			color: var(--text-rgb);
+
+			&:before {
+				width: 100%;
+			}
+		}
+	}
+</style>

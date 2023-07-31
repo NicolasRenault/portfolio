@@ -4,6 +4,7 @@ import { astroI18n, t } from "astro-i18n";
 import { getLangFromUrl, getUrlWithTranslation } from "@utils";
 import projects from "@data/pinned.json";
 import ProjectCard from "@components/ProjectCard.astro";
+import BasicLink from "@components/BasicLink.astro";
 
 astroI18n.init(Astro);
 
@@ -18,10 +19,13 @@ const lang = getLangFromUrl(Astro.url);
 				{t("home.intro_1")}
 				<span id="fullstack" class="fullstack">FullStack</span>
 				{t("home.intro_2")}
-				<a href="https://github.com/NicolasRenault" title="GitHub" target="_blank">
-					GitHub
-				</a>
-				.
+				<BasicLink
+					text="Github"
+					href="https://github.com/NicolasRenault"
+					title="Github"
+					target="_blank"
+				/>
+				<span>.</span>
 			</p>
 			<p>{t("home.work")}</p>
 			<p>{t("home.passions")}</p>
@@ -30,13 +34,21 @@ const lang = getLangFromUrl(Astro.url);
 			<h2>{t("home.working_experience")}</h2>
 			<ul>
 				<li>
-					<a href="https://www.trelleborg.com" title="Trelleborg" target="_blank">
-						Trelleborg
-					</a>
+					<BasicLink
+						text="Trelleborg"
+						href="https://www.trelleborg.com"
+						title="Trelleborg"
+						target="_blank"
+					/>
 					<p>{t("global.IT_developer")}</p><p>2021 - {t("global.present")}</p>
 				</li>
 				<li>
-					<a href="https://www.uplight.fr/" title="Uplight" target="_blank">Uplight</a>
+					<BasicLink
+						text="Uplight"
+						href="https://www.uplight.fr/"
+						title="Uplight"
+						target="_blank"
+					/>
 					<p>{t("home.fullstack_web_developer")}</p><p>
 						{t("global.block_release_training")}
 					</p><p>2020 - 2021</p>
@@ -59,7 +71,11 @@ const lang = getLangFromUrl(Astro.url);
 						/>
 					))
 				}
-				<a href={getUrlWithTranslation("projects", lang)}>{t("global.see_more")}</a>
+				<BasicLink
+					text={t("global.see_more")}
+					href={getUrlWithTranslation("projects", lang)}
+					title="Projects"
+				/>
 			</div>
 		</section>
 	</main>
@@ -80,19 +96,28 @@ const lang = getLangFromUrl(Astro.url);
 			FullStack.classList.remove("backend");
 		});
 	</script>
-
-	<style lang="scss">
-		.fullstack {
-			text-decoration: underline wavy red from-font;
-			text-underline-offset: 2px;
-		}
-		.backend {
-			/* TODO Edit */
-			background-image: var(--accent-gradient);
-			background-clip: text;
-			-webkit-text-fill-color: transparent;
-			background-size: 400%;
-			background-position: 0%;
-		}
-	</style>
 </Layout>
+
+<style lang="scss">
+	main {
+		font-size: 1.75rem;
+	}
+
+	h1 {
+		font-size: 5rem;
+		font-weight: 800;
+	}
+
+	.fullstack {
+		text-decoration: underline wavy red from-font;
+		text-underline-offset: 2px;
+	}
+	.backend {
+		/* TODO Edit */
+		background-image: var(--accent-gradient);
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+</style>
