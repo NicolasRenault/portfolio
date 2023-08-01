@@ -1,5 +1,5 @@
 /**
- * Generate a liste of all github project group by year of creation.
+ * Generate a list of all github project group by year of creation.
  * Heavily inspired by https://github.com/kevinzunigacuellar/web.
  */
 
