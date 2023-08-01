@@ -1,10 +1,14 @@
-interface Project {
+/**
+ * Github projects descriptions manually translated.
+ */
+
+interface Languages {
 	en: string;
 	fr: string;
 }
 
 interface Projects {
-	[projectName: string]: Project;
+	[projectName: string]: Languages;
 }
 
 export const projects: Projects = {
