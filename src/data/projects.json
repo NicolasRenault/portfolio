@@ -202,6 +202,7 @@
       "languages": [
         "Astro",
         "TypeScript",
+        "SCSS",
         "JavaScript"
       ],
       "year": 2023,
