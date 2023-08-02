@@ -61,7 +61,13 @@ interface Project {
 												  )
 												: project.url
 										}
-										github_link={project.pinned ? project.url : undefined}
+										github_link={
+											project.pinned
+												? project.url
+												: project.fork
+												? project.url
+												: undefined
+										}
 									/>
 								);
 							})}

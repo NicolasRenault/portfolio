@@ -20,9 +20,9 @@ const { title, subtitle, icon, project_link, github_link, description, pinned, f
 const randomDeg = Math.floor(Math.random() * 360) + "deg";
 ---
 
-<article id={title} class:list={[{ pinned: pinned }, { fork: fork }]}>
+<article id={!fork ? title : title + "/fork"} class:list={[{ pinned: pinned }, { fork: fork }]}>
 	<div class="border-gradient">
-		<a href={project_link} title={title}>
+		<a href={!fork ? project_link : Astro.url + `#${title}`} title={title}>
 			<div class="titles">
 				{icon && <img src={icon} alt={`${title} icon`} width="32px" height="32px" />}
 				<h3>{title}</h3>
@@ -43,7 +43,7 @@ const randomDeg = Math.floor(Math.random() * 360) + "deg";
 			{
 				(github_link || fork) && (
 					<div class="links">
-						{github_link && (
+						{(github_link || (github_link && fork)) && (
 							<a
 								href={github_link}
 								title={"Github link for " + title}
