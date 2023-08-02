@@ -2,16 +2,11 @@
  * Github projects descriptions manually translated.
  */
 
-interface Languages {
-	en: string;
-	fr: string;
+export interface ProjectsInterfaces {
+	[projectName: string]: { [lang: string]: string };
 }
 
-interface Projects {
-	[projectName: string]: Languages;
-}
-
-export const projects: Projects = {
+export const projects: ProjectsInterfaces = {
 	"MasterDetail-CSharp-DUT1": {
 		en: "University project to introduce us to desktop application development using C# by building a Master-Detail.",
 		fr: "Projet universitaire pour nous initier au développement d'applications de bureau en utilisant C# en développant un Master-Detail.",
