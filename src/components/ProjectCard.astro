@@ -6,7 +6,7 @@ export interface Props {
 	icon?: string | undefined;
 	project_link: string;
 	github_link?: string;
-	description: string;
+	description?: string;
 	pinned?: boolean | undefined;
 	fork?: string;
 	languages?: string[] | undefined;
@@ -21,7 +21,7 @@ const { title, subtitle, icon, project_link, github_link, description, pinned, f
 		<h3>{title}</h3>
 		{subtitle && <h4>{subtitle}</h4>}
 		{icon && <img src={icon} alt={`${title} icon`} width="32px" />}
-		<p>{description}</p>
+		{description && <p>{description}</p>}
 		{
 			languages && (
 			//TODO : add icons for languages

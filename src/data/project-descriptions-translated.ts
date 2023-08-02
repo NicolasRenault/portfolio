@@ -91,4 +91,8 @@ export const projects: ProjectsInterfaces = {
 		en: "A TypeScript-first internationalization library for Astro.",
 		fr: "Une bibliothèque d'internationalisation TypeScript-first pour Astro.",
 	},
+	"aaron-bond/better-comments": {
+		en: "Improve your code commenting by annotating with alert, informational, TODOs, and more!",
+		fr: "Améliorez vos commentaires de code en les annotant avec des alertes, des informations, des TODO et plus encore !",
+	},
 };
