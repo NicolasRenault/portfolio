@@ -27,13 +27,6 @@
 	--text-rgb: rgb(var(--text));
 	--text-gray-rgb: rgb(var(--text-gray));
 	--text-dark-gray-rgb: rgb(var(--text-dark-gray));
-	--accent-gradient: linear-gradient(
-		45deg,
-		var(--secondary-rgb),
-		var(--tertiary-rgb) 30%,
-		var(--text-rgb) 60%,
-		var(--tertiary-rgb) 90%
-	);
 }
 html {
 	font-family: Poppins, sans-serif;
@@ -56,9 +49,7 @@ main {
 
 	padding: 0 1.5rem;
 	max-width: 85rem;
-	margin-top: 4rem;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 4rem auto;
 }
 
 * {
@@ -108,15 +99,6 @@ h1 {
 h1,
 .title {
 	color: var(--secondary-rgb);
-}
-
-.text-gradient {
-	background-image: var(--accent-gradient);
-	font-size: 3rem;
-	background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-size: 90%;
-	background-position: 0%;
 }
 
 .ending-dot {
