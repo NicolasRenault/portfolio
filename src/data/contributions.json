@@ -5,9 +5,7 @@
     "description": "Adds playful pets 🦀🐱🐶 in your VS Code window",
     "languages": [
       "TypeScript",
-      "JavaScript",
-      "CSS",
-      "Python"
+      "JavaScript"
     ]
   },
   "better-comments": {
@@ -16,9 +14,7 @@
     "description": null,
     "languages": [
       "TypeScript",
-      "Clojure",
-      "Common Lisp",
-      "C#"
+      "Clojure"
     ]
   },
   "astro-i18n": {
@@ -27,8 +23,7 @@
     "description": "A TypeScript-first internationalization library for Astro.",
     "languages": [
       "TypeScript",
-      "JavaScript",
-      "Astro"
+      "JavaScript"
     ]
   }
 }
