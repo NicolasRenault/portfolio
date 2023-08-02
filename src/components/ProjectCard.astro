@@ -1,5 +1,4 @@
 ---
-import { t } from "astro-i18n";
 import { Icon } from "astro-icon";
 
 export interface Props {
@@ -22,7 +21,7 @@ const randomDeg = Math.floor(Math.random() * 360) + "deg";
 
 <article id={!fork ? title : title + "/fork"} class:list={[{ pinned: pinned }, { fork: fork }]}>
 	<div class="border-gradient">
-		<a href={!fork ? project_link : Astro.url + `#${title}`} title={title}>
+		<a href={!fork ? project_link : Astro.url + `#${title}`} title={title} class="main-link">
 			<div class="titles">
 				{icon && <img src={icon} alt={`${title} icon`} width="32px" height="32px" />}
 				<h3>{title}</h3>
@@ -48,19 +47,13 @@ const randomDeg = Math.floor(Math.random() * 360) + "deg";
 								href={github_link}
 								title={"Github link for " + title}
 								target="_blank"
-								class="button-animation"
 							>
 								<Icon name="codicon:github" />
 							</a>
 						)}
 						{fork && (
 							//TODO : add icons for fork
-							<a
-								href={fork}
-								title={"Fork link for " + title}
-								target="_blank"
-								class="button-animation"
-							>
+							<a href={fork} title={"Fork link for " + title} target="_blank">
 								<Icon name="codicon:repo-forked" />
 							</a>
 						)}
@@ -182,6 +175,11 @@ const randomDeg = Math.floor(Math.random() * 360) + "deg";
 				display: flex;
 				gap: calc(var(--gap) / 2);
 
+				.main-link {
+					//Astro generate a unwanted duplication of the main link
+					display: none;
+				}
+
 				a,
 				button {
 					display: inline;
@@ -197,6 +195,10 @@ const randomDeg = Math.floor(Math.random() * 360) + "deg";
 					width: 1.5rem;
 					height: 1.5rem;
 				}
+			}
+
+			&:has(> .main-link:focus-visible) {
+				outline: dashed 3px var(--secondary-rgb);
 			}
 		}
 

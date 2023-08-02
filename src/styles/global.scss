@@ -60,9 +60,10 @@ main {
 	}
 
 	:focus-visible {
+		color: var(--text-rgb) !important;
 		border: none;
 		outline: dashed 3px var(--secondary-rgb);
-		font-weight: bolder;
+		font-weight: bolder;		
 	}
 }
 
