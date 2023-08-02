@@ -10,6 +10,17 @@
       "Python"
     ]
   },
+  "better-comments": {
+    "name": "aaron-bond/better-comments",
+    "url": "https://github.com/aaron-bond/better-comments",
+    "description": null,
+    "languages": [
+      "TypeScript",
+      "Clojure",
+      "Common Lisp",
+      "C#"
+    ]
+  },
   "astro-i18n": {
     "name": "Alexandre-Fernandez/astro-i18n",
     "url": "https://github.com/Alexandre-Fernandez/astro-i18n",
