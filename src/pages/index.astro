@@ -30,8 +30,8 @@ const lang = getLangFromUrl(Astro.url);
 			<p>{t("home.work")}</p>
 			<p>{t("home.passions")}</p>
 		</section>
-		<section id="working_experience" class="col-1">
-			<h2>{t("home.working_experience")}</h2>
+		<section id="working_experiences" class="col-1">
+			<h2>{t("home.working_experiences")}</h2>
 			<ul>
 				<li>
 					<BasicLink
@@ -40,7 +40,8 @@ const lang = getLangFromUrl(Astro.url);
 						title="Trelleborg"
 						target="_blank"
 					/>
-					<p>{t("global.IT_developer")}</p><p>2021 - {t("global.present")}</p>
+					<p class="job-description">{t("global.IT_developer")}</p>
+					<p class="job-dates">2021 - {t("global.present")}</p>
 				</li>
 				<li>
 					<BasicLink
@@ -49,9 +50,9 @@ const lang = getLangFromUrl(Astro.url);
 						title="Uplight"
 						target="_blank"
 					/>
-					<p>{t("home.fullstack_web_developer")}</p><p>
-						{t("global.block_release_training")}
-					</p><p>2020 - 2021</p>
+					<p class="job-description">{t("home.fullstack_web_developer")}</p>
+					<p class="job-subtitle">{t("global.block_release_training")}</p>
+					<p class="job-dates">2020 - 2021</p>
 				</li>
 			</ul>
 		</section>
@@ -72,7 +73,7 @@ const lang = getLangFromUrl(Astro.url);
 					))
 				}
 				<BasicLink
-					text={t("global.see_more")}
+					text={t("home.see_more_projects")}
 					href={getUrlWithTranslation("projects", lang)}
 					title="Projects"
 				/>
@@ -100,25 +101,70 @@ const lang = getLangFromUrl(Astro.url);
 
 <style lang="scss">
 	main {
-		font-size: 1.75rem;
+		font-size: 1.6rem;
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-	}
+		gap: 2rem;
 
-	h1 {
-		font-size: 5rem;
-		font-weight: 800;
-	}
+		h1 {
+			font-size: 5rem;
+			font-weight: 800;
+		}
 
-	.col-1 {
-		grid-column: 1;
-	}
+		h2 {
+			font-size: 3rem;
+		}
 
-	.fullstack {
-		text-decoration: underline wavy red from-font;
-		text-underline-offset: 2px;
-	}
-	.backend {
-		color: var(--tertiary-light-rgb);
+		.col-1 {
+			grid-column: 1;
+		}
+
+		#working_experiences {
+			p {
+				margin: 1rem 0;
+			}
+
+			ul {
+				//TODO find a good list style
+				list-style: none;
+				// padding: 0;
+			}
+
+			li:not(:last-child) {
+				margin-bottom: 4rem;
+			}
+			li :global(a) {
+				font-size: 2rem;
+				font-weight: 600;
+			}
+
+			.job-description {
+				font-size: 1.8rem;
+			}
+
+			.job-subtitle {
+				color: var(--text-dark-gray-rgb);
+				font-size: 1.6rem;
+				margin-top: -1rem;
+			}
+
+			.job-dates {
+				font-size: 1.4rem;
+			}
+		}
+
+		#pinned_projects {
+			:global(> a) {
+				margin: 1rem;
+			}
+		}
+
+		.fullstack {
+			text-decoration: underline wavy red from-font;
+			text-underline-offset: 2px;
+		}
+		.backend {
+			color: var(--tertiary-light-rgb);
+		}
 	}
 </style>

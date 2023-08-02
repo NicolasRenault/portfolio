@@ -31,7 +31,6 @@ const randomDeg = Math.floor(Math.random() * 360) + "deg";
 			{description && <p class="description">{description}</p>}
 			{
 				languages && (
-				//TODO : add icons for languages
 					<div class="languages">
 						{languages.map((lang) => (
 							<p>{lang}</p>
@@ -52,7 +51,6 @@ const randomDeg = Math.floor(Math.random() * 360) + "deg";
 							</a>
 						)}
 						{fork && (
-							//TODO : add icons for fork
 							<a href={fork} title={"Fork link for " + title} target="_blank">
 								<Icon name="codicon:repo-forked" />
 							</a>

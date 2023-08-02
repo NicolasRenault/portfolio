@@ -43,9 +43,10 @@ export default defineAstroI18nConfig({
 				work: "I graduated with a Bachelor's Degree in web and mobile development. I mainly work with web technologies in backend-oriented projects.",
 				passions:
 					"Outside work, I enjoy doing sports, building side projects, spending time with friends, and playing video games.",
-				working_experience: "Working experience",
+				working_experiences: "Working experiences",
 				fullstack_web_developer: "Fullstack Web Developer",
 				selected_projects: "Selected projects",
+				see_more_projects: "See more projects",
 			},
 			projects: {
 				school_projects: "School projects",
@@ -115,9 +116,10 @@ export default defineAstroI18nConfig({
 				work: "Je suis Diplômé d'un DUT informatique et d'une Licence professionnelle dans le développement web et mobile. Je travaille principalement avec des technologies web dans des projets axés sur le backend.",
 				passions:
 					"En dehors du travail, j'aime faire du sport, réaliser des projets annexes, passer du temps avec des amis et jouer à des jeux vidéo.",
-				working_experience: "Expérience professionnelle",
+				working_experiences: "Expériences",
 				fullstack_web_developer: "Développeur Web Fullstack",
 				selected_projects: "Projets sélectionnés",
+				see_more_projects: "Voir plus de projets",
 			},
 			projects: {
 				school_projects: "Projets scolaires",
