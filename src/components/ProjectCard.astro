@@ -74,8 +74,6 @@ const randomDeg = Math.floor(Math.random() * 360) + "deg";
 <style lang="scss" define:vars={{ randomDeg }}>
 	article {
 		--gap: 1rem;
-		--width: 650px;
-		--height: 160px;
 
 		--accent-gradient: linear-gradient(
 			var(--randomDeg),
@@ -92,8 +90,8 @@ const randomDeg = Math.floor(Math.random() * 360) + "deg";
 		border-radius: 13px;
 		margin: var(--gap);
 		padding: 0;
-		width: var(--width);
-		height: var(--height);
+		width: 650px;
+		height: 160px;
 
 		color: var(--text-rgb);
 		font-size: 1.2rem;
@@ -104,19 +102,24 @@ const randomDeg = Math.floor(Math.random() * 360) + "deg";
 			box-sizing: border-box;
 		}
 
+		&.pinned {
+			& .border-gradient {
+				// outline: 2px solid darkgoldenrod;
+				outline: 2px solid var(--secondary-rgb);
+			}
+		}
+
 		.border-gradient {
 			position: relative;
 			padding: var(--gap);
 			background-color: var(--primary-light-rgb);
-			border: 0 solid;
 			border-radius: 10px;
 			width: 100%;
 			height: 100%;
 			overflow: hidden;
 
-			&.pinned {
-				border-color: darkgoldenrod;
-			}
+			transition: outline-width 0.1s ease;
+
 			a {
 				color: var(--text-rgb);
 				text-decoration: none;
@@ -200,6 +203,9 @@ const randomDeg = Math.floor(Math.random() * 360) + "deg";
 		&:hover {
 			padding: 3px;
 
+			.border-gradient {
+				outline: 0px;
+			}
 			.links {
 				bottom: -3px;
 			}
