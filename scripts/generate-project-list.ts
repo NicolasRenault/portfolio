@@ -76,7 +76,7 @@ const contributionQuery = `query {
                 nameWithOwner
                 description
                 url
-                languages(first: 4, orderBy: {field: SIZE, direction: DESC}) {
+                languages(first: 2, orderBy: {field: SIZE, direction: DESC}) {
                     nodes {
                         name
                     }
@@ -101,7 +101,7 @@ const projectQuery = `query {
                 description
                 url
                 createdAt
-                languages(first: 4, orderBy: {field: SIZE, direction: DESC}) {
+                languages(first: 2, orderBy: {field: SIZE, direction: DESC}) {
                     nodes {
                         name
                     }
