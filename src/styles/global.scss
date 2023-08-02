@@ -15,6 +15,7 @@
 	--tertiary-dark: 89, 54, 140;
 	--text: 239, 254, 244;
 	--text-gray: 200, 200, 200;
+	--text-dark-gray: 100, 100, 100;
 	--primary-rgb: rgb(var(--primary));
 	--primary-light-rgb: rgb(var(--primary-light));
 	--secondary-rgb: rgb(var(--secondary));
@@ -25,6 +26,7 @@
 	--tertiary-dark-rgb: rgb(var(--tertiary-dark));
 	--text-rgb: rgb(var(--text));
 	--text-gray-rgb: rgb(var(--text-gray));
+	--text-dark-gray-rgb: rgb(var(--text-dark-gray));
 	--accent-gradient: linear-gradient(
 		45deg,
 		var(--secondary-rgb),
@@ -91,9 +93,10 @@ main {
 
 button {
 	transition: all 0.2s ease-in-out;
-}
-button:not(:disabled):active {
-	transform: translateY(2px);
+
+	&:not(:disabled):active {
+		transform: translateY(2px);
+	}
 }
 
 h1 {

@@ -1,5 +1,7 @@
 ---
 import { t } from "astro-i18n";
+import { Icon } from "astro-icon";
+
 export interface Props {
 	title: string;
 	subtitle?: string | undefined;
@@ -16,63 +18,147 @@ const { title, subtitle, icon, project_link, github_link, description, pinned, f
 	Astro.props;
 ---
 
-<div id={title} class:list={["box", { pinned: pinned }, { fork: fork }]}>
+<article id={title} class:list={[{ pinned: pinned }, { fork: fork }]}>
 	<a href={project_link} title={title}>
-		<h3>{title}</h3>
-		{subtitle && <h4>{subtitle}</h4>}
-		{icon && <img src={icon} alt={`${title} icon`} width="32px" />}
-		{description && <p>{description}</p>}
+		<div class="titles">
+			{icon && <img src={icon} alt={`${title} icon`} width="32px" height="32px" />}
+			<h3>{title}</h3>
+			{subtitle && <h4>{subtitle}</h4>}
+		</div>
+
+		{description && <p class="description">{description}</p>}
 		{
 			languages && (
 			//TODO : add icons for languages
-				<div>
+				<div class="languages">
 					{languages.map((lang) => (
 						<p>{lang}</p>
 					))}
 				</div>
 			)
 		}
+		{
+			(github_link || fork) && (
+				<div class="links">
+					{github_link && (
+						<a
+							href={github_link}
+							title={"Github link for " + title}
+							target="_blank"
+							class="button-animation"
+						>
+							<Icon name="codicon:github" />
+						</a>
+					)}
+					{fork && (
+						//TODO : add icons for fork
+						<a
+							href={fork}
+							title={"Fork link for " + title}
+							target="_blank"
+							class="button-animation"
+						>
+							<Icon name="codicon:repo-forked" />
+						</a>
+					)}
+				</div>
+			)
+		}
 	</a>
-	{
-		github_link && (
-			<a href={github_link} title={"Github link for " + title} target="_blank">
-				{t("global.see_on_github")}
-			</a>
-		)
-	}
-	{
-		fork && (
-			//TODO : add icons for fork
-			<a href={fork} title={"Fork link for " + title} target="_blank">
-				Fork
-			</a>
-		)
-	}
+</article>
 
-	<style lang="scss">
-		.box {
-			display: flex;
-			position: relative;
-			flex-direction: column;
-			padding: 1rem;
-			width: 40%;
+<style lang="scss">
+	article {
+		--gap: 1rem;
+
+		display: flex;
+		position: relative;
+		flex-direction: column;
+		padding: var(--gap);
+		// width: 40%;
+		background-color: var(--primary-light-rgb);
+		border-radius: 0.5rem;
+		border: 2px solid rgba(255, 255, 255, 0.1);
+		margin: var(--gap);
+
+		color: var(--text-rgb);
+		font-size: 1.2rem;
+
+		&.pinned {
+			border-color: darkgoldenrod;
+		}
+		a {
 			color: var(--text-rgb);
-			background-color: var(--primary-light-rgb);
-			border-radius: 0.5rem;
-			margin: 1rem;
+			text-decoration: none;
+		}
+		img,
+		svg {
+			color: var(--text-rgb);
+			aspect-ratio: 1/1;
+		}
 
-			a {
-				color: var(--text-rgb);
-				text-decoration: none;
-			}
-			img,
-			svg {
-				color: var(--text-rgb);
+		.titles {
+			display: flex;
+			gap: var(--gap);
+			align-items: center;
+			margin-bottom: var(--gap);
+
+			* {
+				margin: 0;
 			}
 
-			&.pinned {
-				outline: 1px solid darkgoldenrod;
+			h3 {
+				font-weight: bolder;
+				text-decoration: underline 2px var(--secondary-rgb);
+				text-underline-offset: 0.3rem;
+			}
+			h4 {
+				font-weight: 500;
+				color: var(--text-dark-gray-rgb);
 			}
 		}
-	</style>
-</div>
+
+		.description {
+			margin: 0.5rem 0;
+		}
+
+		.languages {
+			display: flex;
+			gap: var(--gap);
+			font-size: 1rem;
+
+			p {
+				margin-top: calc(var(--gap) / 2);
+				margin-bottom: 0;
+				background-color: var(--secondary-dark-rgb);
+				padding: 0.5rem;
+				border-radius: 0.5rem;
+			}
+		}
+
+		.links {
+			position: absolute;
+			bottom: var(--gap);
+			right: var(--gap);
+
+			display: flex;
+			gap: calc(var(--gap) / 2);
+
+			a,
+			button {
+				display: inline;
+				transition: all 0.2s ease-in-out;
+
+				&:hover {
+					transform: translateY(-2px);
+				}
+			}
+
+			img,
+			svg {
+				width: 1.5rem;
+				height: 1.5rem;
+			}
+		}
+	}
+</style>
