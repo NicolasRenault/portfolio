@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon";
+import { getLangFromUrl, getUrlWithTranslation } from "@utils";
 
 export interface Props {
 	title: string;
@@ -17,11 +18,16 @@ const { title, subtitle, icon, project_link, github_link, description, pinned, f
 	Astro.props;
 
 const randomDeg = Math.floor(Math.random() * 360) + "deg";
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <article id={!fork ? title : title + "/fork"} class:list={[{ pinned: pinned }, { fork: fork }]}>
 	<div class="border-gradient">
-		<a href={!fork ? project_link : Astro.url + `#${title}`} title={title} class="main-link">
+		<a
+			href={!fork ? project_link : getUrlWithTranslation("projects", lang) + `#${title}`}
+			title={title}
+			class="main-link"
+		>
 			<div class="titles">
 				{icon && <img src={icon} alt={`${title} icon`} width="32px" height="32px" />}
 				<h3>{title}</h3>
