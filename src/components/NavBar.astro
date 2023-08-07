@@ -19,6 +19,10 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 }
 ---
 
+<button id="mobile-nav-toggle">
+	<Icon name="ci:hamburger" />
+</button>
+
 <nav>
 	<ul>
 		<li class:list={[{ active: Astro.url.pathname == getUrlWithTranslation("", lang) }]}>
@@ -61,13 +65,29 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 	</div>
 </nav>
 
+<script>
+	const nav = document.querySelector("nav");
+	const mobileNavToggle = document.querySelector("#mobile-nav-toggle");
+
+	mobileNavToggle?.addEventListener("click", () => {
+		if (nav?.classList.contains("active")) {
+			nav?.classList.remove("active");
+		} else {
+			nav?.classList.add("active");
+		}
+	});
+</script>
+
 <style lang="scss">
 	nav {
+		--font-size: 1.5rem;
+
 		display: flex;
 		justify-content: space-between;
-		padding: 0 1.5rem;
+		padding: 1rem 1.5rem 0 1.5rem;
+		height: fit-content;
 		align-items: center;
-		font-size: 1.5rem;
+		font-size: var(--font-size);
 
 		max-width: 85rem;
 		margin-left: auto;
@@ -81,9 +101,6 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 
 			li {
 				position: relative;
-				// overflow: hidden;
-				// display: inline-block;
-				// height: max-content;
 
 				&::before {
 					content: "";
@@ -101,7 +118,6 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 				}
 				&:hover::before {
 					width: 100%;
-					// background-color: var(--text-rgb);
 				}
 
 				&.active::after {
@@ -114,7 +130,6 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 					width: 100%;
 					height: 3px;
 					background: var(--secondary-rgb);
-					z-index: -1;
 					transition: width 0.5s;
 				}
 				&:hover::after {
@@ -132,10 +147,6 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 
 			border: none;
 			background: none;
-
-			&.active {
-				border-bottom: 3px solid var(--secondary-rgb);
-			}
 		}
 
 		#left-container {
@@ -143,26 +154,135 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 			grid-template-columns: 1fr 1fr;
 			gap: 2rem;
 			align-items: center;
+			margin-right: 1rem;
 			a,
 			button {
-				transition: all 0.2s ease-in-out;
+				transition: transform 0.2s ease-in-out;
 
 				&:hover {
 					transform: translateY(-2px);
 				}
 			}
+
+			#github-link {
+				display: flex;
+
+				svg {
+					width: var(--font-size);
+					height: var(--font-size);
+				}
+			}
 		}
 	}
 
-	#github-link {
-		display: flex;
+	#mobile-nav-toggle {
+		display: none;
+	}
 
-		svg {
-			width: 1.5rem;
-			height: 1.5rem;
+	@media (max-width: 1024px) {
+		nav {
+			--font-size: 1.2rem;
+
+			ul {
+				padding: 0;
+				gap: 3rem;
+			}
+
+			#left-container {
+				margin-right: 0;
+				gap: 1rem;
+			}
 		}
 	}
-	nr-logo {
-		color: var(--text-rgb);
+
+	@media (max-width: 680px) {
+		nav {
+			--font-size: 1rem;
+			padding: 1rem 2rem;
+
+			ul {
+				gap: 2rem;
+			}
+		}
+	}
+
+	@media (max-width: 480px) {
+		#mobile-nav-toggle {
+			display: block !important;
+			position: absolute;
+			top: 0.75rem;
+			right: 0.75rem;
+			z-index: 1000;
+
+			border: none;
+			background: none;
+			color: var(--text-rgb);
+
+			svg {
+				width: 2rem;
+				height: 2rem;
+			}
+		}
+
+		nav {
+			--font-size: 1.5rem;
+
+			display: block;
+
+			position: absolute;
+			width: 40%;
+			height: 100%;
+
+			top: 0;
+			right: 0;
+
+			background-color: var(--secondary-rgb);
+			transition: transform 0.3s ease-in-out;
+
+			overflow: hidden;
+			transform: translateX(100%);
+
+			&.active {
+				transform: translateX(0);
+			}
+
+			ul {
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 1rem;
+				padding-top: 1rem;
+
+				li {
+					&:hover {
+						&::before {
+							background-color: var(--primary-light-rgb);
+						}
+					}
+
+					&.active::after {
+						background: var(--text-rgb);
+					}
+				}
+			}
+
+			#left-container {
+				grid-template-columns: 1fr;
+				* {
+					width: fit-content;
+				}
+			}
+
+			*::selection {
+				background-color: var(--primary-light-rgb);
+				color: var(--text-rgb);
+			}
+
+			:focus-visible {
+				color: var(--primary-light-rgb) !important;
+				border: none;
+				outline: dashed 3px var(--primary-rgb);
+				font-weight: bolder;
+			}
+		}
 	}
 </style>
