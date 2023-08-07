@@ -77,6 +77,8 @@ const lang = getLangFromUrl(Astro.url);
 			var(--secondary-rgb)
 		);
 
+		--dashed-outline: dashed 3px var(--secondary-rgb);
+
 		display: block;
 		box-sizing: border-box;
 		background-image: var(--accent-gradient);
@@ -97,8 +99,13 @@ const lang = getLangFromUrl(Astro.url);
 
 		&.pinned {
 			& .border-gradient {
-				// outline: 2px solid darkgoldenrod;
 				outline: 2px solid var(--secondary-rgb);
+			}
+		}
+
+		&:target {
+			.border-gradient {
+				outline: var(--dashed-outline);
 			}
 		}
 
@@ -198,7 +205,7 @@ const lang = getLangFromUrl(Astro.url);
 			}
 
 			&:has(> .main-link:focus-visible) {
-				outline: dashed 3px var(--secondary-rgb);
+				outline: var(--dashed-outline);
 			}
 		}
 
