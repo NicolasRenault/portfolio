@@ -28,20 +28,25 @@ const zIndex = 1000;
 <nav>
 	<ul>
 		<li class:list={[{ active: Astro.url.pathname == getUrlWithTranslation("", lang) }]}>
-			<a href={getUrlWithTranslation("", lang)} title="Homepage">
+			<a href={getUrlWithTranslation("", lang)} title={t("navbar.homepage")}>
 				{t("navbar.homepage")}
 			</a>
 		</li>
 
 		<li class:list={[{ active: currentPathName == getUrlWithTranslation("projects", lang) }]}>
-			<a href={getUrlWithTranslation("projects", lang)} title="Projects">
+			<a href={getUrlWithTranslation("projects", lang)} title={t("navbar.projects")}>
 				{t("navbar.projects")}
+			</a>
+		</li>
+		<li>
+			<a href="_" title={t("navbar.resume")} target="_blank" rel="noopener noreferrer">
+				{t("navbar.resume")}
 			</a>
 		</li>
 		<li>
 			<a
 				href="mailto:contact@nicolasrenault.com?subject=Hello there!&body=Hey,"
-				title="Contact me"
+				title={t("navbar.contact_me")}
 				target="_blank"
 				rel="noopener noreferrer"
 			>
@@ -53,7 +58,7 @@ const zIndex = 1000;
 		<a
 			id="github-link"
 			href="https://github.com/NicolasRenault"
-			title="Github link"
+			title={t("navbar.github_profile")}
 			target="_blank"
 		>
 			<Icon name="codicon:github" />
@@ -61,7 +66,7 @@ const zIndex = 1000;
 		<a
 			id="translation-link"
 			href={switchLangFromUrl(Astro.url, lang === defaultLang ? "fr" : "en")}
-			title="Switch language">{lang === defaultLang ? "fr" : "en"}</a
+			title={t("navbar.switch_language")}>{lang === defaultLang ? "fr" : "en"}</a
 		>
 		{/* TODO add toggle for horizontal scroll */}
 	</div>

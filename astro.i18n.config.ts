@@ -34,6 +34,9 @@ export default defineAstroI18nConfig({
 				projects: "Projects",
 				resume: "Resume",
 				contact: "Contact",
+				contact_me: "Contact me",
+				github_profile: "GitHub profile",
+				switch_language: "Switch language",
 			},
 			home: {
 				hello: "Hi, I'm",
@@ -107,6 +110,9 @@ export default defineAstroI18nConfig({
 				projects: "Projets",
 				resume: "CV",
 				contact: "Contact",
+				contact_me: "Me contacter",
+				github_profile: "Profil GitHub",
+				switch_language: "Changer de langue",
 			},
 			home: {
 				hello: "Salut, je suis",
