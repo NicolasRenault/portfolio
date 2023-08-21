@@ -1,4 +1,5 @@
 import { projects, ProjectsInterfaces } from "@data/project-descriptions-translated";
+import { resumeLinks } from "@data/resumes-links";
 
 export const defaultLang = "en";
 export const supportedLangs = {
@@ -52,4 +53,14 @@ export function getTranslatedDescription(projectName: string, lang: string): str
 		return (projects as ProjectsInterfaces)[projectName][lang];
 	}
 	return undefined;
+}
+
+/**
+ * Get the resume link for a language from the resumeLinks array in /data.
+ *
+ * @param {string} lang
+ * @returns string
+ */
+export function getResumeLinkForLanguage(lang: string): string {
+	return resumeLinks[lang] ?? "#";
 }

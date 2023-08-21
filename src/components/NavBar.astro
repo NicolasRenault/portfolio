@@ -1,5 +1,11 @@
 ---
-import { defaultLang, getLangFromUrl, getUrlWithTranslation, switchLangFromUrl } from "@utils";
+import {
+	defaultLang,
+	getLangFromUrl,
+	getUrlWithTranslation,
+	switchLangFromUrl,
+	getResumeLinkForLanguage,
+} from "@utils";
 import { astroI18n, t } from "astro-i18n";
 import { Icon } from "astro-icon";
 
@@ -39,7 +45,7 @@ const zIndex = 1000;
 			</a>
 		</li>
 		<li>
-			<a href="_" title={t("navbar.resume")} target="_blank" rel="noopener noreferrer">
+			<a href={getResumeLinkForLanguage(lang)} title={t("navbar.resume")} target="_blank">
 				{t("navbar.resume")}
 			</a>
 		</li>
