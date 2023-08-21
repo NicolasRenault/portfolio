@@ -35,6 +35,14 @@ html {
 	scroll-behavior: smooth;
 }
 
+body {
+	position: relative;
+
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+}
+
 nav {
 	height: 6rem;
 }
@@ -50,7 +58,7 @@ main {
 
 	padding: 0 1.5rem;
 	max-width: 85rem;
-	margin: 4rem auto;
+	margin: auto;
 }
 
 * {

@@ -17,6 +17,8 @@ let currentPathName = Astro.url.pathname;
 if (lastSlashIndex > Astro.url.pathname.length - 2) {
 	currentPathName = currentPathName.slice(0, lastSlashIndex);
 }
+
+const zIndex = 1000;
 ---
 
 <button id="mobile-nav-toggle">
@@ -78,7 +80,7 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 	});
 </script>
 
-<style lang="scss">
+<style lang="scss" define:vars={{ zIndex }}>
 	nav {
 		--font-size: 1.5rem;
 
@@ -88,6 +90,8 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 		height: fit-content;
 		align-items: center;
 		font-size: var(--font-size);
+
+		z-index: var(--zIndex);
 
 		max-width: 85rem;
 		margin-left: auto;
@@ -177,6 +181,7 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 
 	#mobile-nav-toggle {
 		display: none;
+		z-index: calc(var(--zIndex) + 1);
 	}
 
 	@media (max-width: 1024px) {
@@ -201,7 +206,7 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 			padding: 1rem 2rem;
 
 			ul {
-				gap: 2rem;
+				gap: 1rem;
 			}
 		}
 	}
@@ -212,7 +217,6 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 			position: absolute;
 			top: 0.75rem;
 			right: 0.75rem;
-			z-index: 1000;
 
 			border: none;
 			background: none;
@@ -231,7 +235,7 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 
 			position: absolute;
 			width: 40%;
-			height: 100%;
+			height: 100vh;
 
 			top: 0;
 			right: 0;
