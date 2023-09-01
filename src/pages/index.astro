@@ -144,12 +144,23 @@ const lang = getLangFromUrl(Astro.url);
 		}
 	}
 
+	@media (min-width: 1024px) {
+		#introduction {
+			width: 65% !important;
+		}
+	}
 	@media (max-width: 1024px) {
 		main {
 			font-size: 1rem;
 		}
 	}
 
+	@media (min-width: 768px) {
+		#introduction {
+			grid-column: span 2;
+			width: 75%;
+		}
+	}
 	@media (max-width: 768px) {
 		main {
 			grid-template-columns: 1fr;
