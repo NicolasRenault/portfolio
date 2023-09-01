@@ -54,6 +54,7 @@ export default defineAstroI18nConfig({
 				see_more_projects: "See more projects",
 			},
 			projects: {
+				intro: "All the projects previewed below can be found on my",
 				school_projects: "School projects",
 			},
 			cheaty: {
@@ -132,6 +133,7 @@ export default defineAstroI18nConfig({
 				see_more_projects: "Voir plus de projets",
 			},
 			projects: {
+				intro: "Tous les projets présentés ci-dessous peuvent être trouvés sur mon",
 				school_projects: "Projets scolaires",
 			},
 			cheaty: {

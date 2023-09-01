@@ -5,6 +5,7 @@ import { astroI18n, t } from "astro-i18n";
 import projects from "@data/projects.json";
 import contributions from "@data/contributions.json";
 import ProjectCard from "@components/ProjectCard.astro";
+import BasicLink from "@components/BasicLink.astro";
 
 astroI18n.init(Astro);
 const lang = getLangFromUrl(Astro.url);
@@ -27,6 +28,15 @@ interface Project {
 
 <Layout title={t("navbar.projects")}>
 	<main>
+		<div id="introduction">
+			<span>{t("projects.intro")}</span>
+			<BasicLink
+				text="Github"
+				href="https://github.com/NicolasRenault"
+				title="Github"
+				target="_blank"
+			/>
+		</div>
 		<h1>{t("navbar.projects")}</h1>
 		{
 			years.map((year) => {
@@ -92,12 +102,21 @@ interface Project {
 			))
 		}
 	</main>
+</Layout>
 
-	<style lang="scss">
-		main {
-			margin: auto;
-			padding: 1.5rem;
-			max-width: 60ch;
+<style lang="scss">
+	main {
+		margin: 2rem auto;
+		padding: 1.5rem;
+		// max-width: 60ch;
+
+		#introduction {
+			margin-bottom: 2rem;
+			font-size: 1.5rem;
+
+			span {
+				padding-right: 0.25rem;
+			}
 		}
 
 		h2 {
@@ -107,5 +126,5 @@ interface Project {
 				color: var(--text-gray-rgb);
 			}
 		}
-	</style>
-</Layout>
+	}
+</style>
