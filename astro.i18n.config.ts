@@ -40,12 +40,14 @@ export default defineAstroI18nConfig({
 			},
 			home: {
 				hello: "Hi, I'm",
-				intro_1: "I'm a",
-				intro_2:
-					"Developer based in France. Currently working at Trelleborg as an IT Developer and Software Administrator. I'm always doing side projects that you can find on my ",
-				work: "I graduated with a Bachelor's Degree in web and mobile development. I mainly work with web technologies in backend-oriented projects.",
+				me: "I'm a Web Developer based in France. I graduated with a Bachelor's Degree in web and mobile development.",
+				technologies:
+					"Mostly doing on FullStack development, I have a preference for backend technologies ever since I started learning programming.",
+				motivations:
+					"I'm always trying to optimize life in every aspects, which is why I enjoy building software applications that help people perform tasks more quickly and efficiently.",
 				passions:
 					"Outside work, I enjoy doing sports, building side projects, spending time with friends, and playing video games.",
+				work: "I’m currently working at Trelleborg as an IT Developer and Software Administrator.",
 				working_experiences: "Working experiences",
 				fullstack_web_developer: "Fullstack Web Developer",
 				selected_projects: "Selected projects",
@@ -116,12 +118,14 @@ export default defineAstroI18nConfig({
 			},
 			home: {
 				hello: "Salut, je suis",
-				intro_1: "Je suis un Développeur",
-				intro_2:
-					"basé en France. Je travaille actuellement chez Trelleborg en tant que développeur informatique et administrateur de logiciels. Je suis très souvent en train de réaliser des projets annexes que vous pouvez trouver sur mon ",
-				work: "Je suis Diplômé d'un DUT informatique et d'une Licence professionnelle dans le développement web et mobile. Je travaille principalement avec des technologies web dans des projets axés sur le backend.",
+				me: "Je suis un Développeur Web basé en France. Je suis Diplômé d'un DUT informatique et d'une Licence professionnelle dans le développement web et mobile.",
+				technologies:
+					"Principalement orienté FullStack, j'ai une préférence pour les technologies Backend depuis que j'ai commencé à apprendre la programmation.",
+				motivations:
+					"J'essaie toujours d'optimiser la vie dans tous les aspects, c'est pourquoi j'aime développer des applications logicielles qui aident les gens à effectuer des tâches plus rapidement et plus efficacement.",
 				passions:
-					"En dehors du travail, j'aime faire du sport, réaliser des projets annexes, passer du temps avec des amis et jouer à des jeux vidéo.",
+					"En dehors du travail, j'aime faire du sport, réaliser des projets annexes, passer du temps avec des amis et jouer aux jeux vidéo.",
+				work: "Je travaille actuellement chez Trelleborg en tant que Développeur informatique et Administrateur logiciel.",
 				working_experiences: "Expériences",
 				fullstack_web_developer: "Développeur Web Fullstack",
 				selected_projects: "Projets sélectionnés",

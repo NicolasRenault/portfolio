@@ -15,20 +15,11 @@ const lang = getLangFromUrl(Astro.url);
 	<main>
 		<section id="introduction">
 			<p><span>{t("home.hello")}</span><h1>Nicolas Renault</h1></p>
-			<p>
-				{t("home.intro_1")}
-				<span id="fullstack" class="fullstack">FullStack</span>
-				{t("home.intro_2")}
-				<BasicLink
-					text="Github"
-					href="https://github.com/NicolasRenault"
-					title="Github"
-					target="_blank"
-				/>
-				<span class="ending-dot">.</span>
-			</p>
-			<p>{t("home.work")}</p>
+			<p>{t("home.me")}</p>
+			<p>{t("home.technologies")}</p>
+			<p>{t("home.motivations")}</p>
 			<p>{t("home.passions")}</p>
+			<p>{t("home.work")}</p>
 		</section>
 		<section id="working_experiences" class="col-1">
 			<h2>{t("home.working_experiences")}</h2>
@@ -80,23 +71,6 @@ const lang = getLangFromUrl(Astro.url);
 			</div>
 		</section>
 	</main>
-
-	<script>
-		/**
-		 * Change the text of the FullStack span to Backend when the mouse is over it
-		 */
-		const FullStack = document.getElementById("fullstack");
-		FullStack?.addEventListener("mouseover", () => {
-			FullStack.innerText = "Backend";
-			FullStack.classList.add("backend");
-			FullStack.classList.remove("fullstack");
-		});
-		FullStack?.addEventListener("mouseout", () => {
-			FullStack.innerText = "FullStack";
-			FullStack.classList.add("fullstack");
-			FullStack.classList.remove("backend");
-		});
-	</script>
 </Layout>
 
 <style lang="scss">
