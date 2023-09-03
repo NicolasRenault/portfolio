@@ -5,6 +5,7 @@ import BaseHead from "@components/BaseHead.astro";
 import NavBar from "@components/NavBar.astro";
 import { getLangFromUrl } from "@utils";
 import Footer from "@components/Footer.astro";
+import { ViewTransitions } from "astro:transitions";
 
 export interface Props {
 	title: string | undefined;
@@ -17,12 +18,13 @@ const lang = getLangFromUrl(Astro.url);
 
 <!DOCTYPE html>
 <html lang={lang}>
+	<ViewTransitions />
 	<BaseHead title={title} />
-	<body>
+	<body transition:animate="fade">
 		<NavBar />
 		<section id="main">
 			<slot />
 		</section>
-		<Footer navigate={pathname} />
+		<Footer navigate={pathname} client:visible />
 	</body>
 </html>
