@@ -3,10 +3,10 @@ import "@styles/normalize.css";
 import "@styles/global.scss";
 import BaseHead from "@components/BaseHead.astro";
 import NavBar from "@components/NavBar.astro";
-import { getLangFromUrl } from "@utils";
 import Footer from "@components/Footer.astro";
-import { ViewTransitions } from "astro:transitions";
 import Grainy from "@components/Grainy.astro";
+import { getLangFromUrl } from "@utils";
+import { ViewTransitions } from "astro:transitions";
 
 export interface Props {
 	title: string | undefined;
@@ -26,7 +26,7 @@ const lang = getLangFromUrl(Astro.url);
 		<section id="main">
 			<slot />
 		</section>
-		<Footer navigate={pathname} client:visible />
+		<Footer navigate={pathname} />
 		<Grainy />
 	</body>
 </html>
