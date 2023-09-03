@@ -6,6 +6,7 @@ import NavBar from "@components/NavBar.astro";
 import { getLangFromUrl } from "@utils";
 import Footer from "@components/Footer.astro";
 import { ViewTransitions } from "astro:transitions";
+import Grainy from "@components/Grainy.astro";
 
 export interface Props {
 	title: string | undefined;
@@ -26,5 +27,6 @@ const lang = getLangFromUrl(Astro.url);
 			<slot />
 		</section>
 		<Footer navigate={pathname} client:visible />
+		<Grainy />
 	</body>
 </html>

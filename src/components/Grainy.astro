@@ -1,0 +1,31 @@
+---
+---
+
+<svg id="grainy-svg">
+	<filter id="grainy-filter">
+		<feTurbulence type="turbulence" baseFrequency=".6"></feTurbulence>
+	</filter>
+</svg>
+
+<style is:global>
+	body::before {
+		position: absolute;
+		content: "";
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 9999;
+		pointer-events: none;
+
+		opacity: 30%;
+		filter: url(#grainy-filter);
+	}
+
+	#grainy-svg {
+		position: absolute;
+		width: 0;
+		height: 0;
+		overflow: hidden;
+	}
+</style>
