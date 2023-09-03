@@ -1,0 +1,120 @@
+---
+import { redirectTargets, type RedirectTargets } from "@data/redirect-targets";
+import { getLangFromUrl, getUrlWithTranslation } from "@utils";
+import { astroI18n, t } from "astro-i18n";
+import Icon from "astro-icon";
+
+astroI18n.init(Astro);
+export interface Props {
+	navigate?: string;
+}
+
+const { navigate } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+
+let redirect = false;
+let text = "";
+let target = "";
+
+if (navigate) {
+	if (navigate in redirectTargets) {
+		redirect = true;
+		target = (redirectTargets as RedirectTargets)[navigate].target;
+		text = (redirectTargets as RedirectTargets)[navigate].text;
+	}
+}
+---
+
+<footer
+	id="page-footer"
+	class:list={[{ navigate: redirect }]}
+	data-enable-redirect={redirect}
+	data-target={getUrlWithTranslation(target, lang)}
+>
+	<nr-logo size="xl" rainbow></nr-logo>
+	{
+		redirect && (
+			<div id="sticky-container">
+				<a id="sticky" href="#bottom" title={t("global.bottom_page")}>
+					<p>{t(text)}</p>
+					<Icon name="mdi:arrow-down" />
+				</a>
+			</div>
+		)
+	}
+	<div id="bottom"></div>
+</footer>
+
+<script>
+	const footer = document.querySelector("#page-footer");
+	const navigate = footer?.getAttribute("data-enable-redirect") !== null;
+	const target = footer?.getAttribute("data-target") as string;
+
+	const stickyContainer = document.querySelector("#sticky-container");
+
+	document.addEventListener("scroll", () => {
+		if (navigate && window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+			stickyContainer?.classList.add("completed");
+
+			setTimeout(() => {
+				window.location.href = target;
+			}, 1000);
+		}
+	});
+</script>
+
+<style lang="scss">
+	footer {
+		--heigth: 100px;
+
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		height: var(--heigth);
+		padding: 10rem 0;
+		gap: 3rem;
+
+		nr-logo {
+			color: var(--secondary-rgb);
+		}
+
+		#sticky-container {
+			position: relative;
+			bottom: 0;
+			height: 100%;
+			display: flex;
+			align-items: center;
+
+			font-size: 1.5rem;
+			font-weight: bold;
+
+			#sticky {
+				position: sticky;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+
+				text-decoration: none;
+				color: inherit;
+
+				bottom: 40%;
+
+				svg {
+					height: 42px;
+				}
+			}
+
+			&.completed {
+				color: var(--secondary-rgb);
+			}
+		}
+
+		&.navigate {
+			height: calc(100vh + var(--heigth));
+			padding-bottom: 0;
+		}
+	}
+</style>

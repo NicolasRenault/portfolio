@@ -4,12 +4,14 @@ import "@styles/global.scss";
 import BaseHead from "@components/BaseHead.astro";
 import NavBar from "@components/NavBar.astro";
 import { getLangFromUrl } from "@utils";
+import Footer from "@components/Footer.astro";
 
 export interface Props {
 	title: string | undefined;
+	pathname?: string;
 }
 
-const { title } = Astro.props;
+const { title, pathname } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 ---
 
@@ -21,5 +23,6 @@ const lang = getLangFromUrl(Astro.url);
 		<section id="main">
 			<slot />
 		</section>
+		<Footer navigate={pathname} />
 	</body>
 </html>

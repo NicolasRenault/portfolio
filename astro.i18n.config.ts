@@ -19,6 +19,7 @@ export default defineAstroI18nConfig({
 				license: "License",
 				light: "Light theme",
 				dark: "Dark theme",
+				bottom_page: "Bottom of the page",
 			},
 			language: {
 				size: "Size",
@@ -83,6 +84,11 @@ export default defineAstroI18nConfig({
 				searching: "Searching for something ?",
 				here_is_for_you: "Here is for you",
 			},
+			navigate: {
+				homepage: "Back to homepage",
+				projects: "See all projects",
+				back_to_projects: "Back to projects",
+			},
 		},
 		fr: {
 			global: {
@@ -98,6 +104,7 @@ export default defineAstroI18nConfig({
 				license: "Licence",
 				light: "Thème clair",
 				dark: "Thème sombre",
+				bottom_page: "Bas de la page",
 			},
 			language: {
 				size: "Taille",
@@ -162,6 +169,11 @@ export default defineAstroI18nConfig({
 				error: "Erreur 404 - Page non trouvée",
 				searching: "Vous cherchez quelque chose ?",
 				here_is_for_you: "Voici pour vous",
+			},
+			navigate: {
+				homepage: "Retour à l'accueil",
+				projects: "Voir tous les projets",
+				back_to_projects: "Retour aux projets",
 			},
 		},
 	},

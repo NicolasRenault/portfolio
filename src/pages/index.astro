@@ -11,7 +11,7 @@ astroI18n.init(Astro);
 const lang = getLangFromUrl(Astro.url);
 ---
 
-<Layout title={undefined}>
+<Layout title={undefined} pathname="homepage">
 	<main>
 		<section id="introduction">
 			<p><span>{t("home.hello")}</span><h1>Nicolas Renault</h1></p>

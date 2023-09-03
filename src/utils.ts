@@ -1,4 +1,4 @@
-import { projects, ProjectsInterfaces } from "@data/project-descriptions-translated";
+import { projects, type ProjectsInterfaces } from "@data/project-descriptions-translated";
 import { resumeLinks } from "@data/resumes-links";
 
 export const defaultLang = "en";
