@@ -7,7 +7,7 @@ export default defineAstroI18nConfig({
 	translations: {
 		en: {
 			global: {
-				IT_developer: "IT Developer",
+				application_developer: "Application Developer",
 				block_release_training: "Block release training",
 				present: "Present",
 				learn_more: "Learn more",
@@ -92,7 +92,7 @@ export default defineAstroI18nConfig({
 		},
 		fr: {
 			global: {
-				IT_developer: "Développeur informatique",
+				application_developer: "Développeur d'application",
 				block_release_training: "Formation en alternance",
 				present: "Aujourd'hui",
 				learn_more: "En savoir plus",
