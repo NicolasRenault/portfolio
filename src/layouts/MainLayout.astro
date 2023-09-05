@@ -4,7 +4,7 @@ import "@styles/global.scss";
 import BaseHead from "@components/BaseHead.astro";
 import NavBar from "@components/NavBar.astro";
 import Footer from "@components/Footer.astro";
-import Grainy from "@components/Grainy.astro";
+import GrainyFilter from "@components/GrainyFilter.astro";
 import { getLangFromUrl } from "@utils";
 import { ViewTransitions } from "astro:transitions";
 
@@ -28,6 +28,6 @@ const lang = getLangFromUrl(Astro.url);
 			</section>
 			<Footer navigate={pathname} />
 		</div>
-		<Grainy />
+		<GrainyFilter />
 	</body>
 </html>
