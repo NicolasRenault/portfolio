@@ -62,7 +62,7 @@ if (navigate) {
 		const stickyContainer = document.querySelector("#sticky-container");
 
 		document.addEventListener("scroll", () => {
-			if (navigate && window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+			if (navigate && window.innerHeight + window.scrollY >= document.body.offsetHeight - 5) {
 				stickyContainer?.classList.add("completed");
 
 				setTimeout(() => {
