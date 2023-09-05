@@ -23,7 +23,7 @@ const randomDeg = Math.floor(Math.random() * 360) + "deg";
 	<div class:list={["card-container", { pinned: pinned }, { fork: fork }]}>
 		<div class:list={["border-gradient", { "has-subtitle": subtitle }]}>
 			<a href={!fork ? project_link : `#${title}`} title={title} class="main-link">
-				<div class="titles">
+				<div class:list={["titles", { "has-icon": icon }]}>
 					{icon && <img src={icon} alt={`${title} icon`} width="32px" height="32px" />}
 					<h3>{title}</h3>
 					{subtitle && <h4>{subtitle}</h4>}
@@ -78,6 +78,12 @@ const randomDeg = Math.floor(Math.random() * 360) + "deg";
 	}
 	.card-container {
 		--gap: 1rem;
+		--width: 650px;
+		--width-small: 370px;
+		--width-smaller: 300px;
+		--heigth: 160px;
+		--heigth-small: 145px;
+		--heigth-smaller: 80px;
 
 		--accent-gradient: linear-gradient(
 			var(--randomDeg),
@@ -135,19 +141,43 @@ const randomDeg = Math.floor(Math.random() * 360) + "deg";
 				aspect-ratio: 1/1;
 			}
 
+			&.has-subtitle {
+				.titles {
+					grid-template-columns: 1fr 100%;
+
+					&.has-icon {
+						grid-template-columns: 32px 1fr 100%;
+
+						h3 {
+							overflow: inherit;
+						}
+					}
+				}
+			}
+
 			.titles {
+				position: relative;
 				display: grid;
-				grid-template-columns: 32px 1fr 100%;
+				grid-template-columns: 100%;
 				gap: var(--gap);
 				align-items: center;
 				margin-bottom: var(--gap);
-				white-space: nowrap;
+
+				&.has-icon {
+					grid-template-columns: 32px 100%;
+				}
 
 				* {
 					margin: 0;
 				}
 
 				h3 {
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					overflow: hidden;
+					width: 100%;
+					min-height: 27px;
+
 					font-weight: bolder;
 					text-decoration: underline 2px var(--secondary-rgb);
 					text-underline-offset: 0.3rem;
@@ -187,9 +217,14 @@ const randomDeg = Math.floor(Math.random() * 360) + "deg";
 				position: absolute;
 				bottom: var(--gap);
 				right: var(--gap);
+				height: 1.5rem;
 
 				display: flex;
 				gap: calc(var(--gap) / 2);
+
+				background-color: var(--primary-light-rgb);
+
+				padding-left: calc(var(--gap) / 2);
 
 				.main-link {
 					//Astro generate a unwanted duplication of the main link
@@ -232,18 +267,14 @@ const randomDeg = Math.floor(Math.random() * 360) + "deg";
 
 	@container card-container (width < 650px) {
 		article .card-container {
-			width: 370px;
-			height: 145px;
+			width: var(--width-small);
+			height: var(--heigth-small);
 			font-size: 1rem;
 
 			.border-gradient {
 				img {
 					width: 24px;
 					height: 24px;
-				}
-
-				.titles {
-					margin-bottom: calc(var(--gap) + 0.2rem);
 				}
 
 				.languages {
@@ -266,7 +297,38 @@ const randomDeg = Math.floor(Math.random() * 360) + "deg";
 
 	@container card-container (width < 370px) {
 		article .card-container {
-			width: 300px;
+			width: var(--width-smaller);
+			height: var(--heigth-smaller);
+
+			.border-gradient.has-subtitle {
+				.description {
+					margin: inherit;
+				}
+			}
+
+			.titles {
+				margin-bottom: calc(var(--gap) / 2) !important;
+				&.has-icon {
+					gap: 0;
+					width: 180px;
+				}
+				h3 {
+					width: 200px;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					overflow: hidden;
+				}
+			}
+
+			.links {
+				bottom: auto;
+				top: var(--gap);
+			}
+
+			h4,
+			.languages {
+				display: none !important;
+			}
 		}
 	}
 </style>
