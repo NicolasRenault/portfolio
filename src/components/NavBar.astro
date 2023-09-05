@@ -305,4 +305,9 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 			--font-size: 0.85rem;
 		}
 	}
+
+	//Make the nav disappear to avoir translate: transform and position: fixed issues
+	body.navigateOnScroll nav {
+		display: none;
+	}
 </style>

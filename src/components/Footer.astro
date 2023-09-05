@@ -46,37 +46,44 @@ if (navigate) {
 </footer>
 
 <script is:inline>
-	document.addEventListener(
-		"astro:page-load",
-		() => {
-			autoNavigateOnBottomPage();
-		},
-		{ once: true }
-	);
+	const footer = document.querySelector("#page-footer");
+	const navigate = footer?.getAttribute("data-enable-redirect") !== null;
+	const target = footer?.getAttribute("data-target");
 
-	function autoNavigateOnBottomPage() {
-		const footer = document.querySelector("#page-footer");
-		const navigate = footer?.getAttribute("data-enable-redirect") !== null;
-		const target = footer?.getAttribute("data-target");
+	document.addEventListener("scroll", () => {
+		if (navigate && window.innerHeight + window.scrollY >= document.body.offsetHeight - 50) {
+			document.body.classList.add("navigateOnScroll");
 
-		const stickyContainer = document.querySelector("#sticky-container");
-
-		document.addEventListener("scroll", () => {
-			if (
-				navigate &&
-				window.innerHeight + window.scrollY >= document.body.offsetHeight - 50
-			) {
-				stickyContainer?.classList.add("completed");
-
-				setTimeout(() => {
-					window.location.href = target;
-				}, 1000);
-			}
-		});
-	}
+			setTimeout(() => {
+				window.location.href = target;
+			}, 500);
+		}
+	});
 </script>
 
 <style lang="scss">
+	@media (prefers-reduced-motion: no-preference) {
+		body.navigateOnScroll :global(#animation-container) {
+			transition: transform 1s cubic-bezier(0.42, 0, 0.74, 0.74), opacity 1s ease-in-out;
+
+			// padding-bottom: 20vh;
+			animation: slide-fade-out ease 0.7s;
+			animation-iteration-count: 1;
+			animation-fill-mode: forwards;
+
+			#sticky-container {
+				color: var(--secondary-rgb);
+				filter: drop-shadow(0 0 1.75rem var(--secondary-rgb));
+			}
+		}
+
+		@keyframes slide-fade-out {
+			to {
+				opacity: 0;
+				transform: translateY(-5vh);
+			}
+		}
+	}
 	footer {
 		--heigth: 100px;
 
@@ -122,8 +129,6 @@ if (navigate) {
 			}
 
 			&.completed {
-				color: var(--secondary-rgb);
-				filter: drop-shadow(0 0 1.75rem var(--secondary-rgb));
 			}
 		}
 

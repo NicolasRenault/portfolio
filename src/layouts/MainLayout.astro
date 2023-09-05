@@ -19,14 +19,15 @@ const lang = getLangFromUrl(Astro.url);
 
 <!DOCTYPE html>
 <html lang={lang}>
-	<ViewTransitions />
 	<BaseHead title={title} />
-	<body transition:animate="fade">
+	<body>
 		<NavBar />
-		<section id="main">
-			<slot />
-		</section>
-		<Footer navigate={pathname} />
+		<div id="animation-container">
+			<section id="main">
+				<slot />
+			</section>
+			<Footer navigate={pathname} />
+		</div>
 		<Grainy />
 	</body>
 </html>
