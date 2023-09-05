@@ -62,7 +62,10 @@ if (navigate) {
 		const stickyContainer = document.querySelector("#sticky-container");
 
 		document.addEventListener("scroll", () => {
-			if (navigate && window.innerHeight + window.scrollY >= document.body.offsetHeight - 5) {
+			if (
+				navigate &&
+				window.innerHeight + window.scrollY >= document.body.offsetHeight - 50
+			) {
 				stickyContainer?.classList.add("completed");
 
 				setTimeout(() => {
@@ -83,7 +86,7 @@ if (navigate) {
 		justify-content: flex-start;
 		align-items: center;
 		height: var(--heigth);
-		padding: 10rem 0;
+		padding: 12rem 0;
 		gap: 3rem;
 
 		nr-logo {
