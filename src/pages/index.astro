@@ -88,7 +88,9 @@ const lang = getLangFromUrl(Astro.url);
 		}
 
 		h2 {
-			font-size: 3rem;
+			font-size: 2.75rem;
+			margin-top: 1rem;
+			margin-bottom: 1rem;
 		}
 
 		.col-1 {
@@ -96,8 +98,10 @@ const lang = getLangFromUrl(Astro.url);
 		}
 
 		#working_experiences {
+			--font-size: 2rem;
+
 			p {
-				margin: 1rem 0;
+				margin: calc(var(--font-size) / 2) 0;
 			}
 
 			ul {
@@ -107,30 +111,30 @@ const lang = getLangFromUrl(Astro.url);
 			}
 
 			li:not(:last-child) {
-				margin-bottom: 4rem;
+				margin-bottom: calc(var(--font-size) * 2);
 			}
-			li :global(a) {
-				font-size: 2rem;
+			li :global(a.basic-link) {
+				font-size: var(--font-size);
 				font-weight: 600;
 			}
 
 			.job-description {
-				font-size: 1.8rem;
+				font-size: calc(var(--font-size) - 0.2rem);
 			}
 
 			.job-subtitle {
 				color: var(--text-dark-gray-rgb);
-				font-size: 1.6rem;
+				font-size: calc(var(--font-size) - 0.4rem);
 				margin-top: -1rem;
 			}
 
 			.job-dates {
-				font-size: 1.4rem;
+				font-size: calc(var(--font-size) - 0.6rem);
 			}
 		}
 
 		#pinned_projects {
-			:global(> a) {
+			:global(> a.basic-link) {
 				margin: 1rem;
 			}
 		}
@@ -152,6 +156,12 @@ const lang = getLangFromUrl(Astro.url);
 	@media (max-width: 1024px) {
 		main {
 			font-size: 1rem;
+
+			#pinned_projects {
+				:global(> a.basic-link) {
+					font-size: 1.25rem;
+				}
+			}
 		}
 	}
 
@@ -165,6 +175,18 @@ const lang = getLangFromUrl(Astro.url);
 		main {
 			grid-template-columns: 1fr;
 			gap: 0;
+
+			h1 {
+				font-size: 3.5rem;
+			}
+
+			h2 {
+				font-size: 2.25rem;
+			}
+
+			#working_experiences {
+				--font-size: 1.75rem;
+			}
 		}
 	}
 
@@ -172,6 +194,24 @@ const lang = getLangFromUrl(Astro.url);
 		main {
 			margin: auto;
 			padding-top: 2rem;
+
+			h1 {
+				font-size: 2.5rem;
+			}
+
+			h2 {
+				font-size: 1.75rem;
+			}
+
+			#working_experiences {
+				--font-size: 1.4rem;
+			}
+		}
+	}
+
+	@media (max-width: 375px) {
+		#pinned_projects {
+			margin-left: -30px;
 		}
 	}
 </style>

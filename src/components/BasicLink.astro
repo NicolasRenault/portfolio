@@ -9,11 +9,12 @@ export interface Props {
 const { text, href, title, target = "_self" } = Astro.props;
 ---
 
-<a href={href} title={title} target={target}>{text.trim()}</a>
+<a href={href} title={title} target={target} class="basic-link">{text.trim()}</a>
 
 <style lang="scss">
-	a {
+	a.basic-link {
 		position: relative;
+		display: block;
 		color: var(--secondary-rgb);
 		text-decoration: none;
 		transition: all 0.2s ease-in-out;
