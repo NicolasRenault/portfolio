@@ -78,17 +78,22 @@ const lang = getLangFromUrl(Astro.url);
 		font-size: 1.6rem;
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		gap: 2rem;
+		gap: 4rem 2rem;
 
 		margin: 4rem auto;
+
+		#introduction {
+			line-height: calc(1.5 * 100%);
+		}
 
 		h1 {
 			font-size: 5rem;
 			font-weight: 800;
+			line-height: calc(1.1 * 100%);
 		}
 
 		h2 {
-			font-size: 2.75rem;
+			font-size: 2.5rem;
 			margin-top: 1rem;
 			margin-bottom: 1rem;
 		}
@@ -107,7 +112,8 @@ const lang = getLangFromUrl(Astro.url);
 			ul {
 				//TODO find a good list style
 				list-style: none;
-				// padding: 0;
+				margin-top: 3rem;
+				padding-inline-start: 1rem;
 			}
 
 			li:not(:last-child) {
@@ -157,6 +163,10 @@ const lang = getLangFromUrl(Astro.url);
 		main {
 			font-size: 1rem;
 
+			#introduction {
+				font-size: 1.25rem;
+			}
+
 			#pinned_projects {
 				:global(> a.basic-link) {
 					font-size: 1.25rem;
@@ -174,14 +184,18 @@ const lang = getLangFromUrl(Astro.url);
 	@media (max-width: 768px) {
 		main {
 			grid-template-columns: 1fr;
-			gap: 0;
+			gap: 2rem;
+
+			#introduction {
+				font-size: 1.1rem;
+			}
 
 			h1 {
 				font-size: 3.5rem;
 			}
 
 			h2 {
-				font-size: 2.25rem;
+				font-size: 2rem;
 			}
 
 			#working_experiences {
@@ -194,6 +208,10 @@ const lang = getLangFromUrl(Astro.url);
 		main {
 			margin: auto;
 			padding-top: 2rem;
+
+			#introduction {
+				font-size: 1rem;
+			}
 
 			h1 {
 				font-size: 2.5rem;
