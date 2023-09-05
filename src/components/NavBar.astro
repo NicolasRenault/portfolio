@@ -23,13 +23,7 @@ let currentPathName = Astro.url.pathname;
 if (lastSlashIndex > Astro.url.pathname.length - 2) {
 	currentPathName = currentPathName.slice(0, lastSlashIndex);
 }
-
-const zIndex = 1000;
 ---
-
-<button id="mobile-nav-toggle">
-	<Icon name="ci:hamburger" />
-</button>
 
 <nav>
 	<ul>
@@ -44,12 +38,12 @@ const zIndex = 1000;
 				{t("navbar.projects")}
 			</a>
 		</li>
-		<li>
+		<li id="resume-link">
 			<a href={getResumeLinkForLanguage(lang)} title={t("navbar.resume")} target="_blank">
 				{t("navbar.resume")}
 			</a>
 		</li>
-		<li>
+		<li id="contact-link">
 			<a
 				href="mailto:contact@nicolasrenault.com?subject=Hello there!&body=Hey,"
 				title={t("navbar.contact_me")}
@@ -61,8 +55,28 @@ const zIndex = 1000;
 		</li>
 	</ul>
 	<div id="left-container">
+		<!-- <a
+			id="mobile-resume-link"
+			class="icon"
+			href={getResumeLinkForLanguage(lang)}
+			title={t("navbar.resume")}
+			target="_blank"
+		>
+			<Icon name="codicon:github" />
+		</a> -->
+		<a
+			id="mobile-contact-link"
+			class="icon"
+			href="mailto:contact@nicolasrenault.com?subject=Hello there!&body=Hey,"
+			title={t("navbar.contact_me")}
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			<Icon name="ic:baseline-alternate-email" />
+		</a>
 		<a
 			id="github-link"
+			class="icon"
 			href="https://github.com/NicolasRenault"
 			title={t("navbar.github_profile")}
 			target="_blank"
@@ -91,7 +105,7 @@ const zIndex = 1000;
 	});
 </script>
 
-<style lang="scss" define:vars={{ zIndex }}>
+<style lang="scss">
 	nav {
 		--font-size: 1.5rem;
 
@@ -102,7 +116,7 @@ const zIndex = 1000;
 		align-items: center;
 		font-size: var(--font-size);
 
-		z-index: var(--zIndex);
+		z-index: 9999;
 
 		max-width: 85rem;
 		margin-left: auto;
@@ -179,13 +193,22 @@ const zIndex = 1000;
 				}
 			}
 
-			#github-link {
+			.icon {
 				display: flex;
 
 				svg {
 					width: var(--font-size);
 					height: var(--font-size);
 				}
+			}
+
+			#translation-link {
+				font-size: calc(var(--font-size) + 0.1rem);
+			}
+
+			// #mobile-resume-link,
+			#mobile-contact-link {
+				display: none;
 			}
 		}
 	}
@@ -223,81 +246,63 @@ const zIndex = 1000;
 	}
 
 	@media (max-width: 480px) {
-		#mobile-nav-toggle {
-			display: block !important;
-			position: absolute;
-			top: 0.75rem;
-			right: 0.75rem;
-
-			border: none;
-			background: none;
-			color: var(--text-rgb);
-
-			svg {
-				width: 2rem;
-				height: 2rem;
-			}
-		}
-
 		nav {
-			--font-size: 1.5rem;
+			--font-size: 1rem;
 
-			display: block;
+			display: flex;
 
-			position: absolute;
-			width: 40%;
-			height: 100vh;
+			position: fixed;
+			width: 100vw;
+			height: 7%;
 
-			top: 0;
-			right: 0;
+			bottom: 50%;
+			bottom: 0;
+			left: 0;
+			padding: 3px 0;
 
-			background-color: var(--secondary-rgb);
-			transition: transform 0.3s ease-in-out;
-
-			overflow: hidden;
-			transform: translateX(100%);
+			background-color: var(--primary-rgb);
+			border-top: solid 2px var(--text-dark-gray-rgb);
 
 			&.active {
 				transform: translateX(0);
 			}
 
 			ul {
-				flex-direction: column;
+				flex-direction: row;
 				align-items: flex-start;
-				gap: 1rem;
-				padding-top: 1rem;
+				gap: 0.6rem;
+				margin: 0 0 0 0.5rem;
 
-				li {
-					&:hover {
-						&::before {
-							background-color: var(--primary-light-rgb);
-						}
-					}
-
-					&.active::after {
-						background: var(--text-rgb);
-					}
+				// #resume-link,
+				#contact-link {
+					display: none;
 				}
 			}
 
 			#left-container {
-				grid-template-columns: 1fr;
+				display: flex;
+				gap: 0.5rem;
+				margin-right: 0.5rem;
 				* {
 					width: fit-content;
 				}
-			}
 
-			*::selection {
-				background-color: var(--primary-light-rgb);
-				color: var(--text-rgb);
-			}
+				// #mobile-resume-link,
+				#mobile-contact-link {
+					display: flex;
 
-			:focus-visible {
-				color: var(--primary-light-rgb) !important;
-				border: none;
-				outline: dashed 3px var(--primary-rgb);
-				font-weight: bolder;
+					svg {
+						width: calc(var(--font-size) + 0.2rem);
+						height: calc(var(--font-size) + 0.2rem);
+					}
+				}
 			}
+		}
+	}
+
+	@media (max-width: 370px) {
+		nav {
+			--font-size: 0.85rem;
 		}
 	}
 </style>
