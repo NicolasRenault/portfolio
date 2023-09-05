@@ -6,7 +6,7 @@ import NavBar from "@components/NavBar.astro";
 import Footer from "@components/Footer.astro";
 import GrainyFilter from "@components/GrainyFilter.astro";
 import { getLangFromUrl } from "@utils";
-import { ViewTransitions } from "astro:transitions";
+import Blob from "@components/Blob.astro";
 
 export interface Props {
 	title: string | undefined;
@@ -27,6 +27,9 @@ const lang = getLangFromUrl(Astro.url);
 				<slot />
 			</section>
 			<Footer navigate={pathname} />
+			<Blob top="50vh" left="50%" rotate="random" />
+			<Blob top="170vh" left="-50%" rotate="random" />
+			<Blob top="400vh" left="70%" rotate="random" />
 		</div>
 		<GrainyFilter />
 	</body>
