@@ -34,11 +34,13 @@ const { text, href, title, target = "_self" } = Astro.props;
 			z-index: -1;
 		}
 
-		&:hover {
-			color: var(--text-rgb);
+		@media (prefers-reduced-motion: no-preference) {
+			&:hover {
+				color: var(--text-rgb);
 
-			&:before {
-				width: 100%;
+				&:before {
+					width: 100%;
+				}
 			}
 		}
 	}

@@ -145,9 +145,6 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 				&.active::before {
 					transition: width 0.4s;
 				}
-				&:hover::before {
-					width: 100%;
-				}
 
 				&.active::after {
 					content: "";
@@ -161,9 +158,15 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 					background: var(--secondary-rgb);
 					transition: width 0.5s;
 				}
-				&:hover::after {
-					transition: width 0.3s;
-					width: 0;
+
+				@media (prefers-reduced-motion: no-preference) {
+					&:hover::before {
+						width: 100%;
+					}
+					&:hover::after {
+						transition: width 0.3s;
+						width: 0;
+					}
 				}
 			}
 		}
