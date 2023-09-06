@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon";
+import { Image } from "astro:assets";
 
 export interface Props {
 	title: string;
@@ -22,9 +23,14 @@ const randomDeg = Math.floor(Math.random() * 360) + "deg";
 <article id={!fork ? title : title + "/fork"}>
 	<div class:list={["card-container", { pinned: pinned }, { fork: fork }]}>
 		<div class:list={["border-gradient", { "has-subtitle": subtitle }]}>
-			<a href={!fork ? project_link : `#${title}`} title={title} class="main-link">
+			<a
+				href={!fork ? project_link : `#${title}`}
+				title={title}
+				class="main-link"
+				target="_blank"
+			>
 				<div class:list={["titles", { "has-icon": icon }]}>
-					{icon && <img src={icon} alt={`${title} icon`} width="32px" height="32px" />}
+					{icon && <Image src={icon} alt={`${title} icon`} width="32" height="32" />}
 					<h3>{title}</h3>
 					{subtitle && <h4>{subtitle}</h4>}
 				</div>
