@@ -126,4 +126,10 @@ let { top, left, rotate = "20deg" } = Astro.props;
 			}
 		}
 	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		.blob-gradient {
+			animation: slide-fade-in ease 2s;
+		}
+	}
 </style>
