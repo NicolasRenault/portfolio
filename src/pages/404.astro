@@ -21,7 +21,7 @@ const lang = getLangFromUrl(Astro.url);
 						{t("404.here_is_for_you")}
 					</button>
 				</div>
-				<a href={getUrlWithTranslation("", lang)} title="Homepage">
+				<a id="homepage-button" href={getUrlWithTranslation("", lang)} title="Homepage">
 					{t("navbar.homepage")}
 				</a>
 			</div>
@@ -52,7 +52,10 @@ const lang = getLangFromUrl(Astro.url);
 				background-color: black;
 				background-image: url("/no_god_please_no.gif");
 				background-repeat: no-repeat;
-				background-size: cover;
+				background-position-x: center;
+				background-position-y: center;
+				background-repeat: no-repeat;
+				background-size: contain;
 				top: 0;
 				left: 0;
 				width: 100%;
@@ -67,15 +70,17 @@ const lang = getLangFromUrl(Astro.url);
 				color: white;
 
 				h1 {
-					font-size: 5rem;
+					position: absolute;
+					top: 0.7rem;
+
+					font-size: 4rem;
 					font-weight: bold;
-					// margin-bottom: 10%;
 				}
 
 				p,
 				button,
 				a {
-					font-size: 5rem;
+					font-size: 3rem;
 					color: white;
 					padding: 0 0.5rem;
 				}
@@ -92,11 +97,11 @@ const lang = getLangFromUrl(Astro.url);
 					background: none;
 					border: none;
 					cursor: pointer;
-					text-decoration: underline;
+					text-decoration: rgb(17, 221, 0) underline;
 				}
 
 				a {
-					font-size: 3rem;
+					font-size: 2.5rem;
 					height: fit-content;
 					width: fit-content;
 				}
@@ -111,10 +116,16 @@ const lang = getLangFromUrl(Astro.url);
 				}
 
 				#text_container {
-					display: flex;
+					display: grid;
+					grid-template-columns: 1fr 1fr;
 					align-items: center;
 					justify-content: center;
 					gap: 3rem;
+				}
+
+				#homepage-button {
+					position: absolute;
+					bottom: 1em;
 				}
 
 				#dancer {
@@ -123,9 +134,6 @@ const lang = getLangFromUrl(Astro.url);
 
 				&.gotcha {
 					background-image: url("/rickroll.gif");
-					background-size: contain;
-					background-position-x: center;
-					background-repeat: no-repeat;
 
 					#text_container {
 						display: none;
@@ -140,13 +148,69 @@ const lang = getLangFromUrl(Astro.url);
 						background-color: rgba(0, 0, 0, 0.5);
 						padding: 0.5rem;
 					}
+				}
+			}
 
+			@media (width <= 1024px) {
+				main {
 					h1 {
 						font-size: 3rem;
 					}
 
+					p,
+					button,
 					a {
-						padding: 1rem;
+						font-size: 3rem;
+					}
+				}
+			}
+
+			@media (width <= 768px) {
+				main {
+					h1 {
+						font-size: 2rem;
+					}
+
+					p,
+					button,
+					a {
+						font-size: 2rem;
+					}
+
+					#text_container {
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+						justify-content: center;
+						gap: 3rem;
+					}
+				}
+			}
+
+			@media (height <= 600px) {
+				main {
+					h1 {
+						font-size: 2rem;
+					}
+
+					p,
+					button,
+					a {
+						font-size: 2rem;
+					}
+				}
+			}
+
+			@media (width <= 425px) {
+				main {
+					h1 {
+						font-size: 1.5rem;
+					}
+
+					p,
+					button,
+					a {
+						font-size: 1.5rem;
 					}
 				}
 			}
