@@ -120,16 +120,20 @@ interface Project {
 		const allProjectContainer = document.getElementById("all-projects-container");
 		const contributionContainer = document.getElementById("contributions-container");
 
+		if (!allProjectContainer || !contributionContainer)
+			throw new Error("No slider container found");
+
 		/**
 		 * Scroll horizontally when dragging
-		 * @author https://github.com/phuocng
+		 * @author https://github.com/phuocng/html-dom
 		 */
 		let element: any = undefined;
 
 		let pos = { left: 0, x: 0 };
 
 		const mouseDownHandler = function (e: MouseEvent) {
-			element = getElementFromTarget(e.target);
+			console.log("yes");
+			element = getSliderFromTarget(e.target);
 
 			if (!element) return;
 
@@ -163,11 +167,11 @@ interface Project {
 		};
 
 		/**
-		 * Custom function to get element from target
+		 * Custom function to get parent slider from target
 		 *
 		 * @param target HTMLElement
 		 */
-		function getElementFromTarget(target: EventTarget | null) {
+		function getSliderFromTarget(target: EventTarget | null) {
 			if (allProjectContainer?.contains(target as Node)) {
 				return allProjectContainer;
 			} else if (contributionContainer?.contains(target as Node)) {
@@ -177,9 +181,14 @@ interface Project {
 			}
 		}
 
-		// Attach the handler
+		allProjectContainer.style.cursor = "grab";
 		allProjectContainer?.addEventListener("mousedown", mouseDownHandler);
-		contributionContainer?.addEventListener("mousedown", mouseDownHandler);
+
+		//Check if container has a scrollbar
+		if (contributionContainer.scrollWidth > contributionContainer.clientWidth) {
+			contributionContainer.style.cursor = "grab";
+			contributionContainer?.addEventListener("mousedown", mouseDownHandler);
+		}
 	}
 </script>
 
@@ -238,7 +247,6 @@ interface Project {
 					// position: fixed;
 				}
 				.projects-container {
-					margin-top: 4rem;
 					display: grid;
 					grid-template-columns: var(--article-width) var(--article-width);
 					gap: 1rem;
