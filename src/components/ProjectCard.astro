@@ -27,7 +27,7 @@ const randomDeg = Math.floor(Math.random() * 360) + "deg";
 				href={!fork ? project_link : `#${title}`}
 				title={title}
 				class="main-link"
-				target="_blank"
+				target={fork ? "_self" : "_blank"}
 			>
 				<div class:list={["titles", { "has-icon": icon }]}>
 					{icon && <Image src={icon} alt={`${title} icon`} width="32" height="32" />}
@@ -308,6 +308,7 @@ const randomDeg = Math.floor(Math.random() * 360) + "deg";
 		article .card-container {
 			width: var(--width-smaller);
 			height: var(--heigth-smaller);
+			margin-left: calc(var(--gap) / 2);
 
 			.border-gradient.has-subtitle {
 				.description {

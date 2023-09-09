@@ -221,7 +221,7 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 		z-index: calc(var(--zIndex) + 1);
 	}
 
-	@media (max-width: 1024px) {
+	@media (width <= 1024px) {
 		nav {
 			--font-size: 1.2rem;
 
@@ -237,7 +237,7 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 		}
 	}
 
-	@media (max-width: 680px) {
+	@media (width <= 680px) {
 		nav {
 			--font-size: 1rem;
 			padding: 1rem 2rem;
@@ -248,7 +248,7 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 		}
 	}
 
-	@media (max-width: 480px) {
+	@media (width <= 480px) {
 		nav {
 			--font-size: 1rem;
 
@@ -303,7 +303,7 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 		}
 	}
 
-	@media (max-width: 370px) {
+	@media (width <= 370px) {
 		nav {
 			--font-size: 0.85rem;
 		}

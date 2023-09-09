@@ -12,6 +12,7 @@ const lang = getLangFromUrl(Astro.url);
 
 const years = Object.keys(projects).sort((a, b) => parseInt(b) - parseInt(a));
 const contributionsList = Object.keys(contributions);
+const contributionGridLength = contributionsList.length;
 
 interface Project {
 	name: string;
@@ -29,86 +30,162 @@ interface Project {
 <Layout title={t("navbar.projects")} pathname="projects">
 	<main>
 		<div id="introduction">
-			<span>{t("projects.intro")}</span>
-			<BasicLink
-				text="Github"
-				href="https://github.com/NicolasRenault"
-				title="Github"
-				target="_blank"
-			/>
+			<p>
+				<span>{t("projects.intro")}</span>
+				<BasicLink
+					text="Github"
+					href="https://github.com/NicolasRenault"
+					title="Github"
+					target="_blank"
+				/>
+			</p>
 		</div>
 		<h1>{t("navbar.projects")}</h1>
-		{
-			years.map((year) => {
-				const currentProjects = (projects as any)[year];
+		<div id="all-projects-container">
+			{
+				years.map((year) => {
+					const currentProjects = (projects as any)[year];
 
-				return (
-					<>
-						<h2>
-							{year}
-							{["2021", "2020", "2019"].includes(year) && (
-								<span>{t("projects.school_projects")}</span>
-							)}
-						</h2>
-						<div id={year}>
-							{currentProjects.map((project: Project) => {
-								return (
-									<ProjectCard
-										title={project.name}
-										description={
-											getTranslatedDescription(project.name, lang) ??
-											project.description
-										}
-										icon={project.icon}
-										pinned={project.pinned}
-										languages={project.languages}
-										fork={project.fork}
-										project_link={
-											project.pinned
-												? getUrlWithTranslation(
-														"project/" + project.name,
-														lang
-												  )
-												: project.url
-										}
-										github_link={
-											project.pinned
-												? project.url
-												: project.fork
-												? project.url
-												: undefined
-										}
-									/>
-								);
-							})}
-						</div>
-					</>
-				);
-			})
-		}
+					return (
+						<>
+							<div id={year} class="year-container">
+								<h2>
+									{year}
+									{["2021", "2020", "2019"].includes(year) && (
+										<span>{t("projects.school_projects")}</span>
+									)}
+								</h2>
+								<div id={"projects-" + year} class="projects-container">
+									{currentProjects.map((project: Project) => {
+										return (
+											<ProjectCard
+												title={project.name}
+												description={
+													getTranslatedDescription(project.name, lang) ??
+													project.description
+												}
+												icon={project.icon}
+												pinned={project.pinned}
+												languages={project.languages}
+												fork={project.fork}
+												project_link={
+													project.pinned
+														? getUrlWithTranslation(
+																"project/" + project.name,
+																lang
+														  )
+														: project.url
+												}
+												github_link={
+													project.pinned
+														? project.url
+														: project.fork
+														? project.url
+														: undefined
+												}
+											/>
+										);
+									})}
+								</div>
+							</div>
+						</>
+					);
+				})
+			}
+		</div>
 
 		<h2>Contributions</h2>
-		{
-			contributionsList.map((contribution) => (
-				<ProjectCard
-					title={(contributions as any)[contribution].name}
-					description={
-						getTranslatedDescription((contributions as any)[contribution].name, lang) ??
-						(contributions as any)[contribution].description
-					}
-					project_link={(contributions as any)[contribution].url}
-					languages={(contributions as any)[contribution].languages}
-				/>
-			))
-		}
+		<div id="contributions-container">
+			{
+				contributionsList.map((contribution) => (
+					<ProjectCard
+						title={(contributions as any)[contribution].name}
+						description={
+							getTranslatedDescription(
+								(contributions as any)[contribution].name,
+								lang
+							) ?? (contributions as any)[contribution].description
+						}
+						project_link={(contributions as any)[contribution].url}
+						languages={(contributions as any)[contribution].languages}
+					/>
+				))
+			}
+		</div>
 	</main>
 </Layout>
 
-<style lang="scss">
+<script>
+	if (window.innerWidth >= 1024) {
+		const allProjectContainer = document.getElementById("all-projects-container");
+		const contributionContainer = document.getElementById("contributions-container");
+
+		/**
+		 * Scroll horizontally when dragging
+		 * @author https://github.com/phuocng
+		 */
+		let element: any = undefined;
+
+		let pos = { left: 0, x: 0 };
+
+		const mouseDownHandler = function (e: MouseEvent) {
+			element = getElementFromTarget(e.target);
+
+			if (!element) return;
+
+			element.style.cursor = "grabbing";
+			element.style.userSelect = "none";
+
+			pos = {
+				left: element.scrollLeft,
+				// Get the current mouse position
+				x: e.clientX,
+			};
+
+			document.addEventListener("mousemove", mouseMoveHandler);
+			document.addEventListener("mouseup", mouseUpHandler);
+		};
+
+		const mouseMoveHandler = function (e: MouseEvent) {
+			// How far the mouse has been moved
+			const dx = e.clientX - pos.x;
+
+			// Scroll the element
+			element.scrollLeft = pos.left - dx;
+		};
+
+		const mouseUpHandler = function () {
+			element.style.cursor = "grab";
+			element.style.removeProperty("user-select");
+
+			document.removeEventListener("mousemove", mouseMoveHandler);
+			document.removeEventListener("mouseup", mouseUpHandler);
+		};
+
+		/**
+		 * Custom function to get element from target
+		 *
+		 * @param target HTMLElement
+		 */
+		function getElementFromTarget(target: EventTarget | null) {
+			if (allProjectContainer?.contains(target as Node)) {
+				return allProjectContainer;
+			} else if (contributionContainer?.contains(target as Node)) {
+				return contributionContainer;
+			} else {
+				return undefined;
+			}
+		}
+
+		// Attach the handler
+		allProjectContainer?.addEventListener("mousedown", mouseDownHandler);
+		contributionContainer?.addEventListener("mousedown", mouseDownHandler);
+	}
+</script>
+
+<style lang="scss" define:vars={{ contributionGridLength }}>
 	main {
 		margin: 2rem auto;
-		padding: 1.5rem;
-		// max-width: 60ch;
 
 		#introduction {
 			margin-bottom: 2rem;
@@ -125,6 +202,72 @@ interface Project {
 				margin-left: 0.5rem;
 				color: var(--text-gray-rgb);
 			}
+		}
+	}
+
+	@media (width > 1440px) {
+		main {
+			max-width: 120rem;
+			margin-left: 10%;
+			margin-right: 10%;
+		}
+	}
+
+	@media (width >= 1024px) {
+		#introduction {
+			font-size: 1.75rem;
+		}
+
+		#all-projects-container,
+		#contributions-container {
+			--article-width: calc(370px + 2rem);
+		}
+
+		#all-projects-container {
+			position: relative;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			overflow-x: auto;
+			gap: 1rem;
+			margin-bottom: 4rem;
+
+			.year-container {
+				position: relative;
+				h2 {
+					// position: fixed;
+				}
+				.projects-container {
+					margin-top: 4rem;
+					display: grid;
+					grid-template-columns: var(--article-width) var(--article-width);
+					gap: 1rem;
+				}
+
+				#projects-2019 {
+					grid-template-columns: var(--article-width);
+				}
+			}
+		}
+
+		#contributions-container {
+			display: grid;
+			grid-template-columns: repeat(var(--contributionGridLength), var(--article-width));
+			overflow-x: auto;
+			gap: 1rem;
+		}
+	}
+
+	@media (width <= 480px) {
+		main {
+			margin: auto;
+		}
+	}
+
+	@media (width < 375px) {
+		.projects-container,
+		#contributions-container {
+			margin-left: -20px;
 		}
 	}
 </style>

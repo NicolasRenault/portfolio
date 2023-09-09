@@ -80,8 +80,6 @@ const lang = getLangFromUrl(Astro.url);
 		grid-template-columns: 1fr 1fr;
 		gap: 4rem 2rem;
 
-		padding: 2rem auto;
-
 		#introduction {
 			line-height: calc(1.5 * 100%);
 		}
@@ -154,12 +152,12 @@ const lang = getLangFromUrl(Astro.url);
 		}
 	}
 
-	@media (min-width: 1024px) {
+	@media (width > 1024px) {
 		#introduction {
 			width: 65% !important;
 		}
 	}
-	@media (max-width: 1024px) {
+	@media (width <= 1024px) {
 		main {
 			font-size: 1rem;
 
@@ -175,13 +173,13 @@ const lang = getLangFromUrl(Astro.url);
 		}
 	}
 
-	@media (min-width: 768px) {
+	@media (width > 768px) {
 		#introduction {
 			grid-column: span 2;
 			width: 75%;
 		}
 	}
-	@media (max-width: 768px) {
+	@media (width <= 768px) {
 		main {
 			grid-template-columns: 1fr;
 			gap: 2rem;
@@ -204,10 +202,9 @@ const lang = getLangFromUrl(Astro.url);
 		}
 	}
 
-	@media (max-width: 480px) {
+	@media (width <= 480px) {
 		main {
 			margin: auto;
-			padding-top: 2rem;
 
 			#introduction {
 				font-size: 1rem;
@@ -227,9 +224,9 @@ const lang = getLangFromUrl(Astro.url);
 		}
 	}
 
-	@media (max-width: 375px) {
+	@media (width <= 375px) {
 		#pinned_projects {
-			margin-left: -30px;
+			margin-left: -20px;
 		}
 	}
 </style>
