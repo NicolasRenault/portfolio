@@ -27,7 +27,7 @@ const randomDeg = Math.floor(Math.random() * 360) + "deg";
 				href={!fork ? project_link : `#${title}`}
 				title={title}
 				class="main-link"
-				target={fork ? "_self" : "_blank"}
+				target={fork || Array.from(project_link)[0] === "/" ? "_self" : "_blank"}
 			>
 				<div class:list={["titles", { "has-icon": icon }]}>
 					{icon && <Image src={icon} alt={`${title} icon`} width="32" height="32" />}
