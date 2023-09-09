@@ -6,9 +6,11 @@ export interface Props {
 }
 
 let { top, left, rotate = "20deg" } = Astro.props;
+
+const negative = left.includes("-");
 ---
 
-<div class="blob-container" data-rotate={rotate}>
+<div class:list={["blob-container", { "is-negative": negative }]} data-rotate={rotate}>
 	<svg
 		class="blob-gradient"
 		class="blob"
@@ -119,17 +121,35 @@ let { top, left, rotate = "20deg" } = Astro.props;
 		}
 	}
 
-	@media (max-width: 768px) {
-		.blob-container {
+	@media (min-width: 1440px) {
+		.blob-container.is-negative {
 			.blob-gradient {
-				left: calc(var(--left) * 0.4);
+				left: calc(var(--left) * 0.5);
+			}
+		}
+	}
+	@media (max-width: 768px) {
+		.blob-container.is-negative {
+			.blob-gradient {
+				left: calc(var(--left) / 0.4);
 			}
 		}
 	}
 
 	@media (prefers-reduced-motion: no-preference) {
 		.blob-gradient {
-			animation: slide-fade-in ease 2s;
+			animation: blob-slide-fade-in ease 2s;
+		}
+
+		@keyframes blob-slide-fade-in {
+			from {
+				opacity: 0;
+				transform: translateY(5vh);
+			}
+			to {
+				opacity: 0.7;
+				transform: translateY(0);
+			}
 		}
 	}
 </style>
