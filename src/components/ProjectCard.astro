@@ -23,12 +23,7 @@ const randomDeg = Math.floor(Math.random() * 360) + "deg";
 <article id={!fork ? title : title + "/fork"}>
 	<div class:list={["card-container", { pinned: pinned }, { fork: fork }]}>
 		<div class:list={["border-gradient", { "has-subtitle": subtitle }]}>
-			<a
-				href={!fork ? project_link : `#${title}`}
-				title={title}
-				class="main-link"
-				target={fork || Array.from(project_link)[0] === "/" ? "_self" : "_blank"}
-			>
+			<div>
 				<div class:list={["titles", { "has-icon": icon }]}>
 					{icon && <Image src={icon} alt={`${title} icon`} width="32" height="32" />}
 					<h3>{title}</h3>
@@ -45,6 +40,17 @@ const randomDeg = Math.floor(Math.random() * 360) + "deg";
 						</div>
 					)
 				}
+
+				<a
+					href={!fork ? project_link : `#${title}`}
+					title={title}
+					class="main-link"
+					target={fork || Array.from(project_link)[0] === "/" ? "_self" : "_blank"}
+				>
+					<!-- Need to extract the main link and display it on top of the text to avoid weird Astro rendering -->
+					<!-- See https://github.com/withastro/astro/issues/4864 -->
+				</a>
+
 				{
 					(github_link || fork) && (
 						<div class="links">
@@ -65,7 +71,7 @@ const randomDeg = Math.floor(Math.random() * 360) + "deg";
 						</div>
 					)
 				}
-			</a>
+			</div>
 		</div>
 	</div>
 </article>
@@ -234,11 +240,6 @@ const randomDeg = Math.floor(Math.random() * 360) + "deg";
 
 				padding-left: calc(var(--gap) / 2);
 
-				.main-link {
-					//Astro generate a unwanted duplication of the main link
-					display: none;
-				}
-
 				a,
 				button {
 					display: inline;
@@ -256,7 +257,14 @@ const randomDeg = Math.floor(Math.random() * 360) + "deg";
 				}
 			}
 
-			&:has(> .main-link:focus-visible) {
+			.main-link {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+			&:has(.main-link:focus-visible) {
 				outline: var(--dashed-outline);
 			}
 		}
