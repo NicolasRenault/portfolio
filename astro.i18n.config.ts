@@ -43,9 +43,9 @@ export default defineAstroI18nConfig({
 				hello: "Hi, I'm",
 				me: "I'm a Web Developer based in France. I graduated with a Bachelor's Degree in web and mobile development.",
 				technologies:
-					"Mostly doing on FullStack development, I have a preference for backend technologies ever since I started learning programming.",
+					"Mostly doing FullStack development, I have had a preference for backend technologies ever since I started learning programming.",
 				motivations:
-					"I'm always trying to optimize life in every aspects, which is why I enjoy building software applications that help people perform tasks more quickly and efficiently.",
+					"I'm always trying to optimize life in every aspect, which is why I enjoy building software applications that help people perform tasks more quickly and efficiently.",
 				passions:
 					"Outside work, I enjoy doing sports, building side projects, spending time with friends, and playing video games.",
 				work: "I’m currently working at Trelleborg as an IT Developer and Software Administrator.",
