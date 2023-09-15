@@ -59,7 +59,10 @@ interface Project {
 									{currentProjects.map((project: Project) => {
 										return (
 											<ProjectCard
-												title={project.name}
+												title={
+													project.name.charAt(0).toLowerCase() +
+													project.name.slice(1)
+												}
 												description={
 													getTranslatedDescription(project.name, lang) ??
 													project.description
