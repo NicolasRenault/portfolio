@@ -11,6 +11,16 @@ astroI18n.init(Astro);
 const lang = getLangFromUrl(Astro.url);
 
 const years = Object.keys(projects).sort((a, b) => parseInt(b) - parseInt(a));
+
+//Extract all pinned projects from projects.json
+const pinnedProjects = Object.keys(projects)
+	.map((year) => {
+		return (projects as any)[year].filter((project: any) => project.pinned);
+	})
+	.flat()
+	.reverse();
+const pinnedProjectsLength = pinnedProjects.length;
+
 const contributionsList = Object.keys(contributions);
 const contributionGridLength = contributionsList.length;
 
@@ -29,18 +39,38 @@ interface Project {
 
 <Layout title={t("navbar.projects")} pathname="projects">
 	<main>
+		<h1>{t("navbar.projects")}</h1>
 		<div id="introduction">
 			<p>
 				<span>{t("projects.intro")}</span>
 				<BasicLink
 					text="Github"
-					href="https://github.com/NicolasRenault"
+					href="https://github.com/NicolasRenault?tab=repositories"
 					title="Github"
 					target="_blank"
 				/>
 			</p>
 		</div>
-		<h1>{t("navbar.projects")}</h1>
+		<h2>{t("projects.pinned_projects")}</h2>
+		<div id="pinned-projects-container">
+			{
+				pinnedProjects.map((pinned) => {
+					return (
+						<ProjectCard
+							title={pinned.name.charAt(0).toLowerCase() + pinned.name.slice(1)}
+							description={pinned.description}
+							icon={pinned.icon}
+							languages={pinned.languages}
+							pinned={pinned.pinned}
+							fork={pinned.fork}
+							project_link={getUrlWithTranslation("project/" + pinned.name, lang)}
+							github_link={pinned.url}
+						/>
+					);
+				})
+			}
+		</div>
+		<h2>{t("projects.all_projects")}</h2>
 		<div id="all-projects-container">
 			{
 				years.map((year) => {
@@ -49,12 +79,12 @@ interface Project {
 					return (
 						<>
 							<div id={year} class="year-container">
-								<h2>
+								<h3>
 									{year}
 									{["2021", "2020", "2019"].includes(year) && (
 										<span>{t("projects.school_projects")}</span>
 									)}
-								</h2>
+								</h3>
 								<div id={"projects-" + year} class="projects-container">
 									{currentProjects.map((project: Project) => {
 										return (
@@ -97,7 +127,7 @@ interface Project {
 			}
 		</div>
 
-		<h2>Contributions</h2>
+		<h2>{t("projects.contributions")}</h2>
 		<div id="contributions-container">
 			{
 				contributionsList.map((contribution) => (
@@ -119,11 +149,15 @@ interface Project {
 </Layout>
 
 <script>
+	/**
+	 * Scroll horizontally when dragging
+	 */
 	if (window.innerWidth >= 1024) {
+		const pinnedProjectsContainer = document.getElementById("pinned-projects-container");
 		const allProjectContainer = document.getElementById("all-projects-container");
 		const contributionContainer = document.getElementById("contributions-container");
 
-		if (!allProjectContainer || !contributionContainer)
+		if (!pinnedProjectsContainer || !allProjectContainer || !contributionContainer)
 			throw new Error("No slider container found");
 
 		/**
@@ -188,7 +222,9 @@ interface Project {
 		 * @param target HTMLElement
 		 */
 		function getSliderFromTarget(target: EventTarget | null) {
-			if (allProjectContainer?.contains(target as Node)) {
+			if (pinnedProjectsContainer?.contains(target as Node)) {
+				return pinnedProjectsContainer;
+			} else if (allProjectContainer?.contains(target as Node)) {
 				return allProjectContainer;
 			} else if (contributionContainer?.contains(target as Node)) {
 				return contributionContainer;
@@ -200,7 +236,11 @@ interface Project {
 		allProjectContainer.style.cursor = "grab";
 		allProjectContainer?.addEventListener("mousedown", mouseDownHandler);
 
-		//Check if container has a scrollbar
+		//Check if containers has a scrollbar
+		if (pinnedProjectsContainer.scrollWidth > pinnedProjectsContainer.clientWidth) {
+			pinnedProjectsContainer.style.cursor = "grab";
+			pinnedProjectsContainer?.addEventListener("mousedown", mouseDownHandler);
+		}
 		if (contributionContainer.scrollWidth > contributionContainer.clientWidth) {
 			contributionContainer.style.cursor = "grab";
 			contributionContainer?.addEventListener("mousedown", mouseDownHandler);
@@ -208,10 +248,10 @@ interface Project {
 	}
 </script>
 
-<style lang="scss" define:vars={{ contributionGridLength }}>
+<style lang="scss" define:vars={{ pinnedProjectsLength, contributionGridLength }}>
 	main {
 		#introduction {
-			margin-bottom: 2rem;
+			margin-bottom: 3rem;
 			font-size: 1.5rem;
 
 			span {
@@ -219,7 +259,30 @@ interface Project {
 			}
 		}
 
+		#pinned-titles {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			maring-bottom: 1rem;
+
+			h2 {
+				margin: 0;
+			}
+
+			span {
+				font-size: 1.5rem;
+				margin-left: 0.5rem;
+				color: var(--text-gray-rgb);
+			}
+		}
+
 		h2 {
+			font-size: 2rem;
+			margin-bottom: 1rem;
+		}
+
+		h3 {
+			font-size: 1.5rem;
 			span {
 				font-size: 1rem;
 				margin-left: 0.5rem;
@@ -241,6 +304,7 @@ interface Project {
 			font-size: 1.75rem;
 		}
 
+		#pinned-projects-container,
 		#all-projects-container,
 		#contributions-container {
 			--article-width: calc(370px + 2rem);
@@ -272,11 +336,18 @@ interface Project {
 			}
 		}
 
+		#pinned-projects-container,
 		#contributions-container {
 			display: grid;
-			grid-template-columns: repeat(var(--contributionGridLength), var(--article-width));
 			overflow-x: auto;
 			gap: 1rem;
+		}
+		#pinned-projects-container {
+			grid-template-columns: repeat(var(--pinnedProjectsLength), var(--article-width));
+		}
+
+		#contributions-container {
+			grid-template-columns: repeat(var(--contributionGridLength), var(--article-width));
 		}
 	}
 

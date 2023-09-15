@@ -56,7 +56,10 @@ export default defineAstroI18nConfig({
 			},
 			projects: {
 				intro: "All the projects previewed below can be found on my",
+				pinned_projects: "Pinned projects",
+				all_projects: "All projects",
 				school_projects: "School projects",
+				contributions: "Contributions",
 			},
 			cheaty: {
 				catch_phrase: "Extension for the web that feels illegal.",
@@ -149,7 +152,10 @@ export default defineAstroI18nConfig({
 			},
 			projects: {
 				intro: "Tous les projets présentés ci-dessous peuvent être trouvés sur mon",
+				pinned_projects: "Projets épinglés",
+				all_projects: "Tous les projets",
 				school_projects: "Projets scolaires",
+				contributions: "Contributions",
 			},
 			cheaty: {
 				catch_phrase: "Extention pour le web qui semble illégal.",
