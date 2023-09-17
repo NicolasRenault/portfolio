@@ -3,6 +3,7 @@ import BasicLink from "@components/BasicLink.astro";
 import Layout from "@layouts/MainLayout.astro";
 import { astroI18n, t } from "astro-i18n";
 import { Code } from "astro/components";
+import { Image } from "astro:assets";
 
 astroI18n.init(Astro);
 ---
@@ -30,94 +31,104 @@ astroI18n.init(Astro);
 			</div>
 		</section>
 
-		<section>
+		<section id="explanation-container">
+			<h3>{t("logo.the_logo")}</h3>
+			<p>
+				<span>{t("logo.explaination")}</span>
+				<BasicLink
+					text="@neytaan_art"
+					href="https://instagram.com/neytaan_art?igshid=NTc4MTIwNjQ2YQ=="
+					title="@neytaan_art Instagram"
+					target="_blank"
+				/>
+			</p>
+			<div class="article-container">
+				<article>
+					<h4>{t("global.light")}</h4>
+					<Image
+						src="https://cdn.nicolasrenault.com/logo/NR_Logo.svg"
+						width="120"
+						height="80"
+						alt={"Logo Nicolas Renault " + t("global.light")}
+					/>
+				</article>
+				<article>
+					<h4>{t("global.dark")}</h4>
+					<Image
+						src="https://cdn.nicolasrenault.com/logo/NR_Logo_dark.svg"
+						width="120"
+						height="80"
+						alt={"Logo Nicolas Renault " + t("global.dark")}
+					/>
+				</article>
+			</div>
+		</section>
+
+		<section id="web-component-container">
+			<h3>WebComponent</h3>
+			<p>{t("logo.webcomponent_description")}</p>
 			<div>
-				<div>
-					<h3>.png</h3>
+				<h4>{t("language.size")}</h4>
+				<div class="article-container">
 					<article>
-						<h4>{t("global.light")}</h4>
-						<img src="https://cdn.nicolasrenault.com/logo/NR_Logo.png" />
+						<h5>sm</h5>
+						<Code code="<nr-logo size='sm'></nr-logo>" lang="js" />
+						<nr-logo class="sizes-examples" size="sm"></nr-logo>
 					</article>
 					<article>
-						<h4>{t("global.dark")}</h4>
-						<img src="https://cdn.nicolasrenault.com/logo/NR_Logo_dark.png" />
-					</article>
-				</div>
-				<div>
-					<h3>.svg</h3>
-					<article>
-						<h4>{t("global.light")}</h4>
-						<img src="https://cdn.nicolasrenault.com/logo/NR_Logo.svg" />
+						<h5>md</h5>
+						<Code code="<nr-logo size='md'></nr-logo>" lang="js" />
+						<nr-logo class="sizes-examples" size="md"></nr-logo>
 					</article>
 					<article>
-						<h4>{t("global.dark")}</h4>
-						<img src="https://cdn.nicolasrenault.com/logo/NR_Logo_dark.svg" />
+						<h5>xl</h5>
+						<Code code="<nr-logo size='xl'></nr-logo>" lang="js" />
+						<nr-logo class="sizes-examples" size="xl"></nr-logo>
 					</article>
 				</div>
 			</div>
 			<div>
-				<div>
-					<h3>WebComponent</h3>
-					<p>{t("logo.webcomponent_description")}</p>
-					<div>
-						<h4>{t("language.size")}</h4>
-						<article>
-							<h5>sm</h5>
-							<nr-logo size="sm"></nr-logo>
-							<Code code="<nr-logo size='sm'></nr-logo>" lang="js" />
-						</article>
-						<article>
-							<h5>md</h5>
-							<nr-logo size="md"></nr-logo>
-							<Code code="<nr-logo size='md'></nr-logo>" lang="js" />
-						</article>
-						<article>
-							<h5>xl</h5>
-							<nr-logo size="xl"></nr-logo>
-							<Code code="<nr-logo size='xl'></nr-logo>" lang="js" />
-						</article>
-					</div>
-					<div>
-						<h4>{t("language.color")}</h4>
-						<p>
-							{t("logo.webcomponent_color_description")}
-						</p>
-						<article>
-							<h5>{t("language.color_name")}</h5>
-							<nr-logo size="xl" color="green"></nr-logo>
-							<Code code="<nr-logo color='green'></nr-logo>" lang="js" />
-						</article>
-						<article>
-							<h5>{t("language.hexadecimal")}</h5>
-							<nr-logo size="xl" color="#ff0000"></nr-logo>
-							<Code code="<nr-logo color='#ff0000'></nr-logo>" lang="js" />
-						</article>
-					</div>
-					<div>
-						<h4>{t("language.animation")}</h4>
-						<article>
-							<h5>{t("language.animated")}</h5>
-							<p>{t("logo.webcomponent_animated_description")}</p>
-							<nr-logo size="xl" animated></nr-logo>
-							<Code code="<nr-logo animated></nr-logo>" lang="js" />
-						</article>
-						<article>
-							<h5>{t("language.rainbow")}</h5>
-							<p>{t("logo.webcomponent_rainbow_description")}</p>
-							<nr-logo size="xl" rainbow></nr-logo>
-							<Code code="<nr-logo rainbow></nr-logo>" lang="js" />
-						</article>
-					</div>
-				</div>
-				<div>
-					<h3>.ico</h3>
+				<h4>{t("language.color")}</h4>
+				<p>
+					{t("logo.webcomponent_color_description")}
+				</p>
+				<div class="article-container">
 					<article>
-						<h4>{t("global.light")}</h4>
-						<img src="https://cdn.nicolasrenault.com/logo/NR_Logo_96x96.ico" />
+						<h5>{t("language.color_name")}</h5>
+						<Code code="<nr-logo color='green'></nr-logo>" lang="js" />
+						<nr-logo size="xl" color="green"></nr-logo>
 					</article>
 					<article>
-						<h4>{t("global.dark")}</h4>
-						<img src="https://cdn.nicolasrenault.com/logo/NR_Logo_dark_96x96.ico" />
+						<h5>{t("language.hexadecimal")}</h5>
+						<Code code="<nr-logo color='#ff0000'></nr-logo>" lang="js" />
+						<nr-logo size="xl" color="#ff0000"></nr-logo>
+					</article>
+					<article>
+						<h5>RGB</h5>
+						<Code code="<nr-logo color='rgb(221 120 50)'></nr-logo>" lang="js" />
+						<nr-logo size="xl" color="rgb(221 120 50)"></nr-logo>
+					</article>
+					<article>
+						<h5>HSL</h5>
+						<Code code="<nr-logo color='hsl(220 100% 50%)'></nr-logo>" lang="js" />
+						<nr-logo size="xl" color="hsl(220 100% 50%)"></nr-logo>
+					</article>
+				</div>
+			</div>
+			<div>
+				<h4>{t("language.animations")}</h4>
+				<div class="article-container">
+					<article>
+						<h5>{t("language.animated")}</h5>
+						<p>{t("logo.webcomponent_animated_description")}</p>
+						<Code code="<nr-logo animated></nr-logo>" lang="js" />
+						<nr-logo size="xl" animated></nr-logo>
+					</article>
+					<article>
+						<h5>{t("language.rainbow")}</h5>
+						<p>{t("logo.webcomponent_rainbow_description")}</p>
+						<Code code="<nr-logo rainbow></nr-logo>" lang="js" />
+						<nr-logo size="xl" rainbow></nr-logo>
 					</article>
 				</div>
 			</div>
@@ -135,6 +146,59 @@ astroI18n.init(Astro);
 				font-size: 1.5rem;
 			}
 		}
+
+		h3 {
+			font-size: 1.5rem;
+		}
+
+		.article-container {
+			display: flex;
+			gap: 2rem;
+			max-width: 1000px;
+			overflow-x: auto;
+
+			article {
+				display: flex;
+				flex-direction: column;
+				max-width: 375px;
+				width: fit-content;
+				max-height: 300px;
+				margin-bottom: 1rem;
+				padding: 1rem;
+				border-radius: 10px;
+				background-color: var(--secondary-dark-rgb);
+				background-color: var(--primary-light-rgb);
+				// border: 1px solid rgba(var(--secondary), 0.5);
+
+				h4 {
+					font-size: 1.2rem;
+					font-weight: 400;
+					padding-bottom: 1rem;
+					margin: 0;
+					text-decoration: underline solid 3px var(--secondary-rgb);
+				}
+				h5 {
+					margin: 0;
+					font-size: 1.3rem;
+				}
+
+				:global(pre) {
+					margin: 1rem 0;
+				}
+
+				nr-logo {
+					margin: auto;
+				}
+			}
+		}
+
+		section {
+			font-size: 1.5rem;
+
+			&:not(:last-child) {
+				margin-bottom: 3rem;
+			}
+		}
 	}
 
 	@media (width <= 768px) {
@@ -143,6 +207,18 @@ astroI18n.init(Astro);
 				div {
 					font-size: 1rem;
 				}
+			}
+
+			h3 {
+				font-size: 1.3rem;
+			}
+
+			.article-container {
+				gap: 1rem;
+			}
+
+			section {
+				font-size: 1.3rem;
 			}
 		}
 	}
@@ -153,6 +229,18 @@ astroI18n.init(Astro);
 				div {
 					font-size: 1rem;
 				}
+			}
+
+			h3 {
+				font-size: 1.2rem;
+			}
+
+			.article-container {
+				font-size: 1rem;
+			}
+
+			section {
+				font-size: 1.2rem;
 			}
 		}
 	}

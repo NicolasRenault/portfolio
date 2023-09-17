@@ -83,12 +83,16 @@ export default defineAstroI18nConfig({
 				catch_phrase: "A collection of my logos. SVGs, WebComponent and more.",
 				description:
 					"All the resources are available from a CDN. This project is under the CC BY-NC-ND (Creative Commons Attribution-NonCommercial-NoDerivatives) license.",
+				the_logo: "The logo",
+				explaination:
+					"The acronym of my name, with the N and the R, fused. Designed from my idea by ",
 				webcomponent_description: "Easy to use, highly customizable and ready to go.",
 				webcomponent_color_description:
 					"By default, the component uses the currentColor from heritage. Or you can use the color option and pass all types of valid CSS colors.",
 				webcomponent_animated_description:
-					"Each independent part of the logo has a hover effect.",
-				webcomponent_rainbow_description: "Hover it to go faster than Mario!",
+					"Each independent part of the logo has an hover effect.",
+				webcomponent_rainbow_description:
+					"Hover it to go faster than Mario! ♫Tutututututu!!!♫",
 			},
 			404: {
 				error: "404 error - Page not found",
@@ -179,13 +183,17 @@ export default defineAstroI18nConfig({
 				catch_phrase: "Une collection de mes logos. SVG, WebComponent et plus.",
 				description:
 					"Toutes les ressources sont disponibles depuis un CDN. Ce projet est sous la licence CC BY-NC-ND (Creative Commons Attribution - Pas d’Utilisation Commerciale - Pas de Modification).",
+				the_logo: "Le logo",
+				explaination:
+					"Acronyme de mon nom, avec le N et le R fusionnés. Conçu à partir de mon idée par ",
 				webcomponent_description:
 					"Facile à utiliser, hautement personnalisable et prêt à l'emploi.",
 				webcomponent_color_description:
 					"Par défaut, le composant utilise la currentColor grâce à de l'héritage. Ou vous pouvez utiliser l'option color et passer tous les types de couleurs CSS valides.",
 				webcomponent_animated_description:
 					"Chaque partie indépendante du logo a un effet au survol.",
-				webcomponent_rainbow_description: "Survolez-le pour aller plus vite que Mario !",
+				webcomponent_rainbow_description:
+					"Survolez-le pour aller plus vite que Mario ! ♫Tutututututu !!!♫",
 			},
 			404: {
 				error: "Erreur 404 - Page non trouvée",
