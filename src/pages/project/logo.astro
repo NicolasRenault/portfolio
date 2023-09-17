@@ -1,4 +1,5 @@
 ---
+import BasicLink from "@components/BasicLink.astro";
 import Layout from "@layouts/MainLayout.astro";
 import { astroI18n, t } from "astro-i18n";
 import { Code } from "astro/components";
@@ -8,16 +9,25 @@ astroI18n.init(Astro);
 
 <Layout title={"Projects"} pathname="project">
 	<main>
-		<section>
+		<section id="introduction">
 			<h1>Logo</h1>
 			<h2>{t("logo.catch_phrase")}</h2>
 			<p>{t("logo.description")}</p>
-			<a href="https://github.com/NicolasRenault/logo#readme">
-				{t("global.see_on_github")}
-			</a>
-			<a href="https://github.com/NicolasRenault/logo#license">
-				{t("global.license")}
-			</a>
+
+			<div>
+				<BasicLink
+					text={t("global.see_on_github")}
+					href="https://github.com/NicolasRenault/logo#readme"
+					title={t("global.see_on_github")}
+					target="_blank"
+				/>
+				<BasicLink
+					text={t("global.license")}
+					href="https://github.com/NicolasRenault/logo#license"
+					title={t("global.license")}
+					target="_blank"
+				/>
+			</div>
 		</section>
 
 		<section>
@@ -114,3 +124,36 @@ astroI18n.init(Astro);
 		</section>
 	</main>
 </Layout>
+
+<style lang="scss">
+	main {
+		#introduction {
+			div {
+				display: flex;
+				gap: 1rem;
+
+				font-size: 1.5rem;
+			}
+		}
+	}
+
+	@media (width <= 768px) {
+		main {
+			#introduction {
+				div {
+					font-size: 1rem;
+				}
+			}
+		}
+	}
+
+	@media (width <= 425px) {
+		main {
+			#introduction {
+				div {
+					font-size: 1rem;
+				}
+			}
+		}
+	}
+</style>

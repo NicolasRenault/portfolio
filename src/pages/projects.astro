@@ -39,8 +39,8 @@ interface Project {
 
 <Layout title={t("navbar.projects")} pathname="projects">
 	<main>
-		<h1>{t("navbar.projects")}</h1>
-		<div id="introduction">
+		<section id="introduction">
+			<h1>{t("navbar.projects")}</h1>
 			<p>
 				<span>{t("projects.intro")}</span>
 				<BasicLink
@@ -50,7 +50,7 @@ interface Project {
 					target="_blank"
 				/>
 			</p>
-		</div>
+		</section>
 		<h2>{t("projects.pinned_projects")}</h2>
 		<div id="pinned-projects-container">
 			{
@@ -252,7 +252,6 @@ interface Project {
 	main {
 		#introduction {
 			margin-bottom: 3rem;
-			font-size: 1.5rem;
 
 			span {
 				padding-right: 0.25rem;
@@ -300,10 +299,6 @@ interface Project {
 	}
 
 	@media (width >= 1024px) {
-		#introduction {
-			font-size: 1.75rem;
-		}
-
 		#pinned-projects-container,
 		#all-projects-container,
 		#contributions-container {
