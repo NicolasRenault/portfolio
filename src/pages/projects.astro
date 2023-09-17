@@ -308,6 +308,15 @@ interface Project {
 		#all-projects-container,
 		#contributions-container {
 			--article-width: calc(370px + 2rem);
+
+			//Chromium scrollbar
+			&::-webkit-scrollbar {
+				width: 15px;
+				height: 15px;
+			}
+
+			//Firefox scrollbar
+			scrollbar-width: 15px;
 		}
 
 		#all-projects-container {
