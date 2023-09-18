@@ -173,9 +173,9 @@
       "pinned": false
     },
     {
-      "name": "nicolasrenault.com",
-      "description": "Quick description that will be displayed on www.nicolasrenault.com before the *COMING_SOON* portfolio",
-      "url": "https://github.com/NicolasRenault/nicolasrenault.com",
+      "name": "2022-homepage",
+      "description": "Quick description was displayed on www.nicolasrenault.com waiting for portfolio. Now displayed on www.2022.nicolasrenault.com.",
+      "url": "https://github.com/NicolasRenault/2022-homepage",
       "createdAt": "2022-07-20T11:52:20Z",
       "languages": [
         "HTML"
