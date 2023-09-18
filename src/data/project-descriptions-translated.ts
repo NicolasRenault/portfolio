@@ -63,7 +63,7 @@ export const projects: ProjectsInterfaces = {
 		en: "Simple website that encodes and randomizes a given string. Useful for chunks of passwords.",
 		fr: "Site web simple qui encode et randomise une chaîne de caractères donnée. Utile pour des morceaux de mot de passe.",
 	},
-	"nicolasrenault.com": {
+	"2022-homepage": {
 		en: "Quick description that will be displayed on www.nicolasrenault.com before the *COMING_SOON* portfolio",
 		fr: "Courte description qui sera affichée sur www.nicolasrenault.com avant le portfolio",
 	},
