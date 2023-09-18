@@ -85,12 +85,12 @@ export default defineAstroI18nConfig({
 					"All the resources are available from a CDN. This project is under the CC BY-NC-ND (Creative Commons Attribution-NonCommercial-NoDerivatives) license.",
 				the_logo: "The logo",
 				explaination:
-					"The acronym of my name, with the N and the R, fused. Designed from my idea by ",
+					"The acronym of my name, with the N and the R fused. Designed from my idea by ",
 				webcomponent_description: "Easy to use, highly customizable and ready to go.",
 				webcomponent_color_description:
 					"By default, the component uses the currentColor from heritage. Or you can use the color option and pass all types of valid CSS colors.",
 				webcomponent_animated_description:
-					"Each independent part of the logo has an hover effect.",
+					"Each independent part of the logo has a hover effect.",
 				webcomponent_rainbow_description:
 					"Hover it to go faster than Mario! ♫Tutututututu!!!♫",
 			},
