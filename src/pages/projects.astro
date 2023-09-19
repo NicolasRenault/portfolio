@@ -58,7 +58,9 @@ interface Project {
 					return (
 						<ProjectCard
 							title={pinned.name.charAt(0).toLowerCase() + pinned.name.slice(1)}
-							description={pinned.description}
+							description={
+								getTranslatedDescription(pinned.name, lang) ?? pinned.description
+							}
 							icon={pinned.icon}
 							languages={pinned.languages}
 							pinned={pinned.pinned}
