@@ -6,6 +6,10 @@ export default defineAstroI18nConfig({
 	showDefaultLangCode: false,
 	translations: {
 		en: {
+			metadata: {
+				description:
+					"Hi, My name is Nicolas Renault. I'm a Fullstack Web Developer with a preference for Backend.",
+			},
 			global: {
 				application_developer: "Application Developer",
 				block_release_training: "Block release training",
@@ -106,6 +110,10 @@ export default defineAstroI18nConfig({
 			},
 		},
 		fr: {
+			metadata: {
+				description:
+					"Salut, je m'appelle Nicolas Renault. Je suis un Développeur Web Fullstack avec une préférence pour le Backend.",
+			},
 			global: {
 				application_developer: "Développeur d'application",
 				block_release_training: "Formation en alternance",

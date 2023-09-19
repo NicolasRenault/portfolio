@@ -1,27 +1,39 @@
 ---
+import { getLangFromUrl } from "@utils";
+import { astroI18n, t } from "astro-i18n";
+
 export interface Props {
 	title: string | undefined;
 }
 
+astroI18n.init(Astro);
+const lang = getLangFromUrl(Astro.url);
+
 const { title } = Astro.props;
 const finalTitle = title ? `${title} | Nicolas Renault` : "Nicolas Renault";
+
+const canonicalURL = new URL(Astro.url).href;
+const ogImageURL = new URL("/og-image.png", canonicalURL).href;
 ---
 
 <head>
 	<meta charset="UTF-8" />
-	<meta name="description" content="Astro description" />
+	<title>{finalTitle}</title>
 	<meta name="viewport" content="width=device-width" />
 	<meta name="author" content="Nicolas Renault" />
-	<meta
-		name="description"
-		content="Hi, My name is Nicolas Renault. I'm a Fullstack Web Developer with a preference for Backend."
-	/>
+	<meta name="description" content={t("metadata.description")} />
 	<meta
 		name="keywords"
 		content="Nicolas Renault, IT Developer, Web Developer, Backend Developer, Portfolio"
 	/>
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content={canonicalURL} />
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={t("metadata.description")} />
+	<meta property="og:image" content={ogImageURL} />
 	<meta name="generator" content={Astro.generator} />
-	<title>{finalTitle}</title>
+	<meta name="robots" content="index, follow" />
+	<link rel="canonical" href={canonicalURL} />
 
 	<link
 		rel="icon"
