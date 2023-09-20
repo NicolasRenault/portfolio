@@ -12,8 +12,8 @@ const lang = getLangFromUrl(Astro.url);
 const { title } = Astro.props;
 const finalTitle = title ? `${title} | Nicolas Renault` : "Nicolas Renault";
 
-const canonicalURL = new URL(Astro.url).href;
-const ogImageURL = new URL("/og-image.png", canonicalURL).href;
+const canonicalURL = new URL("", Astro.site).href;
+const ogImageURL = new URL("/og-image.png", Astro.site).href;
 ---
 
 <head>
@@ -28,7 +28,7 @@ const ogImageURL = new URL("/og-image.png", canonicalURL).href;
 	/>
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={canonicalURL} />
-	<meta property="og:title" content={title} />
+	<meta property="og:title" content={finalTitle} />
 	<meta property="og:description" content={t("metadata.description")} />
 	<meta property="og:image" content={ogImageURL} />
 	<meta name="generator" content={Astro.generator} />

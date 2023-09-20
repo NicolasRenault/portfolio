@@ -8,4 +8,6 @@ export default defineConfig({
 	build: {
 		inlineStylesheets: "never",
 	},
+	site: "https://www.dev.portfolio.nicolasrenault.com",
+	// site: "https://www.nicolasrenault.com", //TODO: change to production
 });
