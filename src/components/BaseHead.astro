@@ -1,5 +1,4 @@
 ---
-import { getLangFromUrl } from "@utils";
 import { astroI18n, t } from "astro-i18n";
 
 export interface Props {
@@ -7,7 +6,6 @@ export interface Props {
 }
 
 astroI18n.init(Astro);
-const lang = getLangFromUrl(Astro.url);
 
 const { title } = Astro.props;
 const finalTitle = title ? `${title} | Nicolas Renault` : "Nicolas Renault";
