@@ -33,53 +33,15 @@ const negative = left.includes("-");
 				<stop stop-color="var(--tertiary-rgb)" stop-opacity="1" offset="0%"></stop>
 				<stop stop-color="var(--text-rgb)" stop-opacity="1" offset="40%"> </stop>
 				<stop stop-color="var(--secondary-rgb)" stop-opacity="1" offset="100%"> </stop>
-			</linearGradient><filter
-				id="ffflux-filter"
-				x="-20%"
-				y="-20%"
-				width="140%"
-				height="140%"
-				filterUnits="objectBoundingBox"
-				primitiveUnits="userSpaceOnUse"
-				color-interpolation-filters="sRGB"
-			>
-				<feTurbulence
-					type="fractalNoise"
-					baseFrequency="0.007 0.007"
-					numOctaves="2"
-					seed="132"
-					stitchTiles="stitch"
-					x="0%"
-					y="0%"
-					width="100%"
-					height="100%"
-					result="turbulence"></feTurbulence>
-				<feGaussianBlur
-					stdDeviation="100 50"
-					x="0%"
-					y="0%"
-					width="100%"
-					height="100%"
-					in="turbulence"
-					edgeMode="duplicate"
-					result="blur"></feGaussianBlur>
-				<feBlend
-					mode="color-dodge"
-					x="0%"
-					y="0%"
-					width="100%"
-					height="100%"
-					in="SourceGraphic"
-					in2="blur"
-					result="blend"></feBlend>
-			</filter></defs
-		>
+			</linearGradient>
+		</defs>
 		<g transform="translate(150 210)">
 			<path
 				d="M186.5 -99.7C229.8 -32.7 244.8 58.7 209 98.1C173.2 137.5 86.6 125 21.7 112.5C-43.3 100 -86.6 87.5 -113.4 53.3C-140.3 19 -150.7 -37 -129 -91.5C-107.4 -146 -53.7 -199 8.9 -204.2C71.6 -209.3 143.2 -166.7 186.5 -99.7"
 				fill="url(#gradient-svg)"></path>
 		</g>
 	</svg>
+	<div class="blur-filter"></div>
 
 	<script>
 		const blobContainers = document.querySelectorAll(".blob-container");
@@ -118,6 +80,17 @@ const negative = left.includes("-");
 			opacity: 0.7;
 			filter: blur(30px);
 			pointer-events: none;
+		}
+
+		.blur-filter {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			backdrop-filter: blur(30px);
+			pointer-events: none;
+			z-index: 1;
 		}
 	}
 
