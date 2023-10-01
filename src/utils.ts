@@ -1,5 +1,5 @@
 import { projects, type ProjectsInterfaces } from "@data/project-descriptions-translated";
-import { resumeLinks } from "@data/resumes-links";
+import { isEnable, resumeLinks } from "@data/resumes";
 
 export const defaultLang = "en";
 export const supportedLangs = {
@@ -56,7 +56,16 @@ export function getTranslatedDescription(projectName: string, lang: string): str
 }
 
 /**
- * Get the resume link for a language from the resumeLinks array in /data.
+ * Get the boolean value of the isEnable variable from /data/resumes.ts.
+ *
+ * @returns boolean
+ */
+export function isResumeEnable(): boolean {
+	return isEnable;
+}
+
+/**
+ * Get the resume link for a language from the resumeLinks array in /data/resumes.ts.
  *
  * @param {string} lang
  * @returns string
