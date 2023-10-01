@@ -1,4 +1,4 @@
-//Generate interface for resumeLinks
+export const isEnable = false;
 
 export interface ResumeLinksInterfaces {
 	[lang: string]: string;

@@ -4,6 +4,7 @@ import {
 	getLangFromUrl,
 	getUrlWithTranslation,
 	switchLangFromUrl,
+	isResumeEnable,
 	getResumeLinkForLanguage,
 } from "@utils";
 import { astroI18n, t } from "astro-i18n";
@@ -38,11 +39,19 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 				{t("navbar.projects")}
 			</a>
 		</li>
-		<li id="resume-link">
-			<a href={getResumeLinkForLanguage(lang)} title={t("navbar.resume")} target="_blank">
-				{t("navbar.resume")}
-			</a>
-		</li>
+		{
+			isResumeEnable() && (
+				<li id="resume-link">
+					<a
+						href={getResumeLinkForLanguage(lang)}
+						title={t("navbar.resume")}
+						target="_blank"
+					>
+						{t("navbar.resume")}
+					</a>
+				</li>
+			)
+		}
 		<li id="contact-link">
 			<a
 				href="mailto:contact@nicolasrenault.com?subject=Hello there!&body=Hey,"
@@ -55,15 +64,6 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 		</li>
 	</ul>
 	<div id="left-container">
-		<!-- <a
-			id="mobile-resume-link"
-			class="icon"
-			href={getResumeLinkForLanguage(lang)}
-			title={t("navbar.resume")}
-			target="_blank"
-		>
-			<Icon name="codicon:github" />
-		</a> -->
 		<a
 			id="mobile-contact-link"
 			class="icon"
