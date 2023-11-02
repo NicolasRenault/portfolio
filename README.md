@@ -27,7 +27,7 @@ The script runs two GraphQL queries to GitHub APIs to get data. It uses [project
 
 This is heavily inspired by https://github.com/kevinzunigacuellar/web.
 
-## [astro-i18n](https://github.com/Alexandre-Fernandez/astro-i18n)
+## astro-i18n
 
 The website is fully translated using the [astro-i18n](https://github.com/Alexandre-Fernandez/astro-i18n) library.
 
