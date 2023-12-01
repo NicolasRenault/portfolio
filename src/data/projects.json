@@ -186,6 +186,18 @@
   ],
   "2023": [
     {
+      "name": "qrcode-prevention",
+      "description": "Website for prevention of QR code usage",
+      "url": "https://github.com/NicolasRenault/qrcode-prevention",
+      "createdAt": "2023-11-11T18:14:56Z",
+      "languages": [
+        "Astro",
+        "JavaScript"
+      ],
+      "year": 2023,
+      "pinned": false
+    },
+    {
       "name": "portfolio",
       "description": "My personal website build with Astro",
       "url": "https://github.com/NicolasRenault/portfolio",
