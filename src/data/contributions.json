@@ -25,5 +25,13 @@
       "TypeScript",
       "JavaScript"
     ]
+  },
+  "Cataas-API-js": {
+    "name": "iArmanKarimi/Cataas-API-js",
+    "url": "https://github.com/iArmanKarimi/Cataas-API-js",
+    "description": "Cat as a service API wrapper for Javascript and Typescript.",
+    "languages": [
+      "JavaScript"
+    ]
   }
 }
