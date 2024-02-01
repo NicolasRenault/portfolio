@@ -1,4 +1,13 @@
 {
+  "starlight": {
+    "name": "withastro/starlight",
+    "url": "https://github.com/withastro/starlight",
+    "description": "🌟 Build beautiful, accessible, high-performance documentation websites with Astro",
+    "languages": [
+      "TypeScript",
+      "Astro"
+    ]
+  },
   "vscode-pets": {
     "name": "tonybaloney/vscode-pets",
     "url": "https://github.com/tonybaloney/vscode-pets",
