@@ -258,5 +258,30 @@
       "pinned": false,
       "fork": "https://github.com/tonybaloney/vscode-pets"
     }
+  ],
+  "2024": [
+    {
+      "name": "the-game-timer",
+      "description": "Tracker timer for the game. (You lost)",
+      "url": "https://github.com/NicolasRenault/the-game-timer",
+      "createdAt": "2024-01-31T09:26:30Z",
+      "languages": [
+        "TypeScript",
+        "CSS"
+      ],
+      "year": 2024,
+      "pinned": false
+    },
+    {
+      "name": "two-mi18n",
+      "description": "Minimalist internationalization javascript library client-side. Really minimalist.",
+      "url": "https://github.com/NicolasRenault/two-mi18n",
+      "createdAt": "2024-01-12T13:34:53Z",
+      "languages": [
+        "JavaScript"
+      ],
+      "year": 2024,
+      "pinned": false
+    }
   ]
 }
