@@ -26,6 +26,7 @@ export function getLangFromUrl(url: URL): string {
  * @returns
  */
 export function getUrlWithTranslation(target: string, lang: string): string {
+	if (target.startsWith("http")) return target;
 	return "/" + (lang === defaultLang || !(lang in supportedLangs) ? "" : lang + "/") + target;
 }
 

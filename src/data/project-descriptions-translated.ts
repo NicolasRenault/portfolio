@@ -95,4 +95,16 @@ export const projects: ProjectsInterfaces = {
 		en: "Improve your code commenting by annotating with alert, informational, TODOs, and more!",
 		fr: "Améliorez vos commentaires de code en les annotant avec des alertes, des informations, des TODO et plus encore !",
 	},
+	"qrcode-prevention": {
+		en: "Website for prevention of QR code usage",
+		fr: "Site web pour la prévention de l'utilisation des QR codes",
+	},
+	"two-mi18n": {
+		en: "Minimalist internationalization javascript library client-side. Really minimalist.",
+		fr: "Bibliothèque de traduction minimaliste en javascript côté client. Vraiment minimaliste.",
+	},
+	"the-game-timer": {
+		en: "Tracker timer for the game. (You lost)",
+		fr: "Tracker timer for the game. (You lost)",
+	},
 };

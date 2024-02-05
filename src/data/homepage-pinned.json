@@ -1,5 +1,14 @@
 [
     {
+        "title": "two-mi18n",
+        "description": "two-mi18n.catch_phrase",
+        "icon": "https://www.cdn.nicolasrenault.com/two-mi18n/two-mi18n-logo.svg",
+        "url": "https://www.twomi18n.nicolasrenault.com",
+        "github": "https://github.com/NicolasRenault/two-mi18n",
+        "languages": ["Javascript"],
+        "subtitle": "Librairy"
+    },
+    {
         "title": "cheaty-webextension",
         "description": "cheaty.catch_phrase",
         "icon": "https://www.cdn.nicolasrenault.com/cheaty/cheaty-logo.png",
