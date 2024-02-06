@@ -175,7 +175,6 @@ interface Project {
 			if (hasParentAnchor(e.target as HTMLElement)) return;
 
 			element = getSliderFromTarget(e.target);
-			console.log(typeof e.target);
 			if (!element) return;
 
 			element.style.cursor = "grabbing";
