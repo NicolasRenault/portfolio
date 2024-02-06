@@ -87,7 +87,13 @@ interface Project {
 										<span>{t("projects.school_projects")}</span>
 									)}
 								</h3>
-								<div id={"projects-" + year} class="projects-container">
+								<div
+									id={"projects-" + year}
+									class:list={[
+										"projects-container",
+										{ "one-to-tree-columns": currentProjects.length < 4 },
+									]}
+								>
 									{currentProjects.map((project: Project) => {
 										return (
 											<ProjectCard
@@ -333,7 +339,8 @@ interface Project {
 					gap: 1rem;
 				}
 
-				#projects-2019 {
+				#projects-2019,
+				.one-to-tree-columns {
 					grid-template-columns: var(--article-width);
 				}
 			}
