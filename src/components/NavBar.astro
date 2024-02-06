@@ -86,7 +86,8 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 		<a
 			id="translation-link"
 			href={switchLangFromUrl(Astro.url, lang === defaultLang ? "fr" : "en")}
-			title={t("navbar.switch_language")}>{lang === defaultLang ? "fr" : "en"}</a
+			title={t("navbar.switch_language")}
+			><Icon name="ph:translate-bold" />{lang === defaultLang ? "fr" : "en"}</a
 		>
 	</div>
 </nav>
@@ -197,6 +198,7 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 
 			.icon {
 				display: flex;
+				justify-content: flex-end;
 
 				svg {
 					width: var(--font-size);
@@ -206,6 +208,10 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 
 			#translation-link {
 				font-size: calc(var(--font-size) + 0.1rem);
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 0.1rem;
+				align-items: center;
 			}
 
 			// #mobile-resume-link,
