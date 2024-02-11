@@ -83,11 +83,29 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 		>
 			<Icon name="codicon:github" />
 		</a>
+		<div id="translate-buttons-container">
+			<a
+				id="translation-link-en"
+				href={"en" === lang ? "javascript:void(0)" : switchLangFromUrl(Astro.url, "en")}
+				class:list={[{ disabled: "en" === lang }]}
+				title={t("navbar.switch_language")}
+			>
+				en
+			</a>
+			<Icon name="ph:translate-bold" />
+			<a
+				id="translation-link-fr"
+				href={"fr" === lang ? "javascript:void(0)" : switchLangFromUrl(Astro.url, "fr")}
+				class:list={[{ disabled: "fr" === lang }]}
+				title={t("navbar.switch_language")}
+			>
+				fr
+			</a>
+		</div>
 		<a
-			id="translation-link"
+			id="mobile-translation-link"
 			href={switchLangFromUrl(Astro.url, lang === defaultLang ? "fr" : "en")}
-			title={t("navbar.switch_language")}
-			><Icon name="ph:translate-bold" />{lang === defaultLang ? "fr" : "en"}</a
+			title={t("navbar.switch_language")}>{lang === defaultLang ? "fr" : "en"}</a
 		>
 	</div>
 </nav>
@@ -206,16 +224,29 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 				}
 			}
 
-			#translation-link {
+			#translate-buttons-container {
 				font-size: calc(var(--font-size) + 0.1rem);
 				display: grid;
-				grid-template-columns: 1fr 1fr;
-				gap: 0.1rem;
+				grid-template-columns: 1fr 1fr 1fr;
+				gap: 0.3rem;
 				align-items: center;
+
+				a.disabled {
+					pointer-events: none;
+					opacity: 0.2;
+
+					&:hover {
+						transform: none;
+					}
+					&:focus {
+						outline-color: gray;
+					}
+				}
 			}
 
 			// #mobile-resume-link,
-			#mobile-contact-link {
+			#mobile-contact-link,
+			#mobile-translation-link {
 				display: none;
 			}
 		}
@@ -295,8 +326,13 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 					width: fit-content;
 				}
 
+				#translate-buttons-container {
+					display: none;
+				}
+
 				// #mobile-resume-link,
-				#mobile-contact-link {
+				#mobile-contact-link,
+				#mobile-translation-link {
 					display: flex;
 
 					svg {
