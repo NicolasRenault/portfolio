@@ -9,6 +9,7 @@ import {
 } from "@utils";
 import { astroI18n, t } from "astro-i18n";
 import { Icon } from "astro-icon";
+import BasicLink from "./BasicLink.astro";
 
 astroI18n.init(Astro);
 
@@ -53,27 +54,22 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 			)
 		}
 		<li id="contact-link">
-			<a
-				href="mailto:contact.nicolasrenault@gmail.com?subject=Hello there!&body=Hey,"
+			<button
+				onclick="document.getElementById('contact-dialog').showModal()"
 				title={t("navbar.contact_me")}
-				target="_blank"
-				rel="noopener noreferrer"
 			>
 				{t("navbar.contact")}
-			</a>
+			</button>
 		</li>
 	</ul>
 	<div id="left-container">
-		<a
+		<button
 			id="mobile-contact-link"
-			class="icon"
-			href="mailto:contact.nicolasrenault@gmail.com?subject=Hello there!&body=Hey,"
+			onclick="document.getElementById('contact-dialog').showModal()"
 			title={t("navbar.contact_me")}
-			target="_blank"
-			rel="noopener noreferrer"
 		>
 			<Icon name="ic:baseline-alternate-email" />
-		</a>
+		</button>
 		<a
 			id="github-link"
 			class="icon"
@@ -110,18 +106,36 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 	</div>
 </nav>
 
-<script>
-	const nav = document.querySelector("nav");
-	const mobileNavToggle = document.querySelector("#mobile-nav-toggle");
-
-	mobileNavToggle?.addEventListener("click", () => {
-		if (nav?.classList.contains("active")) {
-			nav?.classList.remove("active");
-		} else {
-			nav?.classList.add("active");
-		}
-	});
-</script>
+<dialog id="contact-dialog">
+	<haeder>
+		<p>{t("navbar.contact_me")}</p>
+		<button
+			id="contact-dialog-close-button"
+			onclick="document.getElementById('contact-dialog').close()"
+		>
+			<Icon name="ic:baseline-close" />
+			<!-- TODO make icon work -->
+			<!-- TODO add title to button -->
+		</button>
+	</haeder>
+	<BasicLink
+		href="mailto:contact.nicolasrenault@gmail.com?subject=Hello there!&body=Hey,"
+		title={t("navbar.contact_me")}
+		target="_blank"
+		text="contact.nicolasrenault@gmail.com"
+	/>
+	<button
+		id="contact-dialog-copy-button"
+		onclick="
+			navigator.clipboard.writeText('contact.nicolasrenault@gmail.com')"
+		title={t("navbar.copy_email")}
+	>
+		<!-- TODO add copy icon -->
+		<!-- TODO add title to button -->
+		<!-- TODO add little green animation when copied -->
+		{t("navbar.copy_email")}
+	</button>
+</dialog>
 
 <style lang="scss">
 	nav {
@@ -197,6 +211,15 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 
 			border: none;
 			background: none;
+
+			padding: 0;
+			margin: 0;
+
+			letter-spacing: -1.5px;
+
+			&:hover {
+				cursor: pointer;
+			}
 		}
 
 		#left-container {
@@ -252,9 +275,33 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 		}
 	}
 
-	#mobile-nav-toggle {
-		display: none;
-		z-index: calc(var(--zIndex) + 1);
+	#contact-dialog {
+		// TODO finish CSS for dialog
+		background-color: var(--primary-rgb);
+		color: var(--text-rgb);
+		text-transform: uppercase;
+
+		a {
+			color: var(--text-rgb);
+		}
+
+		button {
+			background-color: transparent;
+			color: var(--text-rgb);
+			text-transform: uppercase;
+			border: none;
+			padding: 0.5rem 1rem;
+			margin: 1rem 0;
+			transition: transform 0.2s ease-in-out;
+
+			&:hover {
+				transform: translateY(-2px);
+			}
+		}
+
+		&::backdrop {
+			background-color: rgba(0, 0, 0, 0.5);
+		}
 	}
 
 	@media (width <= 1024px) {
@@ -315,6 +362,11 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 				// #resume-link,
 				#contact-link {
 					display: none;
+
+					button {
+						padding: 0;
+						margin: 0;
+					}
 				}
 			}
 
