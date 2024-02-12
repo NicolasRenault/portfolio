@@ -24,6 +24,8 @@ export default defineAstroI18nConfig({
 				light: "Light theme",
 				dark: "Dark theme",
 				bottom_page: "Bottom of the page",
+				close_dialog: "Close dialog",
+				copy_email: "Copy email",
 			},
 			language: {
 				size: "Size",
@@ -128,6 +130,8 @@ export default defineAstroI18nConfig({
 				light: "Thème clair",
 				dark: "Thème sombre",
 				bottom_page: "Bas de la page",
+				close_dialog: "Fermer la fenêtre",
+				copy_email: "Copier le mail",
 			},
 			language: {
 				size: "Taille",
