@@ -107,40 +107,54 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 </nav>
 
 <dialog id="contact-dialog">
-	<haeder>
+	<header>
 		<p>{t("navbar.contact_me")}</p>
 		<button
 			id="contact-dialog-close-button"
 			onclick="document.getElementById('contact-dialog').close()"
+			title={t("global.close_dialog")}
 		>
 			<Icon name="ic:baseline-close" />
-			<!-- TODO make icon work -->
-			<!-- TODO add title to button -->
 		</button>
-	</haeder>
-	<BasicLink
-		href="mailto:contact.nicolasrenault@gmail.com?subject=Hello there!&body=Hey,"
-		title={t("navbar.contact_me")}
-		target="_blank"
-		text="contact.nicolasrenault@gmail.com"
-	/>
-	<button
-		id="contact-dialog-copy-button"
-		onclick="
-			navigator.clipboard.writeText('contact.nicolasrenault@gmail.com')"
-		title={t("navbar.copy_email")}
-	>
-		<!-- TODO add copy icon -->
-		<!-- TODO add title to button -->
-		<!-- TODO add little green animation when copied -->
-		{t("navbar.copy_email")}
-	</button>
+	</header>
+	<div id="contact-dialog-main-container">
+		<BasicLink
+			href="mailto:contact.nicolasrenault@gmail.com?subject=Hello there!&body=Hey,"
+			title={t("navbar.contact_me")}
+			target="_blank"
+			text="contact.nicolasrenault@gmail.com"
+		/>
+		<button
+			id="contact-dialog-copy-button"
+			onclick="copyEmailToClipboard()"
+			title={t("global.copy_email")}
+		>
+			<!-- TODO add little green animation when copied -->
+			<Icon name="ic:baseline-copy-all" />
+		</button>
+	</div>
 </dialog>
 
-<style lang="scss">
-	nav {
-		--font-size: 1.5rem;
+<script is:inline>
+	function copyEmailToClipboard() {
+		navigator.clipboard.writeText("contact.nicolasrenault@gmail.com");
 
+		const contactDialogCopyButton = document.getElementById("contact-dialog-copy-button");
+		contactDialogCopyButton?.classList.add("copied");
+
+		setTimeout(() => {
+			contactDialogCopyButton?.classList.remove("copied");
+		}, 1000);
+	}
+</script>
+
+<style lang="scss">
+	nav,
+	dialog {
+		--font-size: 1.5rem;
+	}
+
+	nav {
 		display: flex;
 		justify-content: space-between;
 		padding: 1rem 1.5rem 0 1.5rem;
@@ -276,13 +290,30 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 	}
 
 	#contact-dialog {
-		// TODO finish CSS for dialog
 		background-color: var(--primary-rgb);
 		color: var(--text-rgb);
 		text-transform: uppercase;
+		font-size: var(--font-size);
 
-		a {
-			color: var(--text-rgb);
+		border-radius: 13px;
+		border: 1px solid var(--secondary-rgb);
+
+		padding-top: 0;
+
+		header {
+			display: flex;
+			width: 100%;
+			justify-content: space-between;
+
+			button {
+				width: calc(var(--font-size) * 1.2);
+			}
+		}
+
+		#contact-dialog-main-container {
+			:global(a.basic-link) {
+				letter-spacing: normal;
+			}
 		}
 
 		button {
@@ -290,8 +321,14 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 			color: var(--text-rgb);
 			text-transform: uppercase;
 			border: none;
-			padding: 0.5rem 1rem;
-			margin: 1rem 0;
+
+			cursor: pointer;
+
+			min-width: 1rem;
+			aspect-ratio: 1;
+			padding: 0;
+			margin: 0;
+
 			transition: transform 0.2s ease-in-out;
 
 			&:hover {
@@ -299,15 +336,36 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 			}
 		}
 
+		#contact-dialog-copy-button {
+			--green: rgb(18, 162, 4);
+
+			width: var(--font-size);
+
+			&.copied {
+				animation: copied 1s;
+			}
+
+			@keyframes copied {
+				0% {
+					color: var(--green);
+				}
+				100% {
+					color: var(--text-rgb);
+				}
+			}
+		}
 		&::backdrop {
 			background-color: rgba(0, 0, 0, 0.5);
 		}
 	}
 
 	@media (width <= 1024px) {
-		nav {
+		nav,
+		dialog {
 			--font-size: 1.2rem;
+		}
 
+		nav {
 			ul {
 				padding: 0;
 				gap: 3rem;
@@ -321,8 +379,12 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 	}
 
 	@media (width <= 680px) {
-		nav {
+		nav,
+		dialog {
 			--font-size: 1rem;
+		}
+
+		nav {
 			padding: 1rem 2rem;
 
 			ul {
@@ -394,10 +456,19 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 				}
 			}
 		}
+
+		dialog {
+			#contact-dialog-main-container {
+				:global(a.basic-link) {
+					font-size: 0.8rem;
+				}
+			}
+		}
 	}
 
 	@media (width <= 370px) {
-		nav {
+		nav,
+		dialog {
 			--font-size: 0.95rem;
 		}
 	}
