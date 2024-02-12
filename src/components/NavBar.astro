@@ -70,15 +70,17 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 		>
 			<Icon name="ic:baseline-alternate-email" />
 		</button>
-		<a
-			id="github-link"
-			class="icon"
-			href="https://github.com/NicolasRenault"
-			title={t("navbar.github_profile")}
-			target="_blank"
-		>
-			<Icon name="codicon:github" />
-		</a>
+		<div id="github-link-container">
+			<a
+				id="github-link"
+				class="icon"
+				href="https://github.com/NicolasRenault"
+				title={t("navbar.github_profile")}
+				target="_blank"
+			>
+				<Icon name="codicon:github" />
+			</a>
+		</div>
 		<div id="translate-buttons-container">
 			<a
 				id="translation-link-en"
@@ -251,13 +253,15 @@ if (lastSlashIndex > Astro.url.pathname.length - 2) {
 				}
 			}
 
-			.icon {
+			#github-link-container {
 				display: flex;
 				justify-content: flex-end;
 
 				svg {
 					width: var(--font-size);
 					height: var(--font-size);
+
+					padding-top: 3px;
 				}
 			}
 
