@@ -55,6 +55,22 @@ const negative = left.includes("-");
 				blobContainer.style.setProperty("--rotate", rotate);
 			}
 		});
+
+		/**
+		 * If not on firefox or safari, remove the blur filter
+		 *
+		 * On Firefor and Safari, the .blur-filter is used to create a backdrop-filter that prevent visual glitches on SVGs with blur filter
+		 * On other browsers, the blur filter is removed to prevent performance issues
+		 */
+		const isFirefox = navigator.userAgent.toLowerCase().indexOf("firefox") > -1;
+		const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+		console.log(isFirefox, isSafari);
+
+		if (!isFirefox && !isSafari) {
+			blobContainers.forEach((blobContainer) => {
+				blobContainer?.querySelector(".blur-filter")?.remove();
+			});
+		}
 	</script>
 </div>
 
