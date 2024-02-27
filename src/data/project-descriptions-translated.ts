@@ -77,7 +77,7 @@ export const projects: ProjectsInterfaces = {
 	},
 	"auto-clicker": {
 		en: "Simple auto-clicker made with python",
-		fr: "Simple auto-clicker fait avec python",
+		fr: "Simple auto-clicker fait en python",
 	},
 	"fire-forest": {
 		en: "A simple and fun introduction to algorithms",
@@ -105,6 +105,14 @@ export const projects: ProjectsInterfaces = {
 	},
 	"the-game-timer": {
 		en: "Tracker timer for the game. (You lost)",
-		fr: "Tracker timer for the game. (You lost)",
+		fr: "Suivi de timer pour the game. (You lost)",
 	},
+	"withastro/starlight": {
+		en: "🌟 Build beautiful, accessible, high-performance documentation websites with Astro",
+		fr: "🌟 Créez de beaux sites Web de documentation accessibles et performants avec Astro",
+	},
+	"iArmanKarimi/Cataas-API-js": {
+		en: "Cat as a service API wrapper for Javascript and Typescript.",
+		fr: "Wrapper d'API de service de chat pour Javascript et Typescript.",
+	}
 };
