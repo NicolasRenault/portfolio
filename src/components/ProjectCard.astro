@@ -49,7 +49,7 @@ const randomDeg = Math.floor(Math.random() * 180) + "deg";
 
 				<a
 					href={!fork ? project_link : `#${title}`}
-					title={title}
+					title={title + " | " + description}
 					class="main-link"
 					target={fork || Array.from(project_link)[0] === "/" ? "_self" : "_blank"}
 				>
@@ -251,8 +251,6 @@ const randomDeg = Math.floor(Math.random() * 180) + "deg";
 				display: flex;
 				gap: calc(var(--gap) / 2);
 
-				// background-color: var(--primary-light-rgb);
-
 				padding-left: calc(var(--gap) / 2);
 
 				a,
@@ -311,6 +309,11 @@ const randomDeg = Math.floor(Math.random() * 180) + "deg";
 
 				.languages {
 					font-size: 0.8rem;
+					bottom: calc(var(--gap) / 2);
+				}
+
+				.links {
+					bottom: calc(var(--gap) / 2);
 				}
 			}
 
@@ -340,7 +343,7 @@ const randomDeg = Math.floor(Math.random() * 180) + "deg";
 			}
 
 			.titles {
-				margin-bottom: calc(var(--gap) / 2) !important;
+				margin-bottom: 0 !important;
 				&.has-icon {
 					gap: 0;
 					width: 180px;
