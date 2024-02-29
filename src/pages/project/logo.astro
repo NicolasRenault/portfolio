@@ -46,7 +46,7 @@ astroI18n.init(Astro);
 				<article>
 					<h4>{t("global.light")}</h4>
 					<Image
-						src="https://cdn.nicolasrenault.com/logo/NR_Logo.svg"
+						src="https://cdn.nicolasrenault.com/logo/NR_Logo_light_mode.svg"
 						width="120"
 						height="80"
 						alt={"Logo Nicolas Renault " + t("global.light")}
@@ -55,10 +55,28 @@ astroI18n.init(Astro);
 				<article>
 					<h4>{t("global.dark")}</h4>
 					<Image
-						src="https://cdn.nicolasrenault.com/logo/NR_Logo_dark.svg"
+						src="https://cdn.nicolasrenault.com/logo/NR_Logo_dark_mode.svg"
 						width="120"
 						height="80"
 						alt={"Logo Nicolas Renault " + t("global.dark")}
+					/>
+				</article>
+				<article>
+					<h4>{t("global.white")}</h4>
+					<Image
+						src="https://cdn.nicolasrenault.com/logo/NR_Logo_white.svg"
+						width="120"
+						height="80"
+						alt={"Logo Nicolas Renault " + t("global.white")}
+					/>
+				</article>
+				<article>
+					<h4>{t("global.black")}</h4>
+					<Image
+						src="https://cdn.nicolasrenault.com/logo/NR_Logo_black.svg"
+						width="120"
+						height="80"
+						alt={"Logo Nicolas Renault " + t("global.black")}
 					/>
 				</article>
 			</div>
@@ -112,6 +130,22 @@ astroI18n.init(Astro);
 						<h5>HSL</h5>
 						<Code code="<nr-logo color='hsl(220 100% 50%)'></nr-logo>" lang="js" />
 						<nr-logo size="xl" color="hsl(220 100% 50%)"></nr-logo>
+					</article>
+				</div>
+				<h5>{t("language.color_theme")}</h5>
+				<p>
+					{t("logo.webcomponent_color_theme_description")}
+				</p>
+				<div class="article-container">
+					<article>
+						<h5>{t("global.light")}</h5>
+						<Code code="<nr-logo color='light'></nr-logo>" lang="js" />
+						<nr-logo size="xl" color="light"></nr-logo>
+					</article>
+					<article>
+						<h5>{t("global.dark")}</h5>
+						<Code code="<nr-logo color='dark'></nr-logo>" lang="js" />
+						<nr-logo size="xl" color="dark"></nr-logo>
 					</article>
 				</div>
 			</div>
@@ -171,15 +205,17 @@ astroI18n.init(Astro);
 				// border: 1px solid rgba(var(--secondary), 0.5);
 
 				h4 {
-					font-size: 1.2rem;
+					font-size: 1.3rem;
 					font-weight: 400;
 					padding-bottom: 1rem;
 					margin: 0;
 					text-decoration: underline solid 3px var(--secondary-rgb);
+					white-space: nowrap;
 				}
 				h5 {
 					margin: 0;
 					font-size: 1.3rem;
+					text-decoration: underline solid 3px var(--secondary-rgb);
 				}
 
 				:global(pre) {

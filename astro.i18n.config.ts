@@ -23,6 +23,8 @@ export default defineAstroI18nConfig({
 				license: "License",
 				light: "Light theme",
 				dark: "Dark theme",
+				white: "White",
+				black: "Black",
 				bottom_page: "Bottom of the page",
 				close_dialog: "Close dialog",
 				copy_email: "Copy email",
@@ -31,6 +33,7 @@ export default defineAstroI18nConfig({
 				size: "Size",
 				color: "Color",
 				color_name: "Color name",
+				color_theme: "Color theme",
 				hexadecimal: "Hexadecimal",
 				animations: "Animations",
 				animated: "Animated",
@@ -95,6 +98,8 @@ export default defineAstroI18nConfig({
 				webcomponent_description: "Easy to use, highly customizable and ready to go.",
 				webcomponent_color_description:
 					"By default, the component uses the currentColor from heritage. Or you can use the color option and pass all types of valid CSS colors.",
+				webcomponent_color_theme_description:
+					"You can also use the color theme to change the color of the logo.",
 				webcomponent_animated_description:
 					"Each independent part of the logo has a hover effect.",
 				webcomponent_rainbow_description:
@@ -129,6 +134,8 @@ export default defineAstroI18nConfig({
 				license: "Licence",
 				light: "Thème clair",
 				dark: "Thème sombre",
+				white: "Blanc",
+				black: "Noir",
 				bottom_page: "Bas de la page",
 				close_dialog: "Fermer la fenêtre",
 				copy_email: "Copier le mail",
@@ -137,6 +144,7 @@ export default defineAstroI18nConfig({
 				size: "Taille",
 				color: "Couleur",
 				color_name: "Nom de la couleur",
+				color_theme: "Thème de couleur",
 				hexadecimal: "Hexadécimal",
 				animations: "Animations",
 				animated: "Animated (Animé)",
@@ -202,6 +210,8 @@ export default defineAstroI18nConfig({
 					"Facile à utiliser, hautement personnalisable et prêt à l'emploi.",
 				webcomponent_color_description:
 					"Par défaut, le composant utilise la currentColor grâce à de l'héritage. Ou vous pouvez utiliser l'option color et passer tous les types de couleurs CSS valides.",
+				webcomponent_color_theme_description:
+					"Vous pouvez également utiliser le thème de couleur pour changer la couleur du logo.",
 				webcomponent_animated_description:
 					"Chaque partie indépendante du logo a un effet au survol.",
 				webcomponent_rainbow_description:
