@@ -8,15 +8,6 @@
       "Astro"
     ]
   },
-  "vscode-pets": {
-    "name": "tonybaloney/vscode-pets",
-    "url": "https://github.com/tonybaloney/vscode-pets",
-    "description": "Adds playful pets 🦀🐱🐶 in your VS Code window",
-    "languages": [
-      "TypeScript",
-      "JavaScript"
-    ]
-  },
   "better-comments": {
     "name": "aaron-bond/better-comments",
     "url": "https://github.com/aaron-bond/better-comments",
