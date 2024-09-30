@@ -64,7 +64,6 @@ const negative = left.includes("-");
 		 */
 		const isFirefox = navigator.userAgent.toLowerCase().indexOf("firefox") > -1;
 		const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-		console.log(isFirefox, isSafari);
 
 		if (!isFirefox && !isSafari) {
 			blobContainers.forEach((blobContainer) => {
