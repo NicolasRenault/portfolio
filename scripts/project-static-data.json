@@ -7,6 +7,9 @@
         "icon": "https://www.cdn.nicolasrenault.com/logo/NR_Logo_dark_mode.svg",
         "pinned": true
     },
+    "rock-paper-scissors": {
+        "icon": "https://cdn.nicolasrenault.com/images/RockPaperScissors.ico"
+    },
     "Blog-Symfony-LPRO": {
         "year": "2021"
     },
