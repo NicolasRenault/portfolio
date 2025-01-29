@@ -211,6 +211,15 @@
             "year": 2024,
             "icon": "https://www.cdn.nicolasrenault.com/two-mi18n/two-mi18n-logo.svg",
             "pinned": false
+        },
+        {
+            "name": "copy-that",
+            "description": "Simple website to copy text to your clipboard from a URL.",
+            "url": "https://www.copy-that.nicolasrenault.com/?text=That%20text%20here",
+            "createdAt": "2024-10-27T15:31:00Z",
+            "languages": ["Astro"],
+            "year": 2024,
+            "pinned": false
         }
     ]
 }
