@@ -64,8 +64,8 @@ export const projects: ProjectsInterfaces = {
 		fr: "Site web simple qui encode et randomise une chaîne de caractères donnée. Utile pour des morceaux de mot de passe.",
 	},
 	"2022-homepage": {
-		en: "Quick description that will be displayed on www.nicolasrenault.com before the *COMING_SOON* portfolio",
-		fr: "Courte description qui sera affichée sur www.nicolasrenault.com avant le portfolio",
+		en: "Quick description was displayed on www.nicolasrenault.com waiting for portfolio. Now displayed on www.2022.nicolasrenault.com.",
+		fr: "Ancienne version de mon portfolio, maintenant sur www.nicolasrenault.com",
 	},
 	portfolio: {
 		en: "My personal website built with Astro",
