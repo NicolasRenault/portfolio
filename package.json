@@ -16,7 +16,7 @@
         "i18n:reset": "rm -rf src/pages/fr/"
     },
     "dependencies": {
-        "@octokit/core": "^4.2.4",
+        "@octokit/core": "^6.1.4",
         "astro": "^4.16.18",
         "astro-i18n": "^1.8.1",
         "astro-icon": "^0.8.1",
