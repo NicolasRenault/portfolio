@@ -57,7 +57,7 @@ export default defineAstroI18nConfig({
 					"I'm always trying to optimize life in every aspect, which is why I enjoy building software applications that help people perform tasks more quickly and efficiently.",
 				passions:
 					"Outside work, I enjoy doing sports, building side projects, spending time with friends, and playing video games.",
-				work: "I’m currently working at Trelleborg as an IT Developer and Software Administrator.",
+				work: "I’m currently working at Trelleborg as a Digital Innovation and Solution Developper.",
 				working_experiences: "Working experiences",
 				fullstack_web_developer: "Fullstack Web Developer",
 				selected_projects: "Selected projects",
@@ -122,7 +122,7 @@ export default defineAstroI18nConfig({
 					"Salut, je m'appelle Nicolas Renault. Je suis un Développeur Web Fullstack avec une préférence pour le Backend.",
 			},
 			global: {
-				application_developer: "Innovation Digital et Développeur de Solutions",
+				application_developer: "Développeur de Solutions et Innovation Digitale",
 				block_release_training: "Formation en alternance",
 				present: "Aujourd'hui",
 				learn_more: "En savoir plus",
@@ -168,7 +168,7 @@ export default defineAstroI18nConfig({
 					"J'essaie toujours d'optimiser la vie dans tous les aspects, c'est pourquoi j'aime développer des applications logicielles qui aident les gens à effectuer des tâches plus rapidement et plus efficacement.",
 				passions:
 					"En dehors du travail, j'aime faire du sport, réaliser des projets annexes, passer du temps avec des amis et jouer aux jeux vidéo.",
-				work: "Je travaille actuellement chez Trelleborg en tant que Développeur informatique et Administrateur logiciel.",
+				work: "Je travaille actuellement chez Trelleborg en tant que Développeur de Solutions et Innovation Digitale.",
 				working_experiences: "Expériences",
 				fullstack_web_developer: "Développeur Web Fullstack",
 				selected_projects: "Projets sélectionnés",
