@@ -122,7 +122,7 @@ export default defineAstroI18nConfig({
 					"Salut, je m'appelle Nicolas Renault. Je suis un Développeur Web Fullstack avec une préférence pour le Backend.",
 			},
 			global: {
-				application_developer: "Développeur de Solutions et Innovation Digitale",
+				application_developer: "Développeur de Solutions et d'Innovation Digitale",
 				block_release_training: "Formation en alternance",
 				present: "Aujourd'hui",
 				learn_more: "En savoir plus",
@@ -168,7 +168,7 @@ export default defineAstroI18nConfig({
 					"J'essaie toujours d'optimiser la vie dans tous les aspects, c'est pourquoi j'aime développer des applications logicielles qui aident les gens à effectuer des tâches plus rapidement et plus efficacement.",
 				passions:
 					"En dehors du travail, j'aime faire du sport, réaliser des projets annexes, passer du temps avec des amis et jouer aux jeux vidéo.",
-				work: "Je travaille actuellement chez Trelleborg en tant que Développeur de Solutions et Innovation Digitale.",
+				work: "Je travaille actuellement chez Trelleborg en tant que Développeur de Solutions et d'Innovation Digitale.",
 				working_experiences: "Expériences",
 				fullstack_web_developer: "Développeur Web Fullstack",
 				selected_projects: "Projets sélectionnés",
