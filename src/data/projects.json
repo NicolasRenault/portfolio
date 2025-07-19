@@ -22,7 +22,7 @@
         },
         {
             "name": "MarioBros-JavaFX-DUT2",
-            "description": "University project to introduce us to Java game development using JavaFx by building a MarioBros clone.",
+            "description": "University project to introduce us to Java game development using JavaFx by building a Mario Bros clone.",
             "url": "https://github.com/NicolasRenault/MarioBros-JavaFX-DUT2",
             "createdAt": "2020-03-30T19:13:15Z",
             "languages": ["Java", "CSS"],
@@ -78,7 +78,7 @@
         },
         {
             "name": "FuturoVTC-Laravel-LPRO",
-            "description": "University project to introduce us to Web application development using Laravel by building a Uber like website.",
+            "description": "University project to introduce us to Web application development using Laravel by building a Uber-like website.",
             "url": "https://github.com/NicolasRenault/FuturoVTC-Laravel-LPRO",
             "createdAt": "2021-04-20T17:56:12Z",
             "languages": ["PHP", "Blade"],
@@ -127,7 +127,7 @@
         },
         {
             "name": "password-encoder",
-            "description": "Simple website that encode and randomize a given string. Usefull for chunk of password.",
+            "description": "Simple website that encodes and randomizes a given string. Useful for a chunk of password.",
             "url": "https://github.com/NicolasRenault/password-encoder",
             "createdAt": "2022-11-12T15:10:07Z",
             "languages": ["JavaScript", "HTML"],
@@ -136,7 +136,7 @@
         },
         {
             "name": "2022-homepage",
-            "description": "Quick description was displayed on www.nicolasrenault.com waiting for portfolio. Now displayed on www.2022.nicolasrenault.com.",
+            "description": "Quick description was displayed on www.nicolasrenault.com, waiting for portfolio. Now displayed on www.2022.nicolasrenault.com.",
             "url": "https://2022.nicolasrenault.com",
             "createdAt": "2022-07-20T11:52:20Z",
             "languages": ["HTML"],
@@ -156,7 +156,7 @@
         },
         {
             "name": "portfolio",
-            "description": "My personal website build with Astro",
+            "description": "My personal website built with Astro",
             "url": "https://github.com/NicolasRenault/portfolio",
             "createdAt": "2023-05-22T16:02:41Z",
             "languages": ["Astro", "TypeScript"],
@@ -165,7 +165,7 @@
         },
         {
             "name": "logo",
-            "description": "A collection of my logos. SVGs, WebComponent and more.",
+            "description": "A collection of my logos. SVGs, WebComponents and more.",
             "url": "https://github.com/NicolasRenault/logo",
             "createdAt": "2023-05-06T14:33:20Z",
             "languages": ["JavaScript", "HTML"],
@@ -175,7 +175,7 @@
         },
         {
             "name": "auto-clicker",
-            "description": "Simple auto-clicker made with python",
+            "description": "Simple auto-clicker made with Python",
             "url": "https://github.com/NicolasRenault/auto-clicker",
             "createdAt": "2023-04-02T20:30:28Z",
             "languages": ["Python"],
@@ -184,7 +184,7 @@
         },
         {
             "name": "fire-forest",
-            "description": "A simple and fun introduction to algorithm",
+            "description": "A simple and fun introduction to algorithms",
             "url": "https://github.com/NicolasRenault/fire-forest",
             "createdAt": "2023-03-02T10:50:42Z",
             "languages": ["JavaScript", "HTML"],
@@ -205,7 +205,7 @@
     "2024": [
         {
             "name": "two-mi18n",
-            "description": "Minimalist internationalization javascript library client-side. Really minimalist.",
+            "description": "Minimalist internationalization JavaScript library client-side. Really minimalist.",
             "url": "https://www.twomi18n.nicolasrenault.com/",
             "createdAt": "2024-01-12T13:34:53Z",
             "languages": ["JavaScript"],
@@ -220,6 +220,17 @@
             "createdAt": "2024-10-27T15:31:00Z",
             "languages": ["Astro"],
             "year": 2024,
+            "pinned": false
+        }
+    ],
+    "2025": [
+        {
+            "name": "links",
+            "description": "A list of all my links, using Astro. Inspired by https://linktr.ee/",
+            "url": "https://www.links.nicolasrenault.com/",
+            "createdAt": "2025-07-13T13:34:53Z",
+            "languages": ["JavaScript"],
+            "year": 2025,
             "pinned": false
         }
     ]
