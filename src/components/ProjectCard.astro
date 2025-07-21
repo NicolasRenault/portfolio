@@ -368,3 +368,41 @@ const randomDeg = Math.floor(Math.random() * 180) + "deg";
 		}
 	}
 </style>
+
+<script>
+	/**
+	 * Handle the cards animations
+	 */
+	const cards = document.getElementsByClassName("card-container");
+
+	for (let i = 0; i < cards.length; i++) {
+		const card = cards[i];
+		const styles = getComputedStyle(card);
+		const randomDeg = styles.getPropertyValue("--randomDeg").trim();
+		let deg = Number(randomDeg.replace("deg", ""));
+		let hover = false;
+
+		card.addEventListener("mouseenter", function (event) {
+			hover = true;
+			animate();
+		});
+
+		card.addEventListener("mouseleave", function (event) {
+			hover = false;
+		});
+
+		/**
+		 * Recursive method that incremente the angle of the linear-gradient of the card
+		 */
+		function animate() {
+			deg = (deg + 1) % 360;
+			card.setAttribute("style", `--randomDeg: ${deg}deg`);
+
+			if (hover) {
+				setTimeout(() => {
+					animate();
+				}, 30);
+			}
+		}
+	}
+</script>
