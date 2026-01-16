@@ -5,7 +5,7 @@
 
 This is my portfolio built with Astro. Feel free to visit it at https://nicolasrenault.com!
 
-This project is under the MIT Licence. Feel free to take inspiration but remember this is a <ins>personal</ins> website so try not to copy past the texts in it. You don't want to talk about me on your website.
+This project is under the MIT Licence. Feel free to take inspiration but remember this is a <ins>personal</ins> website so try not to copy/paste the texts in it. You don't want to talk about me on your website.
 
 Otherwise here are some details about the project.
 
