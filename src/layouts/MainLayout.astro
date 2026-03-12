@@ -1,37 +1,19 @@
 ---
-import "@styles/normalize.css";
-import "@styles/global.scss";
+import "../styles/global.css";
+
 import BaseHead from "@components/BaseHead.astro";
-import NavBar from "@components/NavBar.astro";
-import Footer from "@components/Footer.astro";
-import GrainyFilter from "@components/GrainyFilter.astro";
-import { getLangFromUrl } from "@utils";
-import Blob from "@components/Blob.astro";
 
-export interface Props {
-	title: string | undefined;
-	pathname?: string;
-}
 
-const { title, pathname } = Astro.props;
-const lang = getLangFromUrl(Astro.url);
+const { title, pathname, lang } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang={lang}>
-	<BaseHead title={title} />
+    <BaseHead title={title} />
 	<body>
-		<NavBar />
-		<div id="animation-container">
-			<section id="main">
-				<slot />
-			</section>
-			<Footer navigate={pathname} />
-			<Blob top="50vh" left="70%" rotate="random" />
-			<Blob top="170vh" left="-40%" rotate="random" />
-			<Blob top="400vh" left="70%" rotate="random" />
-		</div>
-		<GrainyFilter />
+        <section id="main">
+            <slot />
+        </section>
 		<script>
 			console.log(
 				"  _   _ _           _             _____                        _ _   \r\n | \\ | (_)         | |           |  __ \\                      | | |  \r\n |  \\| |_  ___ ___ | | __ _ ___  | |__) |___ _ __   __ _ _   _| | |_ \r\n | . ` | |/ __/ _ \\| |/ _` / __| |  _  // _ \\ '_ \\ / _` | | | | | __|\r\n | |\\  | | (_| (_) | | (_| \\__ \\ | | \\ \\  __/ | | | (_| | |_| | | |_ \r\n |_| \\_|_|\\___\\___/|_|\\__,_|___/ |_|  \\_\\___|_| |_|\\__,_|\\__,_|_|\\__|\r\n                                                                     "

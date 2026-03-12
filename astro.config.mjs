@@ -1,12 +1,15 @@
-import i18n from "astro-i18n";
-import { defineConfig } from "astro/config";
+import { defineConfig } from 'astro/config';
+
+import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [i18n()],
-	scopedStyleStrategy: "class",
+  scopedStyleStrategy: "class",
 	build: {
 		inlineStylesheets: "never",
 	},
 	site: "https://www.nicolasrenault.com",
+  vite: {
+    plugins: [tailwindcss()],
+  }
 });
