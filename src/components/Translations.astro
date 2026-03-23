@@ -1,0 +1,32 @@
+---
+---
+<script defer
+		src="https://unpkg.com/two-mi18n@latest/dist/TwoMi18n.umd.js"
+></script>
+
+<select name="lang" id="lang-selector">
+    <option value="en">English (en)</option>
+    <option value="fr">Français (fr)</option>
+</select>
+
+<script>
+     // @ts-nocheck
+    const translations = {
+        default: "en",
+        en: {
+        },
+        fr: {
+        },
+      };
+
+      const twoMi18n = new TwoMi18n(translations);
+
+      const languageSelector = document.getElementById("lang-selector");
+      languageSelector.addEventListener("change", (event) => {
+        handleTanslation(event.target.value);
+      });
+
+      function handleTanslation(lang) {
+        twoMi18n.translateHTML(lang);
+      }
+</script>
