@@ -3,7 +3,7 @@
 
 ## Welcome!
 
-This is my portfolio built with Astro. Feel free to visit it at https://nicolasrenault.com!
+This is my portfolio built with Astro. Feel free to visit it at https://2024.nicolasrenault.com!
 
 This project is under the MIT Licence. Feel free to take inspiration but remember this is a <ins>personal</ins> website so try not to copy/paste the texts in it. You don't want to talk about me on your website.
 
@@ -15,7 +15,7 @@ The project is using [Astro 3.0.7](https://docs.astro.build/en/getting-started/)
 
 ## Projects CI/CD
 
-All the projects you find in the [/projects](https://nicolasrenault.com/projects) are from two JSON files on [/src/data](https://github.com/NicolasRenault/portfolio/tree/main/src/data).
+All the projects you find in the [/projects](https://2024.nicolasrenault.com/projects) are from two JSON files on [/src/data](https://github.com/NicolasRenault/portfolio/tree/main/src/data).
 
 -   [projects.json](https://github.com/NicolasRenault/portfolio/blob/main/src/data/projects.json): A list of almost all my projects from GitHub (name, description, url, createdAt, languages, year, pinned?).
 
