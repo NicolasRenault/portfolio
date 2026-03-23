@@ -8,5 +8,5 @@ export default defineConfig({
 	build: {
 		inlineStylesheets: "never",
 	},
-	site: "https://www.nicolasrenault.com",
+	site: "https://www.2024.nicolasrenault.com",
 });
