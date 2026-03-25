@@ -3,16 +3,22 @@ import Layout from "@layouts/MainLayout.astro";
 ---
 <Layout title="Home" pathname="homepage" lang="en">
 
-  <div data-theme="light" class="section-div">
-    <h1 class="text-4xl font-bold mb-4 text-heading">Welcome to My Astro Site</h1>
-    <p class="text-lg text-content">This is the homepage of my Astro project.</p>
-  </div>
-  <div data-theme="dark" class="section-div">
-    <h1 class="text-4xl font-bold mb-4 text-heading">Welcome to My Astro Site</h1>
-    <p class="text-lg text-content">This is the homepage of my Astro project.</p>
-  </div>
-  <div data-theme="fancy" class="section-div ">
-    <h1 class="text-4xl font-bold mb-4 text-heading">Welcome to My Astro Site</h1>
-    <p class="text-lg text-content">This is the homepage of my Astro project.</p>
-  </div>
+  <section data-theme="light" class="section-wrapper">
+    <div>
+      <h1 class="text-4xl font-bold mb-4 text-heading">Welcome to My Astro Site</h1>
+      <p class="text-lg text-content">This is the homepage of my Astro project.</p>
+    </div>
+  </section>
+  <section data-theme="dark" class="section-wrapper">
+    <div>
+      <h1 class="text-4xl font-bold mb-4 text-heading">Welcome to My Astro Site</>
+      <p class="text-lg text-content">This is the homepage of my Astro project.</p>
+    </div>
+  </section>
+  <section data-theme="fancy" class="section-wrapper ">
+    <div>
+      <h1 class="text-4xl font-bold mb-4 text-heading">Welcome to My Astro Site</h1>
+      <p class="text-lg text-content">This is the homepage of my Astro project.</p>
+    </div>
+  </section>
 </Layout>

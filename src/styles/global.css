@@ -22,8 +22,11 @@
 }
 
 @layer components {
-    .section-div {
-        @apply w-full bg-surface p-6 min-h-[90vh];
+    .section-wrapper {
+        @apply flex flex-col items-center  bg-surface;
+    }
+    .section-wrapper div {
+        @apply w-full p-10 min-h-[90vh] mx-auto md:border-x md:border-[#5b585d] md:max-w-[calc(100vw-2rem)] min-[90rem]:max-w-360
     }
 }
 
