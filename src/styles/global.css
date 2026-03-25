@@ -1,8 +1,29 @@
 @import "tailwindcss";
 
+@theme {
+    --color-surface: #f4fbdf;
+    --color-content: #0b0d05;
+    --color-heading: #1d7e01;
+}
+
+
+@layer theme {
+    [data-theme="dark"] {
+        --color-surface: #03351b;
+        --color-content: #ffffff;
+        --color-heading: #ffffff;
+    }
+  
+    [data-theme="fancy"] {
+        --color-surface: #0b0b05;
+        --color-content: #ffffff;
+        --color-heading: #14d805;
+    }
+}
+
 @layer components {
     .section-div {
-        @apply w-full p-6 min-h-[90vh];
+        @apply w-full bg-surface p-6 min-h-[90vh];
     }
 }
 
