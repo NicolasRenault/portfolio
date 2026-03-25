@@ -3,6 +3,7 @@ import "@styles/global.css";
 
 import BaseHead from "@components/BaseHead.astro";
 import Translations from "@components/Translations.astro";
+import NavBar from "@components/Navbar.astro";
 
 
 const { title, pathname, lang } = Astro.props;
@@ -13,6 +14,7 @@ const { title, pathname, lang } = Astro.props;
     <BaseHead title={title} />
 	<body class="bg-surface">
         <section id="main">
+			<NavBar/>
             <slot />
         </section>
 		<script>
