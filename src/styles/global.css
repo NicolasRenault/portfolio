@@ -1,1 +1,26 @@
 @import "tailwindcss";
+
+@layer components {
+    .section-div {
+        @apply w-full p-6 min-h-[90vh];
+    }
+}
+
+@font-face {
+	font-family: Poppins;
+	src: url("/fonts/Poppins-Regular.ttf");
+	font-weight: 400;
+	font-style: normal;
+}
+
+:root {
+    --tw-border-style {
+        syntax: "*";
+        inherits: false;
+        initial-value: solid;
+    }
+}
+
+html {
+    font-family: Poppins, sans-serif;
+}

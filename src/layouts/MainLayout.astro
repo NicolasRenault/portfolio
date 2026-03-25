@@ -12,7 +12,7 @@ const { title, pathname, lang } = Astro.props;
 <html lang={lang}>
     <BaseHead title={title} />
 	<body>
-        <section id="main">
+        <section id="main" class="w-full mx-auto md:border-x md:border-gray-200 md:max-w-[calc(100vw-2rem)] min-[90rem]:max-w-360 flex flex-col items-center gap-8 py-10">
             <slot />
         </section>
 		<script>
