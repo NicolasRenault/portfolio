@@ -4,6 +4,7 @@
     --color-surface: #f4fbdf;
     --color-content: #0b0d05;
     --color-heading: #1d7e01;
+    --color-border: #5d585d
 }
 
 
@@ -12,12 +13,14 @@
         --color-surface: #03351b;
         --color-content: #ffffff;
         --color-heading: #ffffff;
+        --color-border: #ffffff;
     }
-  
+    
     [data-theme="fancy"] {
         --color-surface: #0b0b05;
         --color-content: #ffffff;
         --color-heading: #14d805;
+        --color-border: #ffffff;
     }
 }
 
@@ -26,7 +29,7 @@
         @apply flex flex-col items-center  bg-surface;
     }
     .section-wrapper div {
-        @apply w-full p-10 min-h-[90vh] mx-auto md:border-x md:border-[#5b585d] md:max-w-[calc(100vw-2rem)] min-[90rem]:max-w-360
+        @apply w-full p-10 min-h-[90vh] mx-auto md:border-x border-border/20 md:max-w-[calc(100vw-2rem)] min-[90rem]:max-w-360
     }
 }
 
