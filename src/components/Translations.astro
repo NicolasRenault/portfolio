@@ -4,29 +4,55 @@
 		src="https://unpkg.com/two-mi18n@latest/dist/TwoMi18n.umd.js"
 ></script>
 
-<select name="lang" id="lang-selector">
-    <option value="en">English (en)</option>
-    <option value="fr">Français (fr)</option>
-</select>
+<div id="translation-container" class="grid grid-flow-col gap-1">
+  <button id="translation-button-en" class="translation-button" disabled>EN</button>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8"><path fill="currentColor" d="m12.87 15.07l-2.54-2.51l.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35C8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5l3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7l1.62-4.33L19.12 17z"/></svg>
+  <button id="translation-button-fr" class="translation-button">FR</button>
+</div>
+
+<style>
+  @reference "../styles/global.css";
+
+  .translation-button {
+    @apply disabled:text-heading/45 cursor-pointer disabled:cursor-auto hover:-translate-y-0.5 disabled:hover:translate-0 transform;
+  }
+</style>
 
 <script>
      // @ts-nocheck
     const translations = {
         default: "en",
         en: {
+          "homepage": "Homepage"
         },
         fr: {
+          "homepage": "Acceuil"
         },
       };
 
       const twoMi18n = new TwoMi18n(translations);
 
-      const languageSelector = document.getElementById("lang-selector");
-      languageSelector.addEventListener("change", (event) => {
-        handleTanslation(event.target.value);
+      const buttonEN = document.getElementById("translation-button-en");
+      const buttonFR = document.getElementById("translation-button-fr");
+
+      buttonEN?.addEventListener("click", () => {
+        handleTanslation("en");
+      });
+      buttonFR?.addEventListener("click", () => {
+        handleTanslation("fr");
       });
 
       function handleTanslation(lang) {
+        //TODO Add ?lang={lang} in the url?
+
+        if(lang ==="en") {
+          buttonEN.setAttribute('disabled', true);
+          buttonFR.removeAttribute('disabled');
+        } else if (lang === "fr") {
+          buttonEN.removeAttribute('disabled');
+          buttonFR.setAttribute('disabled', true);
+        }
+
         twoMi18n.translateHTML(lang);
       }
 </script>

@@ -48,6 +48,10 @@
     }
 }
 
+* {
+    @apply  focus:outline-4 focus:outline-dashed focus:outline-heading focus:outline-offset-4;
+}
+
 html {
     font-family: Poppins, sans-serif;
 }
