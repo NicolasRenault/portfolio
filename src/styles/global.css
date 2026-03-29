@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-    --color-surface: #f4fbdf;
-    --color-content: #0b0d05;
-    --color-heading: #1d7e01;
+    --color-surface: #F7F9F7;
+    --color-content: #1A2421;
+    --color-heading: #105531;
     --color-border: #5d585d
 }
 
@@ -34,8 +34,14 @@
 }
 
 @font-face {
-	font-family: Poppins;
-	src: url("/fonts/Poppins-Regular.ttf");
+	font-family: Syne;
+	src: url("/fonts/Syne-SemiBold.ttf");
+	font-weight: 600;
+	font-style: oblique;
+}
+@font-face {
+	font-family: Lora;
+	src: url("/fonts/Lora-Regular.ttf");
 	font-weight: 400;
 	font-style: normal;
 }
@@ -49,9 +55,18 @@
 }
 
 * {
-    @apply  focus:outline-4 focus:outline-dashed focus:outline-heading focus:outline-offset-4;
+    @apply  focus-visible:outline-4 focus-visible:outline-dashed focus-visible:outline-heading focus-visible:outline-offset-4;
 }
 
 html {
-    font-family: Poppins, sans-serif;
+    font-family: Lora, sans-serif;    
+}
+
+h1, h2, h3, h4, .text-heading {
+    font-family: Syne, sans-serif;
+    letter-spacing: -0.1rem;
+}
+
+p {
+    max-width: 65ch;
 }
