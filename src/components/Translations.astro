@@ -21,7 +21,7 @@
 </style>
 
 <script>
-     // @ts-nocheck
+     // @ts-nocheck    
     const translations = {
         default: "en",
         en: {
@@ -48,17 +48,42 @@
         handleTanslation("fr");
       });
 
+      /**
+       * Handle all the changes needed for the translations 
+       *  - Lang selector
+       *  - Add ?lang={lang} to URL Parameters
+       *  - Call TwoMi18n function 
+       * 
+       * @param lang 
+       */
       function handleTanslation(lang) {
-        //TODO Add ?lang={lang} in the url?
-
         if(lang ==="en") {
           buttonEN.setAttribute('disabled', true);
           buttonFR.removeAttribute('disabled');
+
+          window.history.replaceState("lang", null, "?lang=en")
         } else if (lang === "fr") {
           buttonEN.removeAttribute('disabled');
           buttonFR.setAttribute('disabled', true);
+
+          window.history.replaceState("lang", null, "?lang=fr")
         }
 
         twoMi18n.translateHTML(lang);
       }
+
+      /**
+       * Check in the URL if the {lang} param exist.
+       * If so, call @handleTranslation
+       */
+      function getLangFromURL() {
+        const params = new URLSearchParams(document.location.search);
+
+        if (params.size !== 0) {
+          const lang = params.get("lang");
+          if (lang in translations) handleTanslation(lang);
+        }
+      }
+
+      getLangFromURL(); //Trigger once on load
 </script>
