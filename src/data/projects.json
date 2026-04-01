@@ -99,7 +99,7 @@
             "description": "Quick description was displayed on www.nicolasrenault.com, waiting for portfolio. Now displayed on www.2022.nicolasrenault.com.",
             "github_url": "https://github.com/NicolasRenault/2022-homepage",
             "url_2": "https://2022.nicolasrenault.com",
-            "languages": ["HTML"]
+            "languages": ["HTML", "CSS"]
         }
     ],
     "2023": [
