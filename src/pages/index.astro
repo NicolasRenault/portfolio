@@ -8,12 +8,11 @@ const years = Object.keys(projects).sort((a, b) => parseInt(b) - parseInt(a));
 interface Project {
 	name: string;
 	description: string;
-	url: string;
-	createdAt: Date;
+  github_url: string;
+	url_2?: string;
 	languages: string[];
-	year?: number;
 	icon?: string;
-	pinned?: boolean;
+	is_default?: boolean;
 	fork?: string;
 }
 ---
@@ -64,7 +63,7 @@ interface Project {
               return (
                 <>
                   <div id={year + "-projects"}>
-                    <p id={year} class="year-title w-fit m-1 relative text-content">
+                    <p id={year} class="year-title text-xl w-fit m-1 relative text-content">
                       {year}
                       {["2021", "2020", "2019"].includes(year) && (
                         <span data-twomi18n="school-projects" class="text-sm">School Projects</span>
@@ -114,7 +113,7 @@ interface Project {
   .project-button.active {
     @apply text-content
   }
-  .project-button.active img {
+  .project-button.active img, .project-button:hover img {
     @apply grayscale-0
   }
 </style>
