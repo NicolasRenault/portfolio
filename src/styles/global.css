@@ -39,8 +39,9 @@
         @apply w-full p-10 min-h-[90vh] mx-auto md:border-x border-border/20 md:max-w-[calc(100vw-2rem)] min-[90rem]:max-w-360
     }
 
+    /* Animation for links using before and after (for active) */
     .link-animation {
-        @apply relative inline-block  whitespace-nowrap; 
+        @apply relative inline-block whitespace-nowrap; 
     }
     .link-animation:hover {
         @apply text-content;

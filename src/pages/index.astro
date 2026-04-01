@@ -63,7 +63,7 @@ interface Project {
               return (
                 <>
                   <div id={year + "-projects"}>
-                    <p id={year} class="p-1 text-content">
+                    <p id={year} class="year-title w-fit m-1 relative text-content">
                       {year}
                       {["2021", "2020", "2019"].includes(year) && (
                         <span data-twomi18n="school-projects" class="text-sm">School Projects</span>
@@ -75,7 +75,7 @@ interface Project {
                           const name = project.name.charAt(0).toLowerCase() + project.name.slice(1); //Lowercase first letter
 
                           return (
-                            <button id={"button-" + name} data-name={name} class="project-button max-w-fit ml-3 my-1 whitespace-nowrap link-animation">
+                            <button id={"button-" + name} data-name={name} data-year={year} class="project-button max-w-fit ml-3 my-1 whitespace-nowrap link-animation">
                               {name}
                             </button>
                           );
@@ -102,22 +102,32 @@ interface Project {
 <style>
   @reference "../styles/global.css";
 
+  .year-title.active::before {
+    content: "";
+    @apply absolute bottom-0 left-0 w-full h-1 bg-content transition-all duration-400;
+  }
+
   .project-button.active {
     @apply text-content
   }
 </style>
 
 <script>
-  const projectsButton = document.getElementsByClassName("project-button");
-  const projectsCard = document.getElementsByClassName("project-card");
+  const yearsTitles = document.getElementsByClassName("year-title");
+  const projectsButtons = document.getElementsByClassName("project-button");
+  const projectsCards = document.getElementsByClassName("project-card");
 
-  for (const element in projectsButton) {
-    if (Object.hasOwnProperty.call(projectsButton, element)) {
-      const project = projectsButton[element] as HTMLElement;
+  for (const element in projectsButtons) {
+    if (Object.hasOwnProperty.call(projectsButtons, element)) {
+      const project = projectsButtons[element] as HTMLElement;
       project.addEventListener("click", () => {
         const name = project.dataset.name;
-        removeProjectButtonActiveClass();
+        const year = project.dataset.year;
+        const yearTitle = document.getElementById(year as string);
+        console.log(yearTitle);
+        removeProjectActiveClass();
         project.classList.add("active");
+        yearTitle?.classList.add("active");
 
         const projectCard = document.getElementById(name as string);
 
@@ -130,20 +140,36 @@ interface Project {
   }
 
 
-  function removeProjectButtonActiveClass() {
-    for (const element in projectsButton) {
-      if (Object.hasOwnProperty.call(projectsButton, element)) {
-        const project = projectsButton[element];
+  /**
+   * Remove class .active to all the .year-title and .projects-button 
+   */
+  function removeProjectActiveClass() {
+    //Years titles
+    for (const element in yearsTitles) {
+      if (Object.hasOwnProperty.call(yearsTitles, element)) {
+        const project = yearsTitles[element];
+        
+        project.classList.remove("active");
+      }
+    }
+
+    //Projects buttons
+    for (const element in projectsButtons) {
+      if (Object.hasOwnProperty.call(projectsButtons, element)) {
+        const project = projectsButtons[element];
         
         project.classList.remove("active");
       }
     }
   }
 
+  /**
+   * Add class .hidden to all the .project-card
+   */
   function hideAllProjectCard() {
-    for (const element in projectsCard) {
-      if (Object.hasOwnProperty.call(projectsCard, element)) {
-        const cards = projectsCard[element];
+    for (const element in projectsCards) {
+      if (Object.hasOwnProperty.call(projectsCards, element)) {
+        const cards = projectsCards[element];
         
         cards.classList.add("hidden");
       }
