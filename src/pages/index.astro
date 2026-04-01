@@ -1,24 +1,152 @@
 ---
 import Layout from "@layouts/MainLayout.astro";
+import projects from "@data/projects.json";
+
+const years = Object.keys(projects).sort((a, b) => parseInt(b) - parseInt(a));
+
+interface Project {
+	name: string;
+	description: string;
+	url: string;
+	createdAt: Date;
+	languages: string[];
+	year?: number;
+	icon?: string;
+	pinned?: boolean;
+	fork?: string;
+}
 ---
 <Layout title="Home" pathname="homepage" lang="en">
 
-  <section data-theme="light" class="section-wrapper">
+  <section class="section-wrapper">
     <div>
-      <h1 class="text-4xl font-bold mb-4 text-heading">Welcome to My Astro Site</h1>
+      <h1 class="text-8xl mb-4 text-heading">Nicolas Renault</h1>
       <p class="text-lg text-content">This is the homepage of my Astro project.</p>
     </div>
   </section>
-  <section data-theme="dark" class="section-wrapper">
-    <div>
-      <h1 class="text-4xl font-bold mb-4 text-heading">Welcome to My Astro Site</h1>
-      <p class="text-lg text-content">This is the homepage of my Astro project.</p>
+  <section id="projects" data-theme="dark" class="section-wrapper">
+    <div class="p-0 text-content">
+      <header class="py-20 px-10 border-b border-border/20 w-full">
+        <h2 class="text-6xl text-heading pb-4">Projects</h2>
+        <p class="text-xl md:w-[50%]">Here is a list of my personnal projects. Most of them are Open Source. Feel free to check them on my 
+          <a href="https://github.com/NicolasRenault?tab=repositories" target="_blank" class="link-animation active">Github</a>.
+        </p>
+      </header>
+      <div class="w-full h-full flex">
+        <div class="w-full border-border/20">
+          {
+            years.map((year) => {
+              const currentProjects = (projects as any)[year];
+
+              return (
+                <>
+                  {
+                    currentProjects.map((project: Project) => {
+                      const name = project.name.charAt(0).toLowerCase() + project.name.slice(1); //Lowercase first letter
+
+                      return (
+                        <div id={name} data-name={name} class="project-card m-10">{name}</div>
+                      )
+                    })
+                  }
+                
+                </>
+              )
+            })
+          }
+        </div>
+        <div class="w-96 text-lg border-border/20 border-l p-10 text-content/50">
+          {
+            years.map((year) => {
+              const currentProjects = (projects as any)[year];
+
+              return (
+                <>
+                  <div id={year + "-projects"}>
+                    <p id={year} class="p-1 text-content">
+                      {year}
+                      {["2021", "2020", "2019"].includes(year) && (
+                        <span data-twomi18n="school-projects" class="text-sm">School Projects</span>
+                      )}
+                    </p>
+                    <div id={year + "-projects-container"} class="flex flex-col">                  
+                      {
+                        currentProjects.map((project: Project) => {
+                          const name = project.name.charAt(0).toLowerCase() + project.name.slice(1); //Lowercase first letter
+
+                          return (
+                            <button id={"button-" + name} data-name={name} class="project-button max-w-fit ml-3 my-1 whitespace-nowrap link-animation">
+                              {name}
+                            </button>
+                          );
+                        })
+                      }
+                    </div>
+                  </div>
+                </>
+              );
+            })
+          }
+        </div>
+      </div>
     </div>
   </section>
-  <section data-theme="fancy" class="section-wrapper ">
+  <section class="section-wrapper ">
     <div>
       <h1 class="text-4xl font-bold mb-4 text-heading">Welcome to My Astro Site</h1>
       <p class="text-lg text-content">This is the homepage of my Astro project.</p>
     </div>
   </section>
 </Layout>
+
+<style>
+  @reference "../styles/global.css";
+
+  .project-button.active {
+    @apply text-content
+  }
+</style>
+
+<script>
+  const projectsButton = document.getElementsByClassName("project-button");
+  const projectsCard = document.getElementsByClassName("project-card");
+
+  for (const element in projectsButton) {
+    if (Object.hasOwnProperty.call(projectsButton, element)) {
+      const project = projectsButton[element] as HTMLElement;
+      project.addEventListener("click", () => {
+        const name = project.dataset.name;
+        removeProjectButtonActiveClass();
+        project.classList.add("active");
+
+        const projectCard = document.getElementById(name as string);
+
+        if(projectCard) {
+          hideAllProjectCard();
+          projectCard.classList.remove("hidden");
+        }
+      })
+    }
+  }
+
+
+  function removeProjectButtonActiveClass() {
+    for (const element in projectsButton) {
+      if (Object.hasOwnProperty.call(projectsButton, element)) {
+        const project = projectsButton[element];
+        
+        project.classList.remove("active");
+      }
+    }
+  }
+
+  function hideAllProjectCard() {
+    for (const element in projectsCard) {
+      if (Object.hasOwnProperty.call(projectsCard, element)) {
+        const cards = projectsCard[element];
+        
+        cards.classList.add("hidden");
+      }
+    }
+  }
+</script>

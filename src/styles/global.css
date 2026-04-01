@@ -4,7 +4,8 @@
     --color-surface: #F7F9F7;
     --color-content: #1A2421;
     --color-heading: #105531;
-    --color-border: #5d585d
+    --color-border: #5d585d;
+    --color-highlight: #105531;
 }
 
 
@@ -14,6 +15,7 @@
         --color-content: #ffffff;
         --color-heading: #ffffff;
         --color-border: #ffffff;
+        --color-highlight: #27feb3;
     }
     
     [data-theme="fancy"] {
@@ -21,15 +23,47 @@
         --color-content: #ffffff;
         --color-heading: #14d805;
         --color-border: #ffffff;
+        --color-highlight: #05d867;
     }
 }
 
 @layer components {
+    .max-w-normal {
+        max-width: 65ch;
+    }
+
     .section-wrapper {
         @apply flex flex-col items-center bg-surface;
     }
-    .section-wrapper div {
+    .section-wrapper > div {
         @apply w-full p-10 min-h-[90vh] mx-auto md:border-x border-border/20 md:max-w-[calc(100vw-2rem)] min-[90rem]:max-w-360
+    }
+
+    .link-animation {
+        @apply relative inline-block  whitespace-nowrap; 
+    }
+    .link-animation:hover {
+        @apply text-content;
+    }
+    .link-animation::before {
+        content: "";
+        @apply absolute bottom-0 left-0 w-0 h-1 bg-heading transition-all duration-400;
+    }
+    .link-animation.link-animation-quicker::before{
+        @apply duration-300
+    }
+    .link-animation:not(:disabled):not(.disabled):not([aria-disabled="true"]):hover::before {
+        @apply w-full;
+    }
+    .link-animation.active{
+        @apply text-content;
+    }
+    .link-animation.active::after {
+        content: "";
+        @apply absolute bottom-0 right-0 w-full h-1 bg-heading/50 transition-all duration-400;
+    }
+    .link-animation:hover::after {
+        @apply w-0;
     }
 }
 
@@ -55,7 +89,7 @@
 }
 
 * {
-    @apply  focus-visible:outline-4 focus-visible:outline-dashed focus-visible:outline-heading focus-visible:outline-offset-4;
+    @apply  focus-visible:outline-4 focus-visible:outline-dashed focus-visible:outline-heading focus-visible:outline-offset-4 selection:bg-highlight/40 selection:text-white;
 }
 
 html {
@@ -65,29 +99,4 @@ html {
 h1, h2, h3, h4, .text-heading {
     font-family: Syne, sans-serif;
     letter-spacing: -0.1rem;
-}
-
-p {
-    max-width: 65ch;
-}
-
-.link-animation {
-    @apply relative inline-block  whitespace-nowrap; 
-}
-.link-animation::before {
-    content: "";
-    @apply absolute bottom-0 left-0 w-0 h-1 bg-heading transition-all duration-400;
-}
-.link-animation.link-animation-quicker::before{
-    @apply duration-300
-}
-.link-animation:not(:disabled):not(.disabled):not([aria-disabled="true"]):hover::before {
-    @apply w-full;
-}
-.link-animation.active::after {
-    content: "";
-    @apply absolute bottom-0 right-0 w-full h-1 bg-heading/50 transition-all duration-400;
-}
-.link-animation:hover::after {
-    @apply w-0;
 }
