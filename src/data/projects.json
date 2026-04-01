@@ -154,7 +154,7 @@
             "url_2": "https://www.twomi18n.nicolasrenault.com/",
             "languages": ["JavaScript"],
             "icon": "https://www.cdn.nicolasrenault.com/two-mi18n/two-mi18n-logo.svg",
-            "is-default": true
+            "is_default": true
         },
         {
             "name": "copy-that",
