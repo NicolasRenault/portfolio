@@ -1,6 +1,7 @@
 ---
 import Layout from "@layouts/MainLayout.astro";
 import projects from "@data/projects.json";
+import { Image } from "astro:assets";
 
 const years = Object.keys(projects).sort((a, b) => parseInt(b) - parseInt(a));
 
@@ -75,9 +76,12 @@ interface Project {
                           const name = project.name.charAt(0).toLowerCase() + project.name.slice(1); //Lowercase first letter
 
                           return (
-                            <button id={"button-" + name} data-name={name} data-year={year} class="project-button max-w-fit ml-3 my-1 whitespace-nowrap link-animation">
-                              {name}
-                            </button>
+                            <div class="relative w-fit">
+                              <button id={"button-" + name} data-name={name} data-year={year} class="project-button flex max-w-fit ml-3 my-1 whitespace-nowrap link-animation cursor-pointer" class:list={["link-animation", {icon: project.icon}]}>
+                                {project.icon && <Image src={project.icon} alt={`${name} icon`} width="22" height="22" class="absolute top-0.75 -left-7 w-full h-full max-w-5.5 max-h-5.5 grayscale"/>}
+                                {name}
+                              </button>
+                            </div>
                           );
                         })
                       }
@@ -109,6 +113,9 @@ interface Project {
 
   .project-button.active {
     @apply text-content
+  }
+  .project-button.active img {
+    @apply grayscale-0
   }
 </style>
 
@@ -175,4 +182,6 @@ interface Project {
       }
     }
   }
+
+  hideAllProjectCard(); //Hide all projects by default;
 </script>

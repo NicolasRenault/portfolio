@@ -48,7 +48,7 @@
     }
     .link-animation::before {
         content: "";
-        @apply absolute bottom-0 left-0 w-0 h-1 bg-heading transition-all duration-400;
+        @apply absolute bottom-0 left-0 w-0 h-1 z-1 bg-heading transition-all duration-400;
     }
     .link-animation.link-animation-quicker::before{
         @apply duration-300
