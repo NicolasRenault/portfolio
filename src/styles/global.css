@@ -44,7 +44,7 @@
         @apply relative inline-block whitespace-nowrap; 
     }
     .link-animation:hover {
-        @apply text-content;
+        @apply text-heading;
     }
     .link-animation::before {
         content: "";
@@ -57,7 +57,7 @@
         @apply w-full;
     }
     .link-animation.active{
-        @apply text-content;
+        @apply text-heading;
     }
     .link-animation.active::after {
         content: "";

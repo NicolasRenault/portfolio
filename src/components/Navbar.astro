@@ -4,7 +4,7 @@ import Translations from "@components/Translations.astro";
 const {pathname} = Astro.props;
 ---
 
-<nav id="navbar" class="flex fixed w-full bottom-0 left-0 justify-between mx-auto p-3 bg-surface border-t-2 border-border/60 md:relative md:p-5 md:bg-transparent md:border-x md:max-w-[calc(100vw-2rem)] md:min-[90rem]:max-w-360 md:border-b md:border-t-0 md:border-border/20">
+<nav id="navbar" class="flex fixed w-full bottom-0 left-0 z-50 justify-between mx-auto p-3 bg-surface border-t-2 border-border/60 md:relative md:p-5 md:bg-transparent md:border-x md:max-w-[calc(100vw-2rem)] md:min-[90rem]:max-w-360 md:border-b md:border-t-0 md:border-border/20">
     <div class="hidden md:block mr-0">
         <a href="/" class="flex w-fit">
             <nr-logo size="md" color='light' animated class="hover:-translate-y-0.5 transition-transform"></nr-logo>
