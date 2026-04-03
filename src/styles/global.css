@@ -28,6 +28,14 @@
 }
 
 @layer components {
+    .font-syne {
+        font-family: Syne, sans-serif;
+    }
+
+    .font-lora {
+        font-family: Lora, sans-serif;
+    }
+
     .max-w-normal {
         max-width: 65ch;
     }
@@ -65,6 +73,11 @@
     }
     .link-animation:hover::after {
         @apply w-0;
+    }
+
+    .basic-button {
+        font-family: Syne, sans-serif;
+        @apply flex md:flex-row max-w-fit whitespace-nowrap border bg-surface border-border p-3 rounded-xl hover:bg-content transition hover:text-surface hover:scale-110
     }
 }
 

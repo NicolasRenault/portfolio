@@ -85,7 +85,8 @@
             "description": "Extension for the web that feels illegal",
             "github_url": "https://github.com/NicolasRenault/cheaty-webextension",
             "languages": ["JavaScript", "HTML"],
-            "icon": "https://www.cdn.nicolasrenault.com/cheaty/cheaty-logo.png"
+            "icon": "https://www.cdn.nicolasrenault.com/cheaty/cheaty-logo.png",
+            "image": "https://www.cdn.nicolasrenault.com/cheaty/password-on-action.png"
         },
         {
             "name": "password-encoder",
@@ -177,7 +178,8 @@
             "description": "Displays the phone's speed and reads data from a Magene cadence sensor.",
             "github_url": "https://github.com/NicolasRenault/cadence-and-speed-display",
             "languages": ["Kotlin"],
-            "icon": "https://www.cdn.nicolasrenault.com/static/android.png"
+            "icon": "https://www.cdn.nicolasrenault.com/static/android.png",
+            "image": "https://www.cdn.nicolasrenault.com/images/cadence-and-speed-display.png"
         }
     ],
     "2026": [
