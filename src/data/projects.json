@@ -1,13 +1,36 @@
 {
-    "2019": [
+    "2019-2020-2021": [
         {
-            "name": "MasterDetail-CSharp-DUT1",
-            "description": "University project to introduce us to desktop application development using C# by building a Master-Detail.",
-            "github_url": "https://github.com/NicolasRenault/MasterDetail-CSharp-DUT1",
+            "name": "Blog-Symfony-LPRO",
+            "description": "University project to introduce us to building a blog with Symfony.",
+            "github_url": "https://github.com/NicolasRenault/Blog-Symfony-LPRO",
+            "languages": ["PHP", "Symfony"]
+        },
+        {
+            "name": "LaDelpeche-DOTNet-LPRO",
+            "description": "University project to introduce us to website development using C# DOTNet by building an e-shop website.",
+            "github_url": "https://github.com/NicolasRenault/LaDelpeche-DOTNet-LPRO",
+            "languages": ["JavaScript", "CSS"]
+        },
+        {
+            "name": "FuturoVTC-Laravel-LPRO",
+            "description": "University project to introduce us to Web application development using Laravel by building a Uber-like website.",
+            "github_url": "https://github.com/NicolasRenault/FuturoVTC-Laravel-LPRO",
+            "languages": ["PHP", "Laravel"],
+            "is_default": true
+        },
+        {
+            "name": "SombreSberro-Xamarin-LPRO",
+            "description": "University project to introduce us to application development using Xamarin.",
+            "github_url": "https://github.com/NicolasRenault/SombreSberro-Xamarin-LPRO",
             "languages": ["C#"]
-        }
-    ],
-    "2020": [
+        },
+        {
+            "name": "Memory-JavaFX-LPRO",
+            "description": "University project to introduce us to Java development using JavaFx by building a Memory game.",
+            "github_url": "https://github.com/NicolasRenault/Memory-JavaFX-LPRO",
+            "languages": ["Java", "CSS"]
+        },
         {
             "name": "Breast-Cancer-AI-Python-DUT2",
             "description": "University project to introduce us to artificial intelligence using Python and Jupyter Notebook.",
@@ -37,38 +60,12 @@
             "description": "University project to introduce us to Android application development (in Java).",
             "github_url": "https://github.com/NicolasRenault/Android-Java-DUT2",
             "languages": ["Java"]
-        }
-    ],
-    "2021": [
-        {
-            "name": "Blog-Symfony-LPRO",
-            "description": "University project to introduce us to building a blog with Symfony.",
-            "github_url": "https://github.com/NicolasRenault/Blog-Symfony-LPRO",
-            "languages": ["PHP", "Twig"]
         },
         {
-            "name": "LaDelpeche-DOTNet-LPRO",
-            "description": "University project to introduce us to website development using C# DOTNet by building an e-shop website.",
-            "github_url": "https://github.com/NicolasRenault/LaDelpeche-DOTNet-LPRO",
-            "languages": ["JavaScript", "CSS"]
-        },
-        {
-            "name": "FuturoVTC-Laravel-LPRO",
-            "description": "University project to introduce us to Web application development using Laravel by building a Uber-like website.",
-            "github_url": "https://github.com/NicolasRenault/FuturoVTC-Laravel-LPRO",
-            "languages": ["PHP", "Blade"]
-        },
-        {
-            "name": "SombreSberro-Xamarin-LPRO",
-            "description": "University project to introduce us to application development using Xamarin.",
-            "github_url": "https://github.com/NicolasRenault/SombreSberro-Xamarin-LPRO",
+            "name": "MasterDetail-CSharp-DUT1",
+            "description": "University project to introduce us to desktop application development using C# by building a Master-Detail.",
+            "github_url": "https://github.com/NicolasRenault/MasterDetail-CSharp-DUT1",
             "languages": ["C#"]
-        },
-        {
-            "name": "Memory-JavaFX-LPRO",
-            "description": "University project to introduce us to Java development using JavaFx by building a Memory game.",
-            "github_url": "https://github.com/NicolasRenault/Memory-JavaFX-LPRO",
-            "languages": ["Java", "CSS"]
         }
     ],
     "2022": [
@@ -86,7 +83,8 @@
             "github_url": "https://github.com/NicolasRenault/cheaty-webextension",
             "languages": ["JavaScript", "HTML"],
             "icon": "https://www.cdn.nicolasrenault.com/cheaty/cheaty-logo.png",
-            "image": "https://www.cdn.nicolasrenault.com/cheaty/password-on-action.png"
+            "image": "https://www.cdn.nicolasrenault.com/cheaty/password-on-action.png",
+            "is_default": true
         },
         {
             "name": "password-encoder",
@@ -109,7 +107,8 @@
             "description": "Website for prevention of QR code usage",
             "github_url": "https://github.com/NicolasRenault/qrcode-prevention",
             "url_2": "https://qrcode.nicolasrenault.com/",
-            "languages": ["Astro", "JavaScript"]
+            "languages": ["Astro", "JavaScript"],
+            "is_default": true
         },
         {
             "name": "logo",
@@ -155,6 +154,7 @@
             "url_2": "https://www.twomi18n.nicolasrenault.com/",
             "languages": ["JavaScript"],
             "icon": "https://www.cdn.nicolasrenault.com/two-mi18n/two-mi18n-logo.svg",
+            "image": "https://www.cdn.nicolasrenault.com/images/two-mi18n.png",
             "is_default": true
         },
         {
@@ -178,8 +178,8 @@
             "description": "Displays the phone's speed and reads data from a Magene cadence sensor.",
             "github_url": "https://github.com/NicolasRenault/cadence-and-speed-display",
             "languages": ["Kotlin"],
-            "icon": "https://www.cdn.nicolasrenault.com/static/android.png",
-            "image": "https://www.cdn.nicolasrenault.com/images/cadence-and-speed-display.png"
+            "image": "https://www.cdn.nicolasrenault.com/images/cadence-and-speed-display.png",
+            "is_default": true
         }
     ],
     "2026": [
@@ -188,7 +188,8 @@
             "description": "My personal website built with Astro",
             "github_url": "https://github.com/NicolasRenault/portfolio",
             "url_2": "https://nicolasrenault.com",
-            "languages": ["Astro", "TypeScript", "TailwindCSS"]
+            "languages": ["Astro", "TypeScript", "TailwindCSS"],
+            "is_default": true
         },
         {
             "name": "bizigus-cheaty-start",
