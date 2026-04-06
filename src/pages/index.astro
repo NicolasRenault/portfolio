@@ -14,7 +14,6 @@ interface Project {
 	icon?: string;
 	is_default?: boolean;
 	fork?: string;
-  image?: string;
 }
 ---
 <Layout title="Home" pathname="homepage" lang="en">
@@ -45,15 +44,13 @@ interface Project {
                   <div id={year + "-projects"} class="grow">
                     {
                       currentProjects.map((project: Project) => {
-                        const name = project.name.charAt(0).toLowerCase() + project.name.slice(1); //Lowercase first letter
-                        // const randomX = Math.floor(Math.random() * 101);
-                        // const randomY = Math.floor(Math.random() * 101);
+                        const name = project.name.charAt(0).toLowerCase() + project.name.slice(1);
 
                         return (
                           <div id={name} data-name={name} class="w-full flex flex-row" class:list={[{hidden: !project.is_default}, year + "-project-cards"]}>
                             <div class="grow p-20">
                               <header class="relative">
-                                {(project.icon && !project.image) && <Image src={project.icon} alt={`${name} icon`} width="64" height="64" class="lg:absolute lg:right-0"/>}
+                                {(project.icon) && <Image src={project.icon} alt={`${name} icon`} width="64" height="64" class="lg:absolute lg:right-0"/>}
                                 <h3 class="text-5xl">{name}</h3>
                                 <div>
                                   {
@@ -94,15 +91,6 @@ interface Project {
                                 }
                               </div>
                             </div>
-                              {/* {
-                                project.image &&
-                                <div 
-                                  class="flex w-70 bg-[url(/fancy-background.png)] bg-position-[var(--bg-x)_var(--bg-y)] overflow-hidden"
-                                  style={`--bg-x: ${randomX}%; --bg-y: ${randomY}%;`}
-                                >
-                                  <img src={project.image} alt={project.name} class="h-full"/>
-                                </div>
-                              } */}
                           </div>
                         )
                       })
@@ -136,113 +124,6 @@ interface Project {
           })
         }
       </div>
-      <!-- TODO Remove if decide to go with other design -->
-      <!-- <div class="w-full h-full flex">
-        <div class="w-full border-border/20">
-          {
-            years.map((year) => {
-              const currentProjects = (projects as any)[year];
-
-              return (
-                <>
-                  {
-                    currentProjects.map((project: Project) => {
-                      const name = project.name.charAt(0).toLowerCase() + project.name.slice(1); //Lowercase first letter
-
-                      return (
-                        <div id={name} data-name={name} class="project-card p-20 sticky top-0" class:list={[{hidden: !project.is_default}]}>
-                          <header class="relative">
-                            {project.icon && <Image src={project.icon} alt={`${name} icon`} width="64" height="64" class="lg:absolute lg:right-0"/>}
-                            <h3 class="text-5xl">{name}</h3>
-                            <div>
-                              {
-                                project.languages && (
-                                  <div class="flex flex-row gap-2 py-4 text-content/60">
-                                    {project.languages.map((lang) => (
-                                      <p>{lang}</p>
-                                    ))}
-                                  </div>
-                                )
-                              }
-                            </div>
-                          </header>
-                          <p class="text-xl max-w-[70%]">
-                            {
-                              project.fork && <span >This project is a fork of </span> <span>{project.name}:</span><br/>
-                            }
-                            {/* TODO Translation for descriptions */}
-                            {project.description}
-                          </p>
-                          <div class="py-10 flex flex-col lg:flex-row gap-6.5">
-                            {
-                              project.url_2 && 
-                              <a href={project.url_2} target="_blank" class="basic-button"><span data-twomi18n="find-project">Find project here</span></a>
-                            }
-                            <a href={project.github_url} target="_blank" class="basic-button">
-                              <span data-twomi18n="see-on-github" class="pr-1">See on Github</span>
-                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" class="w-5 h-5 mt-0.5"><path fill="currentColor" d="M6 0a6 6 0 1 1 0 12A6 6 0 0 1 6 0m0 .98C3.243.98 1 3.223 1 6a5.02 5.02 0 0 0 3.437 4.77l.045.005c.203.01.279-.129.279-.25l-.007-.854c-1.39.303-1.684-.674-1.684-.674c-.227-.58-.555-.734-.555-.734c-.454-.312.034-.306.034-.306c.365.026.604.288.708.43l.058.088c.446.767 1.17.546 1.455.418c.046-.325.174-.546.317-.672c-1.11-.127-2.277-.558-2.277-2.482c0-.548.195-.996.515-1.348l-.03-.085c-.064-.203-.152-.658.079-1.244l.04-.007c.124-.016.548-.013 1.335.522A4.8 4.8 0 0 1 6 3.408c.425.002.853.058 1.252.17c.955-.65 1.374-.516 1.374-.516c.272.692.1 1.202.05 1.33c.32.35.513.799.513 1.347c0 1.93-1.169 2.354-2.283 2.478c.18.155.34.462.34.93l-.006 1.378c0 .13.085.282.323.245A5.02 5.02 0 0 0 11 6C11 3.223 8.757.98 6 .98"/></svg>
-                            </a>
-                            {
-                              project.fork && 
-                              <a href={project.fork} target="_blank" class="basic-button">
-                                <span data-twomi18n="see-original" class="pr-1">See original project</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" class="w-5 h-5 mt-0.5"><path fill="currentColor" d="M6 0a6 6 0 1 1 0 12A6 6 0 0 1 6 0m0 .98C3.243.98 1 3.223 1 6a5.02 5.02 0 0 0 3.437 4.77l.045.005c.203.01.279-.129.279-.25l-.007-.854c-1.39.303-1.684-.674-1.684-.674c-.227-.58-.555-.734-.555-.734c-.454-.312.034-.306.034-.306c.365.026.604.288.708.43l.058.088c.446.767 1.17.546 1.455.418c.046-.325.174-.546.317-.672c-1.11-.127-2.277-.558-2.277-2.482c0-.548.195-.996.515-1.348l-.03-.085c-.064-.203-.152-.658.079-1.244l.04-.007c.124-.016.548-.013 1.335.522A4.8 4.8 0 0 1 6 3.408c.425.002.853.058 1.252.17c.955-.65 1.374-.516 1.374-.516c.272.692.1 1.202.05 1.33c.32.35.513.799.513 1.347c0 1.93-1.169 2.354-2.283 2.478c.18.155.34.462.34.93l-.006 1.378c0 .13.085.282.323.245A5.02 5.02 0 0 0 11 6C11 3.223 8.757.98 6 .98"/></svg>
-                              </a>
-                            }
-                          </div>
-                          {/* TODO redo image layout (I don't like it) */}
-                          {/* {
-                            project.image &&
-                            <div class="absolute top-70 right-0 p-10 -z-1 brightness-20 blur-[1px] transition hover:scale-105 hover:brightness-100 hover:blur-none hover:z-10">
-                              <Image src={project.image} alt={project.name} width="30" height="400"/>
-                            </div>
-                          } */}
-                        </div>
-                      )
-                    })
-                  }
-                </>
-              )
-            })
-          }
-        </div>
-        <div class="max-w-96 text-lg border-border/20 border-l p-10 text-content/50">
-          {
-            years.map((year) => {
-              const currentProjects = (projects as any)[year];
-
-              return (
-                <>
-                  <div id={year + "-projects"}>
-                    <p id={year} class="year-title text-xl w-fit m-1 relative text-content">
-                      {year}
-                      {year == "2019-2020-2021" && (
-                        <span data-twomi18n="school-projects" class="text-sm">School Projects</span>
-                      )}
-                    </p>
-                    <div id={year + "-projects-container"} class="flex flex-col">                  
-                      {
-                        currentProjects.map((project: Project) => {
-                          const name = project.name.charAt(0).toLowerCase() + project.name.slice(1); //Lowercase first letter
-
-                          return (
-                            <div class="relative w-fit">
-                              <button id={"button-" + name} data-name={name} data-year={year} class="project-button flex max-w-fit ml-3 my-1 whitespace-nowrap link-animation cursor-pointer" class:list={[{icon: project.icon}, {active: project.is_default}]}>
-                                {project.icon && <Image src={project.icon} alt={`${name} icon`} width="22" height="22" class="absolute top-0.75 -left-7 w-full h-full max-w-5.5 max-h-5.5 grayscale"/>}
-                                {name}
-                              </button>
-                            </div>
-                          );
-                        })
-                      }
-                    </div>
-                  </div>
-                </>
-              );
-            })
-          }
-        </div>
-      </div> -->
     </div>
   </section>
   <section class="section-wrapper ">
