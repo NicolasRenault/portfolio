@@ -7,7 +7,8 @@ const years = Object.keys(projects).sort((a, b) => parseInt(b) - parseInt(a));
 
 interface Project {
 	name: string;
-	description: string;
+	description_EN: string;
+	description_FR?: string;
   github_url: string;
 	url_2?: string;
 	languages: string[];
@@ -76,10 +77,10 @@ interface Project {
                               </header>
                               <p class="text-lg md:text-xl md:max-w-[70%] wrap-break-word">
                                 {
-                                  project.fork && <span >This project is a fork of </span> <span>{project.name}:</span><br/>
+                                  project.fork && <span data-twomi18n="this-project-is-fork">This project is a fork of </span> <span>{project.name}:</span><br/>
                                 }
-                                {/* TODO Translation for descriptions */}
-                                {project.description}
+                                <span class:list={[{"project-description-en": project.description_FR}]}>{project.description_EN}</span>
+                                {project.description_FR && <span class="project-description-fr">{project.description_FR}</span>}
                               </p>
                               <div class="grid grid-cols-1 min-[450px]:grid-cols-2 pt-20 gap-6.5 max-w-fit">
                                 {
@@ -145,11 +146,12 @@ interface Project {
 <style>
   @reference "../styles/global.css";
 
-  .year-title.active::before {
-    content: "";
-    @apply absolute bottom-0 left-0 w-full h-1 bg-content transition-all duration-400;
+  html:lang(fr) .project-description-en {
+    display: none;
   }
-
+  html:lang(en) .project-description-fr {
+    display: none;
+  }
   .project-buttons.active img, .project-button:hover img {
     @apply grayscale-0
   }
@@ -206,7 +208,7 @@ interface Project {
 
 
   /**
-   * Remove class .active to all the .year-title and .projects-button 
+   * Remove class .active to all the .projects-button 
    */
   function removeYearProjectButtonActiveClass(year: string) {
     const projectsButtons = document.getElementsByClassName(year + "-project-buttons")
