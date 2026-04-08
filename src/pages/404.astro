@@ -18,7 +18,7 @@ import BaseHead from "@components/BaseHead.astro";
 <script>
     //Change the img #the-office-img to a random gif from /the-office-memes
     const imageHolder = document.getElementById("the-office-img");
-    const numberOfMeme = 52;
+    const numberOfMeme = 53;
     const memeBaseName = "/the-office-memes/the-office-meme-{X}.gif"
     const rand = Math.floor(Math.random() * numberOfMeme) + 1;
     const memeURL = memeBaseName.replace("{X}", rand.toString());
