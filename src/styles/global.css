@@ -28,12 +28,12 @@
 }
 
 @layer components {
-    .font-syne {
-        font-family: Syne, sans-serif !important;
+    .font-spacegrotesk {
+        font-family: SpaceGrotesk, sans-serif !important;
     }
 
-    .font-lora {
-        font-family: Lora, sans-serif !important;
+    .font-inter {
+        font-family: Inter, sans-serif !important;
     }
 
     .max-w-normal {
@@ -76,20 +76,20 @@
     }
 
     .basic-button {
-        font-family: Syne, sans-serif;
+        font-family: SpaceGrotesk, sans-serif;
         @apply flex md:flex-row w-fit whitespace-nowrap border text-content bg-surface border-border p-2 hover:bg-content transition hover:text-surface hover:scale-110
     }
 }
 
 @font-face {
-	font-family: Syne;
-	src: url("/fonts/Syne-SemiBold.ttf");
-	font-weight: 600;
+	font-family: SpaceGrotesk;
+	src: url("/fonts/SpaceGrotesk-Regular.ttf");
+	font-weight: 400;
 	font-style: oblique;
 }
 @font-face {
-	font-family: Lora;
-	src: url("/fonts/Lora-Regular.ttf");
+	font-family: Inter;
+	src: url("/fonts/Inter_18pt-Regular.ttf");
 	font-weight: 400;
 	font-style: normal;
 }
@@ -107,10 +107,11 @@
 }
 
 html {
-    font-family: Lora, sans-serif;    
+    font-family: Inter, sans-serif;    
 }
 
 h1, h2, h3, h4, .text-heading {
-    font-family: Syne, sans-serif;
-    letter-spacing: -0.1rem;
+    font-family: SpaceGrotesk, sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
 }
