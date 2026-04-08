@@ -103,7 +103,7 @@
     "2023": [
         {
             "name": "qrcode-prevention",
-            "description": "Website for prevention of QR code usage",
+            "description": "Website for prevention of QR code usage. I stick QRCode leading to this website when I'm traveling abroad to teach people to be more carefull with them.",
             "github_url": "https://github.com/NicolasRenault/qrcode-prevention",
             "url_2": "https://qrcode.nicolasrenault.com/",
             "languages": ["Astro", "JavaScript"],

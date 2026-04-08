@@ -77,7 +77,7 @@
 
     .basic-button {
         font-family: Syne, sans-serif;
-        @apply flex md:flex-row max-w-fit whitespace-nowrap border text-content bg-surface border-border p-2 hover:bg-content transition hover:text-surface hover:scale-110
+        @apply flex md:flex-row w-fit whitespace-nowrap border text-content bg-surface border-border p-2 hover:bg-content transition hover:text-surface hover:scale-110
     }
 }
 
