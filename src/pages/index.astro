@@ -60,7 +60,7 @@ interface Project {
                               <header class="relative">
                                 {(project.icon) && <Image src={project.icon} alt={`${name} icon`} width="64" height="64" class="pb-5 lg:absolute lg:right-0"/>}
                                 <h4 class="text-4xl md:text-5xl max-w-3/4 wrap-break-word">{name}</h4>
-                                <div>
+                                <div class="pt-1">
                                   {
                                     project.languages && (
                                       <div class="flex flex-row gap-2 py-2 md:py-4 text-content/60">
