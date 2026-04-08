@@ -21,14 +21,18 @@ interface Project {
 
   <section class="section-wrapper">
     <div>
-      <h1 class="text-5xl md:text-8xl mb-4 text-heading">Nicolas Renault</h1>
-      <p data-twomi18n="homepage-headline" class="text-lg text-content">This is the homepage of my Astro project.</p>
+      <h1 class="text-5xl md:text-8xl mb-4">Nicolas Renault</h1>
+      <p data-twomi18n="homepage-headline" class="text-lg">I'm a Web Developer based in France. I graduated with a Bachelor's Degree in web and mobile development.</p>
+      <p data-twomi18n="homepage-technologies" class="text-lg">Mostly doing FullStack development, I have had a preference for backend technologies ever since I started learning programming.</p>
+      <p data-twomi18n="homepage-motivations" class="text-lg">I'm always trying to optimize life in every aspect, which is why I enjoy building software applications that help people perform tasks more quickly and efficiently.</p>
+      <p data-twomi18n="homepage-passions" class="text-lg">Outside work, I enjoy doing sports, building side projects, spending time with friends, and playing video games.</p>
+      <p data-twomi18n="homepage-work" class="text-lg">I’m currently working at Trelleborg as a Digital Innovation and Solution Developper."</p>
     </div>
   </section>
   <section id="projects" data-theme="dark" class="section-wrapper">
-    <div class="p-0 text-content">
+    <div class="p-0">
       <header class="py-20 px-10 border-b border-border/20 w-full">
-        <h2 data-twomi18n="projects"class="text-4xl text-heading pb-4">Projects</h2>
+        <h2 data-twomi18n="projects"class="text-4xl pb-4">Projects</h2>
         <p class="text-xl md:w-[50%]">
           <span data-twomi18n="projects-headline">Here is a list of my personnal projects. Most of them are Open Source. Feel free to check them on my</span> 
           <a href="https://github.com/NicolasRenault?tab=repositories" target="_blank" class="link-animation active">Github</a>.
@@ -137,8 +141,8 @@ interface Project {
   </section>
   <section class="section-wrapper ">
     <div>
-      <h1 class="text-4xl font-bold mb-4 text-heading">Welcome to My Astro Site</h1>
-      <p class="text-lg text-content">This is the homepage of my Astro project.</p>
+      <h1 class="text-4xl font-bold mb-4">Welcome to My Astro Site</h1>
+      <p class="text-lg">This is the homepage of my Astro project.</p>
     </div>
   </section>
 </Layout>
@@ -152,7 +156,7 @@ interface Project {
   html:lang(en) .project-description-fr {
     display: none;
   }
-  .project-buttons.active img, .project-button:hover img {
+  .project-buttons.active img, .project-buttons:hover img {
     @apply grayscale-0
   }
 </style>
