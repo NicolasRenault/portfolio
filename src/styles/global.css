@@ -41,7 +41,7 @@
     }
 
     .section-wrapper {
-        @apply flex flex-col items-center bg-surface;
+        @apply flex flex-col items-center bg-surface text-content;
     }
     .section-wrapper > div {
         @apply w-full p-10 min-h-[85vh] mx-auto border-x border-border/20 max-w-[calc(100vw-2rem)] min-[90rem]:max-w-360
@@ -115,8 +115,4 @@ h1, h2, h3, h4, .text-heading {
     font-weight: 600;
 
     @apply text-heading
-}
-
-p {
-    @apply text-content
 }
