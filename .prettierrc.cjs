@@ -3,20 +3,20 @@ module.exports = {
     semi: true,
     singleQuote: false,
     tabWidth: 4,
-    trailingComma: 'es5',
+    trailingComma: "es5",
     useTabs: true,
-    plugins: ['./node_modules/prettier-plugin-astro', './node_modules/prettier-plugin-tailwindcss'],
+    plugins: ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
     overrides: [
         {
-            files: ['.*', '*.json', '*.md', '*.toml', '*.yml'],
+            files: [".*", "*.json", "*.md", "*.toml", "*.yml"],
             options: {
                 useTabs: false,
             },
         },
         {
-            files: ['**/*.astro'],
+            files: ["**/*.astro"],
             options: {
-                parser: 'astro',
+                parser: "astro",
             },
         },
     ],

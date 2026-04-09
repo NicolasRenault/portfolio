@@ -1,44 +1,46 @@
 ---
-
 import "@styles/global.css";
 
 import BaseHead from "@components/BaseHead.astro";
 
-//@ts-expect-error
-import fs from 'node:fs'; 
-//@ts-expect-error
-import path from 'node:path';
+import fs from "node:fs";
+import path from "node:path";
 
-//@ts-expect-error
-const memesDir = path.join(process.cwd(), 'public', 'the-office-memes');
+const memesDir = path.join(process.cwd(), "public", "the-office-memes");
 
 let numberOfMemes = 0;
 try {
-  const files = fs.readdirSync(memesDir);
-  numberOfMemes = files.filter((file: string) => file.endsWith('.gif')).length;
+	const files = fs.readdirSync(memesDir);
+	numberOfMemes = files.filter((file: string) => file.endsWith(".gif")).length;
 } catch (error) {
-  console.error("Could not find the memes directory:", error);
+	console.error("Could not find the memes directory:", error);
 }
 ---
 
-<!DOCTYPE html>
-<html lang=en>
-    <BaseHead title="404" />
-	<body data-theme="dark" class="flex flex-col relative h-screen items-center bg-surface">
-        <h1 class="text-content text-4xl md:text-6xl font-lora p-10">404 error</h1>
-        <a href="/" class="text-xl md:text-2xl mb-10 basic-button uppercase">Go back</a>
-        <img id="the-office-img" data-number_of_memes={numberOfMemes} alt="The office meme" src="/the-office-memes/the-office-meme-53.gif" class="w-80 sm:w-2xl"/>
-        <nr-logo size="lg" rainbow class="text-content mt-10"></nr-logo>
-    </body>
+<!doctype html>
+<html lang="en">
+	<BaseHead title="404" />
+	<body data-theme="dark" class="bg-surface relative flex h-screen flex-col items-center">
+		<h1 class="text-content font-lora p-10 text-4xl md:text-6xl">404 error</h1>
+		<a href="/" class="basic-button mb-10 text-xl uppercase md:text-2xl">Go back</a>
+		<img
+			id="the-office-img"
+			data-number_of_memes={numberOfMemes}
+			alt="The office meme"
+			src="/the-office-memes/the-office-meme-53.gif"
+			class="w-80 sm:w-2xl"
+		/>
+		<nr-logo size="lg" rainbow class="text-content mt-10"></nr-logo>
+	</body>
 </html>
 
 <script>
-    //Change the img #the-office-img to a random gif from /the-office-memes
-    const imageHolder = document.getElementById("the-office-img");
-    const numberOfMeme = Number(imageHolder?.dataset.number_of_memes);
-    const memeBaseName = "/the-office-memes/the-office-meme-{X}.gif"
-    const rand = Math.floor(Math.random() * numberOfMeme) + 1;
-    const memeURL = memeBaseName.replace("{X}", rand.toString());
+	//Change the img #the-office-img to a random gif from /the-office-memes
+	const imageHolder = document.getElementById("the-office-img");
+	const numberOfMeme = Number(imageHolder?.dataset.number_of_memes);
+	const memeBaseName = "/the-office-memes/the-office-meme-{X}.gif";
+	const rand = Math.floor(Math.random() * numberOfMeme) + 1;
+	const memeURL = memeBaseName.replace("{X}", rand.toString());
 
-    (imageHolder as HTMLImageElement).src = memeURL;
+	(imageHolder as HTMLImageElement).src = memeURL;
 </script>

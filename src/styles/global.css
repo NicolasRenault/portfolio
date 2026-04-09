@@ -1,84 +1,83 @@
 @import "tailwindcss";
 
 @theme {
-    --color-surface: #F7F9F7;
-    --color-content: #1A2421;
-    --color-heading: #105531;
-    --color-border: #5d585d;
-    --color-highlight: #105531;
+	--color-surface: #f7f9f7;
+	--color-content: #1a2421;
+	--color-heading: #105531;
+	--color-border: #5d585d;
+	--color-highlight: #105531;
 }
 
-
 @layer theme {
-    [data-theme="dark"] {
-        --color-surface: #03351b;
-        --color-content: #ffffff;
-        --color-heading: #ffffff;
-        --color-border: #ffffff;
-        --color-highlight: #27feb3;
-    }
-    
-    [data-theme="fancy"] {
-        --color-surface: #0b0b05;
-        --color-content: #ffffff;
-        --color-heading: #14d805;
-        --color-border: #ffffff;
-        --color-highlight: #05d867;
-    }
+	[data-theme="dark"] {
+		--color-surface: #03351b;
+		--color-content: #ffffff;
+		--color-heading: #ffffff;
+		--color-border: #ffffff;
+		--color-highlight: #27feb3;
+	}
+
+	[data-theme="fancy"] {
+		--color-surface: #0b0b05;
+		--color-content: #ffffff;
+		--color-heading: #14d805;
+		--color-border: #ffffff;
+		--color-highlight: #05d867;
+	}
 }
 
 @layer components {
-    .font-spacegrotesk {
-        font-family: SpaceGrotesk, sans-serif !important;
-    }
+	.font-spacegrotesk {
+		font-family: SpaceGrotesk, sans-serif !important;
+	}
 
-    .font-inter {
-        font-family: Inter, sans-serif !important;
-    }
+	.font-inter {
+		font-family: Inter, sans-serif !important;
+	}
 
-    .max-w-normal {
-        max-width: 65ch;
-    }
+	.max-w-normal {
+		max-width: 65ch;
+	}
 
-    .section-wrapper {
-        @apply flex flex-col items-center bg-surface text-content;
-    }
-    .section-wrapper > div {
-        @apply w-full p-10 min-h-[85vh] mx-auto border-x border-border/20 max-w-[calc(100vw-2rem)] min-[90rem]:max-w-360
-    }
+	.section-wrapper {
+		@apply bg-surface text-content flex flex-col items-center;
+	}
+	.section-wrapper > div {
+		@apply border-border/20 mx-auto min-h-[85vh] w-full max-w-[calc(100vw-2rem)] border-x p-10 min-[90rem]:max-w-360;
+	}
 
-    /* Animation for links using before and after (for active) */
-    .link-animation {
-        @apply relative inline-block whitespace-nowrap tracking-wider; 
-    }
-    .link-animation:hover {
-        @apply text-heading;
-    }
-    .link-animation::before {
-        content: "";
-        @apply absolute bottom-0 left-0 w-0 h-1 z-1 bg-heading transition-all duration-400;
-    }
-    .link-animation.link-animation-quicker::before{
-        @apply duration-300
-    }
-    .link-animation:not(:disabled):not(.disabled):not([aria-disabled="true"]):hover::before {
-        @apply w-full;
-    }
-    .link-animation.active{
-        @apply text-heading;
-    }
-    .link-animation.active::after {
-        content: "";
-        @apply absolute bottom-0 right-0 w-full h-1 bg-heading/50 transition-all duration-400;
-    }
-    .link-animation:hover::after {
-        @apply w-0;
-    }
+	/* Animation for links using before and after (for active) */
+	.link-animation {
+		@apply relative inline-block tracking-wider whitespace-nowrap;
+	}
+	.link-animation:hover {
+		@apply text-heading;
+	}
+	.link-animation::before {
+		content: "";
+		@apply bg-heading absolute bottom-0 left-0 z-1 h-1 w-0 transition-all duration-400;
+	}
+	.link-animation.link-animation-quicker::before {
+		@apply duration-300;
+	}
+	.link-animation:not(:disabled):not(.disabled):not([aria-disabled="true"]):hover::before {
+		@apply w-full;
+	}
+	.link-animation.active {
+		@apply text-heading;
+	}
+	.link-animation.active::after {
+		content: "";
+		@apply bg-heading/50 absolute right-0 bottom-0 h-1 w-full transition-all duration-400;
+	}
+	.link-animation:hover::after {
+		@apply w-0;
+	}
 
-    .basic-button {
-        font-family: SpaceGrotesk, sans-serif;
-        @apply flex md:flex-row w-fit whitespace-nowrap border text-content bg-surface border-border p-2 hover:bg-content transition hover:text-surface hover:font-semibold hover:scale-110
-    }
+	.basic-button {
+		font-family: SpaceGrotesk, sans-serif;
+		@apply text-content bg-surface border-border hover:bg-content hover:text-surface flex w-fit border p-2 whitespace-nowrap transition hover:scale-110 hover:font-semibold md:flex-row;
+	}
 }
 
 @font-face {
@@ -95,24 +94,28 @@
 }
 
 :root {
-    --tw-border-style {
-        syntax: "*";
-        inherits: false;
-        initial-value: solid;
-    }
+	--tw-border-style {
+		syntax: "*";
+		inherits: false;
+		initial-value: solid;
+	}
 }
 
 * {
-    @apply  focus-visible:outline-4 focus-visible:outline-dashed focus-visible:outline-heading focus-visible:outline-offset-4 selection:bg-highlight/40 selection:text-white;
+	@apply focus-visible:outline-heading selection:bg-highlight/40 selection:text-white focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-dashed;
 }
 
 html {
-    font-family: Inter, sans-serif;
+	font-family: Inter, sans-serif;
 }
 
-h1, h2, h3, h4, .text-heading {
-    font-family: SpaceGrotesk, sans-serif;
-    font-weight: 600;
+h1,
+h2,
+h3,
+h4,
+.text-heading {
+	font-family: SpaceGrotesk, sans-serif;
+	font-weight: 600;
 
-    @apply text-heading
+	@apply text-heading;
 }

@@ -1,93 +1,103 @@
 ---
+
 ---
-<script defer
-		src="https://unpkg.com/two-mi18n@latest/dist/TwoMi18n.umd.js"
-></script>
+
+<script defer src="https://unpkg.com/two-mi18n@latest/dist/TwoMi18n.umd.js"></script>
 
 <div id="translation-container" class="grid grid-flow-col gap-1">
-  <button id="translation-button-en" class="translation-button link-animation link-animation-quicker" disabled>EN</button>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 hidden md:block"><path fill="currentColor" d="m12.87 15.07l-2.54-2.51l.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35C8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5l3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7l1.62-4.33L19.12 17z"/></svg>
-  <button id="translation-button-fr" class="translation-button link-animation link-animation-quicker">FR</button>
+	<button
+		id="translation-button-en"
+		class="translation-button link-animation link-animation-quicker"
+		disabled>EN</button
+	>
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="hidden h-8 w-8 md:block"
+		><path
+			fill="currentColor"
+			d="m12.87 15.07l-2.54-2.51l.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35C8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5l3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7l1.62-4.33L19.12 17z"
+		></path></svg
+	>
+	<button
+		id="translation-button-fr"
+		class="translation-button link-animation link-animation-quicker">FR</button
+	>
 </div>
 
 <style>
-  @reference "../styles/global.css";
+	@reference "../styles/global.css";
 
-  .translation-button {
-    @apply 
-      hidden not-disabled:block md:block
-    disabled:text-heading/45 cursor-pointer disabled:cursor-auto;
-  }
+	.translation-button {
+		@apply disabled:text-heading/45 hidden cursor-pointer not-disabled:block disabled:cursor-auto md:block;
+	}
 </style>
 
 <script>
-     // @ts-nocheck    
-    const translations = {
-        default: "en",
-        en: {
-          "homepage": "Homepage",
-          "about-me": "About me",
-          "contact": "Contact",
-          "school-projects": "School projects"
-        },
-        fr: {
-          "homepage": "Acceuil",
-          "about-me": "Qui suis-je",
-          "contact": "Contact",
-          "school-projects": "Projets scolaire"
-        },
-      };
+	// @ts-nocheck
+	const translations = {
+		default: "en",
+		en: {
+			homepage: "Homepage",
+			"about-me": "About me",
+			contact: "Contact",
+			"school-projects": "School projects",
+		},
+		fr: {
+			homepage: "Acceuil",
+			"about-me": "Qui suis-je",
+			contact: "Contact",
+			"school-projects": "Projets scolaire",
+		},
+	};
 
-      const twoMi18n = new TwoMi18n(translations);
+	const twoMi18n = new TwoMi18n(translations);
 
-      const buttonEN = document.getElementById("translation-button-en");
-      const buttonFR = document.getElementById("translation-button-fr");
+	const buttonEN = document.getElementById("translation-button-en");
+	const buttonFR = document.getElementById("translation-button-fr");
 
-      buttonEN?.addEventListener("click", () => {
-        handleTanslation("en");
-      });
-      buttonFR?.addEventListener("click", () => {
-        handleTanslation("fr");
-      });
+	buttonEN?.addEventListener("click", () => {
+		handleTanslation("en");
+	});
+	buttonFR?.addEventListener("click", () => {
+		handleTanslation("fr");
+	});
 
-      /**
-       * Handle all the changes needed for the translations 
-       *  - Lang selector
-       *  - Add ?lang={lang} to URL Parameters
-       *  - Call TwoMi18n function 
-       * 
-       * @param lang 
-       */
-      function handleTanslation(lang) {
-        if(lang ==="en") {
-          buttonEN.setAttribute('disabled', true);
-          buttonFR.removeAttribute('disabled');
+	/**
+	 * Handle all the changes needed for the translations
+	 *  - Lang selector
+	 *  - Add ?lang={lang} to URL Parameters
+	 *  - Call TwoMi18n function
+	 *
+	 * @param lang
+	 */
+	function handleTanslation(lang) {
+		if (lang === "en") {
+			buttonEN.setAttribute("disabled", true);
+			buttonFR.removeAttribute("disabled");
 
-          window.history.replaceState("lang", null, "?lang=en")
-        } else if (lang === "fr") {
-          buttonEN.removeAttribute('disabled');
-          buttonFR.setAttribute('disabled', true);
+			window.history.replaceState("lang", null, "?lang=en");
+		} else if (lang === "fr") {
+			buttonEN.removeAttribute("disabled");
+			buttonFR.setAttribute("disabled", true);
 
-          window.history.replaceState("lang", null, "?lang=fr")
-        }
+			window.history.replaceState("lang", null, "?lang=fr");
+		}
 
-        //Set <html> lang (Used as a signal for translation for other javascript tags) 
-        document.documentElement.lang = lang;
+		//Set <html> lang (Used as a signal for translation for other javascript tags)
+		document.documentElement.lang = lang;
 
-        twoMi18n.translateHTML(lang);
-      }
+		twoMi18n.translateHTML(lang);
+	}
 
-      /**
-       * Check in the URL if the {lang} param exist.
-       * If so, call @handleTranslation
-       */
-      function getLangFromURL() {
-        const params = new URLSearchParams(document.location.search);
+	/**
+	 * Check in the URL if the {lang} param exist.
+	 * If so, call @handleTranslation
+	 */
+	function getLangFromURL() {
+		const params = new URLSearchParams(document.location.search);
 
-        if (params.size !== 0) {
-          const lang = params.get("lang");
-          if (lang in translations) handleTanslation(lang);
-        }
-      }
-      // TODO remove comment to enable back this on log (off for dev purose) getLangFromURL(); //Triggered once on load
+		if (params.size !== 0) {
+			const lang = params.get("lang");
+			if (lang in translations) handleTanslation(lang);
+		}
+	}
+	// TODO remove comment to enable back this on log (off for dev purose) getLangFromURL(); //Triggered once on load
 </script>
