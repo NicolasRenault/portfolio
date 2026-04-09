@@ -47,9 +47,9 @@ interface Project {
               <>
                 <div id={year} class="w-full min-h-100 relative flex flex-col md:flex-row md:border-b border-border/20">
                   <header data-year={year} class="year-mobile-header group flex justify-between sticky top-0 border-b p-5 pl-10 border-border/20 z-2 bg-surface [&.active]:bg-content [&.active]:text-surface md:hidden">
-                    <h3 class="text-3xl">{year}
+                    <h3 class="text-3xl group-[.active]:text-surface!">{year}
                       {year == "2019-2020-2021" &&
-                        <span data-twomi18n="school-projects" class="text-[18px] text-content/50 group-[.active]:text-surface whitespace-nowrap">School Projects</span><br/>
+                        <span data-twomi18n="school-projects" class="text-[18px] text-content/50 whitespace-nowrap">School Projects</span><br/>
                       }
                     </h3>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" class="w-5 group-[.active]:rotate-180 transition-all duration-300"><path fill="currentColor" d="M8.2 275.4c0-8.6 3.4-17.401 10-24.001c13.2-13.2 34.8-13.2 48 0l451.8 451.8l445.2-445.2c13.2-13.2 34.8-13.2 48 0s13.2 34.8 0 48L542 775.399c-13.2 13.2-34.8 13.2-48 0l-475.8-475.8c-6.8-6.8-10-15.4-10-24.199" /></svg>
