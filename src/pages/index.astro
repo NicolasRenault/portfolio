@@ -65,10 +65,10 @@ interface Project {
                               <header class="relative">
                                 {(project.icon) && <Image src={project.icon} alt={`${name} icon`} width="64" height="64" class="pb-5 lg:absolute lg:right-0"/>}
                                 <h4 class="text-4xl md:text-5xl max-w-3/4 wrap-break-word">{name}</h4>
-                                <div class="pt-1">
+                                <div>
                                   {
                                     project.languages && (
-                                      <div class="flex flex-row gap-2 py-2 md:py-4">
+                                      <div class="flex flex-row gap-2 pt-3 pb-5 md:py-4">
                                         {
                                           project.languages.map((lang) => (
                                             <p class="text-content/60">{lang}</p>
@@ -79,14 +79,14 @@ interface Project {
                                   }
                                 </div>
                               </header>
-                              <p class="text-lg md:text-xl md:max-w-[70%] wrap-break-word">
+                              <p class="text-lg md:text-xl md:max-w-[70%] min-h-14 wrap-break-word">
                                 {
                                   project.fork && <span data-twomi18n="this-project-is-fork">This project is a fork of </span> <span>{project.name}:</span><br/>
                                 }
                                 <span class:list={[{"project-description-en": project.description_FR}]}>{project.description_EN}</span>
                                 {project.description_FR && <span class="project-description-fr">{project.description_FR}</span>}
                               </p>
-                              <div class="grid grid-cols-1 min-[450px]:grid-cols-2 pt-20 gap-6.5 max-w-fit">
+                              <div class="grid grid-cols-1 min-[450px]:grid-cols-2 pt-15 gap-6.5 max-w-fit">
                                 {
                                   project.url_2 && 
                                   <a href={project.url_2} target="_blank" class="basic-button"><span data-twomi18n="find-project">Find project here</span></a>
