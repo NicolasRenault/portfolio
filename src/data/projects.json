@@ -1,21 +1,21 @@
 {
     "2019-2020-2021": [
         {
-            "name": "Blog-Symfony-LPRO",
+            "name": "Blog-Symfony-2021",
             "description_EN": "University project to introduce us to building a blog with Symfony.",
             "description_FR": "Projet universitaire pour nous initier à la création d'un blog avec Symfony.",
             "github_url": "https://github.com/NicolasRenault/Blog-Symfony-LPRO",
             "languages": ["PHP", "Symfony"]
         },
         {
-            "name": "LaDelpeche-DOTNet-LPRO",
+            "name": "LaDelpeche-DOTNet-2021",
             "description_EN": "University project to introduce us to website development using C# DOTNet by building an e-shop website.",
             "description_FR": "Projet universitaire pour nous initier au développement de sites web avec C# DOTNet en créant un site e-commerce.",
             "github_url": "https://github.com/NicolasRenault/LaDelpeche-DOTNet-LPRO",
             "languages": ["JavaScript", "CSS"]
         },
         {
-            "name": "FuturoVTC-Laravel-LPRO",
+            "name": "FuturoVTC-Laravel-2021",
             "description_EN": "University project to introduce us to Web application development using Laravel by building a Uber-like website.",
             "description_FR": "Projet universitaire pour nous initier au développement d'applications Web avec Laravel en créant un site de type Uber.",
             "github_url": "https://github.com/NicolasRenault/FuturoVTC-Laravel-LPRO",
@@ -23,56 +23,56 @@
             "is_default": true
         },
         {
-            "name": "SombreSberro-Xamarin-LPRO",
+            "name": "SombreSberro-Xamarin-2021",
             "description_EN": "University project to introduce us to application development using Xamarin.",
             "description_FR": "Projet universitaire pour nous initier au développement d'applications avec Xamarin.",
             "github_url": "https://github.com/NicolasRenault/SombreSberro-Xamarin-LPRO",
             "languages": ["C#"]
         },
         {
-            "name": "Memory-JavaFX-LPRO",
+            "name": "Memory-JavaFX-2021",
             "description_EN": "University project to introduce us to Java development using JavaFx by building a Memory game.",
             "description_FR": "Projet universitaire pour nous initier au développement Java avec JavaFx en créant un jeu de Memory.",
             "github_url": "https://github.com/NicolasRenault/Memory-JavaFX-LPRO",
             "languages": ["JavaFX", "CSS"]
         },
         {
-            "name": "Breast-Cancer-AI-Python-DUT2",
+            "name": "Breast-Cancer-AI-Python-2020",
             "description_EN": "University project to introduce us to artificial intelligence using Python and Jupyter Notebook.",
             "description_FR": "Projet universitaire pour nous initier à l'intelligence artificielle avec Python et Jupyter Notebook.",
             "github_url": "https://github.com/NicolasRenault/Breast-Cancer-AI-Python-DUT2",
             "languages": ["Jupyter Notebook", "Python"]
         },
         {
-            "name": "MarioBros-JavaFX-DUT2",
+            "name": "MarioBros-JavaFX-2020",
             "description_EN": "University project to introduce us to Java game development using JavaFx by building a Mario Bros clone.",
             "description_FR": "Projet universitaire pour nous initier au développement de jeux Java avec JavaFx en créant un clone de Mario Bros.",
             "github_url": "https://github.com/NicolasRenault/MarioBros-JavaFX-DUT2",
             "languages": ["JavaFX", "CSS"]
         },
         {
-            "name": "TodoList-Php-DUT2",
+            "name": "TodoList-Php-2020",
             "description_EN": "University project to introduce us to PHP website development.",
             "description_FR": "Projet universitaire pour nous initier au développement de sites web en PHP.",
             "github_url": "https://github.com/NicolasRenault/TodoList-Php-DUT2",
             "languages": ["PHP"]
         },
         {
-            "name": "BeerBarManager-Cpp-DUT2",
+            "name": "BeerBarManager-Cpp-2020",
             "description_EN": "University project to introduce us to building projects from conception to development using C++.",
             "description_FR": "Projet universitaire pour nous initier à la création de projets, de la conception au développement, en utilisant C++.",
             "github_url": "https://github.com/NicolasRenault/BeerBarManager-Cpp-DUT2",
             "languages": ["C++", "QML"]
         },
         {
-            "name": "Android-Java-DUT2",
+            "name": "Android-Java-2020",
             "description_EN": "University project to introduce us to Android application development (in Java).",
             "description_FR": "Projet universitaire pour nous initier au développement d'applications Android (en Java).",
             "github_url": "https://github.com/NicolasRenault/Android-Java-DUT2",
             "languages": ["Java"]
         },
         {
-            "name": "MasterDetail-CSharp-DUT1",
+            "name": "MasterDetail-CSharp-2019",
             "description_EN": "University project to introduce us to desktop application development using C# by building a Master-Detail.",
             "description_FR": "Projet universitaire pour nous initier au développement d'applications de bureau avec C# en créant une interface Maître-Détail.",
             "github_url": "https://github.com/NicolasRenault/MasterDetail-CSharp-DUT1",
