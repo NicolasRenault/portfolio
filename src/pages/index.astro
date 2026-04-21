@@ -33,9 +33,11 @@ interface Project {
 					spending time with my
 				</span>
 				<span class="group">
-					<span data-twomi18n="girlfriend" class="group-hover:hidden">girlfriend</span>
+					<span data-twomi18n="girlfriend" class="group-hover:hidden group-focus:hidden"
+						>girlfriend</span
+					>
 					<span
-						class="mr-2 hidden bg-pink-500 font-extrabold whitespace-normal text-white group-hover:inline"
+						class="mr-2 hidden bg-pink-500 font-extrabold whitespace-normal text-white group-hover:inline group-focus:inline"
 					>
 						✨ Boop ✨
 					</span>
@@ -50,7 +52,7 @@ interface Project {
 			>
 				Current job
 			</header>
-			<div class="p-10 text-lg">
+			<div class="p-10 text-xl">
 				<h3 class="pb-5 text-4xl">
 					<a
 						href="https://www.trelleborg.com/en/about-us/organization/business-areas/trelleborg-industrial-solutions"
@@ -97,7 +99,6 @@ interface Project {
 				{
 					years.map((year) => {
 						const currentProjects = (projects as any)[year];
-
 						return (
 							<>
 								<div

@@ -26,6 +26,8 @@
 	}
 }
 
+@custom-variant hover (&:hover); /* Fixe hover on tactile devices https://tailwindcss.com/docs/upgrade-guide#hover-styles-on-mobile */
+
 @layer components {
 	.font-spacegrotesk {
 		font-family: SpaceGrotesk, sans-serif !important;
