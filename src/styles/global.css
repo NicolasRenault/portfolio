@@ -40,10 +40,10 @@
 	}
 
 	.section-wrapper {
-		@apply bg-surface text-content flex flex-col items-center;
+		@apply bg-surface text-content flex flex-col items-center min-h-[85vh];
 	}
 	.section-wrapper > div {
-		@apply border-border/20 mx-auto min-h-[85vh] w-full max-w-[calc(100vw-2rem)] border-x p-10 min-[90rem]:max-w-360;
+		@apply border-border/20 mx-auto h-full w-full max-w-[calc(100vw-2rem)] border-x p-10 min-[90rem]:max-w-360;
 	}
 
 	/* Animation for links using before and after (for active) */

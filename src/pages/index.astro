@@ -20,28 +20,59 @@ interface Project {
 
 <Layout title="Home" pathname="homepage" lang="en">
 	<section class="section-wrapper">
-		<div>
-			<h1 class="mb-4 text-5xl md:text-8xl">Nicolas Renault</h1>
-			<p data-twomi18n="homepage-headline" class="text-lg">
-				I'm a Web Developer based in France. I graduated with a Bachelor's Degree in web and
-				mobile development.
+		<div class="text-xl">
+			<h1 class="mb-4 pb-5 text-5xl md:text-8xl">Nicolas Renault</h1>
+			<p data-twomi18n="homepage-1" class="max-w-normal pb-2">
+				I'm a FullStack Developer based in France. I'm always trying to optimize life in
+				every aspect, which is why I enjoy building software applications that help people
+				perform tasks more quickly and efficiently.
 			</p>
-			<p data-twomi18n="homepage-technologies" class="text-lg">
-				Mostly doing FullStack development, I have had a preference for backend technologies
-				ever since I started learning programming.
+			<p class="max-w-normal pb-2">
+				<span data-twomi18n="homepage-2"
+					>Outside of programming, I enjoy sports like gravel cycling and volleyball,
+					spending time with my
+				</span>
+				<span class="group">
+					<span data-twomi18n="girlfriend" class="group-hover:hidden">girlfriend</span>
+					<span
+						class="mr-2 hidden bg-pink-500 font-extrabold whitespace-normal text-white group-hover:inline"
+					>
+						✨ Boop ✨
+					</span>
+				</span>
+				<span data-twomi18n="homepage-3">and friends, and playing video games.</span>
 			</p>
-			<p data-twomi18n="homepage-motivations" class="text-lg">
-				I'm always trying to optimize life in every aspect, which is why I enjoy building
-				software applications that help people perform tasks more quickly and efficiently.
-			</p>
-			<p data-twomi18n="homepage-passions" class="text-lg">
-				Outside work, I enjoy doing sports, building side projects, spending time with
-				friends, and playing video games.
-			</p>
-			<p data-twomi18n="homepage-work" class="text-lg">
-				I’m currently working at Trelleborg as a Digital Innovation and Solution
-				Developper."
-			</p>
+		</div>
+		<div class="small p-0">
+			<header
+				data-twomi18n="work-current-job"
+				class="border-border/20 font-spacegrotesk text-heading/90 border-y px-10 py-5 text-lg font-semibold"
+			>
+				Current job
+			</header>
+			<div class="p-10 text-lg">
+				<h3 class="pb-5 text-4xl">
+					<a
+						href="https://www.trelleborg.com/en/about-us/organization/business-areas/trelleborg-industrial-solutions"
+						class="link-animation before:-bottom-1.5"
+					>
+						Trelleborg
+					</a>
+				</h3>
+				<p data-twomi18n="trelleborg-1" class="max-w-normal pb-2">
+					In the company since 2021, I have had the opportunity to work in different
+					organizations. Started as an Application Developer, mainly focused on building
+					interfaces and extending our ERP functionalities.
+				</p>
+				<p data-twomi18n="trelleborg-2" class="max-w-normal pb-2">
+					After an IT re-organization, I stepped into Digital Innovation, where I analyzed
+					processes across 52 different sites to build solutions at a group scale.
+				</p>
+				<p data-twomi18n="trelleborg-3" class="max-w-normal">
+					Today, I'm focusing more on Project Management and Business analysis, with a
+					clear target on my ongoing career.
+				</p>
+			</div>
 		</div>
 	</section>
 	<section id="projects" data-theme="dark" class="section-wrapper">
@@ -51,13 +82,15 @@ interface Project {
 				<p class="text-xl md:w-[50%]">
 					<span data-twomi18n="projects-headline"
 						>Here is a list of my personnal projects. Most of them are Open Source. Feel
-						free to check them on my</span
-					>
+						free to check them on my
+					</span>
 					<a
 						href="https://github.com/NicolasRenault?tab=repositories"
 						target="_blank"
-						class="link-animation active">Github</a
-					>.
+						class="link-animation active"
+					>
+						Github
+					</a>.
 				</p>
 			</header>
 			<div class="grid h-full w-full grid-cols-1">
@@ -149,8 +182,7 @@ interface Project {
 															{project.fork && (
 																<>
 																	<span data-twomi18n="this-project-is-fork">
-																		This project is a fork
-																		of{" "}
+																		This project is a fork of
 																	</span>
 																	<span>{project.name}:</span>
 																	<br />
@@ -293,12 +325,6 @@ interface Project {
 					})
 				}
 			</div>
-		</div>
-	</section>
-	<section class="section-wrapper">
-		<div>
-			<h1 class="mb-4 text-4xl font-bold">Welcome to My Astro Site</h1>
-			<p class="text-lg">This is the homepage of my Astro project.</p>
 		</div>
 	</section>
 </Layout>
