@@ -9,7 +9,7 @@ const { pathname } = Astro.props;
 	class="bg-surface border-border/60 md:border-border/20 fixed bottom-0 left-0 z-50 mx-auto flex w-full justify-between border-t-2 p-3 md:relative md:max-w-[calc(100vw-2rem)] md:border-x md:border-t-0 md:border-b md:bg-transparent md:p-5 md:min-[90rem]:max-w-360"
 >
 	<div class="mr-0 hidden md:block">
-		<a href="/" class="flex w-fit">
+		<a href="/" data-link aria-label="Homepage" class="flex w-fit">
 			<nr-logo
 				size="md"
 				color="light"
@@ -23,7 +23,8 @@ const { pathname } = Astro.props;
 		<ul class="flex h-full list-none flex-row-reverse items-center gap-3 md:flex-row md:gap-5">
 			<li>
 				<a
-					href="#"
+					href="/"
+					data-link
 					data-twomi18n="navbar.homepage"
 					class="link-animation cursor-pointer"
 					class:list={[{ active: pathname == "homepage" }]}>Homepage</a
@@ -68,7 +69,12 @@ const { pathname } = Astro.props;
 					class="bg-surface border-border/20 absolute -top-10 left-0 mb-5 hidden w-full flex-row-reverse gap-3 self-end border-t-2 p-3 pr-10 text-sm md:top-20 md:gap-7 md:border-t-0 md:border-b md:pr-20 md:text-lg"
 				>
 					<li>
-						<a href="#" data-twomi18n="navbar.my-links" class="link-animation">
+						<a
+							href="https://links.nicolasrenault.com"
+							target="_blank"
+							data-twomi18n="navbar.my-links"
+							class="link-animation"
+						>
 							My Links
 						</a>
 					</li>
@@ -81,7 +87,13 @@ const { pathname } = Astro.props;
 			</li>
 		</ul>
 		<div class="flex flex-row-reverse items-center gap-3 md:flex-row md:gap-5">
-			<a href="#" class="hover:-translate-y-0.5">
+			<a
+				id="github_link"
+				href="https://github.com/NicolasRenault"
+				target="_blank"
+				aria-label="Link to Github"
+				class="hover:-translate-y-0.5"
+			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 12 12"
@@ -110,7 +122,7 @@ const { pathname } = Astro.props;
 		@apply mb-13.5 md:mb-0;
 	}
 </style>
-<!-- TODO Handle subnav for mobile -->
+
 <script>
 	import { startsWith, undefined } from "astro:schema";
 

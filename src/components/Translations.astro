@@ -129,6 +129,7 @@
 		//Set <html> lang (Used as a signal for translation for other javascript tags)
 		document.documentElement.lang = lang;
 
+		changeLinkLangParam(lang);
 		twoMi18n.translateHTML(lang);
 	}
 
@@ -144,5 +145,25 @@
 			if (lang in translations) handleTanslation(lang);
 		}
 	}
+
+	/**
+	 * Change the href of all link in the page that have data-link.
+	 * This is used for link that navigate the different pages, not the external links.
+	 *
+	 * @param lang
+	 */
+	function changeLinkLangParam(lang) {
+		const anchors = document.querySelectorAll<HTMLAnchorElement>("[data-link]");
+
+		anchors.forEach((anchor) => {
+			let url = new URL(anchor.href);
+			let params = new URLSearchParams(url.search);
+
+			url.searchParams.set("lang", lang);
+
+			anchor.href = url.toString();
+		});
+	}
+
 	// TODO remove comment to enable back this on log (off for dev purose) getLangFromURL(); //Triggered once on load
 </script>
