@@ -24,43 +24,59 @@ const { pathname } = Astro.props;
 			<li>
 				<a
 					href="#"
-					data-twomi18n="homepage"
+					data-twomi18n="navbar.homepage"
 					class="link-animation cursor-pointer"
 					class:list={[{ active: pathname == "homepage" }]}>Homepage</a
 				>
 			</li>
 			<li class="">
 				<p
-					id="about-me-button"
-					data-subnav="about-me-subnav"
-					data-twomi18n="about-me"
+					data-subnav="my-projects-subnav"
+					data-twomi18n="navbar.my-projects"
 					class="link-animation cursor-pointer"
 					class:list={[{ active: pathname == "about-me" }]}
 				>
-					About Me
+					My projects
 				</p>
 				<ul
-					id="about-me-subnav"
-					class="border-border/20 absolute top-20 left-0 mb-5 hidden w-full flex-row-reverse gap-7 self-end border-b p-3 pr-40 text-lg"
+					id="my-projects-subnav"
+					class="bg-surface border-border/20 absolute -top-10 left-0 mb-5 hidden w-full flex-row-reverse gap-3 self-end border-t-2 p-3 pr-10 text-sm md:top-20 md:gap-7 md:border-t-0 md:border-b md:pr-20 md:text-lg"
 				>
-					<li><a class="link-animation">AI Usage</a></li>
-					<li><a class="link-animation">Main projects</a></li>
+					<li>
+						<a href="#" data-twomi18n="navbar.ai-usage" class="link-animation">
+							AI Usage
+						</a>
+					</li>
+					<li>
+						<a href="#" data-twomi18n="navbar.main-projects" class="link-animation">
+							Main projects
+						</a>
+					</li>
 				</ul>
 			</li>
 			<li>
-				<a
-					href="#"
-					data-twomi18n="contact"
-					data-subnav="contact-subnav"
+				<p
+					data-twomi18n="navbar.info"
+					data-subnav="info-subnav"
 					class="link-animation cursor-pointer"
-					class:list={[{ active: pathname == "contact" }]}>Contact</a
+					class:list={[{ active: pathname == "contact" }]}
 				>
+					Info
+				</p>
 				<ul
-					id="contact-subnav"
-					class="border-border/20 absolute top-20 left-0 hidden w-full flex-row-reverse gap-7 self-end border-b p-3 pr-20 text-lg"
+					id="info-subnav"
+					class="bg-surface border-border/20 absolute -top-10 left-0 mb-5 hidden w-full flex-row-reverse gap-3 self-end border-t-2 p-3 pr-10 text-sm md:top-20 md:gap-7 md:border-t-0 md:border-b md:pr-20 md:text-lg"
 				>
-					<li><a class="link-animation">contact.nicolasrenault@gmail.com</a></li>
-					<li><a class="link-animation">My Links</a></li>
+					<li>
+						<a href="#" data-twomi18n="navbar.my-links" class="link-animation">
+							My Links
+						</a>
+					</li>
+					<li>
+						<a href="#" data-twomi18n="navbar.contact-me" class="link-animation">
+							Contact me
+						</a>
+					</li>
 				</ul>
 			</li>
 		</ul>
