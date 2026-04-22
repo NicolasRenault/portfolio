@@ -44,12 +44,22 @@ const { pathname } = Astro.props;
 					class="bg-surface border-border/20 absolute -top-10 left-0 mb-5 hidden w-full flex-row-reverse gap-3 self-end border-t-2 p-3 pr-10 text-sm md:top-20 md:gap-7 md:border-t-0 md:border-b md:pr-20 md:text-lg"
 				>
 					<li>
-						<a href="#" data-twomi18n="navbar.ai-usage" class="link-animation">
+						<a
+							href="/"
+							data-link
+							data-twomi18n="navbar.ai-usage"
+							class="link-animation"
+						>
 							AI Usage
 						</a>
 					</li>
 					<li>
-						<a href="#" data-twomi18n="navbar.main-projects" class="link-animation">
+						<a
+							href="/"
+							data-link
+							data-twomi18n="navbar.main-projects"
+							class="link-animation"
+						>
 							Main projects
 						</a>
 					</li>
@@ -130,12 +140,10 @@ const { pathname } = Astro.props;
 </style>
 
 <script>
-	import { navigate } from "astro:transitions/client";
-
 	/***
 	 * SubNav Behavior
 	 */
-	const navbar = document.getElementById("subnav-spacer");
+	const subnavSpacer = document.getElementById("subnav-spacer");
 	const hasSubNav = document.querySelectorAll<HTMLElement>("[data-subnav]");
 	let timer: NodeJS.Timeout;
 
@@ -205,20 +213,23 @@ const { pathname } = Astro.props;
 	}
 
 	/**
-	 * Add class .md:pb-13 to #navbar
+	 * Add class .md:pb-13 to #subnav-spacer
 	 * Used to add margin to the navbar when subnav is openned.
+	 *
+	 * @see subnavSpacer
 	 */
 	function onSubNavOpen() {
-		navbar?.classList.add("md:pb-13");
+		subnavSpacer?.classList.add("md:pb-13");
 	}
 
 	/**
-	 * Remove class .md:pb-13 to #navbar
+	 * Remove class .md:pb-13 to #subnav-spacer
 	 *
+	 * @see subnavSpacer
 	 * @see onSubNavOpen
 	 */
 	function onSubNavClose() {
-		navbar?.classList.remove("md:pb-13");
+		subnavSpacer?.classList.remove("md:pb-13");
 	}
 
 	/***
