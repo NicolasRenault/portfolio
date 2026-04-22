@@ -79,9 +79,15 @@ const { pathname } = Astro.props;
 						</a>
 					</li>
 					<li>
-						<a href="#" data-twomi18n="navbar.contact-me" class="link-animation">
+						<button
+							id="contact-button"
+							data-twomi18n="navbar.contact-me copied[data-copied] error[data-error]"
+							data-copied="Copied"
+							data-error="Error"
+							class="link-animation cursor-pointer uppercase"
+						>
 							Contact me
-						</a>
+						</button>
 					</li>
 				</ul>
 			</li>
@@ -124,8 +130,11 @@ const { pathname } = Astro.props;
 </style>
 
 <script>
-	import { startsWith, undefined } from "astro:schema";
+	import { navigate } from "astro:transitions/client";
 
+	/***
+	 * SubNav Behavior
+	 */
 	const navbar = document.getElementById("subnav-spacer");
 	const hasSubNav = document.querySelectorAll<HTMLElement>("[data-subnav]");
 	let timer: NodeJS.Timeout;
@@ -154,6 +163,12 @@ const { pathname } = Astro.props;
 			startTimer(subnav!);
 		});
 
+		/**
+		 * Start a timeout (@timer) that hide the element after 1500ms.
+		 *
+		 * @see timer
+		 * @param element
+		 */
 		function startTimer(element: HTMLElement) {
 			clearTimeout(timer);
 
@@ -164,6 +179,12 @@ const { pathname } = Astro.props;
 			}, 1500);
 		}
 
+		/**
+		 * Cancel timer.
+		 *
+		 * @see timer
+		 * @param element
+		 */
 		function cancelTimer(element: HTMLElement) {
 			element.classList.remove("hidden");
 			element.classList.add("flex");
@@ -171,6 +192,9 @@ const { pathname } = Astro.props;
 		}
 	});
 
+	/**
+	 * Add class .hidden and remove .flex to all element from @hasSubNav
+	 */
 	function hideAllSubNav() {
 		hasSubNav.forEach((element) => {
 			const subnav = document.getElementById(element.dataset.subnav!);
@@ -180,11 +204,58 @@ const { pathname } = Astro.props;
 		});
 	}
 
+	/**
+	 * Add class .md:pb-13 to #navbar
+	 * Used to add margin to the navbar when subnav is openned.
+	 */
 	function onSubNavOpen() {
 		navbar?.classList.add("md:pb-13");
 	}
 
+	/**
+	 * Remove class .md:pb-13 to #navbar
+	 *
+	 * @see onSubNavOpen
+	 */
 	function onSubNavClose() {
 		navbar?.classList.remove("md:pb-13");
+	}
+
+	/***
+	 * Contact button logic
+	 */
+	const contactButton = document.getElementById("contact-button");
+
+	contactButton?.addEventListener("click", () => {
+		if (contactButton.classList.contains("clicked")) return;
+		try {
+			navigator.clipboard.writeText("contact.nicolasrenault@gmail.com");
+			handleCopyResult(true);
+		} catch (error) {
+			console.error("Error when copying mail to clipboard:" + error);
+			handleCopyResult(false);
+		}
+	});
+
+	/**
+	 * Add classes and change innerText of contactButton based on isSuccess
+	 *
+	 * @see contactButton
+	 * @param isSuccess
+	 */
+	function handleCopyResult(isSuccess: boolean) {
+		const successClasses = ["bg-green-700", "px-3", "text-white", "before:hidden", "cliked"];
+		const errorClasses = ["bg-red-500", "px-3", "text-white", "before:hidden", "cliked"];
+		let classesToAdd = isSuccess ? successClasses : errorClasses;
+		let previousText = contactButton?.innerText;
+		let resultText = isSuccess ? contactButton?.dataset.copied : contactButton?.dataset.error;
+
+		contactButton?.classList.add(...classesToAdd);
+		contactButton!.innerText = resultText!;
+
+		setTimeout(() => {
+			contactButton?.classList.remove(...classesToAdd);
+			contactButton!.innerText = previousText!;
+		}, 2000);
 	}
 </script>
