@@ -2,6 +2,7 @@
 import "@styles/global.css";
 
 import BaseHead from "@components/BaseHead.astro";
+import Translations from "@components/Translations.astro";
 
 import fs from "node:fs";
 import path from "node:path";
@@ -22,7 +23,7 @@ try {
 	<BaseHead title="404" />
 	<body data-theme="dark" class="bg-surface relative flex h-screen flex-col items-center">
 		<h1 class="text-content font-lora p-10 text-4xl md:text-6xl">404 error</h1>
-		<a href="/" class="basic-button mb-10 text-xl uppercase md:text-2xl">Go back</a>
+		<a href="/" data-link class="basic-button mb-10 text-xl uppercase md:text-2xl">Go back</a>
 		<img
 			id="the-office-img"
 			data-number_of_memes={numberOfMemes}
@@ -30,6 +31,9 @@ try {
 			src="/the-office-memes/the-office-meme-53.gif"
 			class="w-80 sm:w-2xl"
 		/>
+		<div class="hidden">
+			<Translations />
+		</div>
 		<nr-logo size="lg" rainbow class="text-content mt-10"></nr-logo>
 	</body>
 </html>
