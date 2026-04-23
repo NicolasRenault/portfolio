@@ -161,10 +161,7 @@
 
 		anchors.forEach((anchor) => {
 			let url = new URL(anchor.href);
-			let params = new URLSearchParams(url.search);
-
 			url.searchParams.set("lang", lang);
-
 			anchor.href = url.toString();
 		});
 	}

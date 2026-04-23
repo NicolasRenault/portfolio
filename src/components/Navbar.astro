@@ -35,7 +35,7 @@ const { pathname } = Astro.props;
 					data-subnav="my-projects-subnav"
 					data-twomi18n="navbar.my-projects"
 					class="link-animation cursor-pointer uppercase"
-					class:list={[{ active: pathname == "about-me" }]}
+					class:list={[{ active: ["main-projects", "ai-usages"].includes(pathname) }]}
 				>
 					My projects
 				</button>
@@ -45,20 +45,22 @@ const { pathname } = Astro.props;
 				>
 					<li>
 						<a
-							href="/"
+							href="/ai-usages"
 							data-link
 							data-twomi18n="navbar.ai-usage"
 							class="link-animation"
+							class:list={[{ active: pathname == "ai-usages" }]}
 						>
 							AI Usage
 						</a>
 					</li>
 					<li>
 						<a
-							href="/"
+							href="/main-projects"
 							data-link
 							data-twomi18n="navbar.main-projects"
 							class="link-animation"
+							class:list={[{ active: pathname == "main-projects" }]}
 						>
 							Main projects
 						</a>
@@ -265,7 +267,7 @@ const { pathname } = Astro.props;
 	 * @param isSuccess
 	 */
 	function handleCopyResult(isSuccess: boolean) {
-		const successClasses = ["bg-green-700", "px-3", "text-white", "before:hidden", "cliked"];
+		const successClasses = ["bg-green-600", "px-3", "text-white", "before:hidden", "cliked"];
 		const errorClasses = ["bg-red-500", "px-3", "text-white", "before:hidden", "cliked"];
 		let classesToAdd = isSuccess ? successClasses : errorClasses;
 		let previousText = contactButton?.innerText;
