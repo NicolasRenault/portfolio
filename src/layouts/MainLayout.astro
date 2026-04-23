@@ -18,9 +18,16 @@ const { title, pathname, lang } = Astro.props;
 			Javascript est désactivé dans votre navigateur. Cela va affecter le fonctionnement du
 			site.
 		</noscript>
+		<a
+			href="#main-content"
+			class="text-heading bg-surface absolute -top-20 left-5 z-50 text-2xl uppercase focus:top-5"
+			>Skip to content</a
+		>
 		<section id="main" class="noscript:mt-20">
 			<NavBar pathname={pathname} />
-			<slot />
+			<div id="main-content">
+				<slot />
+			</div>
 		</section>
 		<script>
 			console.log(
