@@ -10,8 +10,15 @@ const { title, pathname, lang } = Astro.props;
 <!doctype html>
 <html lang={lang}>
 	<BaseHead title={title} />
-	<body class="bg-surface">
-		<section id="main">
+	<body class="bg-surface relative flex flex-col">
+		<noscript
+			class="fixed top-0 z-50 w-full border border-red-600 bg-red-400 p-3 text-center text-white"
+		>
+			EN: JavaScript is disabled in your browser. It will affect the website's behavior. | FR:
+			Javascript est désactivé dans votre navigateur. Cela va affecter le fonctionnement du
+			site.
+		</noscript>
+		<section id="main" class="noscript:mt-20">
 			<NavBar pathname={pathname} />
 			<slot />
 		</section>

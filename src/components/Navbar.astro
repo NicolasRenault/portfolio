@@ -6,7 +6,7 @@ const { pathname } = Astro.props;
 
 <nav
 	id="navbar"
-	class="bg-surface border-border/60 md:border-border/20 fixed bottom-0 left-0 z-50 mx-auto flex w-full justify-between border-t-2 p-3 md:relative md:max-w-[calc(100vw-2rem)] md:border-x md:border-t-0 md:border-b md:bg-transparent md:p-5 md:min-[90rem]:max-w-360"
+	class="bg-surface border-border/60 md:border-border/20 fixed bottom-0 left-0 z-40 mx-auto flex w-full justify-between border-t-2 p-3 md:relative md:max-w-[calc(100vw-2rem)] md:border-x md:border-t-0 md:border-b md:bg-transparent md:p-5 md:min-[90rem]:max-w-360 noscript:md:mb-28"
 >
 	<div class="mr-0 hidden md:block">
 		<a href="/" data-link aria-label="Homepage" class="flex w-fit">
@@ -41,7 +41,7 @@ const { pathname } = Astro.props;
 				</p>
 				<ul
 					id="my-projects-subnav"
-					class="bg-surface border-border/20 absolute -top-10 left-0 mb-5 hidden w-full flex-row-reverse gap-3 self-end border-t-2 p-3 pr-10 text-sm md:top-20 md:gap-7 md:border-t-0 md:border-b md:pr-20 md:text-lg"
+					class="bg-surface border-border/20 absolute -top-10 left-0 mb-5 hidden w-full flex-row-reverse gap-3 self-end border-t-2 p-3 pr-10 text-sm md:top-20 md:gap-7 md:border-t-0 md:border-b md:pr-20 md:text-lg noscript:flex"
 				>
 					<li>
 						<a
@@ -76,7 +76,7 @@ const { pathname } = Astro.props;
 				</p>
 				<ul
 					id="info-subnav"
-					class="bg-surface border-border/20 absolute -top-10 left-0 mb-5 hidden w-full flex-row-reverse gap-3 self-end border-t-2 p-3 pr-10 text-sm md:top-20 md:gap-7 md:border-t-0 md:border-b md:pr-20 md:text-lg"
+					class="bg-surface border-border/20 absolute -top-10 left-0 mb-5 hidden w-full flex-row-reverse gap-3 self-end border-t-2 p-3 pr-10 text-sm md:top-20 md:gap-7 md:border-t-0 md:border-b md:pr-20 md:text-lg noscript:-top-20 noscript:flex noscript:md:top-33"
 				>
 					<li>
 						<a
@@ -135,7 +135,7 @@ const { pathname } = Astro.props;
 
 	body {
 		/* Margin bottom for NavBar on mobile devices */
-		@apply mb-13.5 md:mb-0;
+		@apply mb-13.5 md:mb-0 noscript:mb-30 noscript:md:mb-0;
 	}
 </style>
 
