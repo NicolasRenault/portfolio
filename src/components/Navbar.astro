@@ -31,14 +31,14 @@ const { pathname } = Astro.props;
 				>
 			</li>
 			<li class="">
-				<p
+				<button
 					data-subnav="my-projects-subnav"
 					data-twomi18n="navbar.my-projects"
-					class="link-animation cursor-pointer"
+					class="link-animation cursor-pointer uppercase"
 					class:list={[{ active: pathname == "about-me" }]}
 				>
 					My projects
-				</p>
+				</button>
 				<ul
 					id="my-projects-subnav"
 					class="bg-surface border-border/20 absolute -top-10 left-0 mb-5 hidden w-full flex-row-reverse gap-3 self-end border-t-2 p-3 pr-10 text-sm md:top-20 md:gap-7 md:border-t-0 md:border-b md:pr-20 md:text-lg noscript:flex"
@@ -66,14 +66,14 @@ const { pathname } = Astro.props;
 				</ul>
 			</li>
 			<li>
-				<p
+				<button
 					data-twomi18n="navbar.info"
 					data-subnav="info-subnav"
-					class="link-animation cursor-pointer"
+					class="link-animation cursor-pointer uppercase"
 					class:list={[{ active: pathname == "contact" }]}
 				>
 					Info
-				</p>
+				</button>
 				<ul
 					id="info-subnav"
 					class="bg-surface border-border/20 absolute -top-10 left-0 mb-5 hidden w-full flex-row-reverse gap-3 self-end border-t-2 p-3 pr-10 text-sm md:top-20 md:gap-7 md:border-t-0 md:border-b md:pr-20 md:text-lg noscript:-top-20 noscript:flex noscript:md:top-33"
@@ -147,28 +147,38 @@ const { pathname } = Astro.props;
 	const hasSubNav = document.querySelectorAll<HTMLElement>("[data-subnav]");
 	let timer: NodeJS.Timeout;
 
-	console.log(hasSubNav);
-
 	hasSubNav.forEach((element) => {
 		const subnav = document.getElementById(element.dataset.subnav!);
+		const inEvent = ["mouseenter", "focusin"];
+		const outEvent = ["mouseleave", "focusout"];
 
 		if (!subnav) return;
 
-		element.addEventListener("mouseenter", () => {
-			hideAllSubNav();
-			onSubNavOpen();
-			cancelTimer(subnav!);
+		inEvent.forEach((event) => {
+			element.addEventListener(event, () => {
+				console.log(event, "element");
+				hideAllSubNav();
+				onSubNavOpen();
+				cancelTimer(subnav!);
+			});
+
+			console.log(event);
+			subnav?.addEventListener(event, () => {
+				console.log(event, "subnav");
+				hideAllSubNav();
+				onSubNavOpen();
+				cancelTimer(subnav!);
+			});
 		});
-		subnav?.addEventListener("mouseenter", () => {
-			hideAllSubNav();
-			onSubNavOpen();
-			cancelTimer(subnav!);
-		});
-		element.addEventListener("mouseleave", () => {
-			startTimer(subnav!);
-		});
-		subnav?.addEventListener("mouseleave", () => {
-			startTimer(subnav!);
+		outEvent.forEach((event) => {
+			element.addEventListener(event, () => {
+				console.log(event, "element");
+				startTimer(subnav!);
+			});
+			subnav?.addEventListener(event, () => {
+				console.log(event, "subnav");
+				startTimer(subnav!);
+			});
 		});
 
 		/**
