@@ -1,6 +1,10 @@
 ---
 import Layout from "@layouts/MainLayout.astro";
 import { Code } from "astro:components";
+import { Image } from "astro:assets";
+
+import cheatyPasswordOnActionImage from "@assets/cheaty-password-on-action.png";
+import cheatyPasswordOffActionImage from "@assets/cheaty-password-off-action.png";
 ---
 
 <Layout title="Home" pathname="main-projects" lang="en">
@@ -39,7 +43,7 @@ import { Code } from "astro:components";
 			</a>
 		</div>
 	</section>
-	<section data-theme="dark" id="two-mi18n" class="section-wrapper min-h-[85vh]">
+	<section data-theme="dark" id="two-mi18n" class="section-wrapper">
 		<div class="p-0">
 			<header
 				data-twomi18n="two-mi18n.header"
@@ -98,7 +102,9 @@ import { Code } from "astro:components";
 						</h3>
 						<p class="text-standard">
 							<span data-twomi18n="the">The</span>
-							<span class="bg-heading p-0.5 text-black">translation object</span>
+							<span class="bg-heading text-surface selection:text-surface! p-0.5">
+								translation object</span
+							>
 							<span data-twomi18n="two-mi18n.translate-object-description">
 								is a simple Javascript object that contains the translations. Its
 								keys are the language keys and its values are objects that contain
@@ -107,22 +113,32 @@ import { Code } from "astro:components";
 						</p>
 						<p class="text-standard">
 							<span data-twomi18n="the">The</span>
-							<span class="bg-heading p-0.5 text-black">TwoMi18n object</span>
+							<span class="bg-heading text-surface selection:text-surface! p-0.5">
+								TwoMi18n object</span
+							>
 							<span data-twomi18n="two-mi18n.two-mi18n-object-description">
 								The is the main and only object of the library. It contains the two
 								methods of the library,
 							</span>
-							<span class="bg-heading p-0.5 text-black">translate() </span>
+							<span class="bg-heading text-surface selection:text-surface! p-0.5">
+								translate()</span
+							>
 							<span data-twomi18n="and">and</span>
-							<span class="bg-heading p-0.5 text-black">translateHTML()</span>.
+							<span class="bg-heading text-surface selection:text-surface! p-0.5">
+								translateHTML()</span
+							>.
 						</p>
 						<p class="text-standard">
 							<span data-twomi18n="the">The</span>
-							<span class="bg-heading p-0.5 text-black">translateHTML()</span>.
+							<span class="bg-heading text-surface selection:text-surface! p-0.5">
+								translateHTML()</span
+							>.
 							<span data-twomi18n="two-mi18n.translateHTML-description">
 								method is the method that will translate all the elements with the
 							</span>
-							<span class="bg-heading p-0.5 text-black">data-twomi18n</span>
+							<span class="bg-heading text-surface selection:text-surface! p-0.5"
+								>data-twomi18n</span
+							>
 							<span data-twomi18n="attribute">attribute</span>.
 						</p>
 					</div>
@@ -161,14 +177,18 @@ import { Code } from "astro:components";
 						<span data-twomi18n="see-the-documentation">See the documentation</span>
 						<a
 							href="https://www.twomi18n.nicolasrenault.com/"
+							target="_blank"
 							aria-label="Two-Mi18n documentation"
+							data-twomi18n="here"
 							class="link-animation active"
 						>
 							here
 						</a>
 						<span data-twomi18n="or-find-it-on">or find it on</span>
 						<a
-							href="https://github.com/NicolasRenault?tab=repositories"
+							href="https://github.com/NicolasRenault/two-mi18n/tree/main"
+							target="_blank"
+							aria-label="Two-Mi18n Github link"
 							target="_blank"
 							class="link-animation active"
 						>
@@ -179,7 +199,79 @@ import { Code } from "astro:components";
 			</div>
 		</div>
 	</section>
-	<section id="cheaty" class="section-wrapper min-h-[85vh]"></section>
+	<section id="cheaty" class="section-wrapper">
+		<div class="p-0">
+			<header
+				data-twomi18n="cheaty.header"
+				class="border-border/20 text-content/80 border-b px-10 py-5 text-lg"
+			>
+				Extension for the web that feels illegal.
+			</header>
+			<div>
+				<header class="border-border/20 border-b px-10 py-20">
+					<h2 class="pb-4 text-4xl">Cheaty</h2>
+					<p data-twomi18n="cheaty.catch-line" class="text-standard">
+						Cheaty is a simple open-source web extension that allows you to do quick
+						actions on HTML components without going into the inspector console.
+					</p>
+					<p class="text-standard pb-0" data-twomi18n="cheaty.allow-you">
+						The extension allow you to show/hide a password, show/hide an element on the
+						page, and copy the HTML of an element.
+					</p>
+				</header>
+				<div>
+					<!-- TODO fix Image -->
+					<!-- <Image
+						src={cheatyPasswordOffActionImage.src}
+						alt="A bird."
+						width="50"
+						height="50"
+					/> -->
+					<img
+						src={cheatyPasswordOffActionImage.src}
+						alt="A bird."
+						width="50"
+						height="50"
+					/>
+				</div>
+				<footer class="border-border/20 border-b px-10 py-20">
+					<p class="text-standard">
+						<span data-twomi18n="cheaty.download">Download the extention</span>
+						<a
+							href="https://cheaty.nicolasrenault.com/download/"
+							target="_blank"
+							aria-label="Cheaty download"
+							data-twomi18n="here"
+							class="link-animation active"
+						>
+							here
+						</a>.
+					</p>
+					<p class="text-standard pb-0">
+						<span data-twomi18n="see-the-documentation">See the documentation</span>
+						<a
+							href="https://cheaty.nicolasrenault.com/"
+							target="_blank"
+							aria-label="Cheaty documentation"
+							data-twomi18n="here"
+							class="link-animation active"
+						>
+							here
+						</a>
+						<span data-twomi18n="or-find-it-on">or find it on</span>
+						<a
+							href="https://github.com/NicolasRenault/cheaty-webextension/tree/main"
+							target="_blank"
+							class="link-animation active"
+							aria-label="Cheaty Github link"
+						>
+							Github
+						</a>.
+					</p>
+				</footer>
+			</div>
+		</div>
+	</section>
 	<section data-theme="dark" class="section-wrapper flex text-center">
 		<p class="text-standard py-10">
 			<span data-twomi18n="main-projects.find-projects">
@@ -188,6 +280,7 @@ import { Code } from "astro:components";
 			<a
 				href="https://github.com/NicolasRenault?tab=repositories"
 				target="_blank"
+				aria-label="Github link"
 				class="link-animation active"
 			>
 				Github
