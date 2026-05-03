@@ -41,6 +41,12 @@
 		max-width: 65ch;
 	}
 
+	.text-standard {
+		@apply  pb-5 text-xl text-content;
+
+		max-width: 65ch;
+	}
+
 	.section-wrapper {
 		@apply bg-surface text-content flex flex-col items-center;
 	}

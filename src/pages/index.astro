@@ -22,12 +22,12 @@ interface Project {
 	<section class="section-wrapper">
 		<div class="text-xl">
 			<h1 class="mb-4 pb-5 text-5xl md:text-8xl">Nicolas Renault</h1>
-			<p data-twomi18n="homepage-1" class="max-w-normal pb-2">
+			<p data-twomi18n="homepage-1" class="text-standard">
 				I'm a FullStack Developer based in France. I'm always trying to optimize life in
 				every aspect, which is why I enjoy building software applications that help people
 				perform tasks more quickly and efficiently.
 			</p>
-			<p class="max-w-normal pb-2">
+			<p class="text-standard">
 				<span data-twomi18n="homepage-2"
 					>Outside of programming, I enjoy sports like gravel cycling and volleyball,
 					spending time with my
@@ -59,16 +59,16 @@ interface Project {
 						Trelleborg
 					</a>
 				</h3>
-				<p data-twomi18n="trelleborg-1" class="max-w-normal pb-2">
+				<p data-twomi18n="trelleborg-1" class="text-standard">
 					In the company since 2021, I have had the opportunity to work in different
 					organizations. Started as an Application Developer, mainly focused on building
 					interfaces and extending our ERP functionalities.
 				</p>
-				<p data-twomi18n="trelleborg-2" class="max-w-normal pb-2">
+				<p data-twomi18n="trelleborg-2" class="text-standard">
 					After an IT re-organization, I stepped into Digital Innovation, where I analyzed
 					processes across 52 different sites to build solutions at a group scale.
 				</p>
-				<p data-twomi18n="trelleborg-3" class="max-w-normal">
+				<p data-twomi18n="trelleborg-3" class="text-standard">
 					Today, I'm focusing more on Project Management and Business analysis, with a
 					clear target on my ongoing career.
 				</p>
@@ -79,9 +79,9 @@ interface Project {
 		<div class="p-0">
 			<header class="border-border/20 w-full border-b px-10 py-20">
 				<h2 data-twomi18n="projects" class="pb-4 text-4xl">Projects</h2>
-				<p class="text-xl md:w-[50%]">
-					<span data-twomi18n="projects-headline"
-						>Here is a list of my personnal projects. Most of them are Open Source. Feel
+				<p class="text-standard">
+					<span data-twomi18n="projects.headline">
+						Here is a list of my personnal projects. Most of them are Open Source. Feel
 						free to check them on my
 					</span>
 					<a
@@ -112,7 +112,7 @@ interface Project {
 											{year == "2019-2020-2021" && (
 												<>
 													<span
-														data-twomi18n="school-projects"
+														data-twomi18n="projects.school-projects"
 														class="text-content/50 text-[18px] whitespace-nowrap"
 													>
 														School Projects
@@ -180,7 +180,7 @@ interface Project {
 														<p class="min-h-14 text-lg wrap-break-word md:max-w-[70%] md:text-xl">
 															{project.fork && (
 																<>
-																	<span data-twomi18n="this-project-is-fork">
+																	<span data-twomi18n="projects.this-project-is-fork">
 																		This project is a fork of
 																	</span>
 																	<span>{project.name}:</span>
@@ -210,7 +210,7 @@ interface Project {
 																	target="_blank"
 																	class="basic-button"
 																>
-																	<span data-twomi18n="find-project">
+																	<span data-twomi18n="projects.find-project">
 																		Find project here
 																	</span>
 																</a>
@@ -221,7 +221,7 @@ interface Project {
 																class="basic-button"
 															>
 																<span
-																	data-twomi18n="see-on-github"
+																	data-twomi18n="projects.see-on-github"
 																	class="pr-1"
 																>
 																	See on Github
@@ -244,7 +244,7 @@ interface Project {
 																	class="basic-button col-span-full"
 																>
 																	<span
-																		data-twomi18n="see-original"
+																		data-twomi18n="projects.see-original"
 																		class="pr-1"
 																	>
 																		See original project
@@ -275,7 +275,7 @@ interface Project {
 											{year == "2019-2020-2021" && (
 												<>
 													<span
-														data-twomi18n="school-projects"
+														data-twomi18n="projects.school-projects"
 														class="text-content/50 text-[18px]"
 													>
 														School Projects
