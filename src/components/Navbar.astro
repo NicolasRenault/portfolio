@@ -158,15 +158,12 @@ const { pathname } = Astro.props;
 
 		inEvent.forEach((event) => {
 			element.addEventListener(event, () => {
-				console.log(event, "element");
 				hideAllSubNav();
 				onSubNavOpen();
 				cancelTimer(subnav!);
 			});
 
-			console.log(event);
 			subnav?.addEventListener(event, () => {
-				console.log(event, "subnav");
 				hideAllSubNav();
 				onSubNavOpen();
 				cancelTimer(subnav!);
@@ -174,11 +171,9 @@ const { pathname } = Astro.props;
 		});
 		outEvent.forEach((event) => {
 			element.addEventListener(event, () => {
-				console.log(event, "element");
 				startTimer(subnav!);
 			});
 			subnav?.addEventListener(event, () => {
-				console.log(event, "subnav");
 				startTimer(subnav!);
 			});
 		});
