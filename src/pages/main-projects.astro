@@ -19,7 +19,7 @@ import cheatyPasswordOffActionImage from "@assets/cheaty-password-off-action.png
 					me, it might help other people.
 				</p>
 				<p data-twomi18n="main-projects.headline-2" class="text-standard">
-					I truly believe in OpenSource, and it’s communty, even in this AI Age. I try my
+					I truly believe in OpenSource, and its communty, even in this AI Age. I try my
 					best to create performant and minimalist code that you can reuse in your
 					projects.
 				</p>
@@ -107,7 +107,7 @@ import cheatyPasswordOffActionImage from "@assets/cheaty-password-off-action.png
 							>
 							<span data-twomi18n="two-mi18n.translate-object-description">
 								is a simple Javascript object that contains the translations. Its
-								keys are the language keys and its values are objects that contain
+								keys are the language keys, and its values are objects that contain
 								the translations with keys and values.
 							</span>
 						</p>
@@ -117,7 +117,7 @@ import cheatyPasswordOffActionImage from "@assets/cheaty-password-off-action.png
 								TwoMi18n object</span
 							>
 							<span data-twomi18n="two-mi18n.two-mi18n-object-description">
-								The is the main and only object of the library. It contains the two
+								is the main and only object of the library. It contains the two
 								methods of the library,
 							</span>
 							<span class="bg-heading text-surface selection:text-surface! p-0.5">
@@ -214,29 +214,137 @@ import cheatyPasswordOffActionImage from "@assets/cheaty-password-off-action.png
 						Cheaty is a simple open-source web extension that allows you to do quick
 						actions on HTML components without going into the inspector console.
 					</p>
-					<p class="text-standard pb-0" data-twomi18n="cheaty.allow-you">
-						The extension allow you to show/hide a password, show/hide an element on the
-						page, and copy the HTML of an element.
+					<p class="text-standard pb-0" data-twomi18n="cheaty.allows-you">
+						The extension allows you to show/hide a password, show/hide an element on
+						the page, and copy the HTML of an element.
 					</p>
 				</header>
+				<!-- This section is a copy of https://cheaty.nicolasrenault.com/#examples -->
+				<header
+					data-twomi18n="cheaty.extension-example"
+					class="border-border/20 text-content/80 border-b px-10 py-5 text-lg"
+				>
+					Here is an example of the extension's main behaviors.
+				</header>
 				<div>
-					<!-- TODO fix Image -->
-					<!-- <Image
-						src={cheatyPasswordOffActionImage.src}
-						alt="A bird."
-						width="50"
-						height="50"
-					/> -->
-					<img
-						src={cheatyPasswordOffActionImage.src}
-						alt="A bird."
-						width="50"
-						height="50"
-					/>
+					<div>
+						<div class="border-border/20 flex flex-col border-b min-[1000px]:flex-row">
+							<div
+								class="border-border/20 flex flex-1 flex-col border-b min-[1000px]:border-r min-[1000px]:border-b-0"
+							>
+								<header
+									data-twomi18n="cheaty.show-hide-passwords"
+									class="border-border/20 text-heading border-b px-10 py-5 text-2xl"
+								>
+									Show/Hide passwords
+								</header>
+								<div class="p-10">
+									<div
+										class="cheaty_action_button_container_static cheaty_hidden relative"
+									>
+										<button
+											data-twomi18n="Hide Hide[data-mainText] Show[data-secondText]"
+											data-mainText="Hide"
+											data-secondText="Show"
+											disabled
+										>
+											Hide
+										</button>
+										<button
+											id="cheaty_password_button_example_static"
+											title="Change the type of the selected element"
+											data-twomi18n="show-password show-password[data-mainText] hide-password[data-secondText]"
+											data-mainText="Show password"
+											data-secondText="Hide password"
+											tabindex="-1"
+										>
+											Show password
+										</button>
+										<button data-twomi18n="Copy" disabled>Copy</button>
+									</div>
+									<div
+										class="relative m-3 flex h-41 w-95 items-center justify-center border-2 p-3"
+									>
+										<input
+											id="password_example_static"
+											type="password"
+											value="I'm hidden"
+											data-twomi18n="cheaty.i-m-hidden[value]"
+											class="cheaty-selected-static w-[60%] items-center justify-center px-2 text-lg"
+											tabindex="-1"
+										/>
+										<label
+											for="password_example_static"
+											class="absolute top-[70%] left-[22%] font-medium"
+										>
+											<span data-twomi18n="cheaty.input-type">
+												Input type:
+											</span>
+											<span
+												id="password_example_static_input_type"
+												class="underline"
+											>
+												password
+											</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div
+								class="border-border/20 flex flex-1 flex-col border-b md:border-r md:border-b-0"
+							>
+								<header
+									data-twomi18n="cheaty.show-hide-HTML-element"
+									class="border-border/20 text-heading border-b px-10 py-5 text-2xl"
+								>
+									Show/Hide HTML Element
+								</header>
+								<div class="p-10">
+									<div
+										class="cheaty_action_button_container_static cheaty_hidden relative"
+									>
+										<button
+											id="cheaty_hide_button_example_static"
+											title="Hide the selected element"
+											data-twomi18n="Hide Hide[data-mainText] Show[data-secondText]"
+											data-mainText="Hide"
+											data-secondText="Show"
+											tabindex="-1"
+										>
+											Hide
+										</button>
+										<button data-twomi18n="Copy" disabled>Copy</button>
+									</div>
+									<div
+										class="relative m-3 flex h-41 w-95 items-center justify-center border-2 p-3"
+									>
+										<div class="relative">
+											<div
+												class="items-center justify-center p-2 px-14 text-lg"
+												data-twomi18n="cheaty.i-m-behind"
+											>
+												I'm behind
+											</div>
+										</div>
+										<div class="absolute">
+											<div
+												id="hide_example_static"
+												class="cheaty-selected-static items-center justify-center bg-amber-100 p-10 text-lg"
+												data-twomi18n="cheaty.hide-me"
+											>
+												Hide me
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
+				<!-- End of Cheaty section -->
 				<footer class="border-border/20 border-b px-10 py-20">
 					<p class="text-standard">
-						<span data-twomi18n="cheaty.download">Download the extention</span>
+						<span data-twomi18n="cheaty.download">Download the extension</span>
 						<a
 							href="https://cheaty.nicolasrenault.com/download/"
 							target="_blank"
@@ -290,3 +398,127 @@ import cheatyPasswordOffActionImage from "@assets/cheaty-password-off-action.png
 		<!-- TODO add Footer here -->
 	</section>
 </Layout>
+
+<style>
+	/* CHEATY copy of https://github.com/NicolasRenault/cheaty-webextension/blob/main/website/cheaty-static.css */
+	:root {
+		--cheaty-secondary-color: 65, 90, 119;
+		--cheaty-text-color: 224, 225, 221;
+	}
+
+	.cheaty-selected-static {
+		border-color: transparent;
+		outline: 3px dotted orange !important;
+		/* outline-offset: -2px; */
+	}
+
+	.cheaty_action_button_container_static * {
+		all: unset;
+	}
+
+	.cheaty_action_button_container_static {
+		position: absolute;
+		-webkit-box-sizing: content-box;
+		box-sizing: content-box;
+		z-index: 99999 !important;
+		background-color: rgb(var(--cheaty-secondary-color));
+		color: rgb(var(--cheaty-text-color));
+		padding: 5px;
+		border-radius: 5px;
+		min-height: 28px;
+		font-family: Arial, sans-serif;
+		font-size: 16px;
+	}
+
+	.cheaty_action_button_container_static {
+		min-width: 150px;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: row;
+		flex-direction: row;
+		-ms-flex-pack: distribute;
+		-webkit-box-pack: space-evenly;
+		justify-content: space-evenly;
+		gap: 1rem;
+	}
+	.cheaty_action_button_container_static:after {
+		position: absolute;
+		content: "";
+		-webkit-box-sizing: content-box;
+		box-sizing: content-box;
+		left: 50%;
+		margin-left: -10px;
+		top: 100%;
+		border: 10px solid transparent;
+		border-top: 10px solid rgb(var(--cheaty-secondary-color));
+	}
+	.cheaty_action_button_container_static.bottom:after {
+		top: -10px;
+		border-top: transparent;
+		border-bottom: 10px solid rgb(var(--cheaty-secondary-color));
+	}
+	.cheaty_action_button_container_static.cheaty_hidden:after {
+		border: transparent;
+	}
+	.cheaty_action_button_container_static button {
+		all: unset;
+		-webkit-box-sizing: content-box;
+		box-sizing: content-box;
+		color: white;
+		background-color: transparent;
+		border: none;
+		border-bottom: 1px solid;
+		height: 100%;
+	}
+	.cheaty_action_button_container_static button:hover {
+		background-color: rgb(var(--cheaty-text-color), 0.3);
+	}
+
+	.cheaty_action_button_container_static button:disabled {
+		color: gray;
+		border: none;
+	}
+	.cheaty_action_button_container_static button:disabled:hover {
+		background-color: transparent;
+	}
+	/* CHEATY */
+</style>
+
+<script>
+	/* CHEATY */
+	const passwordButton = document.getElementById("cheaty_password_button_example_static");
+	const hideButton = document.getElementById("cheaty_hide_button_example_static");
+
+	// Set input to password/text and change button accordingly
+	passwordButton?.addEventListener("click", () => {
+		const input = document.getElementById("password_example_static") as HTMLInputElement;
+		const inputTypeText = document.getElementById(
+			"password_example_static_input_type"
+		) as HTMLSpanElement;
+
+		if (input.type == "password") {
+			input.type = inputTypeText.innerText = "text";
+			passwordButton.innerText = passwordButton.dataset.secondtext!;
+		} else {
+			input.type = inputTypeText.innerText = "password";
+			passwordButton.innerText = passwordButton.dataset.maintext!;
+		}
+	});
+
+	// Show/Hide element and change button accordingly
+	hideButton?.addEventListener("click", () => {
+		const hideElement = document.getElementById("hide_example_static");
+
+		if (hideElement?.classList.contains("hidden")) {
+			hideElement.classList.remove("hidden");
+			hideButton.innerText = hideButton.dataset.maintext!;
+		} else {
+			hideElement?.classList.add("hidden");
+			hideButton.innerText = hideButton.dataset.secondtext!;
+		}
+	});
+	/* CHEATY */
+</script>
