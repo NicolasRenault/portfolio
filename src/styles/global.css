@@ -50,7 +50,7 @@
 	}
 
 	.text-standard {
-		@apply  pb-5 text-xl text-content;
+		@apply  mb-5 text-xl text-content;
 
 		max-width: 65ch;
 	}
