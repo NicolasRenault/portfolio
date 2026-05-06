@@ -1,18 +1,19 @@
 ---
 import Translations from "@components/Translations.astro";
 
-const { pathname } = Astro.props;
+const { pathname, theme } = Astro.props;
 ---
 
 <nav
 	id="navbar"
-	class="bg-surface border-border/60 md:border-border/20 fixed bottom-0 left-0 z-40 mx-auto flex w-full justify-between border-t-2 p-3 md:relative md:max-w-[calc(100vw-2rem)] md:border-x md:border-t-0 md:border-b md:bg-transparent md:p-5 md:min-[90rem]:max-w-360 noscript:md:mb-28"
+	class="bg-surface border-border/60 md:border-border/20 fixed bottom-0 left-0 z-40 mx-auto flex w-full justify-between border-t-2 p-3 md:relative md:max-w-[calc(100vw-2rem)] md:border-x md:border-t-0 md:border-b md:p-5 md:min-[90rem]:max-w-360 noscript:md:mb-28"
+	data-theme={theme}
 >
 	<div class="mr-0 hidden md:block">
 		<a href="/" data-link aria-label="Homepage" class="flex w-fit">
 			<nr-logo
 				size="md"
-				color="light"
+				color={theme == "dark" ? "white" : "light"}
 				animated
 				class="transition-transform hover:-translate-y-0.5"></nr-logo>
 		</a>
@@ -47,11 +48,11 @@ const { pathname } = Astro.props;
 						<a
 							href="/ai-usages"
 							data-link
-							data-twomi18n="navbar.ai-usage"
+							data-twomi18n="navbar.ai-usages"
 							class="link-animation"
 							class:list={[{ active: pathname == "ai-usages" }]}
 						>
-							AI Usage
+							AI Usages
 						</a>
 					</li>
 					<li>

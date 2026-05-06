@@ -9,6 +9,14 @@
 }
 
 @layer theme {
+	[data-theme="light"] { /* Same as default */
+		--color-surface: #f7f9f7;
+		--color-content: #1a2421;
+		--color-heading: #105531;
+		--color-border: #5d585d;
+		--color-highlight: #105531;
+	}
+
 	[data-theme="dark"] {
 		--color-surface: #03351b;
 		--color-content: #ffffff;
