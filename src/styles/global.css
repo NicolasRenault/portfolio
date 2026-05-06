@@ -96,10 +96,10 @@
 	}
 
 	/* Hide based on lang */
-	html:lang(fr) .hide-en {
+	html:lang(fr) .show-en {
 		display: none;
 	}
-	html:lang(en) .hide-fr {
+	html:lang(en) .show-fr {
 		display: none;
 	}
 }
