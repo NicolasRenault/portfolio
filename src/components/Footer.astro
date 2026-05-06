@@ -1,0 +1,147 @@
+---
+import { redirectTargets, type RedirectTargets } from "@data/footer-redirect-map";
+
+const { navigate, theme } = Astro.props;
+
+let redirect = false;
+let target = "";
+let text_EN = "";
+let text_FR = "";
+
+if (navigate) {
+	if (navigate in redirectTargets) {
+		redirect = true;
+		target = (redirectTargets as RedirectTargets)[navigate].target;
+		text_EN = (redirectTargets as RedirectTargets)[navigate].text_EN;
+		text_FR = (redirectTargets as RedirectTargets)[navigate].text_FR;
+	}
+}
+---
+<section class="section-wrapper" data-theme={theme}>
+    <footer
+        id="page-footer"
+        class:list={[{ navigate: redirect }]}
+        data-enable-redirect={redirect}
+        data-target={target}
+    >
+        <nr-logo size="xl" rainbow></nr-logo>
+        {
+            redirect && (
+                <div id="sticky-container">
+                    <a
+                        id="sticky"
+                        href="#bottom"
+                        title="Bottom page"
+                        data-twomi18n="bottom-page[title]"
+                    >
+                        <p class="show-en text-heading mb-5">{text_EN}</p>
+                        <p class="show-fr text-heading mb-5">{text_FR}</p>
+                        {/* <Icon name="mdi:arrow-down" /> TODO replace */}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="text-heading">
+                            <path fill="currentColor" d="M11 4h2v12l5.5-5.5l1.42 1.42L12 19.84l-7.92-7.92L5.5 10.5L11 16z" />
+                        </svg>
+                    </a>
+                </div>
+            )
+        }
+        <div id="bottom"></div>
+    </footer>
+</section>
+
+<script is:inline>
+	const footer = document.querySelector("#page-footer");
+	const navigate = footer?.getAttribute("data-enable-redirect") !== null;
+	const target = footer?.getAttribute("data-target");
+
+	document.addEventListener("scroll", () => {
+		if (navigate && window.innerHeight + window.scrollY >= document.body.offsetHeight - 50) {
+			document.body.classList.add("navigateOnScroll");
+
+			setTimeout(() => {
+				// window.location.href = target;
+			}, 500);
+		}
+	});
+</script>
+<!-- TODO Style tag to Tailwind classes -->
+<style>
+    @reference "../styles/global.css";
+
+	@media (prefers-reduced-motion: no-preference) {
+		body.navigateOnScroll :global(#animation-container) {
+			transition:
+				transform 1s cubic-bezier(0.42, 0, 0.74, 0.74),
+				opacity 1s ease-in-out;
+
+			// padding-bottom: 20vh;
+			animation: slide-fade-out ease 0.7s;
+			animation-iteration-count: 1;
+			animation-fill-mode: forwards;
+
+			#sticky-container {
+				color: var(--secondary-rgb);
+				filter: drop-shadow(0 0 1.75rem var(--secondary-rgb));
+			}
+		}
+
+		@keyframes slide-fade-out {
+			to {
+				opacity: 0;
+				transform: translateY(-5vh);
+			}
+		}
+	}
+	footer {
+		--heigth: 100px;
+
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		height: var(--heigth);
+		padding: 12rem 0;
+		gap: 3rem;
+
+		nr-logo {
+			color: var(--color-heading);
+			filter: drop-shadow(0 0 1.85rem var(--secondary-rgb));
+		}
+
+		#sticky-container {
+			position: relative;
+			bottom: 0;
+			height: 100%;
+			display: flex;
+			align-items: center;
+
+			font-size: 1.5rem;
+			font-weight: bold;
+
+			#sticky {
+				position: sticky;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+
+				text-decoration: none;
+				color: inherit;
+
+				bottom: 40%;
+
+				svg {
+					height: 42px;
+				}
+			}
+
+			&.completed {
+			}
+		}
+
+		&.navigate {
+			height: calc(100vh + var(--heigth));
+			padding-bottom: 0;
+		}
+	}
+</style>
