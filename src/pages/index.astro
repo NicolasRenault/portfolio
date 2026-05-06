@@ -190,7 +190,7 @@ interface Project {
 															<span
 																class:list={[
 																	{
-																		"project-description-en":
+																		"hide-en":
 																			project.description_FR,
 																	},
 																]}
@@ -198,7 +198,7 @@ interface Project {
 																{project.description_EN}
 															</span>
 															{project.description_FR && (
-																<span class="project-description-fr">
+																<span class="hide-fr">
 																	{project.description_FR}
 																</span>
 															)}
@@ -331,12 +331,6 @@ interface Project {
 <style>
 	@reference "../styles/global.css";
 
-	html:lang(fr) .project-description-en {
-		display: none;
-	}
-	html:lang(en) .project-description-fr {
-		display: none;
-	}
 	.project-buttons.active img,
 	.project-buttons:hover img {
 		@apply grayscale-0;

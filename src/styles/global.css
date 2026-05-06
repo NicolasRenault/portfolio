@@ -94,6 +94,14 @@
 		font-family: SpaceGrotesk, sans-serif;
 		@apply text-content bg-surface border-border hover:bg-content hover:text-surface flex w-fit border p-2 whitespace-nowrap transition hover:scale-110 hover:font-semibold md:flex-row;
 	}
+
+	/* Hide based on lang */
+	html:lang(fr) .hide-en {
+		display: none;
+	}
+	html:lang(en) .hide-fr {
+		display: none;
+	}
 }
 
 @font-face {
