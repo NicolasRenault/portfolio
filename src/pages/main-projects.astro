@@ -1,5 +1,6 @@
 ---
 import Layout from "@layouts/MainLayout.astro";
+import Footer from "@components/Footer.astro";
 import { Code } from "astro:components";
 ---
 
@@ -50,7 +51,7 @@ import { Code } from "astro:components";
 			<div>
 				<header class="border-border/20 border-b px-10 py-20">
 					<h2 class="pb-4 text-4xl">Two-Mi18n</h2>
-					<p data-twomi18n="two-mi18n.catch-line" class="text-standard pb-0">
+					<p data-twomi18n="two-mi18n.catch-line" class="text-standard mb-0">
 						Minimalist Javascript library for internationalization in only two methods.
 						Too minimalist.
 					</p>
@@ -169,7 +170,7 @@ import { Code } from "astro:components";
 					</div>
 				</div>
 				<footer class="border-border/20 border-b px-10 py-20">
-					<p class="text-standard pb-0">
+					<p class="text-standard mb-0">
 						<span data-twomi18n="see-the-documentation">See the documentation</span>
 						<a
 							href="https://www.twomi18n.nicolasrenault.com/"
@@ -210,7 +211,7 @@ import { Code } from "astro:components";
 						Cheaty is a simple open-source web extension that allows you to do quick
 						actions on HTML components without going into the inspector console.
 					</p>
-					<p class="text-standard pb-0" data-twomi18n="cheaty.allows-you">
+					<p class="text-standard mb-0" data-twomi18n="cheaty.allows-you">
 						The extension allows you to show/hide a password, show/hide an element on
 						the page, and copy the HTML of an element.
 					</p>
@@ -351,7 +352,7 @@ import { Code } from "astro:components";
 							here
 						</a>.
 					</p>
-					<p class="text-standard pb-0">
+					<p class="text-standard mb-0">
 						<span data-twomi18n="see-the-documentation">See the documentation</span>
 						<a
 							href="https://cheaty.nicolasrenault.com/"
@@ -376,23 +377,29 @@ import { Code } from "astro:components";
 			</div>
 		</div>
 	</section>
-	<section data-theme="dark" class="section-wrapper flex text-center">
-		<p class="text-standard py-10">
-			<span data-twomi18n="main-projects.find-projects">
-				You can find all my other project on
-			</span>
-			<a
-				href="https://github.com/NicolasRenault?tab=repositories"
-				target="_blank"
-				aria-label="Github link"
-				class="link-animation active"
+	<section data-theme="dark" class="section-wrapper">
+		<div class="p-0">
+			<header
+				data-twomi18n="cheaty.show-hide-HTML-element"
+				class="border-border/20 text-heading border-b p-10 text-2xl"
 			>
-				Github
-			</a>.
-		</p>
-
-		<!-- TODO add Footer here -->
+				<p class="text-standard mb-0">
+					<span data-twomi18n="main-projects.find-projects">
+						You can find all my other project on
+					</span>
+					<a
+						href="https://github.com/NicolasRenault?tab=repositories"
+						target="_blank"
+						aria-label="Github link"
+						class="link-animation active"
+					>
+						Github
+					</a>.
+				</p>
+			</header>
+		</div>
 	</section>
+	<Footer origin="main-projects" theme="dark" />
 </Layout>
 
 <style>

@@ -19,7 +19,7 @@ export const redirectTargets: RedirectTargets = {
 		text_FR: "L'objectif",
 	},
 	"rick-roll": {
-		target: "homepage",
+		target: "/",
 		text_EN: "Go back to homepage",
 		text_FR: "Retourner à l'acceuil",
 	},

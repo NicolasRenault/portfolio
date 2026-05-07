@@ -6,12 +6,13 @@ import Translations from "@components/Translations.astro";
 import Image from "astro/components/Image.astro";
 
 import rickRoll from "@assets/rickroll.gif";
+import Footer from "@components/Footer.astro";
 ---
 
 <!doctype html>
 <html lang="en">
 	<BaseHead title="Rick Roll" />
-	<body data-theme="dark" class="bg-surface relative flex h-screen flex-col items-center">
+	<body data-theme="dark" class="bg-surface relative flex h-full flex-col items-center">
 		<div class="flex flex-col items-center">
 			<Image src={rickRoll} alt="Rick Roll" class="pt-[20vh] pb-20" />
 			<p data-twomi18n="rick-roll.text" class="text-standard">
@@ -22,5 +23,6 @@ import rickRoll from "@assets/rickroll.gif";
 		<div class="hidden">
 			<Translations />
 		</div>
+		<Footer origin="rick-roll" theme="dark" />
 	</body>
 </html>
