@@ -4,134 +4,138 @@ import Translations from "@components/Translations.astro";
 const { pathname, theme } = Astro.props;
 ---
 
-<nav
-	id="navbar"
-	class="bg-surface border-border/60 md:border-border/20 fixed bottom-0 left-0 z-40 mx-auto flex w-full justify-between border-t-2 p-3 md:relative md:max-w-[calc(100vw-2rem)] md:border-x md:border-t-0 md:border-b md:p-5 md:min-[90rem]:max-w-360 noscript:md:mb-28"
-	data-theme={theme}
->
-	<div class="mr-0 hidden md:block">
-		<a href="/" data-link aria-label="Homepage" class="flex w-fit">
-			<nr-logo
-				size="md"
-				color={theme == "dark" ? "white" : "light"}
-				animated
-				class="transition-transform hover:-translate-y-0.5"></nr-logo>
-		</a>
-	</div>
-	<div
-		class="text-heading mr-0 flex w-full flex-row-reverse justify-between gap-5 text-lg font-extrabold uppercase max-[400px]:text-sm md:w-auto md:flex-row md:text-2xl"
+<section id="navbar-container">
+	<nav
+		id="navbar"
+		class="bg-surface border-border/60 md:border-border/20 fixed bottom-0 left-0 z-40 mx-auto flex w-full justify-between border-t-2 p-3 md:relative md:max-w-[calc(100vw-2rem)] md:border-x md:border-t-0 md:border-b md:p-5 md:min-[90rem]:max-w-360 noscript:md:mb-28"
+		data-theme={theme}
 	>
-		<ul class="flex h-full list-none flex-row-reverse items-center gap-3 md:flex-row md:gap-5">
-			<li>
-				<a
-					href="/"
-					data-link
-					data-twomi18n="navbar.homepage"
-					class="link-animation cursor-pointer"
-					class:list={[{ active: pathname == "homepage" }]}>Homepage</a
-				>
-			</li>
-			<li class="">
-				<button
-					data-subnav="my-projects-subnav"
-					data-twomi18n="navbar.my-projects"
-					class="link-animation cursor-pointer uppercase"
-					class:list={[{ active: ["main-projects", "ai-usages"].includes(pathname) }]}
-				>
-					My projects
-				</button>
-				<ul
-					id="my-projects-subnav"
-					class="bg-surface border-border/20 absolute -top-10 left-0 mb-5 hidden w-full flex-row-reverse gap-3 self-end border-t-2 p-3 pr-10 text-sm md:top-20 md:gap-7 md:border-t-0 md:border-b md:pr-20 md:text-lg noscript:flex"
-				>
-					<li>
-						<a
-							href="/ai-usages"
-							data-link
-							data-twomi18n="navbar.ai-usages"
-							class="link-animation"
-							class:list={[{ active: pathname == "ai-usages" }]}
-						>
-							AI Usages
-						</a>
-					</li>
-					<li>
-						<a
-							href="/main-projects"
-							data-link
-							data-twomi18n="navbar.main-projects"
-							class="link-animation"
-							class:list={[{ active: pathname == "main-projects" }]}
-						>
-							Main projects
-						</a>
-					</li>
-				</ul>
-			</li>
-			<li>
-				<button
-					data-twomi18n="navbar.info"
-					data-subnav="info-subnav"
-					class="link-animation cursor-pointer uppercase"
-					class:list={[{ active: pathname == "contact" }]}
-				>
-					Info
-				</button>
-				<ul
-					id="info-subnav"
-					class="bg-surface border-border/20 absolute -top-10 left-0 mb-5 hidden w-full flex-row-reverse gap-3 self-end border-t-2 p-3 pr-10 text-sm md:top-20 md:gap-7 md:border-t-0 md:border-b md:pr-20 md:text-lg noscript:-top-20 noscript:flex noscript:md:top-33"
-				>
-					<li>
-						<a
-							href="https://links.nicolasrenault.com"
-							target="_blank"
-							data-twomi18n="navbar.my-links"
-							class="link-animation"
-						>
-							My Links
-						</a>
-					</li>
-					<li>
-						<button
-							id="contact-button"
-							data-twomi18n="navbar.contact-me mail-copied[data-copied] error[data-error]"
-							data-copied="Mail Copied"
-							data-error="Error"
-							class="link-animation cursor-pointer uppercase"
-						>
-							Contact me
-						</button>
-					</li>
-				</ul>
-			</li>
-		</ul>
-		<div class="flex flex-row-reverse items-center gap-3 md:flex-row md:gap-5">
-			<a
-				id="github_link"
-				href="https://github.com/NicolasRenault"
-				target="_blank"
-				aria-label="Link to Github"
-				class="hover:-translate-y-0.5"
-			>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 12 12"
-					class="h-5 w-5 max-[400px]:h-4 max-[400px]:w-4 md:h-7 md:w-7"
-					><path
-						fill="currentColor"
-						d="M6 0a6 6 0 1 1 0 12A6 6 0 0 1 6 0m0 .98C3.243.98 1 3.223 1 6a5.02 5.02 0 0 0 3.437 4.77l.045.005c.203.01.279-.129.279-.25l-.007-.854c-1.39.303-1.684-.674-1.684-.674c-.227-.58-.555-.734-.555-.734c-.454-.312.034-.306.034-.306c.365.026.604.288.708.43l.058.088c.446.767 1.17.546 1.455.418c.046-.325.174-.546.317-.672c-1.11-.127-2.277-.558-2.277-2.482c0-.548.195-.996.515-1.348l-.03-.085c-.064-.203-.152-.658.079-1.244l.04-.007c.124-.016.548-.013 1.335.522A4.8 4.8 0 0 1 6 3.408c.425.002.853.058 1.252.17c.955-.65 1.374-.516 1.374-.516c.272.692.1 1.202.05 1.33c.32.35.513.799.513 1.347c0 1.93-1.169 2.354-2.283 2.478c.18.155.34.462.34.93l-.006 1.378c0 .13.085.282.323.245A5.02 5.02 0 0 0 11 6C11 3.223 8.757.98 6 .98"
-					></path></svg
-				>
+		<div class="mr-0 hidden md:block">
+			<a href="/" data-link aria-label="Homepage" class="flex w-fit">
+				<nr-logo
+					size="md"
+					color={theme == "dark" ? "white" : "light"}
+					animated
+					class="transition-transform hover:-translate-y-0.5"></nr-logo>
 			</a>
-			<Translations />
 		</div>
+		<div
+			class="text-heading mr-0 flex w-full flex-row-reverse justify-between gap-5 text-lg font-extrabold uppercase max-[400px]:text-sm md:w-auto md:flex-row md:text-2xl"
+		>
+			<ul
+				class="flex h-full list-none flex-row-reverse items-center gap-3 md:flex-row md:gap-5"
+			>
+				<li>
+					<a
+						href="/"
+						data-link
+						data-twomi18n="navbar.homepage"
+						class="link-animation cursor-pointer"
+						class:list={[{ active: pathname == "homepage" }]}>Homepage</a
+					>
+				</li>
+				<li class="">
+					<button
+						data-subnav="my-projects-subnav"
+						data-twomi18n="navbar.my-projects"
+						class="link-animation cursor-pointer uppercase"
+						class:list={[{ active: ["main-projects", "ai-usages"].includes(pathname) }]}
+					>
+						My projects
+					</button>
+					<ul
+						id="my-projects-subnav"
+						class="bg-surface border-border/20 absolute -top-10 left-0 mb-5 hidden w-full flex-row-reverse gap-3 self-end border-t-2 p-3 pr-10 text-sm md:top-20 md:gap-7 md:border-t-0 md:border-b md:pr-20 md:text-lg noscript:flex"
+					>
+						<li>
+							<a
+								href="/ai-usages"
+								data-link
+								data-twomi18n="navbar.ai-usages"
+								class="link-animation"
+								class:list={[{ active: pathname == "ai-usages" }]}
+							>
+								AI Usages
+							</a>
+						</li>
+						<li>
+							<a
+								href="/main-projects"
+								data-link
+								data-twomi18n="navbar.main-projects"
+								class="link-animation"
+								class:list={[{ active: pathname == "main-projects" }]}
+							>
+								Main projects
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<button
+						data-twomi18n="navbar.info"
+						data-subnav="info-subnav"
+						class="link-animation cursor-pointer uppercase"
+						class:list={[{ active: pathname == "contact" }]}
+					>
+						Info
+					</button>
+					<ul
+						id="info-subnav"
+						class="bg-surface border-border/20 absolute -top-10 left-0 mb-5 hidden w-full flex-row-reverse gap-3 self-end border-t-2 p-3 pr-10 text-sm md:top-20 md:gap-7 md:border-t-0 md:border-b md:pr-20 md:text-lg noscript:-top-20 noscript:flex noscript:md:top-33"
+					>
+						<li>
+							<a
+								href="https://links.nicolasrenault.com"
+								target="_blank"
+								data-twomi18n="navbar.my-links"
+								class="link-animation"
+							>
+								My Links
+							</a>
+						</li>
+						<li>
+							<button
+								id="contact-button"
+								data-twomi18n="navbar.contact-me mail-copied[data-copied] error[data-error]"
+								data-copied="Mail Copied"
+								data-error="Error"
+								class="link-animation cursor-pointer uppercase"
+							>
+								Contact me
+							</button>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<div class="flex flex-row-reverse items-center gap-3 md:flex-row md:gap-5">
+				<a
+					id="github_link"
+					href="https://github.com/NicolasRenault"
+					target="_blank"
+					aria-label="Link to Github"
+					class="hover:-translate-y-0.5"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 12 12"
+						class="h-5 w-5 max-[400px]:h-4 max-[400px]:w-4 md:h-7 md:w-7"
+						><path
+							fill="currentColor"
+							d="M6 0a6 6 0 1 1 0 12A6 6 0 0 1 6 0m0 .98C3.243.98 1 3.223 1 6a5.02 5.02 0 0 0 3.437 4.77l.045.005c.203.01.279-.129.279-.25l-.007-.854c-1.39.303-1.684-.674-1.684-.674c-.227-.58-.555-.734-.555-.734c-.454-.312.034-.306.034-.306c.365.026.604.288.708.43l.058.088c.446.767 1.17.546 1.455.418c.046-.325.174-.546.317-.672c-1.11-.127-2.277-.558-2.277-2.482c0-.548.195-.996.515-1.348l-.03-.085c-.064-.203-.152-.658.079-1.244l.04-.007c.124-.016.548-.013 1.335.522A4.8 4.8 0 0 1 6 3.408c.425.002.853.058 1.252.17c.955-.65 1.374-.516 1.374-.516c.272.692.1 1.202.05 1.33c.32.35.513.799.513 1.347c0 1.93-1.169 2.354-2.283 2.478c.18.155.34.462.34.93l-.006 1.378c0 .13.085.282.323.245A5.02 5.02 0 0 0 11 6C11 3.223 8.757.98 6 .98"
+						></path></svg
+					>
+				</a>
+				<Translations />
+			</div>
+		</div>
+	</nav>
+	<div
+		id="subnav-spacer"
+		class="border-border/20 mx-auto w-full border-x md:max-w-[calc(100vw-2rem)] md:min-[90rem]:max-w-360"
+	>
 	</div>
-</nav>
-<div
-	id="subnav-spacer"
-	class="border-border/20 mx-auto w-full border-x md:max-w-[calc(100vw-2rem)] md:min-[90rem]:max-w-360"
->
-</div>
+</section>
 
 <style>
 	@reference "../styles/global.css";
