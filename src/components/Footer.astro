@@ -85,10 +85,13 @@ let isRickRoll = origin == "rick-roll";
 		) {
 			const target = footer?.getAttribute("data-target");
 			const lang = document.documentElement.lang;
+			console.log(window.location.origin);
+			console.log(target);
+			console.log(lang);
 
 			setTimeout(() => {
-				window.location =
-					window.location.origin + "/" + target + (lang == "en" ? "" : "?lang=" + lang);
+				// window.location =
+				// 	window.location.origin + "/" + target + (lang == "en" ? "" : "?lang=" + lang);
 			}, 500);
 		}
 	});
