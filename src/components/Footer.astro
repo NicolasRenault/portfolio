@@ -85,21 +85,17 @@ let isRickRoll = origin == "rick-roll";
 		) {
 			const target = footer?.getAttribute("data-target");
 			const lang = document.documentElement.lang;
-			console.log(window.location.origin);
-			console.log(target);
-			console.log(lang);
-			console.log(
-				window.location.origin + "/" + target + (lang == "en" ? "" : "?lang=" + lang)
-			);
-			console.log("--");
 
 			setTimeout(() => {
-				// window.location =
-				// 	window.location.origin + "/" + target + (lang == "en" ? "" : "?lang=" + lang);
+				window.location =
+					window.location.origin +
+					(target == "/" ? "" : "/" + target) +
+					(lang == "en" ? "" : "?lang=" + lang);
 			}, 500);
 		}
 	});
 </script>
+
 <!-- TODO Style tag to Tailwind classes -->
 <style>
 	@reference "../styles/global.css";
