@@ -2,6 +2,7 @@
 import { redirectTargets, type RedirectTargets } from "@data/footer-redirect-map";
 
 const { origin, theme } = Astro.props;
+const url = Astro.url.origin;
 
 let redirect = false;
 let target = "";
@@ -21,7 +22,7 @@ let isHomepage = origin == "homepage";
 let isRickRoll = origin == "rick-roll";
 ---
 
-<footer id="page-footer" data-enable-redirect={redirect} data-target={target}>
+<footer id="page-footer" data-enable-redirect={redirect} data-target={target} data-url={url}>
 	<section class="section-wrapper" data-theme={theme}>
 		<div class="p-0">
 			{
@@ -83,13 +84,13 @@ let isRickRoll = origin == "rick-roll";
 			enableRedirection &&
 			window.innerHeight + window.scrollY >= document.body.offsetHeight - 50
 		) {
+			const url = footer?.getAttribute("data-url");
 			const target = footer?.getAttribute("data-target");
 			const lang = document.documentElement.lang;
-			const finalTarget = target + (lang == "en" ? "" : "?lang=" + lang);
+			const finalUrl = url + "/" + target + (lang == "en" ? "" : "?lang=" + lang);
 
-			// TODO: add translation
 			setTimeout(() => {
-				window.location.href = finalTarget;
+				window.location = finalUrl;
 			}, 500);
 		}
 	});
