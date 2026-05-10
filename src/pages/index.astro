@@ -1,235 +1,456 @@
 ---
 import Layout from "@layouts/MainLayout.astro";
-import { astroI18n, t } from "astro-i18n";
-import { getLangFromUrl, getTranslatedDescription, getUrlWithTranslation } from "@utils";
-import projects from "@data/homepage-pinned.json";
-import ProjectCard from "@components/ProjectCard.astro";
-import BasicLink from "@components/BasicLink.astro";
+import Footer from "@components/Footer.astro";
+import projects from "@data/projects.json";
+import { Image } from "astro:assets";
 
-astroI18n.init(Astro);
+const years = Object.keys(projects).sort((a, b) => parseInt(b) - parseInt(a));
 
-const lang = getLangFromUrl(Astro.url);
+interface Project {
+	name: string;
+	description_EN: string;
+	description_FR?: string;
+	github_url: string;
+	url_2?: string;
+	languages: string[];
+	icon?: string;
+	is_default?: boolean;
+	fork?: string;
+}
 ---
 
-<Layout title={undefined} pathname="homepage">
-	<main>
-		<section id="introduction">
-			<p><span>{t("home.hello")}</span><h1>Nicolas Renault</h1></p>
-			<p>{t("home.me")}</p>
-			<p>{t("home.technologies")}</p>
-			<p>{t("home.motivations")}</p>
-			<p>{t("home.passions")}</p>
-			<p>{t("home.work")}</p>
-		</section>
-		<section id="working_experiences" class="col-1">
-			<h2>{t("home.working_experiences")}</h2>
-			<ul>
-				<li>
-					<BasicLink
-						text="Trelleborg"
-						href="https://www.trelleborg.com"
-						title="Trelleborg"
-						target="_blank"
-					/>
-					<p class="job-description">{t("global.application_developer")}</p>
-					<p class="job-dates">2021 - {t("global.present")}</p>
-				</li>
-				<li>
-					<BasicLink
-						text="Uplight"
-						href="https://www.uplight.fr/"
-						title="Uplight"
-						target="_blank"
-					/>
-					<p class="job-description">{t("home.fullstack_web_developer")}</p>
-					<p class="job-subtitle">{t("global.block_release_training")}</p>
-					<p class="job-dates">2020 - 2021</p>
-				</li>
-			</ul>
-		</section>
-		<section id="selected_projects">
-			<h2>{t("home.selected_projects")}</h2>
-			<div id="pinned_projects">
-				{
-					projects.map((project) => (
-						<ProjectCard
-							title={project.title}
-							description={
-								getTranslatedDescription(project.title, lang) ?? project.description
-							}
-							icon={project.icon}
-							project_link={getUrlWithTranslation(project.url, lang)}
-							github_link={project.github}
-							subtitle={project.subtitle}
-							languages={project.languages}
-						/>
-					))
-				}
-				<BasicLink
-					text={t("home.see_more_projects")}
-					href={getUrlWithTranslation("projects", lang)}
-					title="Projects"
-				/>
+<Layout title="Home" pathname="homepage" lang="en">
+	<section class="section-wrapper">
+		<div class="text-xl">
+			<h1 class="mb-4 pb-5 text-5xl md:text-8xl">Nicolas Renault</h1>
+			<p data-twomi18n="homepage-1" class="text-standard">
+				I'm a FullStack Developer based in France. I'm always trying to optimize life in
+				every aspect, which is why I enjoy building software applications that help people
+				perform tasks more quickly and efficiently.
+			</p>
+			<p class="text-standard">
+				<span data-twomi18n="homepage-2"
+					>Outside of programming, I enjoy sports like gravel cycling and volleyball,
+					spending time with my
+				</span>
+				<span class="group">
+					<span data-twomi18n="girlfriend" class="group-hover:hidden">girlfriend</span>
+					<span
+						class="mr-2 hidden bg-pink-500 font-extrabold whitespace-normal text-white group-hover:inline"
+					>
+						✨ Boop ✨
+					</span>
+				</span>
+				<span data-twomi18n="homepage-3">and friends, and playing video games.</span>
+			</p>
+		</div>
+		<div class="small p-0">
+			<header
+				data-twomi18n="work-current-job"
+				class="border-border/20 font-spacegrotesk text-heading/90 border-y px-10 py-5 text-lg font-semibold"
+			>
+				Current job
+			</header>
+			<div class="p-10 text-xl">
+				<h3 class="pb-5 text-4xl">
+					<a
+						href="https://www.trelleborg.com/en/about-us/organization/business-areas/trelleborg-industrial-solutions"
+						class="link-animation before:-bottom-1.5"
+					>
+						Trelleborg
+					</a>
+				</h3>
+				<p data-twomi18n="trelleborg-1" class="text-standard">
+					In the company since 2021, I have had the opportunity to work in different
+					organizations. Started as an Application Developer, mainly focused on building
+					interfaces and extending our ERP functionalities.
+				</p>
+				<p data-twomi18n="trelleborg-2" class="text-standard">
+					After an IT re-organization, I stepped into Digital Innovation, where I analyzed
+					processes across 52 different sites to build solutions at a group scale.
+				</p>
+				<p data-twomi18n="trelleborg-3" class="text-standard">
+					Today, I'm focusing more on Project Management and Business Process Improvement,
+					with a clear target for my ongoing career.
+				</p>
 			</div>
-		</section>
-	</main>
+		</div>
+	</section>
+	<section id="projects" data-theme="dark" class="section-wrapper">
+		<div class="p-0">
+			<header class="border-border/20 w-full border-b px-10 py-20">
+				<h2 data-twomi18n="projects" class="pb-4 text-4xl">Projects</h2>
+				<p class="text-standard">
+					<span data-twomi18n="projects.headline">
+						Here is a list of my personal projects. Most of them are Open Source. Feel
+						free to check them on my
+					</span>
+					<a
+						href="https://github.com/NicolasRenault?tab=repositories"
+						target="_blank"
+						class="link-animation active"
+					>
+						Github
+					</a>.
+				</p>
+			</header>
+			<div class="grid h-full w-full grid-cols-1">
+				{
+					years.map((year) => {
+						const currentProjects = (projects as any)[year];
+						return (
+							<>
+								<div
+									id={year}
+									class="border-border/20 relative flex min-h-100 w-full flex-col md:flex-row md:border-b"
+								>
+									<header
+										data-year={year}
+										class="year-mobile-header group border-border/20 bg-surface [&.active]:bg-content [&.active]:text-surface sticky top-0 z-2 flex justify-between border-b p-5 pl-10 md:hidden"
+									>
+										<h3 class="group-[.active]:text-surface! text-3xl">
+											{year}
+											{year == "2019-2020-2021" && (
+												<>
+													<span
+														data-twomi18n="projects.school-projects"
+														class="text-content/50 text-[18px] whitespace-nowrap"
+													>
+														School Projects
+													</span>
+													<br />
+												</>
+											)}
+										</h3>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 1024 1024"
+											class="w-5 transition-all duration-300 group-[.active]:rotate-180"
+										>
+											<path
+												fill="currentColor"
+												d="M8.2 275.4c0-8.6 3.4-17.401 10-24.001c13.2-13.2 34.8-13.2 48 0l451.8 451.8l445.2-445.2c13.2-13.2 34.8-13.2 48 0s13.2 34.8 0 48L542 775.399c-13.2 13.2-34.8 13.2-48 0l-475.8-475.8c-6.8-6.8-10-15.4-10-24.199"
+											/>
+										</svg>
+									</header>
+									<div id={year + "-projects"} class="min-w-0 grow">
+										{currentProjects.map((project: Project) => {
+											const name =
+												project.name.charAt(0).toLowerCase() +
+												project.name.slice(1);
+
+											return (
+												<div
+													id={name}
+													data-name={name}
+													class="border-border/20 flex max-w-full flex-row border-b md:min-w-130 md:border-0"
+													class:list={[
+														{ "hidden md:hidden": !project.is_default },
+														{ is_default: project.is_default },
+														year + "-project-cards",
+													]}
+												>
+													<div class="min-w-0 grow p-10 lg:p-20">
+														<header class="relative">
+															{project.icon && (
+																<Image
+																	src={project.icon}
+																	alt={`${name} icon`}
+																	width="64"
+																	height="64"
+																	class="pb-5 lg:absolute lg:right-0"
+																/>
+															)}
+															<h4 class="max-w-3/4 text-4xl wrap-break-word md:text-5xl">
+																{name}
+															</h4>
+															<div>
+																{project.languages && (
+																	<div class="flex flex-row gap-2 pt-3 pb-5 md:py-4">
+																		{project.languages.map(
+																			(lang) => (
+																				<p class="text-content/60">
+																					{lang}
+																				</p>
+																			)
+																		)}
+																	</div>
+																)}
+															</div>
+														</header>
+														<p class="min-h-14 text-lg wrap-break-word md:max-w-[70%] md:text-xl">
+															{project.fork && (
+																<>
+																	<span data-twomi18n="projects.this-project-is-fork">
+																		This project is a fork of
+																	</span>
+																	<span>{project.name}:</span>
+																	<br />
+																</>
+															)}
+															<span
+																class:list={[
+																	{
+																		"show-en":
+																			project.description_FR,
+																	},
+																]}
+															>
+																{project.description_EN}
+															</span>
+															{project.description_FR && (
+																<span class="show-fr">
+																	{project.description_FR}
+																</span>
+															)}
+														</p>
+														<div class="grid max-w-fit grid-cols-1 gap-6.5 pt-15 min-[450px]:grid-cols-2">
+															{project.url_2 && (
+																<a
+																	href={project.url_2}
+																	target="_blank"
+																	class="basic-button"
+																>
+																	<span data-twomi18n="projects.find-project">
+																		Find project here
+																	</span>
+																</a>
+															)}
+															<a
+																href={project.github_url}
+																target="_blank"
+																class="basic-button"
+															>
+																<span
+																	data-twomi18n="projects.see-on-github"
+																	class="pr-1"
+																>
+																	See on Github
+																</span>
+																<svg
+																	xmlns="http://www.w3.org/2000/svg"
+																	viewBox="0 0 12 12"
+																	class="mt-0.5 h-5 w-5"
+																>
+																	<path
+																		fill="currentColor"
+																		d="M6 0a6 6 0 1 1 0 12A6 6 0 0 1 6 0m0 .98C3.243.98 1 3.223 1 6a5.02 5.02 0 0 0 3.437 4.77l.045.005c.203.01.279-.129.279-.25l-.007-.854c-1.39.303-1.684-.674-1.684-.674c-.227-.58-.555-.734-.555-.734c-.454-.312.034-.306.034-.306c.365.026.604.288.708.43l.058.088c.446.767 1.17.546 1.455.418c.046-.325.174-.546.317-.672c-1.11-.127-2.277-.558-2.277-2.482c0-.548.195-.996.515-1.348l-.03-.085c-.064-.203-.152-.658.079-1.244l.04-.007c.124-.016.548-.013 1.335.522A4.8 4.8 0 0 1 6 3.408c.425.002.853.058 1.252.17c.955-.65 1.374-.516 1.374-.516c.272.692.1 1.202.05 1.33c.32.35.513.799.513 1.347c0 1.93-1.169 2.354-2.283 2.478c.18.155.34.462.34.93l-.006 1.378c0 .13.085.282.323.245A5.02 5.02 0 0 0 11 6C11 3.223 8.757.98 6 .98"
+																	/>
+																</svg>
+															</a>
+															{project.fork && (
+																<a
+																	href={project.fork}
+																	target="_blank"
+																	class="basic-button col-span-full"
+																>
+																	<span
+																		data-twomi18n="projects.see-original"
+																		class="pr-1"
+																	>
+																		See original project
+																	</span>
+																	<svg
+																		xmlns="http://www.w3.org/2000/svg"
+																		viewBox="0 0 12 12"
+																		class="mt-0.5 h-5 w-5"
+																	>
+																		<path
+																			fill="currentColor"
+																			d="M6 0a6 6 0 1 1 0 12A6 6 0 0 1 6 0m0 .98C3.243.98 1 3.223 1 6a5.02 5.02 0 0 0 3.437 4.77l.045.005c.203.01.279-.129.279-.25l-.007-.854c-1.39.303-1.684-.674-1.684-.674c-.227-.58-.555-.734-.555-.734c-.454-.312.034-.306.034-.306c.365.026.604.288.708.43l.058.088c.446.767 1.17.546 1.455.418c.046-.325.174-.546.317-.672c-1.11-.127-2.277-.558-2.277-2.482c0-.548.195-.996.515-1.348l-.03-.085c-.064-.203-.152-.658.079-1.244l.04-.007c.124-.016.548-.013 1.335.522A4.8 4.8 0 0 1 6 3.408c.425.002.853.058 1.252.17c.955-.65 1.374-.516 1.374-.516c.272.692.1 1.202.05 1.33c.32.35.513.799.513 1.347c0 1.93-1.169 2.354-2.283 2.478c.18.155.34.462.34.93l-.006 1.378c0 .13.085.282.323.245A5.02 5.02 0 0 0 11 6C11 3.223 8.757.98 6 .98"
+																		/>
+																	</svg>
+																</a>
+															)}
+														</div>
+													</div>
+												</div>
+											);
+										})}
+									</div>
+									<div
+										id={year + "-projects-container"}
+										class="border-border/20 text-content/50 hidden w-85 flex-none overflow-clip border-l pt-5 pl-10 text-lg md:block lg:w-90 lg:p-10"
+									>
+										<header class="text-content relative m-1 w-fit text-2xl">
+											{year == "2019-2020-2021" && (
+												<>
+													<span
+														data-twomi18n="projects.school-projects"
+														class="text-content/50 text-[18px]"
+													>
+														School Projects
+													</span>
+													<br />
+												</>
+											)}
+											{year}
+										</header>
+										{currentProjects.map((project: Project) => {
+											const name =
+												project.name.charAt(0).toLowerCase() +
+												project.name.slice(1); //Lowercase first letter
+
+											return (
+												<div class="relative w-fit">
+													<button
+														id={"button-" + name}
+														data-name={name}
+														data-year={year}
+														aria-label={name}
+														title={name}
+														class="project-buttons link-animation my-1 ml-3 flex max-w-fit cursor-pointer whitespace-nowrap"
+														class:list={[
+															{ icon: project.icon },
+															{ active: project.is_default },
+															year + "-project-buttons",
+														]}
+													>
+														{project.icon && (
+															<Image
+																src={project.icon}
+																alt={`${name} icon`}
+																width="22"
+																height="22"
+																class="absolute top-0.75 -left-7 h-full max-h-5.5 w-full max-w-5.5 grayscale"
+															/>
+														)}
+														{name}
+													</button>
+												</div>
+											);
+										})}
+									</div>
+								</div>
+							</>
+						);
+					})
+				}
+			</div>
+		</div>
+	</section>
+	<Footer origin="homepage" theme="light" />
 </Layout>
 
-<style lang="scss">
-	main {
-		font-size: 1.6rem;
-		text-align: justify;
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 4rem 2rem;
-		margin: auto;
+<style>
+	@reference "../styles/global.css";
 
-		#introduction {
-			line-height: calc(1.5 * 100%);
-		}
+	.project-buttons.active img,
+	.project-buttons:hover img {
+		@apply grayscale-0;
+	}
+</style>
 
-		h1 {
-			font-size: 5rem;
-			font-weight: 800;
-			line-height: calc(1.1 * 100%);
-		}
+<script>
+	const yearMobileHeader = document.getElementsByClassName("year-mobile-header");
+	const projectsButtons = document.getElementsByClassName("project-buttons");
 
-		h2 {
-			font-size: 2.5rem;
-			margin-top: 1rem;
-			margin-bottom: 1rem;
-		}
+	//Mobile device (>md Tailwind's breakpoint)
+	for (const element in yearMobileHeader) {
+		if (Object.hasOwnProperty.call(yearMobileHeader, element)) {
+			const yearHeader = yearMobileHeader[element] as HTMLElement;
+			const year = yearHeader.dataset.year;
 
-		.col-1 {
-			grid-column: 1;
-		}
+			yearHeader.addEventListener("click", () => {
+				const isActive = yearHeader.classList.contains("active");
 
-		#working_experiences {
-			--font-size: 2rem;
-
-			p {
-				margin: calc(var(--font-size) / 2) 0;
-			}
-
-			ul {
-				list-style: none;
-				margin-top: 3rem;
-				padding-inline-start: 1rem;
-			}
-
-			li:not(:last-child) {
-				margin-bottom: calc(var(--font-size) * 2);
-			}
-			li :global(a.basic-link) {
-				font-size: var(--font-size);
-				font-weight: 600;
-			}
-
-			.job-description {
-				font-size: calc(var(--font-size) - 0.2rem);
-			}
-
-			.job-subtitle {
-				color: var(--text-gray-rgb);
-				font-size: calc(var(--font-size) - 0.4rem);
-				margin-top: -1rem;
-			}
-
-			.job-dates {
-				font-size: calc(var(--font-size) - 0.6rem);
-			}
-		}
-
-		#pinned_projects {
-			:global(> a.basic-link) {
-				margin: 1rem;
-			}
-		}
-
-		.fullstack {
-			text-decoration: underline wavy red from-font;
-			text-underline-offset: 2px;
-		}
-		.backend {
-			color: var(--tertiary-light-rgb);
+				if (isActive) {
+					hideAllYearProjectCardMobile(year as string);
+					yearHeader.classList.remove("active");
+					yearHeader.scrollIntoView({ behavior: "smooth", block: "center" });
+				} else {
+					showAllYearProjectCard(year as string);
+					yearHeader.classList.add("active");
+					yearHeader.scrollIntoView({ behavior: "smooth", block: "start" });
+				}
+			});
 		}
 	}
 
-	@media (width > 1024px) {
-		#introduction {
-			width: 65% !important;
+	//Larger device (<md Tailwind's breakpoint)
+	for (const element in projectsButtons) {
+		if (Object.hasOwnProperty.call(projectsButtons, element)) {
+			const project = projectsButtons[element] as HTMLElement;
+			project.addEventListener("click", () => {
+				const name = project.dataset.name;
+				const year = project.dataset.year;
+				const yearTitle = document.getElementById(year as string);
+				removeYearProjectButtonActiveClass(year as string);
+				project.classList.add("active");
+				yearTitle?.classList.add("active");
+
+				const projectCard = document.getElementById(name as string);
+
+				if (projectCard) {
+					hideAllYearProjectCard(year as string);
+					projectCard.classList.remove("md:hidden");
+					projectCard.classList.add("md:block");
+				}
+			});
 		}
 	}
-	@media (width <= 1024px) {
-		main {
-			font-size: 1rem;
 
-			#introduction {
-				font-size: 1.25rem;
+	/**
+	 * Remove class .active to all the .projects-button
+	 */
+	function removeYearProjectButtonActiveClass(year: string) {
+		const projectsButtons = document.getElementsByClassName(year + "-project-buttons");
+
+		//Projects buttons
+		for (const element in projectsButtons) {
+			if (Object.hasOwnProperty.call(projectsButtons, element)) {
+				const project = projectsButtons[element];
+
+				project.classList.remove("active");
 			}
+		}
+	}
 
-			#pinned_projects {
-				:global(> a.basic-link) {
-					font-size: 1.25rem;
+	/**
+	 * Add class .hidden to all the .{year}-projects
+	 */
+	function showAllYearProjectCard(year: string) {
+		const projectsCards = document.getElementsByClassName(year + "-project-cards");
+
+		for (const element in projectsCards) {
+			if (Object.hasOwnProperty.call(projectsCards, element)) {
+				const card = projectsCards[element];
+
+				card.classList.remove("hidden");
+			}
+		}
+	}
+
+	/**
+	 * Add class .md:hidden and remove .md:block to all the .{year}-projects
+	 */
+	function hideAllYearProjectCard(year: string) {
+		const projectsCards = document.getElementsByClassName(year + "-project-cards");
+
+		for (const element in projectsCards) {
+			if (Object.hasOwnProperty.call(projectsCards, element)) {
+				const card = projectsCards[element];
+
+				card.classList.add("md:hidden");
+				card.classList.remove("md:block");
+			}
+		}
+	}
+
+	/**
+	 * Add class .hidden to all the .{year}-projects that don't have the is_default calss
+	 */
+	function hideAllYearProjectCardMobile(year: string) {
+		const projectsCards = document.getElementsByClassName(year + "-project-cards");
+
+		for (const element in projectsCards) {
+			if (Object.hasOwnProperty.call(projectsCards, element)) {
+				const card = projectsCards[element];
+
+				if (!card.classList.contains("is_default")) {
+					card.classList.add("hidden");
 				}
 			}
 		}
 	}
-
-	@media (width > 768px) {
-		#introduction {
-			grid-column: span 2;
-			width: 75%;
-		}
-	}
-	@media (width <= 768px) {
-		main {
-			grid-template-columns: 1fr;
-			gap: 2rem;
-
-			#introduction {
-				font-size: 1.1rem;
-			}
-
-			h1 {
-				font-size: 3.5rem;
-			}
-
-			h2 {
-				font-size: 2rem;
-			}
-
-			#working_experiences {
-				--font-size: 1.75rem;
-			}
-		}
-	}
-
-	@media (width <= 480px) {
-		main {
-			margin: auto;
-
-			#introduction {
-				font-size: 1rem;
-			}
-
-			h1 {
-				font-size: 2.5rem;
-			}
-
-			h2 {
-				font-size: 1.75rem;
-			}
-
-			#working_experiences {
-				--font-size: 1.4rem;
-			}
-		}
-	}
-
-	@media (width <= 335px) {
-		#pinned_projects {
-			margin-left: -20px;
-		}
-	}
-</style>
+</script>

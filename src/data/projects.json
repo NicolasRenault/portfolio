@@ -1,246 +1,234 @@
 {
-    "2019": [
+    "2019-2020-2021": [
         {
-            "name": "MasterDetail-CSharp-DUT1",
-            "description": "University project to introduce us to desktop application development using C# by building a Master-Detail.",
-            "url": "https://github.com/NicolasRenault/MasterDetail-CSharp-DUT1",
-            "createdAt": "2020-03-31T20:07:44Z",
-            "languages": ["C#", "Smalltalk"],
-            "year": 2019,
-            "pinned": false
-        }
-    ],
-    "2020": [
-        {
-            "name": "Breast-Cancer-AI-Python-DUT2",
-            "description": "University project to introduce us to artificial intelligence using Python and Jupyter Notebook.",
-            "url": "https://github.com/NicolasRenault/Breast-Cancer-AI-Python-DUT2",
-            "createdAt": "2020-03-31T18:53:52Z",
-            "languages": ["Jupyter Notebook"],
-            "year": 2020,
-            "pinned": false
+            "name": "Blog-Symfony-2021",
+            "description_EN": "University project to introduce us to building a blog with Symfony.",
+            "description_FR": "Projet universitaire pour nous initier à la création d'un blog avec Symfony.",
+            "github_url": "https://github.com/NicolasRenault/Blog-Symfony-LPRO",
+            "languages": ["PHP", "Symfony"]
         },
         {
-            "name": "MarioBros-JavaFX-DUT2",
-            "description": "University project to introduce us to Java game development using JavaFx by building a Mario Bros clone.",
-            "url": "https://github.com/NicolasRenault/MarioBros-JavaFX-DUT2",
-            "createdAt": "2020-03-30T19:13:15Z",
-            "languages": ["Java", "CSS"],
-            "year": 2020,
-            "pinned": false
+            "name": "LaDelpeche-DOTNet-2021",
+            "description_EN": "University project to introduce us to website development using C# DOTNet by building an e-shop website.",
+            "description_FR": "Projet universitaire pour nous initier au développement de sites web avec C# DOTNet en créant un site e-commerce.",
+            "github_url": "https://github.com/NicolasRenault/LaDelpeche-DOTNet-LPRO",
+            "languages": ["JavaScript", "CSS"]
         },
         {
-            "name": "TodoList-Php-DUT2",
-            "description": "University project to introduce us to PHP website development.",
-            "url": "https://github.com/NicolasRenault/TodoList-Php-DUT2",
-            "createdAt": "2020-03-30T18:50:49Z",
-            "languages": ["PHP", "Hack"],
-            "year": 2020,
-            "pinned": false
+            "name": "FuturoVTC-Laravel-2021",
+            "description_EN": "University project to introduce us to Web application development using Laravel by building a Uber-like website.",
+            "description_FR": "Projet universitaire pour nous initier au développement d'applications Web avec Laravel en créant un site de type Uber.",
+            "github_url": "https://github.com/NicolasRenault/FuturoVTC-Laravel-LPRO",
+            "languages": ["PHP", "Laravel"],
+            "is_default": true
         },
         {
-            "name": "BeerBarManager-Cpp-DUT2",
-            "description": "University project to introduce us to building projects from conception to development using C++.",
-            "url": "https://github.com/NicolasRenault/BeerBarManager-Cpp-DUT2",
-            "createdAt": "2020-03-30T18:22:08Z",
-            "languages": ["C++", "QML"],
-            "year": 2020,
-            "pinned": false
+            "name": "SombreSberro-Xamarin-2021",
+            "description_EN": "University project to introduce us to application development using Xamarin.",
+            "description_FR": "Projet universitaire pour nous initier au développement d'applications avec Xamarin.",
+            "github_url": "https://github.com/NicolasRenault/SombreSberro-Xamarin-LPRO",
+            "languages": ["C#"]
         },
         {
-            "name": "Android-Java-DUT2",
-            "description": "University project to introduce us to Android application development (in Java).",
-            "url": "https://github.com/NicolasRenault/Android-Java-DUT2",
-            "createdAt": "2020-03-30T17:32:35Z",
-            "languages": ["Java"],
-            "year": 2020,
-            "pinned": false
-        }
-    ],
-    "2021": [
-        {
-            "name": "Blog-Symfony-LPRO",
-            "description": "University project to introduce us to building a blog with Symfony.",
-            "url": "https://github.com/NicolasRenault/Blog-Symfony-LPRO",
-            "createdAt": "2023-06-09T09:59:22Z",
-            "languages": ["PHP", "Twig"],
-            "year": 2021,
-            "pinned": false
+            "name": "Memory-JavaFX-2021",
+            "description_EN": "University project to introduce us to Java development using JavaFx by building a Memory game.",
+            "description_FR": "Projet universitaire pour nous initier au développement Java avec JavaFx en créant un jeu de Memory.",
+            "github_url": "https://github.com/NicolasRenault/Memory-JavaFX-LPRO",
+            "languages": ["JavaFX", "CSS"]
         },
         {
-            "name": "LaDelpeche-DOTNet-LPRO",
-            "description": "University project to introduce us to website development using C# DOTNet by building an e-shop website.",
-            "url": "https://github.com/NicolasRenault/LaDelpeche-DOTNet-LPRO",
-            "createdAt": "2021-04-20T17:58:33Z",
-            "languages": ["JavaScript", "CSS"],
-            "year": 2021,
-            "pinned": false
+            "name": "Breast-Cancer-AI-Python-2020",
+            "description_EN": "University project to introduce us to artificial intelligence using Python and Jupyter Notebook.",
+            "description_FR": "Projet universitaire pour nous initier à l'intelligence artificielle avec Python et Jupyter Notebook.",
+            "github_url": "https://github.com/NicolasRenault/Breast-Cancer-AI-Python-DUT2",
+            "languages": ["Jupyter Notebook", "Python"]
         },
         {
-            "name": "FuturoVTC-Laravel-LPRO",
-            "description": "University project to introduce us to Web application development using Laravel by building a Uber-like website.",
-            "url": "https://github.com/NicolasRenault/FuturoVTC-Laravel-LPRO",
-            "createdAt": "2021-04-20T17:56:12Z",
-            "languages": ["PHP", "Blade"],
-            "year": 2021,
-            "pinned": false
+            "name": "MarioBros-JavaFX-2020",
+            "description_EN": "University project to introduce us to Java game development using JavaFx by building a Mario Bros clone.",
+            "description_FR": "Projet universitaire pour nous initier au développement de jeux Java avec JavaFx en créant un clone de Mario Bros.",
+            "github_url": "https://github.com/NicolasRenault/MarioBros-JavaFX-DUT2",
+            "languages": ["JavaFX", "CSS"]
         },
         {
-            "name": "SombreSberro-Xamarin-LPRO",
-            "description": "University project to introduce us to application development using Xamarin.",
-            "url": "https://github.com/NicolasRenault/SombreSberro-Xamarin-LPRO",
-            "createdAt": "2021-04-20T17:50:13Z",
-            "languages": ["C#"],
-            "year": 2021,
-            "pinned": false
+            "name": "TodoList-Php-2020",
+            "description_EN": "University project to introduce us to PHP website development.",
+            "description_FR": "Projet universitaire pour nous initier au développement de sites web en PHP.",
+            "github_url": "https://github.com/NicolasRenault/TodoList-Php-DUT2",
+            "languages": ["PHP"]
         },
         {
-            "name": "Memory-JavaFX-LPRO",
-            "description": "University project to introduce us to Java development using JavaFx by building a Memory game.",
-            "url": "https://github.com/NicolasRenault/Memory-JavaFX-LPRO",
-            "createdAt": "2021-04-20T17:42:43Z",
-            "languages": ["Java", "CSS"],
-            "year": 2021,
-            "pinned": false
+            "name": "BeerBarManager-Cpp-2020",
+            "description_EN": "University project to introduce us to building projects from conception to development using C++.",
+            "description_FR": "Projet universitaire pour nous initier à la création de projets, de la conception au développement, en utilisant C++.",
+            "github_url": "https://github.com/NicolasRenault/BeerBarManager-Cpp-DUT2",
+            "languages": ["C++", "QML"]
+        },
+        {
+            "name": "Android-Java-2020",
+            "description_EN": "University project to introduce us to Android application development (in Java).",
+            "description_FR": "Projet universitaire pour nous initier au développement d'applications Android (en Java).",
+            "github_url": "https://github.com/NicolasRenault/Android-Java-DUT2",
+            "languages": ["Java"]
+        },
+        {
+            "name": "MasterDetail-CSharp-2019",
+            "description_EN": "University project to introduce us to desktop application development using C# by building a Master-Detail.",
+            "description_FR": "Projet universitaire pour nous initier au développement d'applications de bureau avec C# en créant une interface Maître-Détail.",
+            "github_url": "https://github.com/NicolasRenault/MasterDetail-CSharp-DUT1",
+            "languages": ["C#"]
         }
     ],
     "2022": [
         {
             "name": "rock-paper-scissors",
-            "description": "Rock paper scissors simulator inspired by https://tiktok.com/@rockpaperscissorsbattle",
-            "url": "https://github.com/NicolasRenault/rock-paper-scissors",
-            "createdAt": "2022-12-23T21:31:03Z",
+            "description_EN": "Rock paper scissors simulator inspired by https://tiktok.com/@rockpaperscissorsbattle",
+            "description_FR": "Simulateur de pierre-papier-ciseaux inspiré par https://tiktok.com/@rockpaperscissorsbattle",
+            "github_url": "https://github.com/NicolasRenault/rock-paper-scissors",
+            "url_2": "https://www.rockpaperscissors.nicolasrenault.com/",
             "languages": ["JavaScript", "HTML"],
-            "year": 2022,
-            "icon": "https://cdn.nicolasrenault.com/static/RockPaperScissors.ico",
-            "pinned": false
+            "icon": "https://cdn.nicolasrenault.com/static/RockPaperScissors.png"
         },
         {
             "name": "cheaty-webextension",
-            "description": "Extension for the web that feels illegal",
-            "url": "https://github.com/NicolasRenault/cheaty-webextension",
-            "createdAt": "2022-11-20T16:58:54Z",
+            "description_EN": "Extension for the web that feels illegal",
+            "description_FR": "Extension web qui donne l'impression d'être illégale",
+            "github_url": "https://github.com/NicolasRenault/cheaty-webextension",
             "languages": ["JavaScript", "HTML"],
-            "year": 2022,
             "icon": "https://www.cdn.nicolasrenault.com/cheaty/cheaty-logo.png",
-            "pinned": true
+            "is_default": true
         },
         {
             "name": "password-encoder",
-            "description": "Simple website that encodes and randomizes a given string. Useful for a chunk of password.",
-            "url": "https://github.com/NicolasRenault/password-encoder",
-            "createdAt": "2022-11-12T15:10:07Z",
-            "languages": ["JavaScript", "HTML"],
-            "year": 2022,
-            "pinned": false
+            "description_EN": "Simple website that encodes and randomizes a given string. Useful for a chunk of password.",
+            "description_FR": "Site web simple qui encode et rend aléatoire une chaîne de caractères donnée. Pratique pour un bout de mot de passe.",
+            "github_url": "https://github.com/NicolasRenault/password-encoder",
+            "url_2": "https://passwd.nicolasrenault.com/",
+            "languages": ["JavaScript", "TailwindCSS"]
         },
         {
             "name": "2022-homepage",
-            "description": "Quick description was displayed on www.nicolasrenault.com, waiting for portfolio. Now displayed on www.2022.nicolasrenault.com.",
-            "url": "https://2022.nicolasrenault.com",
-            "createdAt": "2022-07-20T11:52:20Z",
-            "languages": ["HTML"],
-            "year": 2022,
-            "pinned": false
+            "description_EN": "Quick description_EN was displayed on www.nicolasrenault.com, waiting for portfolio. Now displayed on www.2022.nicolasrenault.com.",
+            "description_FR": "Courte description qui était affichée sur www.nicolasrenault.com, en attendant le portfolio. Désormais affichée sur www.2022.nicolasrenault.com.",
+            "github_url": "https://github.com/NicolasRenault/2022-homepage",
+            "url_2": "https://2022.nicolasrenault.com",
+            "languages": ["HTML", "CSS"]
         }
     ],
     "2023": [
         {
             "name": "qrcode-prevention",
-            "description": "Website for prevention of QR code usage",
-            "url": "https://github.com/NicolasRenault/qrcode-prevention",
-            "createdAt": "2023-11-11T18:14:56Z",
+            "description_EN": "Website for prevention of QR code usage. I stick QRCode leading to this website when I'm traveling abroad to teach people to be more carefull with them.",
+            "description_FR": "Site web de prévention sur l'utilisation des QR codes. Je colle des QR codes menant à ce site quand je voyage à l'étranger pour apprendre aux gens à être plus prudents avec.",
+            "github_url": "https://github.com/NicolasRenault/qrcode-prevention",
+            "url_2": "https://qrcode.nicolasrenault.com/",
             "languages": ["Astro", "JavaScript"],
-            "year": 2023,
-            "pinned": false
-        },
-        {
-            "name": "portfolio",
-            "description": "My personal website built with Astro",
-            "url": "https://github.com/NicolasRenault/portfolio",
-            "createdAt": "2023-05-22T16:02:41Z",
-            "languages": ["Astro", "TypeScript"],
-            "year": 2023,
-            "pinned": false
+            "is_default": true
         },
         {
             "name": "logo",
-            "description": "A collection of my logos. SVGs, WebComponents and more.",
-            "url": "https://github.com/NicolasRenault/logo",
-            "createdAt": "2023-05-06T14:33:20Z",
-            "languages": ["JavaScript", "HTML"],
-            "year": 2023,
-            "icon": "https://www.cdn.nicolasrenault.com/logo/NR_Logo_dark_mode.svg",
-            "pinned": true
+            "description_EN": "A collection of my logos. SVGs, WebComponents and more.",
+            "description_FR": "Une collection de mes logos. SVG, WebComponents et plus.",
+            "github_url": "https://github.com/NicolasRenault/logo",
+            "languages": ["WebComponent", "HTML"],
+            "icon": "https://www.cdn.nicolasrenault.com/logo/NR_Logo_dark_mode.svg"
         },
         {
             "name": "auto-clicker",
-            "description": "Simple auto-clicker made with Python",
-            "url": "https://github.com/NicolasRenault/auto-clicker",
-            "createdAt": "2023-04-02T20:30:28Z",
-            "languages": ["Python"],
-            "year": 2023,
-            "pinned": false
+            "description_EN": "Simple auto-clicker made with Python",
+            "description_FR": "Auto-cliqueur fait avec Python",
+            "github_url": "https://github.com/NicolasRenault/auto-clicker",
+            "languages": ["Python"]
         },
         {
             "name": "fire-forest",
-            "description": "A simple and fun introduction to algorithms",
-            "url": "https://github.com/NicolasRenault/fire-forest",
-            "createdAt": "2023-03-02T10:50:42Z",
-            "languages": ["JavaScript", "HTML"],
-            "year": 2023,
-            "pinned": false
+            "description_EN": "A simple and fun introduction to algorithms",
+            "description_FR": "Une introduction simple et amusante aux algorithmes",
+            "github_url": "https://github.com/NicolasRenault/fire-forest",
+            "url_2": "https://fireforest.nicolasrenault.com/",
+            "languages": ["JavaScript", "HTML"]
         },
         {
             "name": "tonybaloney/vscode-pets",
-            "description": "Adds playful pets 🦀🐱🐶 in your VS Code window",
-            "url": "https://github.com/NicolasRenault/vscode-pets",
-            "createdAt": "2023-02-28T20:23:51Z",
-            "languages": ["TypeScript", "JavaScript"],
-            "year": 2023,
-            "pinned": false,
+            "description_EN": "Adds playful pets 🦀🐱🐶 in your VS Code window",
+            "description_FR": "Ajoute des animaux de compagnie joueurs 🦀🐱🐶 dans votre fenêtre VS Code",
+            "github_url": "https://github.com/NicolasRenault/vscode-pets",
+            "url_2": "https://tonybaloney.github.io/vscode-pets",
+            "languages": ["TypeScript"],
             "fork": "https://github.com/tonybaloney/vscode-pets"
         }
     ],
     "2024": [
         {
+            "name": "portfolio-2024-version",
+            "description_EN": "The 2024 version of my personal website built with Astro.",
+            "description_FR": "La version 2024 de mon site personnel construit avec Astro.",
+            "github_url": "https://github.com/NicolasRenault/portfolio/tree/2024",
+            "url_2": "https://www.2024.nicolasrenault.com/",
+            "languages": ["Astro", "TypeScript", "SASS"]
+        },
+        {
             "name": "two-mi18n",
-            "description": "Minimalist internationalization JavaScript library client-side. Really minimalist.",
-            "url": "https://www.twomi18n.nicolasrenault.com/",
-            "createdAt": "2024-01-12T13:34:53Z",
+            "description_EN": "Minimalist internationalization JavaScript library client-side. Really minimalist.",
+            "description_FR": "Bibliothèque JavaScript d'internationalisation minimaliste côté client. Vraiment minimaliste.",
+            "github_url": "https://github.com/NicolasRenault/two-mi18n",
+            "url_2": "https://www.twomi18n.nicolasrenault.com/",
             "languages": ["JavaScript"],
-            "year": 2024,
             "icon": "https://www.cdn.nicolasrenault.com/two-mi18n/two-mi18n-logo.svg",
-            "pinned": false
+            "is_default": true
         },
         {
             "name": "copy-that",
-            "description": "Simple website to copy text to your clipboard from a URL.",
-            "url": "https://www.copy-that.nicolasrenault.com/?text=That%20text%20here",
-            "createdAt": "2024-10-27T15:31:00Z",
-            "languages": ["Astro"],
-            "year": 2024,
-            "pinned": false
+            "description_EN": "Simple website to copy text to your clipboard from an URL.",
+            "description_FR": "Site web simple pour copier du texte dans votre presse-papiers depuis une URL.",
+            "github_url": "https://github.com/NicolasRenault/copy-that",
+            "url_2": "https://www.copy-that.nicolasrenault.com/?text=Hey%20from%20my%20portfolio",
+            "languages": ["Astro"]
         }
     ],
     "2025": [
         {
             "name": "links",
-            "description": "A list of all my links, using Astro. Inspired by https://linktr.ee/",
-            "url": "https://www.links.nicolasrenault.com/",
-            "createdAt": "2025-07-13T13:34:53Z",
-            "languages": ["Astro"],
-            "year": 2025,
-            "pinned": false
+            "description_EN": "A list of all my links, using Astro. Inspired by https://linktr.ee/",
+            "description_FR": "Une liste de tous mes liens, en utilisant Astro. Inspiré par https://linktr.ee/",
+            "github_url": "https://github.com/NicolasRenault/links",
+            "url_2": "https://www.links.nicolasrenault.com/",
+            "languages": ["Astro"]
         },
         {
             "name": "cadence-and-speed-display",
-            "description": "Displays the phone's speed and reads data from a Magene cadence sensor.",
-            "url": "https://github.com/NicolasRenault/cadence-and-speed-display",
-            "createdAt": "2025-07-22T13:34:53Z",
+            "description_EN": "Displays the phone's speed and reads data from a Magene cadence sensor.",
+            "description_FR": "Affiche la vitesse du téléphone et lit les données d'un capteur de cadence Magene.",
+            "github_url": "https://github.com/NicolasRenault/cadence-and-speed-display",
             "languages": ["Kotlin"],
-            "icon": "https://www.cdn.nicolasrenault.com/static/android.png",
-            "year": 2025
+            "is_default": true
+        }
+    ],
+    "2026": [
+        {
+            "name": "(this) portfolio",
+            "description_EN": "My personal website built with Astro",
+            "description_FR": "Mon site personnel construit avec Astro",
+            "github_url": "https://github.com/NicolasRenault/portfolio",
+            "url_2": "https://nicolasrenault.com",
+            "languages": ["Astro", "TypeScript", "TailwindCSS"],
+            "is_default": true
+        },
+        {
+            "name": "bizigus-cheaty-start",
+            "description_EN": "A Minecraft Datapack that gives you an Iron Pickaxe on world creation.",
+            "description_FR": "Un Datapack Minecraft qui vous donne une pioche en fer à la création du monde.",
+            "github_url": "https://github.com/NicolasRenault/bizigus-cheaty-start",
+            "url_2": "https://modrinth.com/datapack/bizigus-cheaty-start",
+            "languages": ["Minecraft Datapack"]
+        },
+        {
+            "name": "bizigus-cheaty-start-plus",
+            "description_EN": "A Minecraft Datapack that gives you a Starter Kit on world creation, but at what cost?",
+            "description_FR": "Un Datapack Minecraft qui vous donne un kit de démarrage à la création du monde, mais à quel prix ?",
+            "github_url": "https://github.com/NicolasRenault/bizigus-cheaty-start-plus",
+            "url_2": "https://modrinth.com/datapack/bizigus-cheaty-start-plus",
+            "languages": ["Minecraft Datapack"]
         }
     ]
 }

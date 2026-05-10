@@ -1,219 +1,60 @@
 ---
+import "@styles/global.css";
+
 import BaseHead from "@components/BaseHead.astro";
-import { getLangFromUrl, getUrlWithTranslation } from "@utils";
-import { astroI18n, t } from "astro-i18n";
+import Translations from "@components/Translations.astro";
 
-astroI18n.init(Astro);
+import fs from "node:fs";
+import path from "node:path";
 
-const lang = getLangFromUrl(Astro.url);
+const memesDir = path.join(process.cwd(), "public", "the-office-memes");
+
+let numberOfMemes = 0;
+try {
+	const files = fs.readdirSync(memesDir);
+	numberOfMemes = files.filter((file: string) => file.endsWith(".gif")).length;
+} catch (error) {
+	console.error("Could not find the memes directory:", error);
+}
 ---
 
-<html lang={lang}>
+<!doctype html>
+<html lang="en">
 	<BaseHead title="404" />
-	<body>
-		<main>
-			<div id="main_container">
-				<h1>{t("404.error")}</h1>
-				<p id="dancer">🕺</p>
-				<div id="text_container">
-					<p>{t("404.searching")}</p>
-					<button id="here_is_for_you" title="Here is for you">
-						{t("404.here_is_for_you")}
-					</button>
-				</div>
-				<a id="homepage-button" href={getUrlWithTranslation("", lang)} title="Homepage">
-					{t("navbar.homepage")}
-				</a>
-			</div>
-		</main>
-
-		<script>
-			const hereIsForYou = document.getElementById("here_is_for_you");
-			const main = document.querySelector("main");
-
-			hereIsForYou.addEventListener("click", () => {
-				main.classList.add("gotcha");
-			});
-		</script>
-
-		<style lang="scss">
-			html {
-				overflow: hidden;
-				@font-face {
-					font-family: Poppins;
-					src: url("/fonts/Poppins-Regular.ttf");
-					font-weight: 400;
-					font-style: normal;
-				}
-			}
-
-			main {
-				position: absolute;
-				background-color: black;
-				background-image: url("/no_god_please_no.gif");
-				background-repeat: no-repeat;
-				background-position-x: center;
-				background-position-y: center;
-				background-repeat: no-repeat;
-				background-size: contain;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				text-align: center;
-
-				font-family: Poppins, sans-serif;
-				color: white;
-
-				h1 {
-					position: absolute;
-					top: 0.7rem;
-
-					font-size: 4rem;
-					font-weight: bold;
-				}
-
-				p,
-				button,
-				a {
-					font-size: 3rem;
-					color: white;
-					padding: 0 0.5rem;
-				}
-
-				a:hover,
-				a:focus,
-				button:hover,
-				button:focus {
-					transform: translate(0, -3px);
-					background-color: rgba(0, 0, 0, 0.5);
-				}
-
-				button {
-					background: none;
-					border: none;
-					cursor: pointer;
-					text-decoration: rgb(17, 221, 0) underline;
-				}
-
-				a {
-					font-size: 2.5rem;
-					height: fit-content;
-					width: fit-content;
-				}
-
-				#main_container {
-					height: 100%;
-					gap: 3rem;
-					display: flex;
-					flex-direction: column;
-					justify-content: center;
-					align-items: center;
-				}
-
-				#text_container {
-					display: grid;
-					grid-template-columns: 1fr 1fr;
-					align-items: center;
-					justify-content: center;
-					gap: 3rem;
-				}
-
-				#homepage-button {
-					position: absolute;
-					bottom: 1em;
-				}
-
-				#dancer {
-					display: none;
-				}
-
-				&.gotcha {
-					background-image: url("/rickroll.gif");
-
-					#text_container {
-						display: none;
-					}
-
-					#dancer {
-						display: block;
-					}
-
-					h1,
-					a {
-						background-color: rgba(0, 0, 0, 0.5);
-						padding: 0.5rem;
-					}
-				}
-			}
-
-			@media (width <= 1024px) {
-				main {
-					h1 {
-						font-size: 3rem;
-					}
-
-					p,
-					button,
-					a {
-						font-size: 3rem;
-					}
-				}
-			}
-
-			@media (width <= 768px) {
-				main {
-					h1 {
-						font-size: 2rem;
-					}
-
-					p,
-					button,
-					a {
-						font-size: 2rem;
-					}
-
-					#text_container {
-						display: flex;
-						flex-direction: column;
-						align-items: center;
-						justify-content: center;
-						gap: 3rem;
-					}
-				}
-			}
-
-			@media (height <= 600px) {
-				main {
-					h1 {
-						font-size: 2rem;
-					}
-
-					p,
-					button,
-					a {
-						font-size: 2rem;
-					}
-				}
-			}
-
-			@media (width <= 425px) {
-				main {
-					h1 {
-						font-size: 1.5rem;
-					}
-
-					p,
-					button,
-					a {
-						font-size: 1.5rem;
-					}
-				}
-			}
-		</style>
+	<body data-theme="dark" class="bg-surface relative flex h-screen flex-col items-center">
+		<h1 class="text-content font-lora p-10 text-4xl md:text-6xl" data-twomi18n="404-error">
+			404 error
+		</h1>
+		<a
+			href="/"
+			data-link
+			aria-label="Homepage"
+			data-twomi18n="navabar.homepage[aria-label]"
+			class="basic-button mb-10 text-xl uppercase md:text-2xl"
+		>
+			Go back
+		</a>
+		<img
+			id="the-office-img"
+			data-number_of_memes={numberOfMemes}
+			alt="The office meme"
+			src="/the-office-memes/the-office-meme-53.gif"
+			class="w-80 sm:w-2xl"
+		/>
+		<div class="hidden">
+			<Translations />
+		</div>
+		<nr-logo size="lg" rainbow class="text-content mt-10"></nr-logo>
 	</body>
 </html>
+
+<script>
+	//Change the img #the-office-img to a random gif from /the-office-memes
+	const imageHolder = document.getElementById("the-office-img");
+	const numberOfMeme = Number(imageHolder?.dataset.number_of_memes);
+	const memeBaseName = "/the-office-memes/the-office-meme-{X}.gif";
+	const rand = Math.floor(Math.random() * numberOfMeme) + 1;
+	const memeURL = memeBaseName.replace("{X}", rand.toString());
+
+	(imageHolder as HTMLImageElement).src = memeURL;
+</script>

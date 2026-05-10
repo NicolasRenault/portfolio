@@ -1,0 +1,528 @@
+---
+import Layout from "@layouts/MainLayout.astro";
+import Footer from "@components/Footer.astro";
+import { Code } from "astro:components";
+---
+
+<Layout title="Home" pathname="main-projects" lang="en">
+	<section class="section-wrapper">
+		<div class="relative pb-50">
+			<h2 data-twomi18n="navbar.main-projects" class="pb-10 text-6xl">Main Projects</h2>
+			<div>
+				<p data-twomi18n="main-projects.headline-1" class="text-standard">
+					As a person who is always trying to optimize in every aspect, I love developing
+					tools and applications that fix specific issues I'm facing. And if it's helping
+					me, it might help other people.
+				</p>
+				<p data-twomi18n="main-projects.headline-2" class="text-standard">
+					I truly believe in OpenSource, and its community, even in this AI Age. I try my
+					best to create performant and minimalist code that you can reuse in your
+					projects.
+				</p>
+				<p data-twomi18n="main-projects.headline-3" class="text-standard">
+					Here is a selection of my most important open-source projects.
+				</p>
+			</div>
+			<a
+				id="github_link"
+				href="https://github.com/NicolasRenault"
+				target="_blank"
+				aria-label="Github"
+				class="text-heading absolute right-5 bottom-5 hover:-translate-y-0.5"
+			>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" class="h-7 w-7"
+					><path
+						fill="currentColor"
+						d="M6 0a6 6 0 1 1 0 12A6 6 0 0 1 6 0m0 .98C3.243.98 1 3.223 1 6a5.02 5.02 0 0 0 3.437 4.77l.045.005c.203.01.279-.129.279-.25l-.007-.854c-1.39.303-1.684-.674-1.684-.674c-.227-.58-.555-.734-.555-.734c-.454-.312.034-.306.034-.306c.365.026.604.288.708.43l.058.088c.446.767 1.17.546 1.455.418c.046-.325.174-.546.317-.672c-1.11-.127-2.277-.558-2.277-2.482c0-.548.195-.996.515-1.348l-.03-.085c-.064-.203-.152-.658.079-1.244l.04-.007c.124-.016.548-.013 1.335.522A4.8 4.8 0 0 1 6 3.408c.425.002.853.058 1.252.17c.955-.65 1.374-.516 1.374-.516c.272.692.1 1.202.05 1.33c.32.35.513.799.513 1.347c0 1.93-1.169 2.354-2.283 2.478c.18.155.34.462.34.93l-.006 1.378c0 .13.085.282.323.245A5.02 5.02 0 0 0 11 6C11 3.223 8.757.98 6 .98"
+					></path></svg
+				>
+			</a>
+		</div>
+	</section>
+	<section data-theme="dark" id="two-mi18n" class="section-wrapper">
+		<div class="p-0">
+			<header
+				data-twomi18n="two-mi18n.header"
+				class="border-border/20 text-content/80 border-b px-10 py-5 text-lg"
+			>
+				Internationalization Javascript library
+			</header>
+			<div>
+				<header class="border-border/20 border-b px-10 py-20">
+					<h2 class="pb-4 text-4xl">Two-Mi18n</h2>
+					<p data-twomi18n="two-mi18n.catch-line" class="text-standard mb-0">
+						Minimalist Javascript library for internationalization in only two methods.
+						Too minimalist.
+					</p>
+				</header>
+				<div class="border-border/20 flex flex-col border-b md:flex-row">
+					<div class="border-border/20 flex-1 border-b p-10 md:border-r md:border-b-0">
+						<h3 data-twomi18n="two-mi18n.easy-installation" class="pb-5 text-3xl">
+							Easy installation
+						</h3>
+						<p data-twomi18n="two-mi18n.description" class="text-standard">
+							Two Mi18n is a client-side oriented library. It is designed to be
+							included via a script tag. It is also available as a npm package.
+						</p>
+					</div>
+					<div class="flex flex-1 items-center justify-center p-5">
+						<Code
+							code={`<script defer src="https://unpkg.com/two-mi18n@latest/dist/TwoMi18n.umd.js"></script>`}
+							lang="js"
+							theme="tokyo-night"
+							class="max-w-10/12 p-5 text-center"
+							wrap
+						/>
+					</div>
+				</div>
+				<div class="border-border/20 flex flex-col border-b md:flex-row">
+					<div class="border-border/20 flex-1 border-b p-10 md:border-r md:border-b-0">
+						<h3 data-twomi18n="two-mi18n.minimal-footprint" class="pb-5 text-3xl">
+							Minimal footprint
+						</h3>
+						<p class="text-standard">
+							<span data-twomi18n="two-mi18n.inspiration">
+								I wanted the library to work client side and to be as small as
+								possible. Mainly taking inspiration on
+							</span>
+							<a
+								href="https://alpinejs.dev/"
+								aria-label="AlpineJS"
+								class="link-animation active"
+							>
+								AlpineJS
+							</a>.
+						</p>
+						<h3 data-twomi18n="two-mi18n.minimal-footprint" class="pt-15 pb-5 text-3xl">
+							No headache
+						</h3>
+						<p class="text-standard">
+							<span data-twomi18n="the">The</span>
+							<span class="bg-heading text-surface selection:text-surface! p-0.5">
+								translation object</span
+							>
+							<span data-twomi18n="two-mi18n.translate-object-description">
+								is a simple Javascript object that contains the translations. Its
+								keys are the language keys, and its values are objects that contain
+								the translations with keys and values.
+							</span>
+						</p>
+						<p class="text-standard">
+							<span data-twomi18n="the">The</span>
+							<span class="bg-heading text-surface selection:text-surface! p-0.5">
+								TwoMi18n object</span
+							>
+							<span data-twomi18n="two-mi18n.two-mi18n-object-description">
+								is the main and only object of the library. It contains the two
+								methods of the library,
+							</span>
+							<span class="bg-heading text-surface selection:text-surface! p-0.5">
+								translate()</span
+							>
+							<span data-twomi18n="and">and</span>
+							<span class="bg-heading text-surface selection:text-surface! p-0.5">
+								translateHTML()</span
+							>.
+						</p>
+						<p class="text-standard">
+							<span data-twomi18n="the">The</span>
+							<span class="bg-heading text-surface selection:text-surface! p-0.5">
+								translateHTML()</span
+							>.
+							<span data-twomi18n="two-mi18n.translateHTML-description">
+								method is the method that will translate all the elements with the
+							</span>
+							<span class="bg-heading text-surface selection:text-surface! p-0.5"
+								>data-twomi18n</span
+							>
+							<span data-twomi18n="attribute">attribute</span>.
+						</p>
+					</div>
+					<div class="flex flex-1 items-center justify-center p-5">
+						<Code
+							code={`<h1 data-twomi18n="hello"></h1>
+							
+<input type="text" data-twomi18n="world hello[placeholder] world[title]"></input>
+
+<script defer>
+	const translations = {
+	default: "en",
+	en: {
+		hello: "Hello",
+		world: "World",
+	},
+	fr: {
+		hello: "Bonjour",
+		world: "Monde",
+	},
+	};
+
+	const twoMi18n = new TwoMi18n(translations);
+
+	twoMi18n.translateHTML("fr");
+</script>`}
+							lang="js"
+							theme="tokyo-night"
+							class="max-w-10/12 p-5"
+							wrap
+						/>
+					</div>
+				</div>
+				<footer class="border-border/20 border-b px-10 py-20">
+					<p class="text-standard mb-0">
+						<span data-twomi18n="see-the-documentation">See the documentation</span>
+						<a
+							href="https://www.twomi18n.nicolasrenault.com/"
+							target="_blank"
+							aria-label="Two-Mi18n documentation"
+							data-twomi18n="here two-mi18n.two-mi18n-documentation[aria-labal]"
+							class="link-animation active"
+						>
+							here
+						</a>
+						<span data-twomi18n="or-find-it-on">or find it on</span>
+						<a
+							href="https://github.com/NicolasRenault/two-mi18n/tree/main"
+							target="_blank"
+							aria-label="Two-Mi18n Github link"
+							data-twomi18n="two-mi18n.two-mi18n-github-link[aria-label]"
+							target="_blank"
+							class="link-animation active"
+						>
+							Github
+						</a>.
+					</p>
+				</footer>
+			</div>
+		</div>
+	</section>
+	<section id="cheaty" class="section-wrapper">
+		<div class="p-0">
+			<header
+				data-twomi18n="cheaty.header"
+				class="border-border/20 text-content/80 border-b px-10 py-5 text-lg"
+			>
+				Extension for the web that feels illegal.
+			</header>
+			<div>
+				<header class="border-border/20 border-b px-10 py-20">
+					<h2 class="pb-4 text-4xl">Cheaty</h2>
+					<p data-twomi18n="cheaty.catch-line" class="text-standard">
+						Cheaty is a simple open-source web extension that allows you to do quick
+						actions on HTML components without going into the inspector console.
+					</p>
+					<p class="text-standard mb-0" data-twomi18n="cheaty.allows-you">
+						The extension allows you to show/hide a password, show/hide an element on
+						the page, and copy the HTML of an element.
+					</p>
+				</header>
+				<!-- This section is a copy of https://cheaty.nicolasrenault.com/#examples -->
+				<header
+					data-twomi18n="cheaty.extension-example"
+					class="border-border/20 text-content/80 border-b px-10 py-5 text-lg"
+				>
+					Here is an example of the extension's main behaviors.
+				</header>
+				<div>
+					<div>
+						<div class="border-border/20 flex flex-col border-b min-[1000px]:flex-row">
+							<div
+								class="border-border/20 flex flex-1 flex-col border-b min-[1000px]:border-r min-[1000px]:border-b-0"
+							>
+								<header
+									data-twomi18n="cheaty.show-hide-passwords"
+									class="border-border/20 text-heading border-b px-10 py-5 text-2xl"
+								>
+									Show/Hide passwords
+								</header>
+								<div class="p-5 min-[475px]:p-10">
+									<div
+										class="cheaty_action_button_container_static cheaty_hidden relative"
+									>
+										<button
+											data-twomi18n="Hide Hide[data-mainText] Show[data-secondText]"
+											data-mainText="Hide"
+											data-secondText="Show"
+											disabled
+										>
+											Hide
+										</button>
+										<button
+											id="cheaty_password_button_example_static"
+											title="Change the type of the selected element"
+											data-twomi18n="show-password show-password[data-mainText] hide-password[data-secondText]"
+											data-mainText="Show password"
+											data-secondText="Hide password"
+											tabindex="-1"
+										>
+											Show password
+										</button>
+										<button data-twomi18n="Copy" disabled>Copy</button>
+									</div>
+									<div
+										class="relative m-3 flex h-41 w-50 items-center justify-center border-2 p-3 min-[475px]:w-95"
+									>
+										<input
+											id="password_example_static"
+											type="password"
+											value="I'm hidden"
+											data-twomi18n="cheaty.i-m-hidden[value]"
+											class="cheaty-selected-static w-[60%] items-center justify-center px-2 text-lg"
+											tabindex="-1"
+										/>
+										<label
+											for="password_example_static"
+											class="absolute top-[70%] left-[22%] font-medium"
+										>
+											<span data-twomi18n="cheaty.input-type">
+												Input type:
+											</span>
+											<span
+												id="password_example_static_input_type"
+												class="underline"
+											>
+												password
+											</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div
+								class="border-border/20 flex flex-1 flex-col border-b md:border-r md:border-b-0"
+							>
+								<header
+									data-twomi18n="cheaty.show-hide-HTML-element"
+									class="border-border/20 text-heading border-b px-10 py-5 text-2xl"
+								>
+									Show/Hide HTML Element
+								</header>
+								<div class="p-5 min-[475px]:p-10">
+									<div
+										class="cheaty_action_button_container_static cheaty_hidden relative"
+									>
+										<button
+											id="cheaty_hide_button_example_static"
+											title="Hide the selected element"
+											data-twomi18n="Hide Hide[data-mainText] Show[data-secondText]"
+											data-mainText="Hide"
+											data-secondText="Show"
+											tabindex="-1"
+										>
+											Hide
+										</button>
+										<button data-twomi18n="Copy" disabled>Copy</button>
+									</div>
+									<div
+										class="relative m-3 flex h-41 w-50 items-center justify-center border-2 p-3 min-[475px]:w-95"
+									>
+										<div class="relative">
+											<div
+												class="items-center justify-center p-2 px-14 text-lg"
+												data-twomi18n="cheaty.i-m-behind"
+											>
+												I'm behind
+											</div>
+										</div>
+										<div class="absolute">
+											<div
+												id="hide_example_static"
+												class="cheaty-selected-static items-center justify-center bg-amber-100 p-10 text-lg"
+												data-twomi18n="cheaty.hide-me"
+											>
+												Hide me
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- End of Cheaty section -->
+				<footer class="border-border/20 border-b px-10 py-20">
+					<p class="text-standard">
+						<span data-twomi18n="cheaty.download">Download the extension</span>
+						<a
+							href="https://cheaty.nicolasrenault.com/download/"
+							target="_blank"
+							aria-label="Cheaty download"
+							data-twomi18n="here cheaty.cheaty-download-link[aria-label]"
+							class="link-animation active"
+						>
+							here
+						</a>.
+					</p>
+					<p class="text-standard mb-0">
+						<span data-twomi18n="see-the-documentation">See the documentation</span>
+						<a
+							href="https://cheaty.nicolasrenault.com/"
+							target="_blank"
+							aria-label="Cheaty documentation"
+							data-twomi18n="here cheaty.cheaty-documentation[aria-label]"
+							class="link-animation active"
+						>
+							here
+						</a>
+						<span data-twomi18n="or-find-it-on">or find it on</span>
+						<a
+							href="https://github.com/NicolasRenault/cheaty-webextension/tree/main"
+							target="_blank"
+							class="link-animation active"
+							aria-label="Cheaty Github link"
+							data-twomi18n="cheaty.cheaty-github-link[aria-label]"
+						>
+							Github
+						</a>.
+					</p>
+				</footer>
+			</div>
+		</div>
+	</section>
+	<section data-theme="dark" class="section-wrapper">
+		<div class="p-0">
+			<header
+				data-twomi18n="cheaty.show-hide-HTML-element"
+				class="border-border/20 text-heading border-b p-10 text-2xl"
+			>
+				<p class="text-standard mb-0">
+					<span data-twomi18n="main-projects.find-projects">
+						You can find all my other projects on
+					</span>
+					<a
+						href="https://github.com/NicolasRenault?tab=repositories"
+						target="_blank"
+						aria-label="Github"
+						class="link-animation active"
+					>
+						Github
+					</a>.
+				</p>
+			</header>
+		</div>
+	</section>
+	<Footer origin="main-projects" theme="dark" />
+</Layout>
+
+<style>
+	/* CHEATY copy of https://github.com/NicolasRenault/cheaty-webextension/blob/main/website/cheaty-static.css */
+	:root {
+		--cheaty-secondary-color: 65, 90, 119;
+		--cheaty-text-color: 224, 225, 221;
+	}
+
+	.cheaty-selected-static {
+		border-color: transparent;
+		outline: 3px dotted orange !important;
+		/* outline-offset: -2px; */
+	}
+
+	.cheaty_action_button_container_static * {
+		all: unset;
+	}
+
+	.cheaty_action_button_container_static {
+		position: absolute;
+		-webkit-box-sizing: content-box;
+		box-sizing: content-box;
+		z-index: 99999 !important;
+		background-color: rgb(var(--cheaty-secondary-color));
+		color: rgb(var(--cheaty-text-color));
+		padding: 5px;
+		border-radius: 5px;
+		min-height: 28px;
+		font-family: Arial, sans-serif;
+		font-size: 16px;
+	}
+
+	.cheaty_action_button_container_static {
+		min-width: 150px;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: row;
+		flex-direction: row;
+		-ms-flex-pack: distribute;
+		-webkit-box-pack: space-evenly;
+		justify-content: space-evenly;
+		gap: 1rem;
+	}
+	.cheaty_action_button_container_static:after {
+		position: absolute;
+		content: "";
+		-webkit-box-sizing: content-box;
+		box-sizing: content-box;
+		left: 50%;
+		margin-left: -10px;
+		top: 100%;
+		border: 10px solid transparent;
+		border-top: 10px solid rgb(var(--cheaty-secondary-color));
+	}
+	.cheaty_action_button_container_static.bottom:after {
+		top: -10px;
+		border-top: transparent;
+		border-bottom: 10px solid rgb(var(--cheaty-secondary-color));
+	}
+	.cheaty_action_button_container_static.cheaty_hidden:after {
+		border: transparent;
+	}
+	.cheaty_action_button_container_static button {
+		all: unset;
+		-webkit-box-sizing: content-box;
+		box-sizing: content-box;
+		color: white;
+		background-color: transparent;
+		border: none;
+		border-bottom: 1px solid;
+		height: 100%;
+	}
+	.cheaty_action_button_container_static button:hover {
+		background-color: rgb(var(--cheaty-text-color), 0.3);
+	}
+
+	.cheaty_action_button_container_static button:disabled {
+		color: gray;
+		border: none;
+	}
+	.cheaty_action_button_container_static button:disabled:hover {
+		background-color: transparent;
+	}
+	/* CHEATY */
+</style>
+
+<script>
+	/* CHEATY */
+	const passwordButton = document.getElementById("cheaty_password_button_example_static");
+	const hideButton = document.getElementById("cheaty_hide_button_example_static");
+
+	// Set input to password/text and change button accordingly
+	passwordButton?.addEventListener("click", () => {
+		const input = document.getElementById("password_example_static") as HTMLInputElement;
+		const inputTypeText = document.getElementById(
+			"password_example_static_input_type"
+		) as HTMLSpanElement;
+
+		if (input.type == "password") {
+			input.type = inputTypeText.innerText = "text";
+			passwordButton.innerText = passwordButton.dataset.secondtext!;
+		} else {
+			input.type = inputTypeText.innerText = "password";
+			passwordButton.innerText = passwordButton.dataset.maintext!;
+		}
+	});
+
+	// Show/Hide element and change button accordingly
+	hideButton?.addEventListener("click", () => {
+		const hideElement = document.getElementById("hide_example_static");
+
+		if (hideElement?.classList.contains("hidden")) {
+			hideElement.classList.remove("hidden");
+			hideButton.innerText = hideButton.dataset.maintext!;
+		} else {
+			hideElement?.classList.add("hidden");
+			hideButton.innerText = hideButton.dataset.secondtext!;
+		}
+	});
+	/* CHEATY */
+</script>

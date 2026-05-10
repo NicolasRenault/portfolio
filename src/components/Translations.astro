@@ -1,0 +1,396 @@
+---
+
+---
+
+<script defer src="https://unpkg.com/two-mi18n@latest/dist/TwoMi18n.umd.js"></script>
+
+<div id="translation-container" class="grid grid-flow-col gap-1">
+	<button
+		id="translation-button-en"
+		class="translation-button link-animation link-animation-quicker"
+		title="Translate to English"
+		disabled>EN</button
+	>
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="hidden h-8 w-8 md:block"
+		><path
+			fill="currentColor"
+			d="m12.87 15.07l-2.54-2.51l.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35C8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5l3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7l1.62-4.33L19.12 17z"
+		></path></svg
+	>
+	<button
+		id="translation-button-fr"
+		title="Traduire en Français"
+		class="translation-button link-animation link-animation-quicker">FR</button
+	>
+</div>
+
+<style>
+	@reference "../styles/global.css";
+
+	.translation-button {
+		@apply disabled:text-heading/45 hidden cursor-pointer not-disabled:block disabled:cursor-auto md:block;
+	}
+</style>
+
+<script>
+	// @ts-nocheck
+	const translations = {
+		default: "en",
+		en: {
+			"404-error": "404 error",
+			Copy: "Copy",
+			Hide: "Hide",
+			Show: "Show",
+			"ai-usages.fireship-video-title":
+				"Fireship - Cursor ditches VS Code, but not everyone is happy...",
+			"ai-usages.headline-1":
+				"This page is an open letter about my feelings on AI and how I use it for my personal projects, including this website.",
+			"ai-usages.headline-2":
+				"I strongly believe transparency about the development of our projects is mandatory when OpenSourcing our code, now more than ever. We live in a time when people just assume you did everything with AI, that you VibeCoded your website in an afternoon, and jumped straight to the next project. But this is not how I see and use AI.",
+			"ai-usages.image-alt": "AI is a teacher, not a slave",
+			"ai-usages.my-usages": "My usages",
+			"ai-usages.my-usages-1":
+				"I tend to avoid delegating everything to AI. I try to use it when I cannot do without it or if it would take me x10 longer to get the information I need.",
+			"ai-usages.my-usages-2": "Here are the use cases:",
+			"ai-usages.my-usages-3":
+				"Also, I try to keep an AI chat per project, so it always knows the context of my request, which helps me reduce the number of tokens I send.",
+			"ai-usages.my-usages-list-item-1":
+				"It would take me 10 web searches to find the information I need.",
+			"ai-usages.my-usages-list-item-1.1":
+				"As devs, one of our most valuable skills is searching the internet. When I know my request is going to take me multiple web searches that will lead to more, it’s faster, easier, and more ecological to ask an AI.",
+			"ai-usages.my-usages-list-item-2":
+				"My issue is very niche and specific to the task/project.",
+			"ai-usages.my-usages-list-item-2.1":
+				"Going deeper and deeper into the same project, you sometimes find edge cases driven by weird library interactions that are very difficult to debug.",
+			"ai-usages.my-usages-list-item-3":
+				"Helping when stuck, while I’m learning a new technology",
+			"ai-usages.my-usages-list-item-3.1":
+				"Example: For this website, I’m using Tailwind v4.2. I haven’t used Tailwind since v2 and wasn’t familiar with many of its new features.",
+			"ai-usages.my-usages-list-item-4": "I cannot find something in a tool's documentation.",
+			"ai-usages.my-usages-list-item-4.1":
+				"Example: Following the above example, I was always trying to work with Tailwind’s documentation. But sometimes I couldn't find the specific class I needed.",
+			"ai-usages.my-usages-list-item-5":
+				"Brainstorming or idea dumping on a subject I’m new to.",
+			"ai-usages.my-usages-list-item-5.1":
+				"Example: I’m currently looking into Self-Hosting. I’m trying to get away from big cloud companies for my storage, photos, passwords, but also code/website hosting, and maybe AI. Since I’m completely new to Self-Hosting, I brainstormed with Gemini Chat to guide me on hardware, software, and security recommendations.",
+			"ai-usages.my-usages-list-item-6": "Spellchecking",
+			"ai-usages.my-usages-list-item-6.1":
+				"Spellchecking has been around for many years and is not very resource-demanding.",
+			"ai-usages.my-usages-list-item-7": "Translations",
+			"ai-usages.my-usages-list-item-7.1":
+				"When writing and building in different languages, I sometimes need to translate large amounts of text.",
+			"ai-usages.the-why": "The why",
+			"ai-usages.the-why-1":
+				"I’m already coding at my company, so when I do a side project, it’s mostly for my enjoyment and needs. I enjoy coding in my spare time because it either solves an issue I have or lets me be creative, like with this website. What would be the benefits for me to delegate something I enjoy doing?",
+			"ai-usages.the-why-2":
+				"There is also an ecological consciousness that prevents me from going all out on AI. I know the impact it has on the environment, but also on the people who live near data centers or those far away who still suffer from its global warming effects.",
+			"ai-usages.the-why-3":
+				"I’m actually planning to build a home server to host an Ollama instance for my personal needs.",
+			"ai-usages.what-i-used": "What I used for this website",
+			"ai-usages.what-i-used-1":
+				"To be 100% transparent about my AI usage for this project, you can find the Gemini Chat link below.",
+			"ai-usages.what-i-used-2":
+				"I kept everything in a single chat, mostly asking questions when I was stuck with Tailwind behavior or couldn’t fix something myself.",
+			"ai-usages.what-i-used-3": "Note: I don't use AI in editor.",
+			and: "and",
+			attribute: "attribute",
+			"bottom-page": "Bottom page",
+			"cheaty.allows-you":
+				"The extension allows you to show/hide a password, show/hide an element on the page, and copy the HTML of an element.",
+			"cheaty.catch-line":
+				"Cheaty is a simple open-source web extension that allows you to do quick actions on HTML components without going into the inspector console.",
+			"cheaty.cheaty-documentation": "Cheaty documentation",
+			"cheaty.cheaty-download-link": "Cheaty download link",
+			"cheaty.cheaty-github-link": "Cheaty Github link",
+			"cheaty.download": "Download the extension",
+			"cheaty.extension-example": "Here is an example of the extension's main behaviors.",
+			"cheaty.header": "Extension for the web that feels illegal.",
+			"cheaty.hide-me": "Hide me",
+			"cheaty.i-m-behind": "I'm behind",
+			"cheaty.i-m-hidden": "I'm hidden",
+			"cheaty.input-type": "Input type:",
+			"cheaty.show-hide-HTML-element": "Show/Hide HTML Element",
+			"cheaty.show-hide-passwords": "Show/Hide passwords",
+			error: "Error",
+			"footer.explain":
+				"Did you know? You can navigate the site only with your scroll wheel! Try it by scrolling down as far as you can.",
+			girlfriend: "girlfriend",
+			here: "here",
+			"hide-password": "Hide password",
+			"homepage-1":
+				"I'm a FullStack Developer based in France. I'm always trying to optimize life in every aspect, which is why I enjoy building software applications that help people perform tasks more quickly and efficiently.",
+			"homepage-2":
+				"Outside of programming, I enjoy sports like gravel cycling and volleyball, spending time with my",
+			"homepage-3": "and friends, and playing video games.",
+			"mail-copied": "Mail copied",
+			"main-projects.find-projects": "You can find all my other projects on",
+			"main-projects.headline-1":
+				"As a person who is always trying to optimize in every aspect, I love developing tools and applications that fix specific issues I'm facing. And if it's helping me, it might help other people.",
+			"main-projects.headline-2":
+				"I truly believe in OpenSource, and its community, even in this AI Age. I try my best to create performant and minimalist code that you can reuse in your projects.",
+			"main-projects.headline-3":
+				"Here is a selection of my most important open-source projects.",
+			"navabar.homepage": "Homepage",
+			"navbar.ai-usages": "AI Usages",
+			"navbar.contact-me": "Contact me",
+			"navbar.homepage": "Homepage",
+			"navbar.info": "Info",
+			"navbar.main-projects": "Main Projects",
+			"navbar.my-links": "My Links",
+			"navbar.my-projects": "My projects",
+			"or-find-it-on": "or find it on",
+			projects: "Projects",
+			"projects.find-project": "Find project here",
+			"projects.headline":
+				"Here is a list of my personal projects. Most of them are Open Source. Feel free to check them on my",
+			"projects.school-projects": "School Projects",
+			"projects.see-on-github": "See on Github",
+			"projects.see-original": "See original project",
+			"projects.this-project-is-fork": "This project is a fork of",
+			"rick-roll.text": "Sorry but I had to! Scroll down to go back to the homepage.",
+			"see-the-documentation": "See the documentation",
+			"show-password": "Show password",
+			"skip-to-content": "Skip to content",
+			the: "The",
+			"trelleborg-1":
+				"In the company since 2021, I have had the opportunity to work in different organizations. Started as an Application Developer, mainly focused on building interfaces and extending our ERP functionalities.",
+			"trelleborg-2":
+				"After an IT re-organization, I stepped into Digital Innovation, where I analyzed processes across 52 different sites to build solutions at a group scale.",
+			"trelleborg-3":
+				"Today, I'm focusing more on Project Management and Business Process Improvement, with a clear target for my ongoing career.",
+			"two-mi18n.catch-line":
+				"Minimalist Javascript library for internationalization in only two methods. Too minimalist.",
+			"two-mi18n.description":
+				"Two Mi18n is a client-side oriented library. It is designed to be included via a script tag. It is also available as a npm package.",
+			"two-mi18n.easy-installation": "Easy installation",
+			"two-mi18n.header": "Internationalization Javascript library",
+			"two-mi18n.inspiration":
+				"I wanted the library to work client side and to be as small as possible. Mainly taking inspiration on",
+			"two-mi18n.minimal-footprint": "No headache",
+			"two-mi18n.translate-object-description":
+				"is a simple Javascript object that contains the translations. Its keys are the language keys, and its values are objects that contain the translations with keys and values.",
+			"two-mi18n.translateHTML-description":
+				"method is the method that will translate all the elements with the",
+			"two-mi18n.two-mi18n-documentation": "Two Mi18n documentation link",
+			"two-mi18n.two-mi18n-github-link": "Two Mi18n Github link",
+			"two-mi18n.two-mi18n-object-description":
+				"is the main and only object of the library. It contains the two methods of the library,",
+			"work-current-job": "Current job",
+		},
+		fr: {
+			"404-error": "Erreur 404",
+			Copy: "Copier",
+			Hide: "Masquer",
+			Show: "Afficher",
+			"ai-usages.fireship-video-title":
+				"Fireship - Cursor abandonne VS Code, mais tout le monde n'est pas ravi...",
+			"ai-usages.headline-1":
+				"Cette page est une lettre ouverte sur mon ressenti vis-à-vis de l'IA et la façon dont je l'utilise pour mes projets personnels, y compris ce site web.",
+			"ai-usages.headline-2":
+				"Je crois fermement que la transparence sur le développement de nos projets est indispensable lorsqu’ils sont Open Source, aujourd'hui plus que jamais. Nous vivons à une époque où les gens supposent simplement que vous avez tout fait avec l'IA, que vous avez « VibeCodé » votre site en un après-midi avant de passer immédiatement au projet suivant. Mais ce n'est pas comme ça que je vois et utilise l'IA.",
+			"ai-usages.image-alt": "L'IA est un professeur, pas un esclave",
+			"ai-usages.my-usages": "Mes usages",
+			"ai-usages.my-usages-1":
+				"J'ai tendance à éviter de tout déléguer à l'IA. J'essaie de l'utiliser quand je ne peux pas faire sans, ou si cela me prendrait 10 fois plus de temps pour obtenir l'information dont j'ai besoin.",
+			"ai-usages.my-usages-2": "Voici mes cas d'utilisation :",
+			"ai-usages.my-usages-3":
+				"De plus, j'essaie de garder un chat IA par projet, afin qu'il connaisse toujours le contexte, ce qui m'aide à réduire le nombre de tokens envoyés.",
+			"ai-usages.my-usages-list-item-1":
+				"S'il me fallait 10 recherches web pour trouver l'information.",
+			"ai-usages.my-usages-list-item-1.1":
+				"En tant que développeurs, l'une de nos compétences les plus importantes est la recherche sur Internet. Quand je sais que ma demande va nécessiter de multiples recherches qui en entraîneront d'autres, il est plus rapide, plus facile et plus écologique de demander à une IA.",
+			"ai-usages.my-usages-list-item-2":
+				"Mon problème est très niche et spécifique à la tâche ou au projet.",
+			"ai-usages.my-usages-list-item-2.1":
+				"En allant de plus en plus loin dans un projet, on trouve parfois des cas particuliers causés par des interactions étranges entre bibliothèques qui sont très difficiles à débuguer.",
+			"ai-usages.my-usages-list-item-3":
+				"Aider quand je suis bloqué lors de l'apprentissage d'une nouvelle technologie.",
+			"ai-usages.my-usages-list-item-3.1":
+				"Exemple : Pour ce site, j'utilise Tailwind v4.2. Je n'avais pas utilisé Tailwind depuis la v2 et je ne connaissais pas beaucoup de ses nouvelles fonctionnalités.",
+			"ai-usages.my-usages-list-item-4":
+				"Je ne trouve pas ce que je veux dans la documentation d'un outil.",
+			"ai-usages.my-usages-list-item-4.1":
+				"Exemple : Pour reprendre l'exemple précédent, j'essayais toujours de travailler avec la documentation de Tailwind. Mais parfois, je ne trouvais pas la classe spécifique dont j'avais besoin.",
+			"ai-usages.my-usages-list-item-5":
+				"Brainstorming ou échanger mes idées sur un sujet que je découvre.",
+			"ai-usages.my-usages-list-item-5.1":
+				"Exemple : Je m'intéresse actuellement à l’hébergement d’un serveur à la maison (Self-Hosting). J'essaie de m'éloigner des grandes entreprises du cloud pour mon stockage, mes photos, mes mots de passe, mais aussi l'hébergement de code/sites web, et peut-être l'IA. Comme je n’y connais rien, j'ai brainstormé avec Gemini Chat pour me guider sur le matériel, les logiciels et les recommandations de sécurité.",
+			"ai-usages.my-usages-list-item-6": "Correction orthographique",
+			"ai-usages.my-usages-list-item-6.1":
+				"La correction orthographique existe depuis de nombreuses années et consomme très peu de ressources.",
+			"ai-usages.my-usages-list-item-7": "Traductions",
+			"ai-usages.my-usages-list-item-7.1":
+				"Lorsqu'on écrit et construit dans différentes langues, on a parfois besoin de traduire de grandes quantités de texte.",
+			"ai-usages.the-why": "Le pourquoi",
+			"ai-usages.the-why-1":
+				"Je code déjà dans mon entreprise, donc quand je fais un projet personnel, c'est surtout pour mon plaisir et mes besoins. J'aime coder durant mon temps libre car cela résout un problème que j'ai ou cela me permet d'être créatif, comme avec ce site. Quel est l'intérêt pour moi de déléguer quelque chose que j'aime faire ?",
+			"ai-usages.the-why-2":
+				"Il y a aussi une conscience écologique qui m'empêche d'utiliser l'IA à outrance. Je connais l'impact qu'elle a sur l'environnement, mais aussi sur les populations vivant près des centres de données ou celles, lointaines, qui subissent les effets du réchauffement climatique.",
+			"ai-usages.the-why-3":
+				"Je prévois d'ailleurs de construire un serveur pour héberger une instance Ollama pour mes besoins personnels.",
+			"ai-usages.what-i-used": "Ce que j'ai utilisé pour ce site",
+			"ai-usages.what-i-used-1":
+				"Pour être 100 % transparent sur mon utilisation de l'IA pour ce projet, vous pouvez trouver le lien du chat Gemini ci-dessous.",
+			"ai-usages.what-i-used-2":
+				"J'ai tout gardé dans un seul chat, en posant principalement des questions quand j'étais bloqué par un comportement de Tailwind ou que je ne pouvais pas corriger quelque chose moi-même.",
+			"ai-usages.what-i-used-3": "Note : Je n'utilise pas d'IA directement dans mon éditeur.",
+			and: "et",
+			attribute: "attribut",
+			"bottom-page": "Bas de page",
+			"cheaty.allows-you":
+				"L'extension vous permet d'afficher/masquer un mot de passe, d'afficher/masquer un élément sur la page et de copier le HTML d'un élément.",
+			"cheaty.catch-line":
+				"Cheaty est une extension web simple et open-source qui permet d'effectuer des actions rapides sur des composants HTML sans passer par le menu F12.",
+			"cheaty.cheaty-documentation": "Documentation de Cheaty",
+			"cheaty.cheaty-download-link": "Lien de téléchargement de Cheaty",
+			"cheaty.cheaty-github-link": "Lien Github de Cheaty",
+			"cheaty.download": "Télécharger l'extension",
+			"cheaty.extension-example":
+				"Voici un exemple des principaux comportements de l'extension.",
+			"cheaty.header": "Une extension pour le web qui semble illégale.",
+			"cheaty.hide-me": "Cache-moi",
+			"cheaty.i-m-behind": "Je suis derrière",
+			"cheaty.i-m-hidden": "Je suis caché",
+			"cheaty.input-type": "Type d'input :",
+			"cheaty.show-hide-HTML-element": "Afficher/Masquer l'élément HTML",
+			"cheaty.show-hide-passwords": "Afficher/Masquer les mots de passe",
+			error: "Erreur",
+			"footer.explain":
+				"Le saviez-vous ? Vous pouvez naviguer sur le site uniquement avec votre molette ! Essayez en faisant défiler jusqu’en bas de la page.",
+			girlfriend: "petite amie",
+			here: "ici",
+			"hide-password": "Masquer le mot de passe",
+			"homepage-1":
+				"Je suis un Développeur FullStack basé en France. Je cherche toujours à optimiser mon quotidien sous tous ses aspects, c'est pourquoi j'aime créer des applications qui aident les gens à accomplir leurs tâches plus rapidement et plus efficacement.",
+			"homepage-2":
+				"En dehors de la programmation, j'aime faire du sport comme le gravel et le volley-ball, passer du temps avec ma",
+			"homepage-3": "et mes amis, et jouer aux jeux vidéo.",
+			"mail-copied": "E-mail copié",
+			"main-projects.find-projects": "Vous pouvez retrouver tous mes autres projets sur",
+			"main-projects.headline-1":
+				"Je suis une personne qui cherche toujours à optimiser chaque aspect, j'adore développer des outils et des applications qui règlent des problèmes spécifiques auxquels je suis confronté. Et si ça m'aide, ça peut aider d'autres personnes.",
+			"main-projects.headline-2":
+				"Je crois sincèrement en l'Open Source et sa communauté, même à l'ère de l'IA. Je fais de mon mieux pour créer du code performant et minimaliste que vous pouvez réutiliser dans vos projets.",
+			"main-projects.headline-3":
+				"Voici une sélection de mes projets open-source les plus importants.",
+			"navabar.homepage": "Accueil",
+			"navbar.ai-usages": "Usages de l'IA",
+			"navbar.contact-me": "Me contacter",
+			"navbar.homepage": "Accueil",
+			"navbar.info": "Infos",
+			"navbar.main-projects": "Projets principaux",
+			"navbar.my-links": "Mes liens",
+			"navbar.my-projects": "Mes projets",
+			"or-find-it-on": "ou trouvez-le sur",
+			projects: "Projets",
+			"projects.find-project": "Trouver le projet ici",
+			"projects.headline":
+				"Voici une liste de mes projets personnels. La plupart sont Open Source. N'hésitez pas à les consulter sur mon",
+			"projects.school-projects": "Projets scolaires",
+			"projects.see-on-github": "Voir sur Github",
+			"projects.see-original": "Voir le projet original",
+			"projects.this-project-is-fork": "Ce projet est un fork de",
+			"rick-roll.text":
+				"Désolé, je devais le faire ! Faites défiler vers le bas pour revenir à l'accueil.",
+			"see-the-documentation": "Voir la documentation",
+			"show-password": "Afficher le mot de passe",
+			"skip-to-content": "Aller au contenu",
+			the: "Le",
+			"trelleborg-1":
+				"Dans l'entreprise depuis 2021, j'ai eu l'opportunité d'évoluer au sein de différentes organisations. J'ai commencé en tant que Développeur d'Applications, principalement concentré sur la création d'interfaces logicielle et l'extension des fonctionnalités de notre ERP.",
+			"trelleborg-2":
+				"Suite à une réorganisation de l'IT, j'ai rejoint le pôle Innovation Digitale. Ma mission : analyser les processus de 52 sites différents pour déployer des solutions à l'échelle du groupe.",
+			"trelleborg-3":
+				"Aujourd'hui, je me concentre davantage sur la Gestion de Projet et la Business Analysis, avec une vision claire pour la suite de ma carrière.",
+			"two-mi18n.catch-line":
+				"Bibliothèque Javascript minimaliste pour l'internationalisation en seulement deux méthodes. Trop minimaliste.",
+			"two-mi18n.description":
+				"Two Mi18n est une bibliothèque orientée client. Elle est conçue pour être incluse via une balise script. Elle est également disponible en tant que package npm.",
+			"two-mi18n.easy-installation": "Installation facile",
+			"two-mi18n.header": "Bibliothèque Javascript d'internationalisation",
+			"two-mi18n.inspiration":
+				"Je voulais que la bibliothèque fonctionne côté client et soit aussi légère que possible. Je me suis principalement inspiré de",
+			"two-mi18n.minimal-footprint": "Pas de prise de tête",
+			"two-mi18n.translate-object-description":
+				"est un simple objet Javascript qui contient les traductions. Ses clés sont les codes de langue, et ses valeurs sont des objets contenant les traductions avec clés et valeurs.",
+			"two-mi18n.translateHTML-description":
+				"est la méthode qui traduira tous les éléments possédant l'",
+			"two-mi18n.two-mi18n-documentation": "Lien de la documentation de Two Mi18n",
+			"two-mi18n.two-mi18n-github-link": "Lien Github de Two Mi18n",
+			"two-mi18n.two-mi18n-object-description":
+				"est l'objet principal et unique de la bibliothèque. Il contient les deux méthodes de la bibliothèque,",
+			"work-current-job": "Poste actuel",
+		},
+	};
+
+	const twoMi18n = new TwoMi18n(translations);
+
+	const buttonEN = document.getElementById("translation-button-en");
+	const buttonFR = document.getElementById("translation-button-fr");
+
+	buttonEN?.addEventListener("click", () => {
+		handleTanslation("en");
+	});
+	buttonFR?.addEventListener("click", () => {
+		handleTanslation("fr");
+	});
+
+	/**
+	 * Handle all the changes needed for the translations
+	 *  - Lang selector
+	 *  - Add ?lang={lang} to URL Parameters
+	 *  - Call TwoMi18n function
+	 *
+	 * @param lang
+	 */
+	function handleTanslation(lang) {
+		if (lang === "en") {
+			buttonEN.setAttribute("disabled", true);
+			buttonFR.removeAttribute("disabled");
+
+			window.history.replaceState("lang", null, "?lang=en");
+		} else if (lang === "fr") {
+			buttonEN.removeAttribute("disabled");
+			buttonFR.setAttribute("disabled", true);
+
+			window.history.replaceState("lang", null, "?lang=fr");
+		}
+
+		//Set <html> lang (Used as a signal for translation for other javascript tags)
+		document.documentElement.lang = lang;
+
+		changeLinkLangParam(lang);
+		twoMi18n.translateHTML(lang);
+	}
+
+	/**
+	 * Check in the URL if the {lang} param exist.
+	 * If so, call @handleTranslation
+	 */
+	function getLangFromURL() {
+		const params = new URLSearchParams(document.location.search);
+
+		if (params.size !== 0) {
+			const lang = params.get("lang");
+			if (lang in translations) handleTanslation(lang);
+		}
+	}
+
+	/**
+	 * Change the href of all link in the page that have data-link.
+	 * This is used for link that navigate the different pages, not the external links.
+	 *
+	 * @param lang
+	 */
+	function changeLinkLangParam(lang) {
+		const anchors = document.querySelectorAll<HTMLAnchorElement>("[data-link]");
+
+		anchors.forEach((anchor) => {
+			let url = new URL(anchor.href);
+			url.searchParams.set("lang", lang);
+			anchor.href = url.toString();
+		});
+	}
+
+	getLangFromURL(); //Triggered once on load
+</script>

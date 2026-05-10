@@ -1,0 +1,27 @@
+---
+import "@styles/global.css";
+
+import BaseHead from "@components/BaseHead.astro";
+import Translations from "@components/Translations.astro";
+import Image from "astro/components/Image.astro";
+
+import rickRoll from "@assets/rickroll.gif";
+import Footer from "@components/Footer.astro";
+---
+
+<!doctype html>
+<html lang="en">
+	<BaseHead title="Rick Roll" />
+	<body data-theme="dark" class="bg-surface relative flex h-full flex-col items-center">
+		<div id="main" class="flex flex-col items-center">
+			<Image src={rickRoll} alt="Rick Roll" class="pt-[20vh] pb-20" />
+			<p data-twomi18n="rick-roll.text" class="text-standard">
+				Sorry but I had to! Scroll down to go back to the homepage.
+			</p>
+		</div>
+		<div class="hidden">
+			<Translations />
+		</div>
+		<Footer origin="rick-roll" theme="dark" />
+	</body>
+</html>

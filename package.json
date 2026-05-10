@@ -1,33 +1,28 @@
 {
-    "name": "portfolio",
-    "type": "module",
-    "version": "0.0.1",
-    "scripts": {
-        "dev": "astro dev",
-        "start": "astro dev",
-        "build": "npm run i18n:sync && astro build",
-        "preview": "astro preview",
-        "astro": "astro",
-        "github:project": "ts-node --esm scripts/generate-project-list.ts",
-        "i18n:install": "astro-i18n install",
-        "i18n:sync": "npm run i18n:reset && astro-i18n sync",
-        "i18n:sync-dev": "npm run i18n:sync && astro dev",
-        "i18n:extract:keys": "astro-i18n extract:keys",
-        "i18n:reset": "rm -rf src/pages/fr/"
-    },
-    "dependencies": {
-        "@octokit/core": "^6.1.4",
-        "astro": "^4.16.18",
-        "astro-i18n": "^1.8.1",
-        "astro-icon": "^0.8.1",
-        "autoprefixer": "^10.4.14",
-        "sass": "^1.62.1",
-        "ts-node": "^10.9.1"
-    },
-    "devDependencies": {
-        "@types/node": "^20.4.1",
-        "postcss-html": "^1.5.0",
-        "prettier": "^2.8.8",
-        "prettier-plugin-astro": "^0.9.0"
-    }
+  "name": "portfolio",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.2.1",
+    "astro": "^6.0.4",
+    "postcss-import": "^16.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.2",
+    "autoprefixer": "^10.4.27",
+    "postcss": "^8.5.8",
+    "prettier": "^3.8.1",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.7.2",
+    "tailwindcss": "^4.2.2"
+  }
 }

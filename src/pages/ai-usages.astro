@@ -1,0 +1,231 @@
+---
+import Layout from "@layouts/MainLayout.astro";
+import Footer from "@components/Footer.astro";
+import { Image } from "astro:assets";
+
+import vibeCoderImage from "@assets/fireship-vibe-coders.png";
+---
+
+<Layout title="Home" pathname="ai-usages" lang="en" theme="dark">
+	<section class="section-wrapper">
+		<div class="border-border/20 relative border-b pb-30">
+			<h2 data-twomi18n="navbar.ai-usages" class="pb-10 text-6xl">AI Usages</h2>
+			<p data-twomi18n="ai-usages.headline-1" class="text-standard">
+				This page is an open letter about my feelings on AI and how I use it for my personal
+				projects, including this website.
+			</p>
+			<p data-twomi18n="ai-usages.headline-2" class="text-standard">
+				I strongly believe transparency about the development of our projects is mandatory
+				when OpenSourcing our code, now more than ever. We live in a time when people just
+				assume you did everything with AI, that you VibeCoded your website in an afternoon,
+				and jumped straight to the next project. But this is not how I see and use AI.
+			</p>
+		</div>
+		<div class="p-0">
+			<h3
+				data-twomi18n="ai-usages.the-why"
+				class="border-border/20 border-b px-10 py-5 text-4xl"
+			>
+				The why
+			</h3>
+			<div class="border-border/20 border-b px-10 py-20">
+				<p data-twomi18n="ai-usages.the-why-1" class="text-standard">
+					I’m already coding at my company, so when I do a side project, it’s mostly for
+					my enjoyment and needs. I enjoy coding in my spare time because it either solves
+					an issue I have or lets me be creative, like with this website. What would be
+					the benefits for me to delegate something I enjoy doing?
+				</p>
+				<p class="text-standard">
+					<span data-twomi18n="ai-usages.the-why-2">
+						There is also an ecological consciousness that prevents me from going all
+						out on AI. I know the impact it has on the environment, but also on the
+						people who live near data centers or those far away who still suffer from
+						its global warming effects.
+					</span>
+					<a
+						href="https://www.greenpeace.org/international/story/82486/ai-energy-environment-democracy/"
+						title="Greenpeace - AI Energy Environment Democracy"
+						target="_blank"
+						class="link-animation active show-en"
+					>
+						See the article.
+					</a>
+					<a
+						href="https://ekwateur.fr/blog/enjeux-environnementaux/impact-ecologique-ia/?srsltid=AfmBOoq81Il0FzSRBcYygakXNedOAGpSkuMCumqMy43cReNB3VbGfie9"
+						title="Ekwateur - Impact Ecologique IA"
+						target="_blank"
+						class="link-animation active show-fr"
+					>
+						Voir l'article.
+					</a>
+					<span data-twomi18n="ai-usages.the-why-3"
+						>I’m actually planning to build a home server to host an Ollama instance for
+						my personal needs.</span
+					>
+				</p>
+			</div>
+		</div>
+	</section>
+	<section class="section-wrapper" data-theme="light">
+		<div class="p-0">
+			<h3
+				data-twomi18n="ai-usages.my-usages"
+				class="border-border/20 border-b px-10 py-5 text-4xl"
+			>
+				My usages
+			</h3>
+			<div class="border-border/20 border-b px-10 py-20">
+				<p data-twomi18n="ai-usages.my-usages-1" class="text-standard">
+					I tend to avoid delegating everything to AI. I try to use it when I cannot do
+					without it or if it would take me x10 longer to get the information I need.
+				</p>
+				<p data-twomi18n="ai-usages.my-usages-2" class="text-standard">
+					Here are the use cases:
+				</p>
+				<ul class="text-standard list-disc pl-5">
+					<li>
+						<span data-twomi18n="ai-usages.my-usages-list-item-1">
+							It would take me 10 web searches to find the information I need.
+						</span>
+
+						<ul class="list-disc py-3 pl-8">
+							<li data-twomi18n="ai-usages.my-usages-list-item-1.1">
+								As devs, one of our most valuable skills is searching the internet.
+								When I know my request is going to take me multiple web searches
+								that will lead to more, it’s faster, easier, and more ecological to
+								ask an AI.
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span data-twomi18n="ai-usages.my-usages-list-item-2">
+							My issue is very niche and specific to the task/project.
+						</span>
+
+						<ul class="list-disc py-3 pl-8">
+							<li data-twomi18n="ai-usages.my-usages-list-item-2.1">
+								Going deeper and deeper into the same project, you sometimes find
+								edge cases driven by weird library interactions that are very
+								difficult to debug.
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span data-twomi18n="ai-usages.my-usages-list-item-3">
+							Helping when stuck, while I’m learning a new technology
+						</span>
+
+						<ul class="list-disc py-3 pl-8">
+							<li data-twomi18n="ai-usages.my-usages-list-item-3.1">
+								Example: For this website, I’m using Tailwind v4.2. I haven’t used
+								Tailwind since v2 and wasn’t familiar with many of its new features.
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span data-twomi18n="ai-usages.my-usages-list-item-4">
+							I cannot find something in a tool's documentation.
+						</span>
+
+						<ul class="list-disc py-3 pl-8">
+							<li data-twomi18n="ai-usages.my-usages-list-item-4.1">
+								Example: Following the above example, I was always trying to work
+								with Tailwind’s documentation. But sometimes I couldn't find the
+								specific class I needed.
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span data-twomi18n="ai-usages.my-usages-list-item-5">
+							Brainstorming or idea dumping on a subject I’m new to.
+						</span>
+
+						<ul class="list-disc py-3 pl-8">
+							<li data-twomi18n="ai-usages.my-usages-list-item-5.1">
+								Example: I’m currently looking into Self-Hosting. I’m trying to get
+								away from big cloud companies for my storage, photos, passwords, but
+								also code/website hosting, and maybe AI. Since I’m completely new to
+								Self-Hosting, I brainstormed with Gemini Chat to guide me on
+								hardware, software, and security recommendations.
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span data-twomi18n="ai-usages.my-usages-list-item-6">Spellchecking</span>
+						<ul class="list-disc py-3 pl-8">
+							<li data-twomi18n="ai-usages.my-usages-list-item-6.1">
+								Spellchecking has been around for many years and is not very
+								resource-demanding.
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span data-twomi18n="ai-usages.my-usages-list-item-7">Translations</span>
+						<ul class="list-disc py-3 pl-8">
+							<li data-twomi18n="ai-usages.my-usages-list-item-7.1">
+								When writing and building in different languages, I sometimes need
+								to translate large amounts of text.
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<p data-twomi18n="ai-usages.my-usages-3" class="text-standard">
+					Also, I try to keep an AI chat per project, so it always knows the context of my
+					request, which helps me reduce the number of tokens I send.
+				</p>
+			</div>
+			<div class="p-0">
+				<h3
+					data-twomi18n="ai-usages.what-i-used"
+					class="border-border/20 border-b px-10 py-5 text-4xl"
+				>
+					What I used for this website
+				</h3>
+				<div class="border-border/20 border-b px-10 py-20">
+					<p data-twomi18n="ai-usages.what-i-used-1" class="text-standard">
+						To be 100% transparent about my AI usage for this project, you can find the
+						Gemini Chat link below.
+					</p>
+					<a
+						href="https://github.com/NicolasRenault/portfolio/blob/main/PROMPT.txt"
+						target="_blank"
+						title="PROMPT.txt"
+						class="link-animation active text-standard ml-5 text-xl"
+					>
+						PROMPT.txt
+					</a>
+					<p data-twomi18n="ai-usages.what-i-used-2" class="text-standard">
+						I kept everything in a single chat, mostly asking questions when I was stuck
+						with Tailwind behavior or couldn’t fix something myself.
+					</p>
+					<p data-twomi18n="ai-usages.what-i-used-3" class="text-standard">
+						Note: I don't use AI in editor.
+					</p>
+					<div class="flex flex-col items-center pt-50">
+						<Image
+							src={vibeCoderImage}
+							alt="AI is a teacher, not a slave"
+							height="360"
+							data-twomi18n="ai-usages.image-alt[alt]"
+							width="800"
+							class="mb-3"
+						/>
+						<p class="text-content/50">
+							<span>Source: </span>
+							<a
+								href="https://youtu.be/JSuS-zXMVwE?si=w9CjVrXhEv37STPP"
+								target="_blank"
+								title="Fireship - Cursor ditches VS Code, but not everyone is happy..."
+								data-twomi18n="ai-usages.fireship-video-title ai-usages.fireship-video-title[title]"
+								class="text-content/50 underline underline-offset-2"
+							>
+								Fireship - Cursor ditches VS Code, but not everyone is happy...
+							</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<Footer origin="ai-usages" theme="dark" />
+</Layout>

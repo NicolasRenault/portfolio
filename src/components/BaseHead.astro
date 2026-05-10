@@ -1,11 +1,7 @@
 ---
-import { astroI18n, t } from "astro-i18n";
-
 export interface Props {
 	title: string | undefined;
 }
-
-astroI18n.init(Astro);
 
 const { title } = Astro.props;
 const finalTitle = title ? `${title} | Nicolas Renault` : "Nicolas Renault";
@@ -19,7 +15,10 @@ const ogImageURL = new URL("/og-image.png", Astro.site).href;
 	<title>{finalTitle}</title>
 	<meta name="viewport" content="width=device-width" />
 	<meta name="author" content="Nicolas Renault" />
-	<meta name="description" content={t("metadata.description")} />
+	<meta
+		name="description"
+		content="Hi, My name is Nicolas Renault. I'm a Fullstack Web Developer with a preference for Backend."
+	/>
 	<meta
 		name="keywords"
 		content="Nicolas Renault, IT Developer, Web Developer, Backend Developer, Portfolio"
@@ -27,7 +26,10 @@ const ogImageURL = new URL("/og-image.png", Astro.site).href;
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={canonicalURL} />
 	<meta property="og:title" content={finalTitle} />
-	<meta property="og:description" content={t("metadata.description")} />
+	<meta
+		property="og:description"
+		content="Hi, My name is Nicolas Renault. I'm a Fullstack Web Developer with a preference for Backend."
+	/>
 	<meta property="og:image" content={ogImageURL} />
 	<meta name="generator" content={Astro.generator} />
 	<meta name="robots" content="index, follow" />
