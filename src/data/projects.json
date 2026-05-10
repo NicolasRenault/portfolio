@@ -87,7 +87,7 @@
             "github_url": "https://github.com/NicolasRenault/rock-paper-scissors",
             "url_2": "https://www.rockpaperscissors.nicolasrenault.com/",
             "languages": ["JavaScript", "HTML"],
-            "icon": "https://cdn.nicolasrenault.com/static/RockPaperScissors.ico"
+            "icon": "https://cdn.nicolasrenault.com/static/RockPaperScissors.png"
         },
         {
             "name": "cheaty-webextension",
