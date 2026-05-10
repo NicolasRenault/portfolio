@@ -952,7 +952,7 @@ Did one of those fix the readability issue in your dark theme?
 ========================================
 ME:
 ========================================
- [data-theme="dark"] { 
+[data-theme="dark"] { 
          --color-surface: #03351b; 
          --color-content: #ffffff; 
          --color-heading: #ffffff; 
@@ -1012,7 +1012,7 @@ In Dark Theme, the selection background will dynamically swap to a semi-transpar
 ========================================
 ME:
 ========================================
- <div class="w-70 bg-[url(/fancy-background.png)] bg-top-left" class:list={[{}]}> on this line, I want to set up the bg to be a random value in percent for top and left
+<div class="w-70 bg-[url(/fancy-background.png)] bg-top-left" class:list={[{}]}> on this line, I want to set up the bg to be a random value in percent for top and left
 
 
 ========================================
@@ -1711,4 +1711,74 @@ How the animation works:opacity-0 to opacity-100: Fades the element in and out.
 translate-y-4 to translate-y-0: Makes it slide up slightly when appearing, and sink down when disappearing.
 scale-95 to scale-100: Gives it a subtle "pop" effect by growing slightly as it enters.
 Because of transition-all duration-500 ease-out, the browser automatically tweens all of these values smoothly over half a second!
+
+
+========================================
+ME:
+========================================
+I'm having this code but the load event doesn't trigger doesn't work everytime, especially when I press "back" if (window.location.href.includes("#redirect")) { 
+         console.log("hey"); 
+         console.log(document.getElementById("main")); 
+         document.getElementById("main").scrollIntoView({ behavior: "smooth", block: "start" }); 
+         setTimeout(() => { 
+             // window.history.replaceState("#", null, "#main"); 
+             // lockRedirection = false; 
+         }, 2000); 
+     } else { 
+         lockRedirection = false; 
+     }
+
+
+========================================
+GEMINI:
+========================================
+This is a classic web development trap! When a user presses the "Back" button, modern browsers use something called the Back-Forward Cache (bfcache).
+Instead of reloading the page from the server, the browser instantly unpauses the exact state of the page from memory. Because the page isn't technically "loading" again, the window.onload or DOMContentLoaded events do not fire.
+Furthermore, since you are using Astro (based on our previous chats), if you have Astro's View Transitions enabled, standard browser load events are entirely hijacked and won't fire when navigating between pages.
+Here is how you fix this depending on your setup.
+Option 1: The Astro View Transitions Fix (Recommended for Astro)If you are using Astro View Transitions (where the page fades/slides instead of doing a hard refresh), you must use Astro's custom lifecycle event astro:page-load. This fires reliably on initial load, forward navigation, and backward navigation.
+JavaScript
+// Wrap your logic in a function
+function handleRedirection() {
+    if (window.location.href.includes("#redirect")) {
+        console.log("hey");
+        const mainDiv = document.getElementById("main");
+        // Safety check: ensure the element exists before scrolling
+        if (mainDiv) {
+            console.log(mainDiv);
+            mainDiv.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+        setTimeout(() => {
+            // lockRedirection = false;
+        }, 2000);
+    } else {
+        // lockRedirection = false;
+    }
+}
+// Listen for Astro's custom load event instead of window.onload
+document.addEventListener('astro:page-load', handleRedirection);
+Option 2: The Vanilla JavaScript Fix (bfcache)If you are not using Astro View Transitions and this is just standard HTML/JS, you need to listen to the pageshow event. This event fires every single time the page is shown to the user, whether it's a fresh load or restored from the bfcache via the back button.
+JavaScript
+function handleRedirection() {
+    if (window.location.href.includes("#redirect")) {
+        const mainDiv = document.getElementById("main");
+        if (mainDiv) {
+            mainDiv.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+        setTimeout(() => {
+            // lockRedirection = false;
+        }, 2000);
+    } else {
+        // lockRedirection = false;
+    }
+}
+// pageshow catches fresh loads AND back-button cache restorations
+window.addEventListener('pageshow', (event) => {
+    // event.persisted will be true if the page was restored from cache
+    handleRedirection();
+});
+One Extra Tip for Hash ChangesIf the user is pressing back and the only thing changing in the URL is the hash (e.g., going from [domain.com/#foo](https://domain.com/#foo) back to [domain.com/#redirect](https://domain.com/#redirect)), the page itself doesn't navigate; only the URL fragment changes.
+If that is the case, you should also listen to the hashchange event:
+JavaScript
+window.addEventListener('hashchange', handleRedirection);
 
