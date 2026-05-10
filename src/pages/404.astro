@@ -22,8 +22,18 @@ try {
 <html lang="en">
 	<BaseHead title="404" />
 	<body data-theme="dark" class="bg-surface relative flex h-screen flex-col items-center">
-		<h1 class="text-content font-lora p-10 text-4xl md:text-6xl">404 error</h1>
-		<a href="/" data-link class="basic-button mb-10 text-xl uppercase md:text-2xl">Go back</a>
+		<h1 class="text-content font-lora p-10 text-4xl md:text-6xl" data-twomi18n="404-error">
+			404 error
+		</h1>
+		<a
+			href="/"
+			data-link
+			aria-label="Homepage"
+			data-twomi18n="navabar.homepage[aria-label]"
+			class="basic-button mb-10 text-xl uppercase md:text-2xl"
+		>
+			Go back
+		</a>
 		<img
 			id="the-office-img"
 			data-number_of_memes={numberOfMemes}

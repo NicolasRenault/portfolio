@@ -82,7 +82,7 @@ interface Project {
 				<h2 data-twomi18n="projects" class="pb-4 text-4xl">Projects</h2>
 				<p class="text-standard">
 					<span data-twomi18n="projects.headline">
-						Here is a list of my personnal projects. Most of them are Open Source. Feel
+						Here is a list of my personal projects. Most of them are Open Source. Feel
 						free to check them on my
 					</span>
 					<a
@@ -297,6 +297,8 @@ interface Project {
 														id={"button-" + name}
 														data-name={name}
 														data-year={year}
+														aria-label={name}
+														title={name}
 														class="project-buttons link-animation my-1 ml-3 flex max-w-fit cursor-pointer whitespace-nowrap"
 														class:list={[
 															{ icon: project.icon },

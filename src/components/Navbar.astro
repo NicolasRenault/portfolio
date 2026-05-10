@@ -11,7 +11,14 @@ const { pathname, theme } = Astro.props;
 		data-theme={theme}
 	>
 		<div class="mr-0 hidden md:block">
-			<a href="/" data-link aria-label="Homepage" class="flex w-fit">
+			<a
+				href="/"
+				data-link
+				aria-label="Homepage"
+				title="Homepage"
+				class="flex w-fit"
+				data-twomi18n="navbar.homepage[aria-label] navbar.homepage[title]"
+			>
 				<nr-logo
 					size="md"
 					color={theme == "dark" ? "white" : "light"}
@@ -113,7 +120,8 @@ const { pathname, theme } = Astro.props;
 					id="github_link"
 					href="https://github.com/NicolasRenault"
 					target="_blank"
-					aria-label="Link to Github"
+					aria-label="Github"
+					title="Github"
 					class="hover:-translate-y-0.5"
 				>
 					<svg
