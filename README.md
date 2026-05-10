@@ -25,7 +25,13 @@ You can see an example of all the translation techniques I used for this website
 
 The [Footer component](https://github.com/NicolasRenault/portfolio/blob/main/src/components/Footer.astro) has a special purpose to change the page when scrolling to the end of the file.
 
-Mapping is made in [footer-redirect-map.ts](https://github.com/NicolasRenault/portfolio/blob/main/src/data/footer-redirect-map.ts) file and using a key (origin), target, and two texts for franslation.
+Mapping is made in [footer-redirect-map.ts](https://github.com/NicolasRenault/portfolio/blob/main/src/data/footer-redirect-map.ts) file and using a key (origin), target, and two texts for translation.
+
+## AI Usage.
+
+I'm trying to be 100% transparent about my AI usage when I code in OpenSource.
+
+You can find all the explanations [here](https://www.nicolasrenault.com/ai-usages/) and the transcript of the Gemini Chat in the file [PROMPT.txt](https://github.com/NicolasRenault/portfolio/blob/main/PROMPT.txt).
 
 ## License
 
