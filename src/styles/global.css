@@ -143,3 +143,23 @@ h4,
 
 	@apply text-heading;
 }
+
+/* Code from previous portfolio's version. See: https://github.com/NicolasRenault/portfolio/blob/2024/src/styles/global.scss */
+@media (prefers-reduced-motion: no-preference) {
+	.animation-container,
+	nav {
+		animation: slide-fade-in ease 0.7s;
+		animation-iteration-count: 1;
+		animation-fill-mode: forwards;
+	}
+	@keyframes slide-fade-in {
+		from {
+			opacity: 0;
+			transform: translateY(5vh);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+}

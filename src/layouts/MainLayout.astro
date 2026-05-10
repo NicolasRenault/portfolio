@@ -27,7 +27,7 @@ const { title, pathname, lang, theme } = Astro.props;
 		</a>
 		<section id="main" class="noscript:mt-20">
 			<NavBar pathname={pathname} theme={theme} />
-			<div id="main-content">
+			<div id="main-content" class="animation-container">
 				<slot />
 			</div>
 		</section>

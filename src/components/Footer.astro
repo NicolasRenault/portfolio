@@ -21,8 +21,8 @@ let isHomepage = origin == "homepage";
 let isRickRoll = origin == "rick-roll";
 ---
 
-<footer id="page-footer" data-enable-redirect={redirect} data-target={target}>
-	<section class="section-wrapper" data-theme={theme}>
+<footer id="page-footer" data-enable-redirect={redirect} data-target={target} data-theme={theme}>
+	<section class="section-wrapper">
 		<div class="p-0">
 			{
 				isHomepage && (
@@ -36,7 +36,7 @@ let isRickRoll = origin == "rick-roll";
 			}
 		</div>
 		<div
-			class="relative flex h-400 flex-col items-center justify-center gap-12 pt-50 pb-0"
+			class="relative flex h-350 flex-col items-center justify-center gap-12 pt-50 pb-0"
 			class:list={[{ "border-0": isRickRoll }]}
 		>
 			<nr-logo size="xl" rainbow style="color: var(--color-heading)"></nr-logo>
@@ -78,13 +78,16 @@ let isRickRoll = origin == "rick-roll";
 	const footer = document.querySelector("#page-footer");
 	const isRedirectionEnabled = footer?.getAttribute("data-enable-redirect") !== null;
 
-	document.addEventListener("scroll", () => {
+	document.addEventListener("scroll", (e) => {
 		if (
 			isRedirectionEnabled &&
-			window.innerHeight + window.scrollY >= document.body.offsetHeight - 50
+			window.innerHeight + window.scrollY >= document.body.offsetHeight - 10
 		) {
 			const target = footer?.getAttribute("data-target");
 			const lang = document.documentElement.lang;
+
+			document.body.classList.add("navigateOnScroll");
+			document.body.dataset.theme = footer?.dataset.theme;
 
 			setTimeout(() => {
 				window.location =
@@ -96,23 +99,20 @@ let isRickRoll = origin == "rick-roll";
 	});
 </script>
 
-<!-- TODO Style tag to Tailwind classes -->
 <style>
 	@reference "../styles/global.css";
 
-	/* TODO: handle animation */
+	/* Code from previous portfolio's version. See: https://github.com/NicolasRenault/portfolio/blob/2024/src/styles/global.scss */
 	@media (prefers-reduced-motion: no-preference) {
-		/* body.navigateOnScroll :global(#animation-container) {
+		body.navigateOnScroll :global(.animation-container) {
 			transition:
 				transform 1s cubic-bezier(0.42, 0, 0.74, 0.74),
 				opacity 1s ease-in-out;
 
-			// padding-bottom: 20vh;
+			padding-bottom: 20vh;
 			animation: slide-fade-out ease 0.7s;
 			animation-iteration-count: 1;
 			animation-fill-mode: forwards;
-
-			
 		}
 
 		@keyframes slide-fade-out {
@@ -120,6 +120,6 @@ let isRickRoll = origin == "rick-roll";
 				opacity: 0;
 				transform: translateY(-5vh);
 			}
-		} */
+		}
 	}
 </style>
