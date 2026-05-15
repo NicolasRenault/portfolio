@@ -1,4 +1,6 @@
 ---
+import { Font } from "astro:assets";
+
 export interface Props {
 	title: string | undefined;
 }
@@ -47,4 +49,6 @@ const ogImageURL = new URL("/og-image.png", Astro.site).href;
 	/>
 
 	<script defer src="https://cdn.nicolasrenault.com/logo/NR_Logo.js"></script>
+	<Font cssVariable="--font-spacegrotesk" />
+	<Font cssVariable="--font-inter" />
 </head>

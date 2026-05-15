@@ -38,11 +38,11 @@
 
 @layer components {
 	.font-spacegrotesk {
-		font-family: SpaceGrotesk, sans-serif !important;
+		font-family: var(--font-spacegrotesk), sans-serif !important;
 	}
-
+	
 	.font-inter {
-		font-family: Inter, sans-serif !important;
+		font-family: var(--font-inter), sans-serif !important;
 	}
 
 	.max-w-normal {
@@ -91,7 +91,7 @@
 	}
 
 	.basic-button {
-		font-family: SpaceGrotesk, sans-serif;
+		font-family: var(--font-spacegrotesk);
 		@apply text-content bg-surface border-border hover:bg-content hover:text-surface flex w-fit border p-2 whitespace-nowrap transition hover:scale-110 hover:font-semibold md:flex-row;
 	}
 
@@ -102,19 +102,6 @@
 	html:lang(en) .show-fr {
 		display: none;
 	}
-}
-
-@font-face {
-	font-family: SpaceGrotesk;
-	src: url("/fonts/SpaceGrotesk-Regular.ttf");
-	font-weight: 400;
-	font-style: oblique;
-}
-@font-face {
-	font-family: Inter;
-	src: url("/fonts/Inter_18pt-Regular.ttf");
-	font-weight: 400;
-	font-style: normal;
 }
 
 :root {
@@ -130,7 +117,7 @@
 }
 
 html {
-	font-family: Inter, sans-serif;
+	font-family: var(--font-inter), sans-serif;
 }
 
 h1,
@@ -138,7 +125,7 @@ h2,
 h3,
 h4,
 .text-heading {
-	font-family: SpaceGrotesk, sans-serif;
+	font-family: var(--font-spacegrotesk), sans-serif;
 	font-weight: 600;
 
 	@apply text-heading;
