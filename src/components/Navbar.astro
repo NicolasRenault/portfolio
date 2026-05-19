@@ -102,15 +102,15 @@ const { pathname, theme } = Astro.props;
 							</a>
 						</li>
 						<li>
-							<button
+							<a
 								id="contact-button"
-								data-twomi18n="navbar.contact-me mail-copied[data-copied] error[data-error]"
-								data-copied="Mail Copied"
-								data-error="Error"
+								data-twomi18n="navbar.contact-me"
 								class="link-animation cursor-pointer uppercase"
+								target="_blank"
+								href="https://links.nicolasrenault.com/contact"
 							>
 								Contact me
-							</button>
+							</a>
 						</li>
 					</ul>
 				</li>
@@ -250,43 +250,5 @@ const { pathname, theme } = Astro.props;
 	 */
 	function onSubNavClose() {
 		subnavSpacer?.classList.remove("md:pb-13");
-	}
-
-	/***
-	 * Contact button logic
-	 */
-	const contactButton = document.getElementById("contact-button");
-
-	contactButton?.addEventListener("click", () => {
-		if (contactButton.classList.contains("clicked")) return;
-		try {
-			navigator.clipboard.writeText("contact.nicolasrenault@gmail.com");
-			handleCopyResult(true);
-		} catch (error) {
-			console.error("Error when copying mail to clipboard:" + error);
-			handleCopyResult(false);
-		}
-	});
-
-	/**
-	 * Add classes and change innerText of contactButton based on isSuccess
-	 *
-	 * @see contactButton
-	 * @param isSuccess
-	 */
-	function handleCopyResult(isSuccess: boolean) {
-		const successClasses = ["bg-green-600", "px-3", "text-white", "before:hidden", "cliked"];
-		const errorClasses = ["bg-red-500", "px-3", "text-white", "before:hidden", "cliked"];
-		let classesToAdd = isSuccess ? successClasses : errorClasses;
-		let previousText = contactButton?.innerText;
-		let resultText = isSuccess ? contactButton?.dataset.copied : contactButton?.dataset.error;
-
-		contactButton?.classList.add(...classesToAdd);
-		contactButton!.innerText = resultText!;
-
-		setTimeout(() => {
-			contactButton?.classList.remove(...classesToAdd);
-			contactButton!.innerText = previousText!;
-		}, 2000);
 	}
 </script>
