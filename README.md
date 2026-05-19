@@ -11,7 +11,7 @@ Otherwise, here are some details about the project.
 
 ## Astro v6 and Tailwind v4
 
-The project is using [Astro 6.0.4](https://docs.astro.build/en/getting-started/) and [Tailwind 4.2.1](https://tailwindcss.com/docs/installation/using-vite).
+The project is using [Astro 6.3.3](https://docs.astro.build/en/getting-started/) and [Tailwind 4.2.1](https://tailwindcss.com/docs/installation/using-vite).
 
 ## Translations (Two Mi18n)
 
