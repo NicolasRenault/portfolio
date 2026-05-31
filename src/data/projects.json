@@ -94,6 +94,7 @@
             "description_EN": "Extension for the web that feels illegal",
             "description_FR": "Extension web qui donne l'impression d'être illégale",
             "github_url": "https://github.com/NicolasRenault/cheaty-webextension",
+            "url_2": "https://cheaty.nicolasrenault.com/",
             "languages": ["JavaScript", "HTML"],
             "icon": "https://cdn.nicolasrenault.com/cheaty/cheaty-logo.png",
             "is_default": true
