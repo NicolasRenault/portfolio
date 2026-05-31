@@ -2,8 +2,8 @@
     {
         "title": "two-mi18n",
         "description": "two-mi18n.catch_phrase",
-        "icon": "https://www.cdn.nicolasrenault.com/two-mi18n/two-mi18n-logo.svg",
-        "url": "https://www.twomi18n.nicolasrenault.com",
+        "icon": "https://cdn.nicolasrenault.com/two-mi18n/two-mi18n-logo.svg",
+        "url": "https://twomi18n.nicolasrenault.com",
         "github": "https://github.com/NicolasRenault/two-mi18n",
         "languages": ["Javascript"],
         "subtitle": "Librairy"
@@ -11,7 +11,7 @@
     {
         "title": "cheaty-webextension",
         "description": "cheaty.catch_phrase",
-        "icon": "https://www.cdn.nicolasrenault.com/cheaty/cheaty-logo.png",
+        "icon": "https://cdn.nicolasrenault.com/cheaty/cheaty-logo.png",
         "url": "project/cheaty-webextension",
         "github": "https://github.com/NicolasRenault/cheaty-webextension",
         "languages": ["Javascript"],
@@ -20,7 +20,7 @@
     {
         "title": "logo",
         "description": "logo.catch_phrase",
-        "icon": "https://www.cdn.nicolasrenault.com/logo/NR_Logo_dark_mode.svg",
+        "icon": "https://cdn.nicolasrenault.com/logo/NR_logo_dark_mode.svg",
         "url": "project/logo",
         "github": "https://github.com/NicolasRenault/logo",
         "languages": ["Javascript"],
