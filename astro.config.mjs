@@ -8,7 +8,7 @@ export default defineConfig({
 	build: {
 		inlineStylesheets: "never",
 	},
-	site: "https://www.nicolasrenault.com",
+	site: "https://nicolasrenault.com",
 	vite: {
 		plugins: [tailwindcss()],
 	},

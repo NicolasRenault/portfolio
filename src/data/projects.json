@@ -85,7 +85,7 @@
             "description_EN": "Rock paper scissors simulator inspired by https://tiktok.com/@rockpaperscissorsbattle",
             "description_FR": "Simulateur de pierre-papier-ciseaux inspiré par https://tiktok.com/@rockpaperscissorsbattle",
             "github_url": "https://github.com/NicolasRenault/rock-paper-scissors",
-            "url_2": "https://www.rockpaperscissors.nicolasrenault.com/",
+            "url_2": "https://rockpaperscissors.nicolasrenault.com/",
             "languages": ["JavaScript", "HTML"],
             "icon": "https://cdn.nicolasrenault.com/static/RockPaperScissors.png"
         },
@@ -95,7 +95,7 @@
             "description_FR": "Extension web qui donne l'impression d'être illégale",
             "github_url": "https://github.com/NicolasRenault/cheaty-webextension",
             "languages": ["JavaScript", "HTML"],
-            "icon": "https://www.cdn.nicolasrenault.com/cheaty/cheaty-logo.png",
+            "icon": "https://cdn.nicolasrenault.com/cheaty/cheaty-logo.png",
             "is_default": true
         },
         {
@@ -108,8 +108,8 @@
         },
         {
             "name": "2022-homepage",
-            "description_EN": "Quick description_EN was displayed on www.nicolasrenault.com, waiting for portfolio. Now displayed on www.2022.nicolasrenault.com.",
-            "description_FR": "Courte description qui était affichée sur www.nicolasrenault.com, en attendant le portfolio. Désormais affichée sur www.2022.nicolasrenault.com.",
+            "description_EN": "Quick description_EN was displayed on nicolasrenault.com, waiting for portfolio. Now displayed on 2022.nicolasrenault.com.",
+            "description_FR": "Courte description qui était affichée sur nicolasrenault.com, en attendant le portfolio. Désormais affichée sur 2022.nicolasrenault.com.",
             "github_url": "https://github.com/NicolasRenault/2022-homepage",
             "url_2": "https://2022.nicolasrenault.com",
             "languages": ["HTML", "CSS"]
@@ -131,7 +131,7 @@
             "description_FR": "Une collection de mes logos. SVG, WebComponents et plus.",
             "github_url": "https://github.com/NicolasRenault/logo",
             "languages": ["WebComponent", "HTML"],
-            "icon": "https://www.cdn.nicolasrenault.com/logo/NR_Logo_dark_mode.svg"
+            "icon": "https://cdn.nicolasrenault.com/logo/NR_logo_dark_mode.svg"
         },
         {
             "name": "auto-clicker",
@@ -164,7 +164,7 @@
             "description_EN": "The 2024 version of my personal website built with Astro.",
             "description_FR": "La version 2024 de mon site personnel construit avec Astro.",
             "github_url": "https://github.com/NicolasRenault/portfolio/tree/2024",
-            "url_2": "https://www.2024.nicolasrenault.com/",
+            "url_2": "https://2024.nicolasrenault.com/",
             "languages": ["Astro", "TypeScript", "SASS"]
         },
         {
@@ -172,9 +172,9 @@
             "description_EN": "Minimalist internationalization JavaScript library client-side. Really minimalist.",
             "description_FR": "Bibliothèque JavaScript d'internationalisation minimaliste côté client. Vraiment minimaliste.",
             "github_url": "https://github.com/NicolasRenault/two-mi18n",
-            "url_2": "https://www.twomi18n.nicolasrenault.com/",
+            "url_2": "https://twomi18n.nicolasrenault.com/",
             "languages": ["JavaScript"],
-            "icon": "https://www.cdn.nicolasrenault.com/two-mi18n/two-mi18n-logo.svg",
+            "icon": "https://cdn.nicolasrenault.com/two-mi18n/two-mi18n-logo.svg",
             "is_default": true
         },
         {
@@ -182,7 +182,7 @@
             "description_EN": "Simple website to copy text to your clipboard from an URL.",
             "description_FR": "Site web simple pour copier du texte dans votre presse-papiers depuis une URL.",
             "github_url": "https://github.com/NicolasRenault/copy-that",
-            "url_2": "https://www.copy-that.nicolasrenault.com/?text=Hey%20from%20my%20portfolio",
+            "url_2": "https://copy-that.nicolasrenault.com/?text=Hey%20from%20my%20portfolio",
             "languages": ["Astro"]
         }
     ],
@@ -192,7 +192,7 @@
             "description_EN": "A list of all my links, using Astro. Inspired by https://linktr.ee/",
             "description_FR": "Une liste de tous mes liens, en utilisant Astro. Inspiré par https://linktr.ee/",
             "github_url": "https://github.com/NicolasRenault/links",
-            "url_2": "https://www.links.nicolasrenault.com/",
+            "url_2": "https://links.nicolasrenault.com/",
             "languages": ["Astro"]
         },
         {

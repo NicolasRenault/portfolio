@@ -33,7 +33,7 @@ Mapping is made in [footer-redirect-map.ts](https://github.com/NicolasRenault/po
 
 I'm trying to be 100% transparent about my AI usage when I code in OpenSource.
 
-You can find all the explanations [here](https://www.nicolasrenault.com/ai-usages/) and the transcript of the Gemini Chat in the file [PROMPT.txt](https://github.com/NicolasRenault/portfolio/blob/main/PROMPT.txt).
+You can find all the explanations [here](https://nicolasrenault.com/ai-usages/) and the transcript of the Gemini Chat in the file [PROMPT.txt](https://github.com/NicolasRenault/portfolio/blob/main/PROMPT.txt).
 
 ## License
 
