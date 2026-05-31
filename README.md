@@ -1,5 +1,7 @@
-[![Built with Astro](https://astro.badg.es/v2/built-with-astro/tiny.svg)](https://astro.build)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/15bf0891-f6f1-4d4c-af64-c293373e5fb1/deploy-status)](https://app.netlify.com/sites/preeminent-taffy-43c8eb/deploys)
+[![Built with Astro](https://astro.badg.es/v2/built-with-astro/small.svg)](https://astro.build)
+
+![Static Badge](https://img.shields.io/badge/Self_hosted-%236B16ED?style=for-the-badge&logo=coolify)
+![Static Badge](https://img.shields.io/badge/Mirrored_from-Forgejo-%23FB923C?style=for-the-badge&logo=forgejo)
 
 ## Welcome!
 
